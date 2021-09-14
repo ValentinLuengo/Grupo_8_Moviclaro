@@ -7,4 +7,5 @@ Viviana Acevedo: Soy Vivi, trabajo en sistemas en el área de gestión y disfrut
 
 Referentes: 
 https://www.movistar.com.ar/
+https://www.claro.com.ar/personas
 
