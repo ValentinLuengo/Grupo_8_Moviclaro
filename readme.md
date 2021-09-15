@@ -10,7 +10,7 @@ Lupe Ospina:
 
 Viviana Acevedo: Soy Vivi, trabajo en sistemas en el área de gestión y disfruto estar en la naturaleza. 
 
-Referentes: 
+Referentes: <br>
 https://www.movistar.com.ar/ <br>
 https://www.claro.com.ar/personas <br>
 https://www.fravega.com/ <br>
