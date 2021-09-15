@@ -15,3 +15,5 @@ https://www.movistar.com.ar/
 https://www.claro.com.ar/personas
 https://www.fravega.com/
 
+Tablero Trello: https://trello.com/invite/b/3yhw8gA3/5d46377a3e157aa42fab94ab72f42cfc/grupo-8-proyecto
+
