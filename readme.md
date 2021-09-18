@@ -1,6 +1,6 @@
-Moviclaro es un e-commerce para la venta de celulares de diferentes marcas. En nuestra web podrán encontrar celulares tanto de gama baja, media y alta. Nuestros productos están orientados en personas jóvenes que buscan celulares a un buen precio y con la mejor experiencia de usuario  
+Moviclaro es un e-commerce que ofrece celulares de diferentes marcas. En nuestra web podrán encontrar celulares para todos los gustos y nnecesidades. Nuestros productos son ideales para personas jóvenes (y no tan jóvenes), que buscan la manera mas cómoda y eficiente para comunicarse con los suyos, a un precio justo y de forma ágil e intuitiva.  
 
-Colaboradores: 
+<strong>Integrantes:</strong> 
 
 Valentin Rodriguez Luengo: Me llamo Valentín, soy pasante en la empresa Div Inf S.A. Me gustan los comics, la tecnología, los videojuegos y estoy descubriendo el mundo de la programación
 
@@ -14,6 +14,8 @@ Referentes: <br>
 https://www.movistar.com.ar/ <br>
 https://www.claro.com.ar/personas <br>
 https://www.fravega.com/ <br>
+https://vehemence.com.ar/ <br>
+https://shop.samsung.com/ar/dispositivos-moviles <br>
 
 Tablero Trello: https://trello.com/invite/b/3yhw8gA3/5d46377a3e157aa42fab94ab72f42cfc/grupo-8-proyecto
 
