@@ -6,7 +6,7 @@ Valentin Rodriguez Luengo: Me llamo Valentín, soy pasante en la empresa Div Inf
 
 Leandro Gutierrez: Soy Leandro Gutierrez, pero respondo al sobrenombre de Lele. Me gusta levantarme temprano, tomar mate y mirar series.
 
-Lupe Ospina: 
+Lupe Ospina: soy Lupe, aprender a programar es una tarea pendiente, me apasionan los negocios y la tecnologia.
 
 Viviana Acevedo: Soy Vivi, trabajo en sistemas en el área de gestión y disfruto estar en la naturaleza. 
 
