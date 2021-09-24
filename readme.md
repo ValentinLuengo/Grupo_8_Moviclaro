@@ -1,4 +1,4 @@
-Moviclaro es un e-commerce que ofrece celulares de diferentes marcas y modelos. En nuestra web podrán encontrar celulares para todos los gustos y nnecesidades. Nuestros productos son ideales para personas jóvenes (y no tan jóvenes), que buscan la manera mas cómoda y eficiente para comunicarse con los suyos, a un precio justo y de forma ágil e intuitiva.  
+Moviclaro es un e-commerce que ofrece celulares de diferentes marcas y modelos. En nuestra web podrán encontrar celulares para todos los gustos y necesidades. Nuestros productos son ideales para personas jóvenes (y no tan jóvenes), que buscan la manera mas cómoda y eficiente para comunicarse con los suyos, a un precio justo y de forma ágil e intuitiva.  
 
 <strong>Integrantes:</strong> 
 
