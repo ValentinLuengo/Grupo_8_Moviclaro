@@ -1,0 +1,23 @@
+{
+    "name": "grupo_8_moviclaro",
+    "version": "1.0.0",
+    "description": "Moviclaro es un e-commerce que ofrece celulares de diferentes marcas y modelos. En nuestra web podrán encontrar celulares para todos los gustos y necesidades. Nuestros productos son ideales para personas jóvenes (y no tan jóvenes), que buscan la manera mas cómoda y eficiente para comunicarse con los suyos, a un precio justo y de forma ágil e intuitiva.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ValentinLuengo/Grupo_8_Moviclaro.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ValentinLuengo/Grupo_8_Moviclaro/issues"
+    },
+    "homepage": "https://github.com/ValentinLuengo/Grupo_8_Moviclaro#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
