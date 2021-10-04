@@ -1,0 +1,82 @@
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: #ffe7f4;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #000000
+    }
+    
+    .boludeo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .titulo-registro {
+        text-align: center;
+    }
+    
+    .formulario {
+        background-color: #fff;
+        width: 80%;
+        padding: 20px 15px;
+        border: 1.5px solid rgba(0, 0, 0, 0.5);
+        margin: 0 auto;
+        border-radius: 16px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    }
+    
+    .registro-campos {
+        margin: 10px;
+    }
+    
+    .input {
+        width: 100%;
+        padding: 2px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        border: none;
+    }
+    
+    .select {
+        background-color: white;
+    }
+    
+    .botones {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0 0 0;
+    }
+    
+    .check {
+        width: 80%;
+        margin: 24px;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: flex-start;
+        font-size: 14px;
+        font-style: italic;
+    }
+    
+    .registro-boton {
+        border-radius: 5px;
+        border: 0.25px solid rgba(0, 0, 0, 0.25);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    @media (min-width: 768px) {
+        .check {
+            margin-top: 24px;
+            text-align: left;
+        }
+        .registro-formulario {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .registro-campos {
+            width: 45%;
+        }
+    }
