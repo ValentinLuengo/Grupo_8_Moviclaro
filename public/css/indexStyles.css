@@ -1,0 +1,77 @@
+
+*{
+    font-family: 'Nunito Sans', sans-serif; 
+color: #000000;
+}
+
+h1{
+    text-align: center;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 70;
+    margin-bottom: 20px;
+}
+
+.conteinerFiltros{
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 30;   
+}
+
+.conteinerPrincipal{
+    display: flex;
+    flex-direction: row;
+}
+
+.botonComprar{
+background: #25FAD3;
+border-radius: 50px;
+width: 100px;
+height: 50px;
+font-weight: bold;
+}
+
+.imagenArticulo{  
+    width: 50%;
+    height: 50%;  
+    padding: 5px; 
+}
+
+@media (min-width: 768px){
+
+    .conteinerFiltros{
+        display: initial;
+    }
+}
+
+
+
+.item{
+    margin-left: 20px;
+   display: flex;
+   flex-direction: row;
+}
+
+.articulo{
+    
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    width:300px;
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 20px;
+}
+
+.itemPrecio{
+    width: 50px;
+    margin: 10px; 
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 8px; 
+      
+}
