@@ -1,0 +1,117 @@
+
+*{
+    font-family: 'Nunito Sans', sans-serif; 
+color: #000000;
+}
+
+h1{
+    text-align: center;
+}
+
+.conteiner{
+    display: inherit;
+    flex-direction: colum;
+    flex-wrap: wrap;
+    flex-grow: 70;
+    margin-bottom: 20px;
+    align-items: stretch;
+    justify-content: space-around;
+
+}
+
+.carrito{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 30;  
+    align-items: self-start; 
+}
+
+.conteinerPrincipal{
+    display: flex;
+    flex-direction: column;
+}
+
+.botonComprar{
+background: #25FAD3;
+border-radius: 50px;
+width: 200px;
+height: 50px;
+font-weight: bold;
+align-self: start;
+margin: 0px auto;
+}
+
+.imagenArticulo{  
+     
+    padding: 10px; 
+}
+
+@media (min-width: 768px){
+
+    .conteinerFiltros{
+        display: initial;
+    }
+    
+    .conteinerPrincipal{
+        display: flex;
+    flex-direction: row;
+    }
+    .articulo{
+        display: flex;
+        flex-direction: row;
+    
+     
+    }
+}
+
+
+
+.item{
+    margin-left: 20px;
+   display: flex;
+   flex-direction: row;
+}
+
+.articulo{
+    width:70%;
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 20px;
+    margin: 10px;
+    justify-content: center
+}
+
+.itemPrecio{
+    width: 50px;
+    margin: 10px; 
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 8px; 
+      
+}
+
+.cantidad{
+    
+    display: flex;
+  
+}
+
+.inputCantidad{
+   
+    margin-left: 5px;
+    width: 50px;
+    height:50px;
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 8px; 
+}
+
+.articulo2{
+    position: relative;
+    width: 90%;
+    margin: 40px;
+}
+.articulo1{
+    align-self: center;
+}
+
+
