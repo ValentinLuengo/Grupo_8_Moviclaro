@@ -11,11 +11,11 @@ Lupe Ospina: soy Lupe, aprender a programar es una tarea pendiente, me apasionan
 Viviana Acevedo: Soy Vivi, trabajo en sistemas en el área de gestión y disfruto estar en la naturaleza. 
 
 Referentes: <br>
-<a href="https://www.movistar.com.ar">MOVISTAR</a>
-<a href="https://www.claro.com.ar/personas">CLARO</a>
-<a href="https://www.fravega.com">FRAVEGA</a>
-<a href="https://vehemence.com.ar">VEHEMENCE</a>
-<a href="https://shop.samsung.com/ar/dispositivos-moviles">SAMSUNG</a>
+<a href="https://www.movistar.com.ar">MOVISTAR</a> Nos gustó la forma en que se mostraban los productos. <br>
+<a href="https://www.claro.com.ar/personas">CLARO</a> Nos inspiró para nuestra página de detalle de producto. <br>
+<a href="https://www.fravega.com">FRAVEGA</a> La sección filtros fué producto del analisis de esta página. <br>
+<a href="https://vehemence.com.ar">VEHEMENCE</a> Esta página nos pareció genial a todos. Fué una gran influencia. <br>
+<a href="https://shop.samsung.com/ar/dispositivos-moviles">SAMSUNG</a> Siendo uno de los lideres del mercado, nos debíamos estudiar y analizar sus métodos.
  
 
 Tablero Trello: https://trello.com/invite/b/3yhw8gA3/5d46377a3e157aa42fab94ab72f42cfc/grupo-8-proyecto
