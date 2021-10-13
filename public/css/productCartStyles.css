@@ -107,7 +107,7 @@ header {
         text-decoration: none;
         margin: 4px 0;
     }
-
+}
 
 /* ==== FIN DE HEADER ==== */
 
@@ -115,11 +115,19 @@ header {
     width: 100%;
 }
 
+
+.conteinerPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .conteiner {
     display: inherit;
     flex-direction: colum;
     flex-wrap: wrap;
-    flex-grow: 70;
+    width: 70%;
     margin-bottom: 20px;
     align-items: stretch;
     justify-content: space-around;
@@ -130,7 +138,7 @@ header {
     flex-direction: column;
     padding: 10px;
     margin: 10px;
-    flex-grow: 30;  
+    width: 30%;  
     align-items: self-end; 
     box-shadow: 0px 0px 5px rgb(170 156 163 / 60%);
     border-radius: 20px;;
@@ -138,11 +146,6 @@ header {
 
 
 
-.conteinerPrincipal{
-    display: flex;
-    flex-direction: column;
-    align-self: start;
-}
 
 .botonComprar {
     background: #25FAD3;
@@ -156,16 +159,16 @@ header {
 
 .imagenArticulo {
     padding: 10px;
+    width: 90%;
+    position: relative;
 }
 
-@media (min-width: 769px) {
-    .conteinerFiltros {
-        display: initial;
-    }
-    .conteinerPrincipal {
-        display: flex;
-        flex-direction: row;
-    }
+@media (min-width: 768px) {
+    
+   .conteinerPrincipal{
+       display: flex;
+       flex-direction: row;
+   }
     .articulo {
         display: flex;
         flex-direction: row;
@@ -216,12 +219,11 @@ header {
     text-align: center;
 }
 
-.articulo2 {
+
+.articulo2{
     position: relative;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
+    width: 90%;
+    margin: 20px;
 }
 
 .articulo1 {

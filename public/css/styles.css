@@ -3,6 +3,8 @@ body {
     background-color: #ffe7f4;
     margin: 0px;
 }
+
+
 /* ==== HEADER ==== */
 
 header {
@@ -44,6 +46,7 @@ header {
     background-color: #eeeeee;
     border: solid 2px black;
 }
+
 .fa-search {
     color: black;
 }
@@ -73,10 +76,12 @@ img#celular {
     display: block;
     margin: auto;
 }
-#envio-stock{
+
+#envio-stock {
     color: #4caf50;
 }
-section.celular{
+
+section.celular {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -86,12 +91,14 @@ section.celular{
     border-radius: 16px;
     box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
 }
-#Nombre{
- font-weight: bold;
- font-size: 25px;
- padding: 5px;
+
+#Nombre {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 5px;
 }
-.botonComprar{
+
+.botonComprar {
     margin: 5px auto;
     background: #25FAD3;
     border-radius: 50px;
@@ -107,7 +114,8 @@ section.celular{
     height: 55px;
     border-color: grey;
 }
-footer{
+
+footer {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -125,7 +133,8 @@ footer{
     align-items: center;
     text-align: center;
 }
-#contacto span{
+
+#contacto span {
     margin: auto;
     display:flex;
     align-self: center;
@@ -133,7 +142,8 @@ footer{
     position: relative;
     justify-content: center;
 }
-#redes{
+
+#redes {
     height: 20%;
     width: 100%;
     position: relative;
@@ -156,6 +166,7 @@ footer{
     width: 100%;
     justify-content: center;
 }
+
 .mat-divider {
     display: block;
     margin: 0;
