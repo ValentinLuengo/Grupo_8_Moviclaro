@@ -127,6 +127,7 @@ header {
     flex-wrap: wrap;
     flex-grow: 70;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .conteinerFiltros {
@@ -142,13 +143,35 @@ header {
     flex-direction: row;
 }
 
-.botonComprar {
+
+
+.botonComprar{
     background: #25FAD3;
     border-radius: 50px;
     width: 100px;
     height: 50px;
     font-weight: bold;
+    transition: 100ms;
+
+    }
+    
+.botonComprar:hover{
+        background-color: greenyellow;
+        width: 110px;
+        height: 55px;
+        border-color: grey;
+        transition: 100ms;
+       
 }
+
+.botonFiltrar{
+    background: #CFCCCC;
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    }
+
 
 .imagenArticulo {
     width: 50%;
