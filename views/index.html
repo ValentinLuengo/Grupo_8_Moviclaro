@@ -10,138 +10,158 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/indexStyles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>aca va el header</header>
-    <main>
-    <img src="/images/logo.png" alt="logo" width="200px">
-    <!-- Eliminar esta linea. La hice para fines practicos -->
-    <h1>Probando servidor index.html</h1>
-    <ul>
-        <li>
-            <a href="/detalle">Detalle de producto</a>
+    <header>
+        <div class="header">
+            <div class="cabecera">
+                <img class="header-logo" src="/images/logo.png" alt="logo">
+                <div class="header-busqueda">
+                    <div class="bus-carr">
+                        <form action="#" method="GET">
+                            <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
+                            <i class="fas fa-search"></i>
+                        </form>
+                        <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
+                        <i class="fas fa-bars header-burger"></i>
+                    </div>
+                </div>
+            </div>
+            <nav class="header-navegacion">
+                <div class="header-enlaces-burger">
+                    <a href="/">Inicio</a>
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Iniciar sesión</a>
+                </div>
+            </nav>
 
-        </li>
-        <li>
-            <a href="/carrito">Carrito de compras</a>
-        </li>
-        <li>
-            <a href="/registro">Registro</a>
-        </li>
-        <li>
-            <a href="/login">Login</a>
-        </li>
-        <!-- Enlacé todas las páginas para ver si todo funcionaba bien y esta todo perfecto -->
-    </ul>
-    <h1>Listado de Productos</h1>
-    <section class="conteinerPrincipal">
-    <section class="conteinerFiltros">
-        <h2>Filtros</h2>
-        <h3>Marcas</h3>
-        <section class="items"></section>
-        <div class="item"><input  type="checkbox" value="">Motorola</div>
-        <div class="item"><input  type="checkbox" value="">Samsung</div>
-        <div class="item"><input  type="checkbox" value="">Apple</div>
-        <h3>Sist. Operativo</h3>
-        <section class="items"></section>
-        <div class="item"><input  type="checkbox" value="">IOS</div>
-        <div class="item"><input  type="checkbox" value="">Androi</div>
-        <div class="item"><input  type="checkbox" value="">Windows</div>
-        <h3>Precio</h3>
-        <div >Desde<input class="itemPrecio" type="input" value=""></div>
-        <div >Hasta<input class="itemPrecio" type="input" value=""></div>
-    </section>    
-    <section class="conteiner">
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">    
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6> 
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">         
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">          
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">      
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">      
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">      
-            </div>
-        </article>
-        <article class="articulo">
-            <div>
-                <img class= "imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
-            </div>
-            <div>
-                <h3>Motorola Moto Edge 20 Pro</h3>
-                <h6>Azul</h6>
-                <h6>$99.999</h6>
-                <a href="/detalle"><h6>Ver detalle</h6></a>
-                <input class="botonComprar" type="button" value="Comprar">      
-            </div>
-        </article>
-    </section>
-    </section>
+        </div>
+    </header>
+    <main>
+
+        <h1>Listado de Productos</h1>
+        <section class="conteinerPrincipal">
+            <section class="conteinerFiltros">
+                <h2>Filtros</h2>
+                <h3>Marcas</h3>
+                <section class="items"></section>
+                <div class="item"><input type="checkbox" value="">Motorola</div>
+                <div class="item"><input type="checkbox" value="">Samsung</div>
+                <div class="item"><input type="checkbox" value="">Apple</div>
+                <h3>Sist. Operativo</h3>
+                <section class="items"></section>
+                <div class="item"><input type="checkbox" value="">IOS</div>
+                <div class="item"><input type="checkbox" value="">Androi</div>
+                <div class="item"><input type="checkbox" value="">Windows</div>
+                <h3>Precio</h3>
+                <div>Desde<input class="itemPrecio" type="input" value=""></div>
+                <div>Hasta<input class="itemPrecio" type="input" value=""></div>
+            </section>
+            <section class="conteiner">
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+                <article class="articulo">
+                    <div>
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
+                    </div>
+                    <div>
+                        <h3>Motorola Moto Edge 20 Pro</h3>
+                        <h6>Azul</h6>
+                        <h6>$99.999</h6>
+                        <a href="/detalle">
+                            <h6>Ver detalle</h6>
+                        </a>
+                        <input class="botonComprar" type="button" value="Comprar">
+                    </div>
+                </article>
+            </section>
+        </section>
     </main>
     <footer>aca va el footer</footer>
 </body>

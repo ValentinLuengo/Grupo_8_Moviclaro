@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/productCartStyles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +16,35 @@
 </head>
 
 <body>
-    <header>aca va el header</header>
+    <header>
+        <div class="header">
+            <div class="cabecera">
+                <img class="header-logo" src="/images/logo.png" alt="logo">
+                <div class="header-busqueda">
+                    <div class="bus-carr">
+                        <form action="#" method="GET">
+                            <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
+                            <i class="fas fa-search"></i>
+                        </form>
+                        <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
+                        <i class="fas fa-bars header-burger"></i>
+                    </div>
+                </div>
+            </div>
+            <nav class="header-navegacion">
+                <div class="header-enlaces-burger">
+                    <a href="/">Inicio</a>
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Iniciar sesión</a>
+                </div>
+            </nav>
+
+        </div>
+    </header>
     <main>
-        <img src="/images/logo.png" alt="logo" width="200px">
+        <!-- <img src="/images/logo.png" alt="logo" width="200px"> -->
         <!-- Eliminar esta linea. La hice para fines practicos -->
-        <h1>Probando servidor index.html</h1>
+        <!-- <h1>Probando servidor index.html</h1>
         <ul>
             <li>
                 <a href="/detalle">Detalle de producto</a>
@@ -34,9 +58,9 @@
             </li>
             <li>
                 <a href="/login">Login</a>
-            </li>
-            <!-- Enlacé todas las páginas para ver si todo funcionaba bien y esta todo perfecto -->
-        </ul>
+            </li> -->
+        <!-- Enlacé todas las páginas para ver si todo funcionaba bien y esta todo perfecto -->
+        <!-- </ul> -->
         <h1>Tu Pedido</h1>
         <section class="conteinerPrincipal">
             <section class="conteiner">

@@ -5,7 +5,121 @@
 
 h1 {
     text-align: center;
+    padding: 30px;
+    margin: 15px 0 0 0;
 }
+
+
+/* ==== HEADER ==== */
+
+header {
+    padding: 15px 5px;
+    border-bottom: solid 2px rgba(170, 156, 163, 0.6);
+    height: 60px;
+    margin: 10px 0;
+    background-color: #25FAD3;
+}
+
+.cabecera {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px auto;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bus-carr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.header-busqueda form {
+    position: relative;
+}
+
+.header-search {
+    border-radius: 20px;
+    height: 30px;
+    background-color: #eeeeee;
+    border: solid 2px black;
+}
+
+.header-burger,
+.fa-search {
+    color: black;
+}
+
+.header-busqueda i.fa-search {
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 6px;
+}
+
+.header-burger {
+    font-size: 20px;
+}
+
+.header-enlaces-burger {
+    display: none;
+}
+
+@media (min-width: 361px) {
+    header {
+        border: none;
+        height: 80px;
+        padding: 15px 0 10px 0;
+        margin: 0 auto;
+    }
+    .header {
+        display: inline;
+        flex-wrap: nowrap;
+    }
+    .cabecera {
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .bus-carr {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .fa-bars.header-burger {
+        display: none;
+    }
+    .header-enlaces-burger {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+        margin: 15px 0;
+    }
+    .header-enlaces-burger a {
+        color: #eeeeee;
+        text-decoration: none;
+        margin: 4px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .header-logo {
+        width: 60px;
+    }
+    .cabecera {
+        width: 70%;
+    }
+}
+
+
+/* ==== FIN DE HEADER ==== */
 
 .conteiner {
     display: inherit;
