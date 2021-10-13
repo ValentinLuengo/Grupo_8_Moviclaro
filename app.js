@@ -19,6 +19,14 @@ app.get('/carrito', (req, res) => {
 app.get('/registro', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/register.html'))
 });
+
+app.post('/compra', function(req, res){
+    res.redirect('./')
+})
+
+app.post('/agregarCarrito', function(req, res){
+    res.sendFile(path.join(__dirname, '/views/productCart.html'))
+})
 app.use(express.static('public'));
 
 app.listen(3000, () => {

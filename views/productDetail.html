@@ -6,46 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/f849052f17.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
-
 <body>
-   <headear></headear>
-   <h1>Detalle de Producto</h1>
-    <button><a href="/">Volver al listado</a></button>
-    <section class="celular">
-        <article>
-            <img id=celular src="images/motog20-breeze-blue_front.png" width="400px">
-            <div id="Nombre">Motorola Moto Edge 20 Pro</div>
-            <div>$99.999</div>
-            <div id="envio-stock">
-                <mat-divider _ngcontent-jal-c252="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider>
-                <span>En stock</span> <i class="fas fa-check"></i><br>
-               <span>Envio gratis</span> <i class="fas fa-truck"></i>
-               <mat-divider _ngcontent-jal-c252="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider>
+    <header>
+        <div class="header">
+            <div class="cabecera">
+                <img class="header-logo" src="/images/logo.png" alt="logo">
+                <div class="header-busqueda">
+                    <div class="bus-carr">
+                        <form action="#" method="GET">
+                            <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
+                            <i class="fas fa-search"></i>
+                        </form>
+                        <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
+                        <i class="fas fa-bars header-burger"></i>
+                    </div>
+                </div>
             </div>
-        </article>
-        <button class="botonComprar" type="button">Comprar</button>
-        <article>
-            <ul >
-                <a>Color:</a>
-                <select  class="selecet Color" name="colorCelular">
+            <nav class="header-navegacion">
+                <div class="header-enlaces-burger">
+                    <a href="/">Inicio</a>
+                    <!-- <a href="/detalle">Productos</a> -->
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Iniciar sesión</a>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <main>
+        <div class="banner">
+            <img src="/images/banner.jpg" alt="banner" title="Imagen promocional">
+        </div>
+        <section class="celular">
+            <article>
+                <img id=celular src="images/motog20-breeze-blue_front.png" width="400px">
+                <div id="Nombre">Motorola Moto Edge 20 Pro</div>
+                <div>$99.999</div>
+                <span>Envio gratis</span>
+                <spna>En stock</spna>
+            </article>
+
+            <button class="botonComprar" type="button">Agregar al Carrito</button>
+            <article>
+                <ul>
+                    <a>Color:</a>
+                    <select class="selecet Color" name="colorCelular">
                     <option value="negro">Negro</option>
                     <option value="azul" selected>Azul</option>
                     <option value="blanco">Blanco</option>
                   </select>
-            </ul>
-            <div class="descripcion">
-                <h3>Descripción</h3>
-            <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, velit deserunt hic perspiciatis inventore voluptatum molestiae nesciunt! Nihil blanditiis perspiciatis minima praesentium necessitatibus, non amet quasi odio dolores doloremque similique!</a>
-            </div>
-        </article>    
-    </section>
+                </ul>
+                <div class="descripcion">
+                    <h3>Descripción</h3>
+                    <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, velit deserunt hic perspiciatis inventore voluptatum molestiae nesciunt! Nihil blanditiis perspiciatis minima praesentium necessitatibus, non amet quasi odio dolores doloremque similique!</a>
+                </div>
+            </article>
+        </section>
+    </main>
     <footer>
         <div id="contacto">
             <div id="cont">CONTACTO</div>
