@@ -43,25 +43,6 @@
         </div>
     </header>
     <main>
-        <!-- <img src="/images/logo.png" alt="logo" width="200px"> -->
-        <!-- Eliminar esta linea. La hice para fines practicos -->
-        <!-- <h1>Probando servidor index.html</h1>
-        <ul>
-            <li>
-                <a href="/detalle">Detalle de producto</a>
-
-            </li>
-            <li>
-                <a href="/carrito">Carrito de compras</a>
-            </li>
-            <li>
-                <a href="/registro">Registro</a>
-            </li>
-            <li>
-                <a href="/login">Login</a>
-            </li> -->
-        <!-- Enlacé todas las páginas para ver si todo funcionaba bien y esta todo perfecto -->
-        <!-- </ul> -->
         <h1>Tu Pedido</h1>
         <section class="conteinerPrincipal">
             <section class="conteiner">
@@ -70,9 +51,9 @@
                         <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" width="200px">
                     </div>
                     <div class="articulo2">
-                        <h3>Motorola Moto Edge 20 Pro</h3>
-                        <h4>Azul</h4>
-                        <h4>$99.999</h4>
+                        <h3 class="fuenteCarrito">Motorola Moto Edge 20 Pro</h3>
+                        <h4 class="fuenteCarrito">Azul</h4>
+                        <h4 class="fuenteCarrito">$99.999</h4>
                         <div class="cantidad">
                             <h4>Cantidad</h4>
                             <select class="inputCantidad" name="select">
@@ -103,11 +84,18 @@
                 </article>
 
             </section>
-            <section class="carrito">
-                <h2>Total</h2>
-                <h3>$ 200.000</h3>
-                <input class="botonComprar" type="button" value="Finalizar la Compra">
-            </section>
+        </section>
+        <section class="carrito">
+            <form action="/compra" method="POST">  
+                <h2>Total de tu pedido</h2>
+                <h4>$ 200.000</h4>
+                <h2>Gastos de envío</h2>
+                <h4>$ 350</h4>
+                <h2>Total de tu compra</h2>
+                <h3>$ 200.350</h3>
+                <input class="botonComprar" type="submit" value="Finalizar la Compra" type="submit" href="./compra"> 
+           </form>
+        </section> 
         </section>
     </main>
     <footer>aca va el footer</footer>
