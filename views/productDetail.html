@@ -56,17 +56,18 @@
                     <p>En stock <i class="fas fa-check"></i></p>
                     <p>Envio gratis <i class="fas fa-truck"></i></p>
                 </div>
-
-                <button class="botonComprar" type="button">Comprar</button>
-
-                <ul class="select-option">
-                    <label>Color:</label>
-                    <select class="selecet Color" name="colorCelular">
-                    <option value="negro">Negro</option>
-                    <option value="azul" selected>Azul</option>
-                    <option value="blanco">Blanco</option>
-                </select>
+                <form action="/agregarCarrito" method="POST">
+                   <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                </form>
+                    <ul class="select-option">
+                        <label>Color:</label>
+                        <select class="selecet Color" name="colorCelular">
+                        <option value="negro">Negro</option>
+                        <option value="azul" selected>Azul</option>
+                        <option value="blanco">Blanco</option>
+                    </select>
                 </ul>
+            
                 <div class="descripcion">
                     <h3>Descripción</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, velit deserunt hic perspiciatis inventore voluptatum molestiae nesciunt! Nihil blanditiis perspiciatis minima praesentium necessitatibus, non amet quasi odio dolores
