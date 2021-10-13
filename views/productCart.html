@@ -8,7 +8,7 @@
     <title>Document</title>
     <script src="https://kit.fontawesome.com/f849052f17.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" href="css/productCartStyles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,16 +49,17 @@
         <h1>Tu Pedido</h1>
         <section class="conteinerPrincipal">
             <section class="conteiner">
+                <!-- Comienxo de articulo -->
                 <article class="articulo">
                     <div class="articulo1">
-                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" >
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
                     </div>
                     <div class="articulo2">
                         <h3 class="fuenteCarrito">Motorola Moto Edge 20 Pro</h3>
-                        <h4 class="fuenteCarrito">Azul</h4>
-                        <h4 class="fuenteCarrito">$99.999</h4>
+                        <p class="fuenteCarrito">Azul</p>
+                        <p class="fuenteCarrito">$99.999</p>
                         <div class="cantidad">
-                            <h4>Cantidad</h4>
+                            <p>Cantidad</p>
                             <select class="inputCantidad" name="select">
                     <option value="1">1</option>
                     <option value="2" selected>2</option>
@@ -67,16 +68,19 @@
                         </div>
                     </div>
                 </article>
+                <!-- Fin de aerticulo -->
+
+                <!-- Comienxo de articulo -->
                 <article class="articulo">
                     <div class="articulo1">
-                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo" >
+                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
                     </div>
                     <div class="articulo2">
                         <h3>Motorola Moto Edge 20 Pro</h3>
-                        <h4>Azul</h4>
-                        <h4>$99.999</h4>
+                        <p>Azul</p>
+                        <p>$99.999</p>
                         <div class="cantidad">
-                            <h4>Cantidad</h4>
+                            <p>Cantidad</p>
                             <select class="inputCantidad" name="select">
                     <option value="1">1</option>
                     <option value="2" selected>2</option>
@@ -85,21 +89,21 @@
                         </div>
                     </div>
                 </article>
-
+                <!-- Fin de aerticulo -->
             </section>
             <section class="carrito">
                 <form action="/compra" method="POST">
                     <h2>Total de tu pedido</h2>
-                    <h4>$ 200.000</h4>
+                    <p>$ 200.000</p>
                     <h2>Gastos de envío</h2>
-                    <h4>$ 350</h4>
+                    <p>$ 350</p>
                     <h2>Total de tu compra</h2>
                     <h3>$ 200.350</h3>
                     <input class="botonComprar" type="submit" value="Finalizar la Compra" type="submit" href="./compra">
                 </form>
             </section>
         </section>
-        
+
         </section>
     </main>
     <footer>aca va el footer</footer>

@@ -125,6 +125,10 @@ header {
     width: 100%;
 }
 
+.articulo {
+    width: 90%;
+}
+
 .conteiner {
     display: flex;
     flex-direction: row;
@@ -134,16 +138,18 @@ header {
     justify-content: center;
 }
 
-.conteinerFiltros{
+.conteinerFiltros {
     display: none;
     flex-direction: column;
     padding: 0px;
     margin: 10px;
-    flex-grow: 30%; 
-    justify-content: left;  
+    flex-grow: 30%;
+    justify-content: left;
 }
 
 .conteinerPrincipal {
+    margin: 0 auto;
+    width: 90%;
     display: flex;
     flex-direction: row;
 }
@@ -174,9 +180,44 @@ header {
 }
 
 .imagenArticulo {
-    width: 50%;
-    height: 50%;
+    width: 70%;
     padding: 5px;
+}
+
+.item {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.articulo {
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.articulo-desc p {
+    margin: 10px;
+}
+
+.itemPrecio {
+    width: 50px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    border-radius: 8px;
+}
+
+@media (min-width: 369px) {
+    .conteinerPrincipal {
+        width: 90%;
+    }
+    .articulo {
+        width: 40%;
+    }
 }
 
 @media (min-width: 769px) {
@@ -188,27 +229,7 @@ header {
         position: relative;
         top: 24px;
     }
-}
-
-.item {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: row;
-}
-
-.articulo {
-    padding: 5px;
-    text-align: center;
-    margin: 10px;
-    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
-    border-radius: 20px;
-    font-weight: bold;
-    width: 220px;
-}
-
-.itemPrecio {
-    width: 50px;
-    margin: 10px;
-    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
-    border-radius: 8px;
+    .articulo {
+        width: 28%;
+    }
 }
