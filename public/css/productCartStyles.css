@@ -256,3 +256,70 @@ header {
         top: 0px;
     }
 }
+
+footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#contacto {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+}
+
+#contacto span {
+    margin: auto;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+#redes {
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    top: 20px;
+    padding: 5px;
+}
+
+#ig {
+    padding: 5px
+}
+
+#tw {
+    padding: 5px
+}
+
+#fb {
+    padding: 5px
+}
+
+#comprar {
+    font-style: normal;
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    padding: 5px;
+}
+
+@media (min-width: 1024px) {
+    .footer-conteiner {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px;
+    }
+}
