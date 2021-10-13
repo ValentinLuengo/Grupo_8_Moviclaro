@@ -107,12 +107,20 @@ header {
         text-decoration: none;
         margin: 4px 0;
     }
-
+}
 
 /* ==== FIN DE HEADER ==== */
 
 .banner img {
     width: 100%;
+}
+
+
+.conteinerPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .conteiner {
@@ -138,11 +146,6 @@ header {
 
 
 
-.conteinerPrincipal{
-    display: flex;
-    flex-direction: row;
-
-}
 
 .botonComprar {
     background: #25FAD3;
@@ -156,11 +159,16 @@ header {
 
 .imagenArticulo {
     padding: 10px;
+    width: 90%;
+    position: relative;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     
-   
+   .conteinerPrincipal{
+       display: flex;
+       flex-direction: row;
+   }
     .articulo {
         display: flex;
         flex-direction: row;
