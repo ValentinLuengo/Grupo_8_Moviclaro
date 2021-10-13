@@ -23,13 +23,16 @@ rel="stylesheet" />
             <img id=celular src="images/motog20-breeze-blue_front.png" width="400px">
             <div id="Nombre">Motorola Moto Edge 20 Pro</div>
             <div>$99.999</div>
-            <span>Envio gratis</span>
-            <spna>En stock</spna>
+            <div id="envio-stock">
+                <mat-divider _ngcontent-jal-c252="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider>
+                <span>En stock</span> <i class="fas fa-check"></i><br>
+               <span>Envio gratis</span> <i class="fas fa-truck"></i>
+               <mat-divider _ngcontent-jal-c252="" role="separator" class="mat-divider mat-divider-horizontal" aria-orientation="horizontal"></mat-divider>
+            </div>
         </article>
-        
-        <button class="botonComprar" type="button">Agregar al Carrito</button>
+        <button class="botonComprar" type="button">Comprar</button>
         <article>
-            <ul>
+            <ul >
                 <a>Color:</a>
                 <select  class="selecet Color" name="colorCelular">
                     <option value="negro">Negro</option>
@@ -44,13 +47,17 @@ rel="stylesheet" />
         </article>    
     </section>
     <footer>
-       <i id="mail" class="far fa-envelope"></i><p id="dMail">moviclaro@hotmail.com</p>
-       <i id="wsp" class="fab fa-whatsapp"></i><p id="numero">+54 9 11 2626-3232</p>
-       <p id="comprar?">¿Como comprar?</p>
-       <i id="fb" class="fab fa-facebook-square"></i>
-        <i id="tw" class="fab fa-twitter"></i>
-        <i id="ig" class="fab fa-instagram"></i>
+        <div id="contacto">
+            <div id="cont">CONTACTO</div>
+            <span><i id="mail" class="far fa-envelope"></i> <div id="dMail">moviclaro@hotmail.com</div></span>
+            <span><i id="wsp" class="fab fa-whatsapp"></i> <div id="numero">+54 9 11 2626-3232</div></span>
+        </div>
+     <!--<p id="comprar">¿Como comprar?</p>-->
+        <div id="redes">
+            <i href="https://www.facebook.com/" id="fb" class="fab fa-facebook-square"></i>
+            <i href="https://www.twitter.com/" id="tw" class="fab fa-twitter"></i>
+            <i href="https://www.instagram.com/" id="ig" class="fab fa-instagram"></i>
+        </div>
     </footer>
 </body>
-
 </html>
