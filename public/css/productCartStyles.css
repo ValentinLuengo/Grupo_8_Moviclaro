@@ -16,7 +16,7 @@ header {
     padding: 15px 5px;
     border-bottom: solid 2px rgba(170, 156, 163, 0.6);
     height: 60px;
-    margin: 10px 0;
+    margin: 0;
     background-color: #25FAD3;
 }
 
@@ -121,6 +121,10 @@ header {
 
 /* ==== FIN DE HEADER ==== */
 
+.banner img {
+    width: 100%;
+}
+
 .conteiner {
     display: inherit;
     flex-direction: colum;
@@ -159,7 +163,7 @@ header {
     padding: 10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .conteinerFiltros {
         display: initial;
     }
@@ -170,6 +174,11 @@ header {
     .articulo {
         display: flex;
         flex-direction: row;
+    }
+    .banner {
+        width: 100%;
+        position: relative;
+        top: 24px;
     }
 }
 

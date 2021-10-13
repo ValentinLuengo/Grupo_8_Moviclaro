@@ -14,7 +14,7 @@ header {
     padding: 15px 5px;
     border-bottom: solid 2px rgba(170, 156, 163, 0.6);
     height: 60px;
-    margin: 10px 0;
+    margin: 0;
     background-color: #25FAD3;
 }
 
@@ -119,6 +119,10 @@ header {
 
 /* ==== FIN DE HEADER ==== */
 
+.banner img {
+    width: 100%;
+}
+
 .titulo-registro {
     text-align: center;
     padding: 30px;
@@ -193,7 +197,7 @@ header {
     border-color: grey;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .check {
         margin-top: 24px;
         text-align: left;
@@ -204,6 +208,11 @@ header {
     }
     .registro-campos {
         width: 45%;
+    }
+    .banner {
+        width: 100%;
+        position: relative;
+        top: 24px;
     }
 }
 
@@ -243,7 +252,7 @@ header {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .formulario.login {
         width: 50%;
     }
