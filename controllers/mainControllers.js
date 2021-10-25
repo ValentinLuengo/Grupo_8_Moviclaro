@@ -13,18 +13,18 @@ const mainController = {
         res.render(path.join(__dirname,'../views/index'))
     },
     login:(req,res)=>{
-        res.render(path.join(__dirname,'../views/login'))
+        res.render(path.join(__dirname,'../views/users/login'))
     },
     productDetail:(req,res)=>{
-        res.render(path.join(__dirname,'../views/productDetail'))
+        res.render(path.join(__dirname,'../views/products/productDetail'))
     },
     
     agregarCarrito:(req,res)=>{
-        res.render(path.join(__dirname,'../views/productCart'))
+        res.render(path.join(__dirname,'../views/products/productCart'))
     },
 
     registro:(req,res)=>{
-        res.render(path.join(__dirname,'../views/register'))
+        res.render(path.join(__dirname,'../views/users/register'))
     },
 
 }

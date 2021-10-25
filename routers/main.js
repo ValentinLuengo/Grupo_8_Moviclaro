@@ -8,16 +8,17 @@ router.get('/',mainController.index);
 
 router.get('/login', mainController.login); 
 
-router.get('/productDetail', mainController.productDetail);
+router.get('/detalle', mainController.productDetail);
+
+router.get('/registro', mainController.registro);
 
 router.post('/agregarCarrito', mainController.agregarCarrito);
-
-router.post('/registro', mainController.registro);
 
 router.post('/compra',mainController.index);
 
 router.post('/agregarCarrito', mainController.index);
 
 router.post('/login', mainController.index);
+router.post('/registro', mainController.index);
 
 module.exports = router;
