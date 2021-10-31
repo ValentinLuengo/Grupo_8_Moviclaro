@@ -15,7 +15,10 @@ const mainController = {
         res.render(path.join(__dirname, '../views/users/login'))
     },
     productDetail: (req, res) => {
-        res.render(path.join(__dirname, '../views/products/productDetail'))
+        const requestedId = req.params.id; 
+        const product =
+        products.find((product) => product.id == requestedId) || produts[0];
+        res.render(path.join(__dirname, '../views/products/productDetail', {product}))   
     },
 
     agregarCarrito: (req, res) => {
