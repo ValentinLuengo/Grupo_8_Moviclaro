@@ -4,10 +4,12 @@ const app = express();
 const publicPath = path.resolve(__dirname, './public');
 app.use(express.static(publicPath));
 app.set('view engine', 'ejs');
+let products = require('../data/products.json')
 
 const mainController = {
     index: (req, res) => {
-        res.render(path.join(__dirname, '../views/index'))
+        res.render(path.join(__dirname, '../views/index'), {products})
+          
     },
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
