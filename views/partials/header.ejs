@@ -1,25 +1,33 @@
 <header>
     <div class="header">
-        <div class="cabecera">
-            <img class="header-logo" src="/images/logo.png" alt="logo">
-            <div class="header-busqueda">
-                <div class="bus-carr">
-                    <form action="#" method="GET">
-                        <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
-                        <i class="fas fa-search"></i>
-                    </form>
-                    <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
-                    <i class="fas fa-bars header-burger"></i>
-                </div>
-            </div>
+        <div class="header-logo">
+            <a href="/">
+                <img class="header-logo-368px" src="/images/header-logo-368px.png" alt="logo">
+                <img class="header-logo-768px" src="/images/header-logo-768px.png" alt="logo">
+            </a>
         </div>
-        <nav class="header-navegacion">
+        <div class="header-busqueda">
+            <form action="#" method="GET">
+                <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
+                <i class="fas fa-search"></i>
+            </form>
+        </div>
+        <div class="header-carrito">
+            <a href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+    <div class="header-navegacion">
+        <nav>
+            <i class="fas fa-bars"></i>
             <div class="header-enlaces-burger">
                 <a href="/">Inicio</a>
                 <a href="/registro">Registro</a>
                 <a href="/login">Iniciar sesión</a>
             </div>
         </nav>
-
     </div>
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="banner" title="Imagen promocional">
+    </div>
+
 </header>

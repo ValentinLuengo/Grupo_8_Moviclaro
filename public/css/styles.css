@@ -10,6 +10,8 @@ body {
 
 /* ==== HEADER ==== */
 
+
+/* 
 header {
     padding: 15px 5px;
     border-bottom: solid 2px rgba(170, 156, 163, 0.6);
@@ -66,14 +68,15 @@ header {
 
 .header-enlaces-burger {
     display: none;
-}
+} */
 
 
 /* ==== FIN DE HEADER ==== */
 
-.banner img {
+
+/* .banner img {
     width: 100%;
-}
+} */
 
 img#celular {
     width: 90%;
@@ -133,6 +136,7 @@ section.celular {
 }
 
 footer {
+    padding: 15px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -165,7 +169,7 @@ footer {
     width: 100%;
     text-align: center;
     top: 20px;
-    padding:5px;
+    padding: 5px;
 }
 
 #ig {
@@ -196,16 +200,6 @@ footer {
 }
 
 @media (min-width: 361px) {
-    header {
-        border: none;
-        height: 80px;
-        padding: 15px 0 10px 0;
-        margin: 0 auto;
-    }
-    .header {
-        display: inline;
-        flex-wrap: nowrap;
-    }
     .cabecera {
         justify-content: space-between;
         width: 80%;
@@ -234,12 +228,6 @@ footer {
 }
 
 @media (min-width: 769px) {
-    .header-logo {
-        width: 60px;
-    }
-    .cabecera {
-        width: 70%;
-    }
     section.celular {
         display: flex;
         position: relative;
@@ -252,25 +240,19 @@ footer {
     img#celular {
         width: 40%;
     }
-    .banner img {
-        margin-bottom: 20px;
-    }
-    .banner {
-        width: 100%;
-        position: relative;
-        top: 24px;
-    }
     .texto-botones-desc {
         display: flex;
         flex-direction: column;
     }
 }
 
+
 /*====footer===*/
+
 @media (min-width: 1024px) {
-    .footer-conteiner{
+    .footer-conteiner {
         display: flex;
-        flex-direction: row ;
+        flex-direction: row;
         justify-content: center;
         padding: 5px;
     }

@@ -1,175 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+<%- include('./partials/head.ejs') %>
 
-<body>
-    <%- include('./partials/header.ejs') %>
-    <main>
-        <div class="banner">
-            <img src="/images/banner.jpg" alt="banner" title="Imagen promocional">
-        </div>
-        <!-- Barra lateral -->
-        <h1>Listado de Productos</h1>
-        <br>
-        <section class="conteinerPrincipal">
-            <section class="conteinerFiltros">
-                <h2>Filtros</h2>
-                <h3>Marcas</h3>
-                <section class="items">
-                    <div class="item"><input type="checkbox" value="">Motorola</div>
-                    <div class="item"><input type="checkbox" value="">Samsung</div>
-                    <div class="item"><input type="checkbox" value="">Apple</div>
-                </section>
-                <h3>Sist. Operativo</h3>
-                <section class="items">
-                    <div class="item"><input type="checkbox" value="">IOS</div>
-                    <div class="item"><input type="checkbox" value="">Androi</div>
-                    <div class="item"><input type="checkbox" value="">Windows</div>
-                </section>
-                <h3>Precio</h3>
-                <div>Desde<input class="itemPrecio" type="input" value=""></div>
-                <div>Hasta<input class="itemPrecio" type="input" value=""></div>
-                <input class="botonFiltrar" type="button" value="Filtrar">
-            </section>
-            <!-- Fin de barra lateral -->
-
-            <!-- Contenido principal -->
-            <section class="conteiner">
-                <!-- Inicio articulo -->
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <!-- fin articulo -->
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-                <article class="articulo">
-                    <form action="/agregarCarrito" method="POST">
-                        <div>
-                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                        </div>
-                        <div class="articulo-desc">
-                            <h3>Motorola Moto Edge 20 Pro</h3>
-                            <p>Azul</p>
-                            <p>$99.999</p>
-                            <a href="/detalle">
-                                <p>Ver detalle</p>
-                            </a>
-                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                        </div>
-                    </form>
-                </article>
-            </section>
-            <!-- Fin de contenido principal -->
-        </section>
-    </main>
-    <%- include('./partials/footer.ejs') %>
-</body>
+    <body>
+        <%- include('./partials/header.ejs') %>
+            <main>
+                <h1>Listado de Productos</h1>
+                <div class="main">
+                    <div class="section-lateral">
+                        <!-- Barra lateral -->
+                        <!-- <br> -->
+                        <section class="conteinerPrincipal">
+                            <section class="conteinerFiltros">
+                                <h2>Filtros</h2>
+                                <h3>Marcas</h3>
+                                <section class="items">
+                                    <div class="item"><input type="checkbox" value="">Motorola</div>
+                                    <div class="item"><input type="checkbox" value="">Samsung</div>
+                                    <div class="item"><input type="checkbox" value="">Apple</div>
+                                </section>
+                                <h3>Sist. Operativo</h3>
+                                <section class="items">
+                                    <div class="item"><input type="checkbox" value="">IOS</div>
+                                    <div class="item"><input type="checkbox" value="">Androi</div>
+                                    <div class="item"><input type="checkbox" value="">Windows</div>
+                                </section>
+                                <h3>Precio</h3>
+                                <div>Desde<input class="itemPrecio" type="input" value=""></div>
+                                <div>Hasta<input class="itemPrecio" type="input" value=""></div>
+                                <input class="botonFiltrar" type="button" value="Filtrar">
+                            </section>
+                            <!-- Fin de barra lateral -->
+                    </div>
+                    <div class="main-container">
+                        <!-- Contenido principal -->
+                        <section class="conteiner">
+                            <!-- Inicio articulo -->
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <!-- fin articulo -->
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="POST">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>Motorola Moto Edge 20 Pro</h3>
+                                        <p>Azul</p>
+                                        <p>$99.999</p>
+                                        <a href="/detalle">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                        </section>
+                        <!-- Fin de contenido principal -->
+                        </section>
+                    </div>
+                </div>
+            </main>
+            <%- include('./partials/footer.ejs') %>
+    </body>
 
 </html>

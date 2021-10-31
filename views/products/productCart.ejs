@@ -1,132 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include('../partials/head.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/f849052f17.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/normalize.css">
-    <!-- <link rel="stylesheet" href="css/styles.css"> -->
-    <link rel="stylesheet" href="css/productCartStyles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <h1>Tu Pedido</h1>
+                <section class="conteinerPrincipalProd">
+                    <section class="conteinerProd">
+                        <!-- Comienxo de articulo -->
+                        <article class="articuloProd">
+                            <div class="eliminar-del-carrito">
+                                <i class="far fa-trash-alt" title="Eliminar del carrito"></i>
+                            </div>
+                            <div class="articulo1">
+                                <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                            </div>
+                            <div class="articulo2">
+                                <h3 class="fuenteCarrito">Motorola Moto Edge 20 Pro</h3>
+                                <p class="fuenteCarrito">Azul</p>
+                                <p class="fuenteCarrito">$99.999</p>
+                                <div class="cantidad">
+                                    <p>Cantidad</p>
+                                    <select class="inputCantidad" name="select">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="v3">3</option>
+                  </select>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Fin de aerticulo -->
 
-</head>
-
-<body>
-    <header>
-        <div class="header">
-            <div class="cabecera">
-                <img class="header-logo" src="/images/logo.png" alt="logo">
-                <div class="header-busqueda">
-                    <div class="bus-carr">
-                        <form action="#" method="GET">
-                            <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
-                            <i class="fas fa-search"></i>
+                        <!-- Comienxo de articulo -->
+                        <article class="articuloProd">
+                            <div class="eliminar-del-carrito">
+                                <i class="far fa-trash-alt" title="Eliminar del carrito"></i>
+                            </div>
+                            <div class="articulo1">
+                                <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                            </div>
+                            <div class="articulo2">
+                                <h3>Motorola Moto Edge 20 Pro</h3>
+                                <p>Azul</p>
+                                <p>$99.999</p>
+                                <div class="cantidad">
+                                    <p>Cantidad</p>
+                                    <select class="inputCantidad" name="select">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="v3">3</option>
+                  </select>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Fin de aerticulo -->
+                    </section>
+                    <section class="carrito">
+                        <form action="/compra" method="POST">
+                            <h2>Total de tu pedido</h2>
+                            <p>$ 200.000</p>
+                            <h2>Gastos de envío</h2>
+                            <p>$ 350</p>
+                            <h2>Total de tu compra</h2>
+                            <h3>$ 200.350</h3>
+                            <input class="botonComprar" type="submit" value="Finalizar la Compra" type="submit" href="./compra">
                         </form>
-                        <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
-                        <i class="fas fa-bars header-burger"></i>
+                    </section>
+                </section>
+
+                </section>
+            </main>
+            <footer>
+                <div class="footer-conteiner">
+                    <div id="contacto">
+                        <div id="cont">CONTACTO</div>
+                        <span><i id="mail" class="far fa-envelope"></i>  <div id="dMail">moviclaro@hotmail.com</div></span>
+                        <span><i id="wsp" class="fab fa-whatsapp"></i>  <div id="numero">+54 9 11 2626-3232</div></span>
+                    </div>
+                    <div id="comprar">¿Como comprar?</div>
+                    <div id="redes">
+                        <i href="https://www.facebook.com/" id="fb" class="fab fa-facebook-square"></i>
+                        <i href="https://www.twitter.com/" id="tw" class="fab fa-twitter"></i>
+                        <i href="https://www.instagram.com/" id="ig" class="fab fa-instagram"></i>
                     </div>
                 </div>
-            </div>
-            <nav class="header-navegacion">
-                <div class="header-enlaces-burger">
-                    <a href="/">Inicio</a>
-                    <a href="/registro">Registro</a>
-                    <a href="/login">Iniciar sesión</a>
-                </div>
-            </nav>
-
-        </div>
-    </header>
-    <main>
-        <div class="banner">
-            <img src="/images/banner.jpg" alt="banner" title="Imagen promocional">
-        </div>
-        <h1>Tu Pedido</h1>
-        <section class="conteinerPrincipal">
-            <section class="conteiner">
-                <!-- Comienxo de articulo -->
-                <article class="articulo">
-                    <div class="eliminar-del-carrito">
-                        <i class="far fa-trash-alt" title="Eliminar del carrito"></i>
-                    </div>
-                    <div class="articulo1">
-                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                    </div>
-                    <div class="articulo2">
-                        <h3 class="fuenteCarrito">Motorola Moto Edge 20 Pro</h3>
-                        <p class="fuenteCarrito">Azul</p>
-                        <p class="fuenteCarrito">$99.999</p>
-                        <div class="cantidad">
-                            <p>Cantidad</p>
-                            <select class="inputCantidad" name="select">
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="v3">3</option>
-                  </select>
-                        </div>
-                    </div>
-                </article>
-                <!-- Fin de aerticulo -->
-
-                <!-- Comienxo de articulo -->
-                <article class="articulo">
-                    <div class="eliminar-del-carrito">
-                        <i class="far fa-trash-alt" title="Eliminar del carrito"></i>
-                    </div>
-                    <div class="articulo1">
-                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                    </div>
-                    <div class="articulo2">
-                        <h3>Motorola Moto Edge 20 Pro</h3>
-                        <p>Azul</p>
-                        <p>$99.999</p>
-                        <div class="cantidad">
-                            <p>Cantidad</p>
-                            <select class="inputCantidad" name="select">
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="v3">3</option>
-                  </select>
-                        </div>
-                    </div>
-                </article>
-                <!-- Fin de aerticulo -->
-            </section>
-            <section class="carrito">
-                <form action="/compra" method="POST">
-                    <h2>Total de tu pedido</h2>
-                    <p>$ 200.000</p>
-                    <h2>Gastos de envío</h2>
-                    <p>$ 350</p>
-                    <h2>Total de tu compra</h2>
-                    <h3>$ 200.350</h3>
-                    <input class="botonComprar" type="submit" value="Finalizar la Compra" type="submit" href="./compra">
-                </form>
-            </section>
-        </section>
-
-        </section>
-    </main>
-    <footer>
-        <div class="footer-conteiner">
-            <div id="contacto">
-                <div id="cont">CONTACTO</div>
-                <span><i id="mail" class="far fa-envelope"></i>  <div id="dMail">moviclaro@hotmail.com</div></span>
-                <span><i id="wsp" class="fab fa-whatsapp"></i>  <div id="numero">+54 9 11 2626-3232</div></span>
-            </div>
-            <div id="comprar">¿Como comprar?</div>
-            <div id="redes">
-                <i href="https://www.facebook.com/" id="fb" class="fab fa-facebook-square"></i>
-                <i href="https://www.twitter.com/" id="tw" class="fab fa-twitter"></i>
-                <i href="https://www.instagram.com/" id="ig" class="fab fa-instagram"></i>
-            </div>
-        </div>
-    </footer>
-</body>
+            </footer>
+    </body>
 
 </html>

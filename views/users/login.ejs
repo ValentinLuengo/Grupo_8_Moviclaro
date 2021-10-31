@@ -1,90 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/f849052f17.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/registro.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
-</head>
+<%- include('../partials/head.ejs') %>
 
-<body>
-    <header>
-        <div class="header">
-            <div class="cabecera">
-                <img class="header-logo" src="/images/logo.png" alt="logo">
-                <div class="header-busqueda">
-                    <div class="bus-carr">
-                        <form action="#" method="GET">
-                            <input class="header-search" type="search" name="search" id="search" placeholder="  Busqueda">
-                            <i class="fas fa-search"></i>
-                        </form>
-                        <a href="/carrito"><i class="fas fa-shopping-cart header-burger"></i></a>
-                        <i class="fas fa-bars header-burger"></i>
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div class="main-register-login">
+                    <h2 class="titulo-registro">Accedé a tu cuenta</h2>
+                    <form action="#" method="POST" class="formulario login">
+                        <div class="registro-campos login">
+                            <label for="mail">E-mail</label>
+                            <input type="email" name="mail" id="mail" class="input login">
+                        </div>
+                        <div class="registro-campos login">
+                            <label for="password">Contraseña</label>
+                            <input type="password" name="password" id="password" class="input login">
+                        </div>
+                        <div class="botones">
+                            <button type="submit" class="registro-boton login">ENTRAR</button>
+                        </div>
+                        <div class="no-registrado">
+                            <p>¿No estás registrado?</p>
+                            <p>
+                                <a href="/registro">Registrate aquí.</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <footer>
+                <div class="footer-conteiner">
+                    <div id="contacto">
+                        <div id="cont">CONTACTO</div>
+                        <span><i id="mail" class="far fa-envelope"></i>  <div id="dMail">moviclaro@hotmail.com</div></span>
+                        <span><i id="wsp" class="fab fa-whatsapp"></i>  <div id="numero">+54 9 11 2626-3232</div></span>
+                    </div>
+                    <div id="comprar">¿Como comprar?</div>
+                    <div id="redes">
+                        <i href="https://www.facebook.com/" id="fb" class="fab fa-facebook-square"></i>
+                        <i href="https://www.twitter.com/" id="tw" class="fab fa-twitter"></i>
+                        <i href="https://www.instagram.com/" id="ig" class="fab fa-instagram"></i>
                     </div>
                 </div>
-            </div>
-            <nav class="header-navegacion">
-                <div class="header-enlaces-burger">
-                    <a href="/">Inicio</a>
-                    <!-- <a href="/detalle">Productos</a> -->
-                    <a href="/registro">Registro</a>
-                    <a href="/login">Iniciar sesión</a>
-                </div>
-            </nav>
-
-        </div>
-    </header>
-    <main>
-        <div class="banner">
-            <img src="/images/banner.jpg" alt="banner" title="Imagen promocional">
-        </div>
-
-
-        <div class="main">
-            <h2 class="titulo-registro">Accedé a tu cuenta</h2>
-            <form action="#" method="POST" class="formulario login">
-                <div class="registro-campos login">
-                    <label for="mail">E-mail</label>
-                    <input type="email" name="mail" id="mail" class="input login">
-                </div>
-                <div class="registro-campos login">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" class="input login">
-                </div>
-                <div class="botones">
-                    <button type="submit" class="registro-boton login">ENTRAR</button>
-                </div>
-                <div class="no-registrado">
-                    <p>¿No estás registrado?</p>
-                    <p>
-                        <a href="/registro">Registrate aquí.</a>
-                    </p>
-                </div>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-conteiner">
-            <div id="contacto">
-                <div id="cont">CONTACTO</div>
-                <span><i id="mail" class="far fa-envelope"></i>  <div id="dMail">moviclaro@hotmail.com</div></span>
-                <span><i id="wsp" class="fab fa-whatsapp"></i>  <div id="numero">+54 9 11 2626-3232</div></span>
-            </div>
-            <div id="comprar">¿Como comprar?</div>
-            <div id="redes">
-                <i href="https://www.facebook.com/" id="fb" class="fab fa-facebook-square"></i>
-                <i href="https://www.twitter.com/" id="tw" class="fab fa-twitter"></i>
-                <i href="https://www.instagram.com/" id="ig" class="fab fa-instagram"></i>
-            </div>
-        </div>
-    </footer>
-</body>
+            </footer>
+    </body>
 
 </html>
