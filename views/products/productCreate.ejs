@@ -23,31 +23,43 @@
                                 <input type="text" name="modelo" id="modelo" class="input">
                             </div>
                             <div class="registro-campos">
-                                <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input">
+                                <label>Color</label>
+                                <select name="color" class="input select">
+                        <option value="null" >----</option>
+                        <option value="blk">Negro</option>
+                        <option value="wte">Blanco</option>
+                        <option value="red">Rojo</option>
+                        <option value="blue">Azul</option>
+                        <option value="green">Verde</option>
+                        <option value="grey">Gris</option>
+                        <option value="sil">Plateado</option>
+                        <option value="gol">Dorado</option>
+                                </select>
                             </div>
                             <div class="registro-campos">
-                                <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                                <label for="precio">Precio</label>
+                                <input type="number" name="precio" id="precio" class="input">
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
                                 <input type="file" name="imagen" id="imagen">
                             </div>
-
-
-
+                            <div class="registro-campos">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                            </div>
                         </div>
-                        <div class="check">
-                            <input type="checkbox" name="terminos" id="terminos">
-                            <label for="terminos">He leído y acepto los términos y condiciones.</label>
-                        </div>
+
+
+
+
                         <div class="botones">
-                            <button type="reset" class="registro-boton">BORRAR</button>
+                            <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
                             <button type="submit" class="registro-boton">ENVIAR</button>
                         </div>
 
-                    </form>
+                </div>
+                </form>
                 </div>
 
             </main>

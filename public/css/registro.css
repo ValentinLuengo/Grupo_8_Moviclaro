@@ -52,7 +52,7 @@ body {
 
 .botones {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 10px 0 0 0;
 }
 
@@ -80,9 +80,12 @@ body {
 
 .registro-boton:hover {
     background-color: greenyellow;
-    width: 110px;
-    height: 55px;
     border-color: grey;
+    transform: scale(1.1);
+}
+
+.registro-boton-red:hover {
+    background-color: rgb(225, 59, 59);
 }
 
 @media (min-width: 769px) {
@@ -161,4 +164,9 @@ textarea {
 
 .registro-campos input[type="file"] {
     margin-top: 5px;
+    overflow: hidden;
+}
+
+.registro-campos input[type="file" i] {
+    width: 100%;
 }
