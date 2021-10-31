@@ -17,7 +17,7 @@ const mainController = {
     productDetail: (req, res) => {
         const requestedId = req.params.id; 
         const product =
-        products.find((product) => product.id == requestedId) || produts[0];
+        products.find((product) => product.id == requestedId) || products[0];
         res.render(path.join(__dirname, '../views/products/productDetail', {product}))   
     },
 
