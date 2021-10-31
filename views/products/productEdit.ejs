@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div class="main-register-login">
+                    <h2 class="titulo-registro">Editar producto</h2>
+                    <form action="#" method="POST" class="formulario">
+                        <div class="registro-formulario">
+                            <div class="registro-campos">
+                                <label for="nombre">Nombre del producto</label>
+                                <input type="text" name="nombre" id="nombre" class="input">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="marca">Marca</label>
+                                <input type="text" name="marca" id="marca" class="input">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="modelo">Modelo</label>
+                                <input type="text" name="modelo" id="modelo" class="input">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="precio">Precio</label>
+                                <input type="number" name="precio" id="precio" class="input">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                            </div>
+                            <div class="registro-campos">
+                                <label for="imagen">Subir imagen</label> </br>
+                                <input type="file" name="imagen" id="imagen">
+                            </div>
+
+
+
+                        </div>
+                        <div class="check">
+                            <input type="checkbox" name="terminos" id="terminos">
+                            <label for="terminos">He leído y acepto los términos y condiciones.</label>
+                        </div>
+                        <div class="botones">
+                            <button type="reset" class="registro-boton">BORRAR</button>
+                            <button type="submit" class="registro-boton">ENVIAR</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </main>
+            <%- include('../partials/footer.ejs') %>
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

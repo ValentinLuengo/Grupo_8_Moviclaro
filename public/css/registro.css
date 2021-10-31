@@ -37,6 +37,7 @@ body {
     padding: 2px;
     box-shadow: 2px 2px 4px rgba(170, 156, 163, 0.6);
     border: none;
+    margin-top: 5px;
 }
 
 .select {
@@ -144,4 +145,20 @@ body {
     .main-register-login {
         padding: 20px;
     }
+}
+
+
+/* CREACION DE PRODUCTO */
+
+textarea {
+    resize: none;
+    width: 100%;
+    box-shadow: 2px 2px 4px rgba(170, 156, 163, 0.6);
+    /* border: 0.25px solid rgba(170 156 163 / 60%); */
+    border: none;
+    margin-top: 5px;
+}
+
+.registro-campos input[type="file"] {
+    margin-top: 5px;
 }

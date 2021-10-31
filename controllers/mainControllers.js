@@ -1,6 +1,3 @@
-
-
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -9,23 +6,29 @@ app.use(express.static(publicPath));
 app.set('view engine', 'ejs');
 
 const mainController = {
-    index: (req,res)=>{
-        res.render(path.join(__dirname,'../views/index'))
+    index: (req, res) => {
+        res.render(path.join(__dirname, '../views/index'))
     },
-    login:(req,res)=>{
-        res.render(path.join(__dirname,'../views/users/login'))
+    login: (req, res) => {
+        res.render(path.join(__dirname, '../views/users/login'))
     },
-    productDetail:(req,res)=>{
-        res.render(path.join(__dirname,'../views/products/productDetail'))
-    },
-    
-    agregarCarrito:(req,res)=>{
-        res.render(path.join(__dirname,'../views/products/productCart'))
+    productDetail: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/productDetail'))
     },
 
-    registro:(req,res)=>{
-        res.render(path.join(__dirname,'../views/users/register'))
+    agregarCarrito: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/productCart'))
     },
+
+    registro: (req, res) => {
+        res.render(path.join(__dirname, '../views/users/register'))
+    },
+    create: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/productCreate'));
+    },
+    edit: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/productEdit'));
+    }
 
 }
 
