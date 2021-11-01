@@ -11,21 +11,21 @@ const mainController = {
     index: (req, res) => {
         res.render('index', { products })
     },
-    productDetail: (req, res) => {
-        const product = products.find((prod) => prod.id == req.params.id);
-        res.render('productDetail', { product });
-    },
+    // productDetail: (req, res) => {
+    //     const product = products.find((prod) => prod.id == req.params.id);
+    //     res.render('productDetail', { product });
+    // },
 
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
     },
     productDetail: (req, res) => {
-        const requestedId = req.params.id;
-        const product =
-            products.find((product) => product.id == requestedId) || products[0];
-        let pathDetalle = path.join(__dirname, '../views/products/productDetail');
-        res.render(pathDetalle, { product })
-            //res.render('../views/products/productDetail', {product})) 
+        // const requestedId = req.params.id; 
+        // const product =
+        // products.find((product) => product.id == requestedId) || products[0];
+        // let pathDetalle = path.join(__dirname, '../views/products/productDetail');
+        // res.render(pathDetalle, {product})  
+        res.render('../views/products/productDetail')
     },
 
     agregarCarrito: (req, res) => {
