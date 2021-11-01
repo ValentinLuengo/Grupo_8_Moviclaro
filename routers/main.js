@@ -14,13 +14,6 @@ router.get('/registro', mainController.registro);
 
 router.post('/agregarCarrito', mainController.agregarCarrito);
 
-router.post('/compra', mainController.index);
-
-router.post('/agregarCarrito', mainController.index);
-
-router.post('/login', mainController.index);
-router.post('/registro', mainController.index);
-
 router.get('/create', mainController.create);
 
 router.get('/edit', mainController.edit);

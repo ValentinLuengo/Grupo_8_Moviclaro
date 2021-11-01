@@ -1,23 +1,25 @@
 const path = require('path');
 const fs = require('fs');
 
+const publicPath = path.resolve(__dirname, './public');
+
+
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
     index: (req, res) => {
-        res.render(path.join(__dirname, '../views/index'), { products })
-
+        res.render('index', { products })
     },
+    productDetail: (req, res) => {
+        const product = products.find((prod) => prod.id == req.params.id);
+        res.render('productDetail', { product });
+    },
+
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
     },
-    productDetail: (req, res) => {
-        const requestedId = req.params.id;
-        const product =
-            products.find((product) => product.id == requestedId) || products[0];
-        res.render(path.join(__dirname, '../views/products/productDetail', { product }))
-    },
+
 
     agregarCarrito: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCart'))
@@ -30,7 +32,7 @@ const mainController = {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
     edit: (req, res) => {
-        res.render(path.join(__dirname, '../views/products/productEdit'));
+        res.render('../views/products/productEdit');
     }
 
 }
