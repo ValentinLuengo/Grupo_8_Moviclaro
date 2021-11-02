@@ -7,8 +7,8 @@ app.set('view engine', 'ejs');
 
 let mainController = require('./routers/main.js')
 
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+/* const methodOverride = require('method-override');
+app.use(methodOverride('_method')); */
 
 app.use('/', mainController);
 

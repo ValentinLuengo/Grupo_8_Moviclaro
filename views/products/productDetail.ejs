@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs', { title: "Detalle de producto"}) %>
+ 
+
+ <%- include('../partials/head.ejs', { title: "Detalle de producto"}) %> 
 
     <body>
         <%- include('../partials/header.ejs') %>
             <main>
                 <section class="celular">
-                    <img id=celular src="images/motog20-breeze-blue_front.png">
+                    <img id=celular src="../images/motog20-breeze-blue_front.png">
                     <div class="texto-botones-desc">
                         <div class="Info">
-                            <h2>Motorola Moto Edge 20 Pro</h2>
+                            <h2><%= product.marca %>  <%= product.modelo %></h2>
                             <p>$99.999</p>
                         </div>
                         <div class="envio-stock">
                             <p>En stock <i class="fas fa-check"></i></p>
                             <p>Envio gratis <i class="fas fa-truck"></i></p>
                         </div>
-                        <form action="/agregarCarrito" method="POST">
+                        <form action="/agregarCarrito" method="GET">
                             <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
                         </form>
                         <ul class="select-option">
@@ -30,8 +32,7 @@
 
                         <div class="descripcion">
                             <h3>Descripción</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, velit deserunt hic perspiciatis inventore voluptatum molestiae nesciunt! Nihil blanditiis perspiciatis minima praesentium necessitatibus, non amet quasi odio
-                                dolores doloremque similique!
+                            <p><%= product.descripcion %>
                             </p>
                         </div>
                     </div>
