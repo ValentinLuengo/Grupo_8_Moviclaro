@@ -38,7 +38,7 @@
                             <!-- Inicio articulo -->
                             <% products.forEach(product => { %>
                                 <article class="articulo">
-                                    <form action="/agregarCarrito" method="POST">
+                                    <form action="/agregarCarrito" method="GET">
                                         <div>
                                             <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
                                         </div>
@@ -55,7 +55,7 @@
                                             <p>
                                                 <%= product.precio %>
                                             </p>
-                                            <a href="/detalle/<%= product.id %>">
+                                        <a href="/detalle/<%= product.id %>">     
                                                 <p>Ver detalle</p>
                                             </a>
                                             <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">

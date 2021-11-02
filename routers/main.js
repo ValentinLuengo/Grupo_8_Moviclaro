@@ -8,11 +8,11 @@ router.get('/', mainController.index);
 
 router.get('/login', mainController.login);
 
-router.get('/detalle', mainController.productDetail);
+router.get('/detalle/:id', mainController.productDetail);
 
 router.get('/registro', mainController.registro);
 
-router.post('/agregarCarrito', mainController.agregarCarrito);
+router.get('/agregarCarrito', mainController.agregarCarrito);
 
 router.get('/create', mainController.create);
 
