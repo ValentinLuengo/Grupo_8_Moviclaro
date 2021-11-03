@@ -11,6 +11,9 @@ const mainController = {
     index: (req, res) => {
         res.render('index', { products })
     },
+    nuevoProducto: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/productCreate'))
+    },
 
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
@@ -36,9 +39,24 @@ const mainController = {
     create: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
+ 
+
     edit: (req, res) => {
-        res.render('../views/products/productEdit');
-    }
+		
+        res.render(path.join(__dirname,'../views/products/productEdit'))
+		
+	},
+	// Update - Method to update
+	update: (req, res) => {
+		
+		res.send("Producto editado")
+	},
+
+	// Delete - Delete one product from DB
+	destroy : (req, res) => {
+		res.send("Producto eliminado")
+	}
+    
 
 }
 

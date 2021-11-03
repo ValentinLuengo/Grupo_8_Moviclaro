@@ -40,8 +40,14 @@
                             </p>
                         </div>
                         <div class="botones">
+                            <form action="/agregarCarrito" method="GET">
                             <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
-                            <button type="submit" class="registro-boton">EDITAR</button>
+                            </form>
+                            <form action="/edit" method="POST" >
+                            <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                            <input class="registro-boton" value="EDITAR" type="submit" href="./edit">
+                            
+                            </form>
                         </div>
                     </div>
                 </section>

@@ -6,6 +6,8 @@ let router = express.Router(); /*este metidi permite crear rutas montables y des
 
 router.get('/', mainController.index);
 
+router.get('/nuevoProducto', mainController.nuevoProducto);
+
 router.get('/login', mainController.login);
 
 router.get('/detalle/:id', mainController.productDetail);
@@ -16,6 +18,9 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 router.get('/create', mainController.create);
 
-router.get('/edit', mainController.edit);
+router.post('/edit', mainController.edit); 
+
+router.post('./update', mainController.update); 
+
 
 module.exports = router;
