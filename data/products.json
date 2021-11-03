@@ -1,37 +1,38 @@
 [{
-    "id": 1,
-    "marca": "Samsung",
-    "modelo": "Moto Edge 20 Pro",
-    "color": "Azul",
-    "precio": "$54.650"
-},
-{
-    "id":2,
-    "marca": "Samsung",
-    "modelo": "Galaxy Z Fold3",
-    "color": "Blanco",
-    "precio": "$239.999"
-},
-{
-    "id":3,
-    "marca": "Samsung",
-    "modelo": "Galaxy A12 64GB",
-    "color": "Negro",
-    "precio": "$98520"
-},
-{
-    "id":4,
-    "marca": "Samsung",
-    "modelo": "Moto Edge 20 Pro",
-    "color": "Plateado",
-    "precio": "$33.999"
-},
-{
-    "id":5,
-    "marca": "Samsung",
-    "modelo": "Moto Edge 20 Pro",
-    "color": "Azul",
-    "precio": "$102.000"
-}
+        "id": 1,
+        "marca": "Samsung",
+        "modelo": "Moto Edge 20 Pro",
+        "color": "Azul",
+        "precio": "$54.650",
+        "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu enim nisl. Nulla nisl nisl, convallis at tellus dictum, tincidunt sollicitudin lectus. Morbi euismod nunc id augue consectetur feugiat. Integer ac lectus sit amet turpis commodo tristique id dictum lectus. Vivamus at lacinia leo, vitae mollis dui. Cras maximus malesuada sem, et vestibulum sem lacinia id. Nam luctus mauris vitae elit malesuada, nec euismod est placerat."
+    },
+    {
+        "id": 2,
+        "marca": "Samsung",
+        "modelo": "Galaxy Z Fold3",
+        "color": "Blanco",
+        "precio": "$239.999"
+    },
+    {
+        "id": 3,
+        "marca": "Samsung",
+        "modelo": "Galaxy A12 64GB",
+        "color": "Negro",
+        "precio": "$98520"
+    },
+    {
+        "id": 4,
+        "marca": "Samsung",
+        "modelo": "Moto Edge 20 Pro",
+        "color": "Plateado",
+        "precio": "$33.999"
+    },
+    {
+        "id": 5,
+        "marca": "Samsung",
+        "modelo": "Moto Edge 20 Pro",
+        "color": "Azul",
+        "precio": "$102.000"
+    }
 
 ]

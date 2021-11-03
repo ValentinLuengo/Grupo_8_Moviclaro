@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 
- <%- include('../partials/head.ejs', { title: "Detalle de producto"}) %> 
+
+<%- include('../partials/head.ejs', { title: "Detalle de producto"}) %>
 
     <body>
         <%- include('../partials/header.ejs') %>
@@ -11,7 +11,10 @@
                     <img id=celular src="../images/motog20-breeze-blue_front.png">
                     <div class="texto-botones-desc">
                         <div class="Info">
-                            <h2><%= product.marca %>  <%= product.modelo %></h2>
+                            <h2>
+                                <%= product.marca %>
+                                    <%= product.modelo %>
+                            </h2>
                             <p>$99.999</p>
                         </div>
                         <div class="envio-stock">
@@ -24,16 +27,21 @@
                         <ul class="select-option">
                             <label>Color:</label>
                             <select class="selecet Color" name="colorCelular">
-                        <option value="negro">Negro</option>
-                        <option value="azul" selected>Azul</option>
-                        <option value="blanco">Blanco</option>
-                    </select>
+                                <option value="negro">Negro</option>
+                                <option value="azul" selected>Azul</option>
+                                <option value="blanco">Blanco</option>
+                             </select>
                         </ul>
 
                         <div class="descripcion">
                             <h3>Descripción</h3>
-                            <p><%= product.descripcion %>
+                            <p>
+                                <%= product.descripcion %>
                             </p>
+                        </div>
+                        <div class="botones">
+                            <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
+                            <button type="submit" class="registro-boton">EDITAR</button>
                         </div>
                     </div>
                 </section>
