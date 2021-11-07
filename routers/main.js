@@ -2,7 +2,9 @@ const express = require('express');
 const mainController = require('../controllers/mainControllers.js');
 let router = express.Router(); /*este metidi permite crear rutas montables y desmontables en la aplicacion*/
 
+// Presentacion
 
+router.get('/home', mainController.home);
 
 router.get('/', mainController.index);
 
@@ -18,9 +20,9 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 router.get('/create', mainController.create);
 
-router.post('/edit', mainController.edit); 
+router.post('/edit', mainController.edit);
 
-router.post('./update', mainController.update); 
+router.post('./update', mainController.update);
 
 
 module.exports = router;

@@ -156,7 +156,8 @@ h1 {
     flex-direction: row;
 }
 
-.botonComprar {
+
+/* .botonComprar {
     background: #25FAD3;
     border-radius: 50px;
     width: 100px;
@@ -171,7 +172,7 @@ h1 {
     height: 55px;
     border-color: grey;
     transition: 100ms;
-}
+} */
 
 .botonFiltrar {
     background: #CFCCCC;
