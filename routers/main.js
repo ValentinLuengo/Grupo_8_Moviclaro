@@ -1,12 +1,30 @@
 const express = require('express');
+const multer = require('multer');
 const mainController = require('../controllers/mainControllers.js');
-let router = express.Router(); /*este metidi permite crear rutas montables y desmontables en la aplicacion*/
+let router = express.Router();
+const path = require('path')
+const pubiclPath = path.resolve(__dirname, './public');
 
-// Presentacion
+
+/**Para subir las imagenes */
+
+const storage = multer.diskStorage({ 
+    destination: function (req, file, callback) { 
+       callback(null, './public/images/products'); 
+    }, 
+    filename: function (req, file, callback) { 
+       callback(null, file.fieldname +-+ Date.now()+path.extname(file.originalname));  } 
+       
+  })
+
+  const uploadFile = multer({ storage }); 
+
 
 router.get('/', mainController.index);
 
 router.get('/store', mainController.store);
+
+
 
 router.get('/nuevoProducto', mainController.nuevoProducto);
 
@@ -18,7 +36,11 @@ router.get('/registro', mainController.registro);
 
 router.get('/agregarCarrito', mainController.agregarCarrito);
 
-router.get('/create', mainController.create);
+/*Crear producto*/
+
+//router.get('/create/', mainController.create);
+router.post('/storeProduct',uploadFile.single('image'), mainController.storeProduct); 
+
 
 router.post('/edit', mainController.edit);
 

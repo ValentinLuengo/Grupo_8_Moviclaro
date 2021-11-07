@@ -8,7 +8,7 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Nuevo producto</h2>
-                    <form action="#/" method="POST" class="formulario">
+                    <form action="/storeProduct" method="POST" enctype="multipart/form-data" class="formulario" >    
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="nombre">Nombre del producto</label>
@@ -42,17 +42,13 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="imagen" id="imagen">
+                                <input type="file" name="image" id="image">
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
                                 <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
                             </div>
                         </div>
-
-
-
-
                         <div class="botones">
                             <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
                             <button type="submit" class="registro-boton">ENVIAR</button>

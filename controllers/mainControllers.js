@@ -46,7 +46,7 @@ const mainController = {
     create: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
-
+ 
 
     edit: (req, res) => {
 
@@ -62,7 +62,21 @@ const mainController = {
     // Delete - Delete one product from DB
     destroy: (req, res) => {
         res.send("Producto eliminado")
-    }
+    },
+
+    //Create - Create one product in DB
+    storeProduct: (req, res) => {
+		const product = req.body;
+		product.id = products[products.length-1].id+1;
+		product.image = req.file.filename;
+		products.push(product);
+		
+		//const productodatbase = fsJSON.stringify(products)
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+		
+		
+		res.redirect('/')
+	},
 
 
 }
