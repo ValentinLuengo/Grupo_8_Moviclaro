@@ -5,69 +5,86 @@
     <body>
         <%- include('./partials/header.ejs') %>
             <main>
-                <h1>Listado de Productos</h1>
-                <div class="main">
-                    <div class="section-lateral">
-                        <!-- Barra lateral -->
-                        <!-- <br> -->
-                        <section class="conteinerPrincipal">
-                            <section class="conteinerFiltros">
-                                <h2>Filtros</h2>
-                                <h3>Marcas</h3>
-                                <section class="items">
-                                    <div class="item"><input type="checkbox" value="">Motorola</div>
-                                    <div class="item"><input type="checkbox" value="">Samsung</div>
-                                    <div class="item"><input type="checkbox" value="">Apple</div>
-                                </section>
-                                <h3>Sist. Operativo</h3>
-                                <section class="items">
-                                    <div class="item"><input type="checkbox" value="">IOS</div>
-                                    <div class="item"><input type="checkbox" value="">Androi</div>
-                                    <div class="item"><input type="checkbox" value="">Windows</div>
-                                </section>
-                                <h3>Precio</h3>
-                                <div>Desde<input class="itemPrecio" type="input" value=""></div>
-                                <div>Hasta<input class="itemPrecio" type="input" value=""></div>
-                                <input class="botonFiltrar" type="button" value="Filtrar">
-                            </section>
-                            <!-- Fin de barra lateral -->
-                    </div>
-                    <div class="main-container">
-                        <!-- Contenido principal -->
-                        <section class="conteiner">
-                            <!-- Inicio articulo -->
-                            <% products.forEach(product => { %>
-                                <article class="articulo">
-                                    <form action="/agregarCarrito" method="GET">
-                                        <div>
-                                            <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
-                                        </div>
-                                        <div class="articulo-desc">
-                                            <h3>
-                                                <%= product.marca %>
-                                            </h3>
-                                            <h3>
-                                                <%= product.modelo %>
-                                            </h3>
-                                            <p>
-                                                <%= product.color %>
-                                            </p>
-                                            <p>
-                                                <%= product.precio %>
-                                            </p>
-                                        <a href="/detalle/<%= product.id %>">     
-                                                <p>Ver detalle</p>
-                                            </a>
-                                            <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                                        </div>
-                                    </form>
-                                </article>
-                                <% }); %>
-                        </section>
-                        <!-- Fin de contenido principal -->
-                        </section>
-                    </div>
+                <div class="home-presentacion">
+                    <h1>Bienvenidos a</h1>
+                    <img src="/images/MoviClaro.png" alt="logo tipografico oficial">
                 </div>
+                <div class="main-container">
+                    <h2>Ofertas</h2>
+                    <!-- Contenido principal -->
+                    <section class="conteiner">
+                        <!-- Inicio articulo -->
+                        <% productsOfertas.forEach(product => { %>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="GET">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>
+                                            <%= product.marca %>
+                                        </h3>
+                                        <h3>
+                                            <%= product.modelo %>
+                                        </h3>
+                                        <p>
+                                            <%= product.color %>
+                                        </p>
+                                        <p>
+                                            <%= product.precio %>
+                                        </p>
+                                        <a href="/detalle/<%= product.id %>">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <% }); %>
+                    </section>
+                    <!-- Fin de contenido principal -->
+                    </section>
+                </div>
+                </div>
+                <div class="main-container">
+                    <h2>Promociones</h2>
+                    <!-- Contenido principal -->
+                    <section class="conteiner">
+                        <!-- Inicio articulo -->
+                        <% productsPromocion.forEach(product => { %>
+                            <article class="articulo">
+                                <form action="/agregarCarrito" method="GET">
+                                    <div>
+                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    </div>
+                                    <div class="articulo-desc">
+                                        <h3>
+                                            <%= product.marca %>
+                                        </h3>
+                                        <h3>
+                                            <%= product.modelo %>
+                                        </h3>
+                                        <p>
+                                            <%= product.color %>
+                                        </p>
+                                        <p>
+                                            <%= product.precio %>
+                                        </p>
+                                        <a href="/detalle/<%= product.id %>">
+                                            <p>Ver detalle</p>
+                                        </a>
+                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                                    </div>
+                                </form>
+                            </article>
+                            <% }); %>
+                    </section>
+                    <!-- Fin de contenido principal -->
+                    </section>
+                </div>
+                </div>
+
+
             </main>
             <%- include('./partials/footer.ejs') %>
     </body>

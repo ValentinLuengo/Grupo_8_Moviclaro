@@ -4,9 +4,9 @@ let router = express.Router(); /*este metidi permite crear rutas montables y des
 
 // Presentacion
 
-router.get('/home', mainController.home);
-
 router.get('/', mainController.index);
+
+router.get('/store', mainController.store);
 
 router.get('/nuevoProducto', mainController.nuevoProducto);
 

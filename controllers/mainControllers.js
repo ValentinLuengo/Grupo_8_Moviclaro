@@ -9,14 +9,14 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
 
-    home: (req, res) => {
+    index: (req, res) => {
         const productsOfertas = products.filter(prod => prod.category === 'oferta');
         const productsPromocion = products.filter(prod => prod.category === 'promocion');
-        res.render('home', { productsOfertas, productsPromocion });
+        res.render('index', { productsOfertas, productsPromocion });
     },
 
-    index: (req, res) => {
-        res.render('index', { products })
+    store: (req, res) => {
+        res.render(path.join(__dirname, '../views/products/store'), { products })
     },
     nuevoProducto: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'))
