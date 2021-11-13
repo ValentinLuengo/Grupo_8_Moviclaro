@@ -7,6 +7,9 @@ const publicPath = path.resolve(__dirname, './public');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
 const mainController = {
 
     index: (req, res) => {
@@ -32,8 +35,6 @@ const mainController = {
         let pathDetalle = path.join(__dirname, '../views/products/productDetail');
         res.render(pathDetalle, { product })
 
-
-
     },
 
     agregarCarrito: (req, res) => {
@@ -46,7 +47,6 @@ const mainController = {
     create: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
- 
 
     edit: (req, res) => {
 
@@ -77,6 +77,16 @@ const mainController = {
 		
 		res.redirect('/')
 	},
+    //Crear un usuario en la archivo users.json
+    storeUser: (req, res) => {
+		const user = req.body;
+		user.id = users[users.length-1].id+1;
+		users.push(user);
+		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+		
+		
+		res.redirect('/')
+	}
 
 
 }

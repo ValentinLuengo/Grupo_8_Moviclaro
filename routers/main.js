@@ -38,11 +38,12 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 /*Crear producto*/
 
-//router.get('/create/', mainController.create);
 router.post('/storeProduct',uploadFile.single('image'), mainController.storeProduct); 
 
+router.post('/storeUser', uploadFile.single('image'),mainController.storeUser); 
 
-router.post('/edit', mainController.edit);
+
+router.post('/edit', uploadFile.single('image'),mainController.edit);
 
 router.post('./update', mainController.update);
 
