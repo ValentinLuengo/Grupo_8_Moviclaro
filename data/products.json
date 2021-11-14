@@ -54,8 +54,17 @@
         "modelo": "Finoli",
         "color": "De salon",
         "precio": "Gratis",
-        "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu enim nisl. Nulla nisl nisl, convallis at tellus dictum, tincidunt sollicitudin lectus. Morbi euismod nunc id augue consectetur feugiat. Integer ac lectus sit amet turpis commodo tristique id dictum lectus. Vivamus at lacinia leo, vitae mollis dui. Cras maximus malesuada sem, et vestibulum sem lacinia id. Nam luctus mauris vitae elit malesuada, nec euismod est placerat.",
+        "descripcion": "La línea K de los LG trae cada vez más funciones como es el caso del nuevo LG K50S. Pantalla full vision, sonido envolvente y, como si fuera poco, una batería que dura todo el día. Además, el LG K50S cuenta con un sistema de triple cámara con el que vas a poder sacar fotos extremadamente nítidas y de calidad. Con todas estas funciones, el LG K50S no tiene nada que envidiar a celulares de alta gama y podés encontrarlo a un precio más que accesible.",
         "id": 6,
+        "image": "lg-k50.jpg"
+    },
+    {
+        "marca": "Chiste de prueba",
+        "modelo": "Finoli",
+        "color": "De salon",
+        "precio": "Gratis",
+        "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu enim nisl. Nulla nisl nisl, convallis at tellus dictum, tincidunt sollicitudin lectus. Morbi euismod nunc id augue consectetur feugiat. Integer ac lectus sit amet turpis commodo tristique id dictum lectus. Vivamus at lacinia leo, vitae mollis dui. Cras maximus malesuada sem, et vestibulum sem lacinia id. Nam luctus mauris vitae elit malesuada, nec euismod est placerat.",
+        "id": 7,
         "image": "image-1636899348713.jpeg"
     }
 ]
