@@ -8,7 +8,7 @@
         <%- include('../partials/header.ejs') %>
             <main>
                 <section class="celular">
-                    <img id=celular src="../images/motog20-breeze-blue_front.png">
+                    <img id=celular src="../images/products/<%= product.image  %> ">
                     <div class="texto-botones-desc">
                         <div class="Info">
                             <h2>
@@ -41,12 +41,12 @@
                         </div>
                         <div class="botones">
                             <form action="/agregarCarrito" method="GET">
-                            <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
+                                <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
                             </form>
-                            <form action="/edit" method="POST" >
-                            <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
-                            <input class="registro-boton" value="EDITAR" type="submit" href="./edit">
-                            
+                            <form action="/edit" method="POST">
+                                <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                                <input class="registro-boton" value="EDITAR" type="submit" href="./edit">
+
                             </form>
                         </div>
                     </div>
