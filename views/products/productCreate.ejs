@@ -8,12 +8,8 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Nuevo producto</h2>
-                    <form action="/storeProduct" method="POST" enctype="multipart/form-data" class="formulario" >    
+                    <form action="/storeProduct" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
-                            <div class="registro-campos">
-                                <label for="nombre">Nombre del producto</label>
-                                <input type="text" name="nombre" id="nombre" class="input">
-                            </div>
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
                                 <input type="text" name="marca" id="marca" class="input">
@@ -41,12 +37,12 @@
                                 <input type="number" name="precio" id="precio" class="input">
                             </div>
                             <div class="registro-campos">
-                                <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="image" id="image">
-                            </div>
-                            <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
                                 <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                            </div>
+                            <div class="registro-campos">
+                                <label for="imagen">Subir imagen</label> </br>
+                                <input type="file" name="image" id="image">
                             </div>
                         </div>
                         <div class="botones">

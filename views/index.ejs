@@ -17,8 +17,8 @@
                         <% productsOfertas.forEach(product => { %>
                             <article class="articulo">
                                 <form action="/agregarCarrito" method="GET">
-                                    <div>
-                                        <img class="imagenArticulo" src="/images/motog20-breeze-blue_front.png" alt="logo">
+                                    <div class="img-container">
+                                        <img class="imagenArticulo" src="/images/products/<%= product.image ? product.image : 'motog20-breeze-blue_front.png' %> " alt="logo">
                                     </div>
                                     <div class="articulo-desc">
                                         <h3>

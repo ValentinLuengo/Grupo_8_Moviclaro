@@ -8,7 +8,7 @@
         <%- include('../partials/header.ejs') %>
             <main>
                 <section class="celular">
-                    <img id=celular src="../images/products/<%= product.image  %> ">
+                    <img id=celular src="/images/products/<%= product.image ? product.image : 'motog20-breeze-blue_front.png' %> ">
                     <div class="texto-botones-desc">
                         <div class="Info">
                             <h2>
