@@ -49,13 +49,15 @@ const mainController = {
     },
 
     edit: (req, res) => {
-
-        res.render(path.join(__dirname, '../views/products/productEdit'))
-
+        let producto = req.params.id;
+        const product =
+            products.find((product) => product.id == producto) || products[0];
+            let pathEdit = path.join(__dirname, '../views/products/productEdit');
+            res.render(pathEdit, { product })
     },
     // Update - Method to update
-    update: (req, res) => {
-
+    update: (req, res) => {     
+        
         res.send("Producto editado")
     },
 

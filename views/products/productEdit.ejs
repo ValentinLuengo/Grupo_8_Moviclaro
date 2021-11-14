@@ -8,35 +8,35 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar producto</h2>
-                    <form action="#/editar?_method=PUT" method="POST" class="formulario">
+                    <form action="/editar?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
                             <div class="registro-campos">
-                                <label for="nombre">Nombre del producto</label>
-                                <input type="text" name="nombre" id="nombre" class="input">
-                            </div>
-                            <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <input type="text" name="marca" id="marca" class="input">
+                                <input type="text" name="marca" id="marca" class="input" value="<%= product.marca %>">
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input">
+                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.modelo %>" >
+                            </div>
+                            <div class="registro-campos">
+                                <label for="color">Color</label>
+                                <input type="text" name="color" id="color" class="input" value="<%= product.color %>" >
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input">
+                                <input type="text" name="precio" id="precio" class="input" value="<%= product.precio %>">
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Stock disponible</label>
-                                <input type="number" name="precio" id="precio" class="input">
+                                <input type="number" name="precio" id="precio" class="input" value="">
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="imagen" id="imagen">
+                                <input type="file" name="imagen" id="imagen" value="<%= product.image %>">
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" value=" <%= product.descripcion %>"></textarea>
                             </div>
 
 
@@ -48,7 +48,7 @@
                             <form action="./update" method="POST" >
                            
                             </form>
-                            <form action="./update" method="POST" >
+                            <form action="/editar?_method=PUT" method="POST" >
                             <input class="registro-boton" value="ENVIAR" type="submit" href="/update">
                               </form>  
                             </div>
