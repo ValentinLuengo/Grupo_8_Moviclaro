@@ -8,16 +8,17 @@ const pubiclPath = path.resolve(__dirname, './public');
 
 /**Para subir las imagenes */
 
-const storage = multer.diskStorage({ 
-    destination: function (req, file, callback) { 
-       callback(null, './public/images/products'); 
-    }, 
-    filename: function (req, file, callback) { 
-       callback(null, file.fieldname +-+ Date.now()+path.extname(file.originalname));  } 
-       
-  })
+const storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, './public/images/products');
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.fieldname + - +Date.now() + path.extname(file.originalname));
+    }
 
-  const uploadFile = multer({ storage }); 
+})
+
+const uploadFile = multer({ storage });
 
 
 router.get('/', mainController.index);
@@ -38,12 +39,12 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 /*Crear producto*/
 
-router.post('/storeProduct',uploadFile.single('image'), mainController.storeProduct); 
+router.post('/storeProduct', uploadFile.single('image'), mainController.storeProduct);
 
-router.post('/storeUser', uploadFile.single('image'),mainController.storeUser); 
+router.post('/storeUser', uploadFile.single('image'), mainController.storeUser);
 
 
-router.get('/edit/:id',mainController.edit);
+router.get('/edit/:id', mainController.edit);
 
 router.put('/edit/:id', mainController.update);
 
