@@ -52,12 +52,12 @@ const mainController = {
         let producto = req.params.id;
         const product =
             products.find((product) => product.id == producto) || products[0];
-            let pathEdit = path.join(__dirname, '../views/products/productEdit');
-            res.render(pathEdit, { product })
+        let pathEdit = path.join(__dirname, '../views/products/productEdit');
+        res.render(pathEdit, { product })
     },
     // Update - Method to update
-    update: (req, res) => {     
-        
+    update: (req, res) => {
+
         res.send("Producto editado")
     },
 
@@ -68,27 +68,27 @@ const mainController = {
 
     //Create - Create one product in DB
     storeProduct: (req, res) => {
-		const product = req.body;
-		product.id = products[products.length-1].id+1;
-		product.image = req.file.filename;
-		products.push(product);
-		
-		//const productodatbase = fsJSON.stringify(products)
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-		
-		
-		res.redirect('/')
-	},
+        const product = req.body;
+        product.id = products[products.length - 1].id + 1;
+        product.image = req.file.filename;
+        products.push(product);
+
+        //const productodatbase = fsJSON.stringify(products)
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+
+
+        res.redirect('/')
+    },
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
-		const user = req.body;
-		user.id = users[users.length-1].id+1;
-		users.push(user);
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-		
-		
-		res.redirect('/')
-	}
+        const user = req.body;
+        user.id = users[users.length - 1].id + 1;
+        users.push(user);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+
+
+        res.redirect('/')
+    }
 
 
 }

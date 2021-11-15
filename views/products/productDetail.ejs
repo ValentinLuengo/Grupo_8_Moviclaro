@@ -27,10 +27,10 @@
                         <ul class="select-option">
                             <label>Color:</label>
                             <select class="selecet Color" name="colorCelular">
-                                <option value="negro">Negro</option>
-                                <option value="azul" selected>Azul</option>
-                                <option value="blanco">Blanco</option>
-                             </select>
+        <option value="negro">Negro</option>
+        <option value="azul" selected>Azul</option>
+        <option value="blanco">Blanco</option>
+        </select>
                         </ul>
 
                         <div class="descripcion">
@@ -43,9 +43,8 @@
                             <form action="/agregarCarrito" method="GET">
                                 <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
                             </form>
-                            <form action="/detalle/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
-                                <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
-                                <input class="registro-boton" value="EDITAR" type="submit" href="./edit">
+                            <form action="/detalle/<%= product.id %>/edit" method="GET">
+                                <input class="registro-boton" value="EDITAR" type="submit" href="/detalle/<%= product.id %>/edit">
 
                             </form>
                         </div>
