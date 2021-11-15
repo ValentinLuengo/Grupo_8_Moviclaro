@@ -8,7 +8,8 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar producto</h2>
-                    <form action="/editar" method="GET" class="formulario">
+                    <form action="/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
+                        <!-- <form action="/edit/<%= product.descripcion %>"?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">     -->
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
@@ -40,20 +41,16 @@
                             </div>
                         </div>
                         <div class="botones">
-                            <!-- <form action="./update" method="GET"> -->
                             <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
-                            <!-- </form>
-                            <form action="/" method="GET"> -->
-                            <input class="registro-boton" value="ENVIAR" type="submit" href="/update">
-                            <!-- </form> -->
+                            <input class="registro-boton" value="ENVIAR" type="submit" action="/edit/<%= product.id %>?_method=PUT">
                         </div>
+
                     </form>
                 </div>
                 </div>
 
             </main>
             <%- include('../partials/footer.ejs') %>
-
     </body>
 
 </html>
