@@ -57,8 +57,9 @@ const mainController = {
     },
     // Update - Method to update
     update: (req, res) => {     
+        const product = req.body;
+        res.send(product+ "que paso")
         
-        res.send("Producto editado")
     },
 
     // Delete - Delete one product from DB

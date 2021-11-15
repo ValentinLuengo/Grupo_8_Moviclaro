@@ -8,7 +8,8 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar producto</h2>
-                    <form action="/editar?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
+                    <form action="/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
+                    <!-- <form action="/edit/<%= product.descripcion %>"?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">     -->
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
@@ -38,28 +39,17 @@
                                 <label for="descripcion">Descripción</label>
                                 <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" value=" <%= product.descripcion %>"></textarea>
                             </div>
-
-
-
-
                         </div>
                         <div class="botones">
-                            <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
-                            <form action="./update" method="POST" >
-                           
-                            </form>
-                            <form action="/editar?_method=PUT" method="POST" >
-                            <input class="registro-boton" value="ENVIAR" type="submit" href="/update">
-                              </form>  
-                            </div>
+                            <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>               
+                            <input class="registro-boton" value="ENVIAR" type="submit" > 
                         </div>
-
+                        
                     </form>
                 </div>
 
             </main>
             <%- include('../partials/footer.ejs') %>
-
     </body>
 
 </html>
