@@ -57,8 +57,10 @@ const mainController = {
     },
     // Update - Method to update
     update: (req, res) => {     
-        const product = req.body;
-        res.send(product+ "que paso")
+       // const product = req.params.id;
+       // const product2 = req.body
+
+        res.send( "ingreso al metodo put")
         
     },
 
