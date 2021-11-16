@@ -40,9 +40,15 @@
                             </p>
                         </div>
                         <div class="botones">
-                            <form action="/agregarCarrito" method="GET">
-                                <button type="reset" class="registro-boton registro-boton-red">ELIMINAR</button>
+
+
+
+                            <form action="/<%= product.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
                             </form>
+
+
+
                             <form action="/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
                                 <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
                                 <input class="registro-boton" value="EDITAR" type="submit" href="/edit/<%= product.id %>">

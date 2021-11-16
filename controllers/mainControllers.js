@@ -64,10 +64,7 @@ const mainController = {
 
     },
 
-    // Delete - Delete one product from DB
-    destroy: (req, res) => {
-        res.send("Producto eliminado")
-    },
+
 
     //Create - Create one product in DB
     storeProduct: (req, res) => {
@@ -91,7 +88,11 @@ const mainController = {
 
 
         res.redirect('/')
-    }
+    },
+    // Delete - Delete one product from DB
+    destroy: (req, res) => {
+        res.send("Producto eliminado");
+    },
 
 
 }

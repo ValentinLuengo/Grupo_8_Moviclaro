@@ -48,5 +48,8 @@ router.get('/edit/:id', mainController.edit);
 
 router.put('/edit/:id', mainController.update);
 
+// Borrar producto
+router.delete('./:id', mainController.destroy);
+
 
 module.exports = router;
