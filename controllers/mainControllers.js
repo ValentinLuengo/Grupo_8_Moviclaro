@@ -77,7 +77,7 @@ const mainController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
     
         // Volvemos a la pagina de productos
-        res.redirect('/products');
+        res.send('prueba');
       },
 
     // Delete - Delete one product from DB
