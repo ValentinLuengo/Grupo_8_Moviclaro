@@ -57,12 +57,28 @@ const mainController = {
     },
     // Update - Method to update
     update: (req, res) => {
-        // const product = req.params.id;
-        // const product2 = req.body
-
-        res.send("ingreso al metodo put")
-
-    },
+        // Leemos el id que viene por url
+        const productId = req.params.id;
+        // buscamos la posicion del producto que queremos editar
+        const productIndex = products.findIndex((p) => p.id == productId);
+    
+        // Generamos el producto actualizado
+        const updatedProduct = {
+          ...products[productIndex],
+          ...req.body,
+          precio: Number(req.body.precio),
+          image: req.file ? req.file.filename : products[productIndex].image
+        };
+    
+        // Reemplazamos el objeto en el array
+        products[productIndex] = updatedProduct;
+    
+        // Escribimos en el JSON para persistir
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+    
+        // Volvemos a la pagina de productos
+        res.redirect('/products');
+      },
 
 
 
