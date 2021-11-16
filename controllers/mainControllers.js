@@ -77,7 +77,22 @@ const mainController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
         // Volvemos a la pagina de productos
-        res.redirect('/products');
+        res.send('prueba');
+    },
+
+    // Delete - Delete one product from DB
+    destroy: (req, res) => {
+        // Leer el id
+        const productId = req.params.id;
+        // Buscar la posicion actual del producto a eliminar
+        const productIndex = products.findIndex((p) => p.id == productId);
+        // Recortar el array sin ese producto
+        products.splice(productIndex, 1);
+        // Guardar en el json el nuevo array
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+
+        res.redirect('/store');
+        // res.send("Producto eliminado")
     },
 
 
@@ -105,10 +120,10 @@ const mainController = {
 
         res.redirect('/')
     },
-    // Delete - Delete one product from DB
-    destroy: (req, res) => {
-        res.send("Producto eliminado");
-    },
+    // // Delete - Delete one product from DB
+    // destroy: (req, res) => {
+    //     res.send("Producto eliminado");
+    // },
 
 
 }

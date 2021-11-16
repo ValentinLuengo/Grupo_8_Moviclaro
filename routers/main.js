@@ -4,8 +4,6 @@ const mainController = require('../controllers/mainControllers.js');
 let router = express.Router();
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
-const methodOverride = require('method-override');
-router.use(methodOverride('_method'));
 
 
 /**Para subir las imagenes */
