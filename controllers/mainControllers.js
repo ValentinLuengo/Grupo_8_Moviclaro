@@ -66,20 +66,19 @@ const mainController = {
         const updatedProduct = {
             ...products[productIndex],
             ...req.body,
-            price: Number(req.body.price),
-
+            precio: Number(req.body.precio),
             image: req.file ? req.file.filename : products[productIndex].image
-        };
 
+        };
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 
         // Escribimos en el JSON para persistir
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+            // Volvemos a la pagina de productos
+        res.redirect('/store')
 
 
-        // Volvemos a la pagina de productos
-        res.redirect('/store');
     },
     //Create - Create one product in DB
     storeProduct: (req, res) => {

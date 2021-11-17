@@ -1,16 +1,25 @@
 [
  {
+  "nombre": "Andrea",
+  "apellido": "Gomez",
+  "celular": "1144443333",
+  "mail": "andreagomez@gmail.com",
+  "password": "123456",
+  "pais": "arg",
+  "password2": "123456",
+  "categoria": "arg",
+  "terminos": "on",
   "id": 1
  },
  {
-  "nombre": "454",
-  "apellido": "4545",
-  "celular": "4545",
-  "mail": "asdfh@hot.com",
-  "password": "4545",
-  "pais": "per",
-  "password2": "4545",
-  "categoria": "null",
+  "nombre": "juan",
+  "apellido": "admin",
+  "celular": "1166665555",
+  "mail": "juan@admin.com",
+  "password": "123456",
+  "pais": "arg",
+  "password2": "123456",
+  "categoria": "arg",
   "terminos": "on",
   "id": 2
  }
