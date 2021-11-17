@@ -79,9 +79,7 @@ const mainController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
             // Volvemos a la pagina de productos
 
-        //para prueba
-        const productoEditado = req.body
-        res.send(productoEditado)
+            res.redirect('/store')
 
 
     },
