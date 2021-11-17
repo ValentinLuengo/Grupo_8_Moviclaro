@@ -13,9 +13,9 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const mainController = {
 
     index: (req, res) => {
-        const productsOfertas = products.filter(prod => prod.category === 'oferta');
-        const productsPromocion = products.filter(prod => prod.category === 'promocion');
-        res.render('index', { productsOfertas, productsPromocion });
+        const productsOfertas = products.filter(prod => ((prod.category === 'Oferta')&& (prod.stock >0)));
+        const productsPromoción = products.filter(prod => ((prod.category === 'Promoción')&& (prod.stock >0)));
+        res.render('index', { productsOfertas, productsPromoción });
     },
 
     store: (req, res) => {
@@ -49,12 +49,12 @@ const mainController = {
     },
 
     edit: (req, res) => {
-        let producto = req.params.id;
-        const product =
-            products.find((product) => product.id == producto) || products[0];
+        const producto = req.params.id;
+        const product = products.find((product) => (product.id == producto)) || products[0];
         let pathEdit = path.join(__dirname, '../views/products/productEdit');
         res.render(pathEdit, { product })
     },
+
     // Update - Method to update
     update: (req, res) => {
         // Leemos el id que viene por url
@@ -63,40 +63,24 @@ const mainController = {
         const productIndex = products.findIndex((p) => p.id == productId);
 
         // Generamos el producto actualizado
-        const updatedProduct = {
+        const updatedProduct =  {
             ...products[productIndex],
             ...req.body,
-            precio: Number(req.body.precio),
+            price: Number(req.body.price),
+            
             image: req.file ? req.file.filename : products[productIndex].image
-        };
-
+          };
+        
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 
         // Escribimos en el JSON para persistir
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
+
 
         // Volvemos a la pagina de productos
-        res.send('prueba');
+        res.send(updateProduct +" "+ productIndex);
     },
-
-    // Delete - Delete one product from DB
-    destroy: (req, res) => {
-        // Leer el id
-        const productId = req.params.id;
-        // Buscar la posicion actual del producto a eliminar
-        const productIndex = products.findIndex((p) => p.id == productId);
-        // Recortar el array sin ese producto
-        products.splice(productIndex, 1);
-        // Guardar en el json el nuevo array
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-
-        res.redirect('/store');
-        // res.send("Producto eliminado")
-    },
-
-
-
     //Create - Create one product in DB
     storeProduct: (req, res) => {
         const product = req.body;
@@ -110,6 +94,21 @@ const mainController = {
 
         res.redirect('/')
     },
+
+     // Delete - Delete one product from DB
+     destroy: (req, res) => {
+        // Leer el id
+        const productId = req.params.id;
+        // Buscar la posicion actual del producto a eliminar
+        const productIndex = products.findIndex((p) => p.id == productId);
+        // Recortar el array sin ese producto
+        products.splice(productIndex, 1);
+        // Guardar en el json el nuevo array
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+
+        res.redirect('/store');
+        // res.send("Producto eliminado")
+    },
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
         const user = req.body;
@@ -119,7 +118,7 @@ const mainController = {
 
 
         res.redirect('/')
-    },
+    }
     // // Delete - Delete one product from DB
     // destroy: (req, res) => {
     //     res.send("Producto eliminado");

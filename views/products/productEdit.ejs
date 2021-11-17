@@ -9,27 +9,46 @@
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar producto</h2>
                     <form action="/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
-                        <!-- <form action="/edit/<%= product.descripcion %>"?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">     -->
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <input type="text" name="marca" id="marca" class="input" value="<%= product.marca %>">
+                                <input type="text" name="marca" id="marca" class="input" value="<%= product.marca %>" required>
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.modelo %>">
+                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.modelo %>" required>
                             </div>
                             <div class="registro-campos">
-                                <label for="color">Color</label>
-                                <input type="text" name="color" id="color" class="input" value="<%= product.color %>">
+                           
+                            <select name="color" class="input select" required>
+                                <option value=<%= product.color %>><%= product.color %></option>
+                                <option value="Negro">Negro</option>
+                                <option value="Blanco">Blanco</option>
+                                <option value="Rojo">Rojo</option>
+                                <option value="Azul">Azul</option>
+                                <option value="Verde">Verde</option>
+                                <option value="Gris">Gris</option>
+                                <option value="Plateado">Plateado</option>
+                                <option value="Dorado">Dorado</option>
+                            </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="text" name="precio" id="precio" class="input" value="<%= product.precio %>">
+                                <input type="number" name="precio" id="precio" class="input" value="<%= product.precio %>" required>
                             </div>
                             <div class="registro-campos">
-                                <label for="precio">Stock disponible</label>
-                                <input type="number" name="precio" id="precio" class="input" value="">
+                                <label for="stock">Stock disponible</label>
+                                <input type="text" name="stock" id="stock" class="input" value="<%= product.stock %>" required>
+                            </div>
+                            <div class="registro-campos">
+                                <label>Categoria</label>
+                                <select name="categoria" class="input select"   value ="<%= product.category %>" required>
+                                    <option value="" >--</option>
+                                    <option  selected><%= product.category %></option>
+                                    <option value="Oferta">Oferta</option>
+                                    <option value="Promoción">Promoción</option>
+
+                                </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
@@ -37,7 +56,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" value=" <%= product.descripcion %>"></textarea>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" ><%= product.descripcion %></textarea>
                             </div>
                         </div>
                         <div class="botones">

@@ -12,15 +12,15 @@
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <input type="text" name="marca" id="marca" class="input">
+                                <input type="text" name="marca" id="marca" class="input" required>
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input">
+                                <input type="text" name="modelo" id="modelo" class="input" required>
                             </div>
                             <div class="registro-campos">
                                 <label>Color</label>
-                                <select name="color" class="input select">
+                                <select name="color" class="input select" required>
                         <option value="null" >----</option>
                         <option value="Negro">Negro</option>
                         <option value="Blanco">Blanco</option>
@@ -34,15 +34,27 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input">
+                                <input type="number" name="precio" id="precio" class="input" required >
                             </div>
                             <div class="registro-campos">
+                                <label for="precio">Stock disponible</label>
+                                <input type="number" name="stock" id="precio" class="input" required>
+                            </div>
+                                <div class="registro-campos">
+                                    <label>Categoria</label>
+                                    <select name="categoria" class="input select" >
+                                        <option value="" >--</option>
+                                        <option value="Promoción">Promoción</option>
+                                        <option value="Oferta">Oferta</option>
+                                    </select>
+                                </div>
+                            <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" required></textarea>
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="image" id="image">
+                                <input type="file" name="image" id="image" required>
                             </div>
                         </div>
                         <div class="botones">
