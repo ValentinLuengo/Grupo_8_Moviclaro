@@ -67,9 +67,11 @@ const mainController = {
             ...products[productIndex],
             ...req.body,
             precio: Number(req.body.precio),
-            image: req.file ? req.file.filename : products[productIndex].image
+           // image: req.file ? req.file.filename : products[productIndex].image
+            //image: req.file.filename
 
         };
+        updatedProduct.image = req.file.filename;
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 

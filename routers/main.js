@@ -44,7 +44,7 @@ router.post('/storeProduct', uploadFile.single('image'), mainController.storePro
 router.post('/storeUser', uploadFile.single('image'), mainController.storeUser);
 
 
-router.get('/edit/:id', mainController.edit);
+router.get('/edit/:id',uploadFile.single('image'), mainController.edit);
 
 router.put('/edit/:id',uploadFile.single('image'), mainController.update);
 

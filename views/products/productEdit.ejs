@@ -42,17 +42,17 @@
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
-                                <select name="category" class="input select" value="<%= product.category %>" required>
-                                    <option value="" >--</option>
+                                <select name="category" class="input select"   required>
+                                     <option value="" >--</option>
                                     <option  selected><%= product.category %></option>
                                     <option value="Oferta">Oferta</option>
-                                    <option value="Promoción">Promoción</option>
+                                    <option value="Promoción">Promoción</option> 
 
                                 </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="imagen" id="imagen" value="<%= product.image %>">
+                                <input type="file" name="image" id="image" value="<%= product.image %>""  required>
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
