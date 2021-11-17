@@ -61,25 +61,26 @@ const mainController = {
         const productId = req.params.id;
         // buscamos la posicion del producto que queremos editar
         const productIndex = products.findIndex((p) => p.id == productId);
+        if (productIndex >-1){
+
+        
 
         // Generamos el producto actualizado
-        const updatedProduct =  {
-            ...products[productIndex],
-            ...req.body,
-            price: Number(req.body.price),
-            
-            image: req.file ? req.file.filename : products[productIndex].image
-          };
         
-        // Reemplazamos el objeto en el array
-        products[productIndex] = updatedProduct;
+           // products[productIndex] = req.body
+            
+            products[productIndex].image=  req.file ? req.file.filename : products[productIndex].image
+          
+        
+        
 
         // Escribimos en el JSON para persistir
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
 
 
         // Volvemos a la pagina de productos
-        res.send(updateProduct +" "+ productIndex);
+        res.send(req.body.marca+" "+ productIndex);
+        }else{res.send('No se encontró el elemento en la BD')}
     },
     //Create - Create one product in DB
     storeProduct: (req, res) => {

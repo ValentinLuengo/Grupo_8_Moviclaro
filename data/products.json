@@ -1,26 +1,25 @@
 [
  {
-  "id": 1,
-  "marca": "Samsung Oferta producto 0",
-  "modelo": "Galaxy A22",
-  "color": "Azul",
-  "precio": 444444,
-  "descripcion": "Pantalla asombrosa para un desplazamiento verdaderamente fluido. Ampliá tu visión con la pantalla Infinity-U de 6,4'' del Galaxy A22 y mirá todo lo que te estabas perdiendo. Gracias a la pantalla Super Amoled HD+ que alcanza los 600 nits1 para lograr más claridad, tus contenidos se ven nítidos, definidos y deslumbrantes. Además, Real Smooth mantiene el desplazamiento fluido en tus juegos y redes sociales.",
+  "id": 2,
+  "marca": "Motorola",
+  "modelo": "Moto G30",
+  "color": "Negro",
+  "precio": "98520",
+  "descripcion": "Motorola presenta el nuevo Moto G30: un teléfono de gama media que presume de características muy exigentes, empezando por su cámara de fotos de alta resolución y su pantalla. De hecho, ofrece desde su diseño interno y externo un equipo de alto rendimiento.",
   "category": "Oferta",
-  "stock": 0,
-  "image": "sam-a22.jpg"
+  "stock": 2,
+  "image": "moto-g30.jpg"
  },
  {
   "id": 2,
-  "marca": "Samsung Promoción stock 20",
-  "modelo": "Galaxy A32 128GB",
-  "color": "Blanco",
-  "precio": null,
-  "descripcion": "Actualizá el modelo de tu smartphone con el nuevo Samsung A32 y acelerá tu experiencia móvil. La velocidad del nuevo celular de Samsung de la Línea A va a cambiar completamente la forma de navegar y compartir contenidos. Vas a lograr desde un juego o streaming más fluido, hasta compartir y bajar contenidos de forma súper rápida.",
-  "category": "Promoción",
-  "stock": 20,
-  "image": "sam-a32.jpg",
-  "price": null
+  "marca": "Motorola",
+  "modelo": "Moto G30",
+  "color": "Negro",
+  "precio": "98520",
+  "descripcion": "Motorola presenta el nuevo Moto G30: un teléfono de gama media que presume de características muy exigentes, empezando por su cámara de fotos de alta resolución y su pantalla. De hecho, ofrece desde su diseño interno y externo un equipo de alto rendimiento.",
+  "category": "Oferta",
+  "stock": 2,
+  "image": "moto-g30.jpg"
  },
  {
   "id": 3,
