@@ -46,7 +46,7 @@ router.post('/storeUser', uploadFile.single('image'), mainController.storeUser);
 
 router.get('/edit/:id', mainController.edit);
 
-router.put('/edit/:id', mainController.update);
+router.put('/edit/:id',uploadFile.single('image'), mainController.update);
 
 // Borrar producto
 router.delete('/:id', mainController.destroy);

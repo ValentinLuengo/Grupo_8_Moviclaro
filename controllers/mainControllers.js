@@ -73,10 +73,15 @@ const mainController = {
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 
+
+
         // Escribimos en el JSON para persistir
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
             // Volvemos a la pagina de productos
-        res.redirect('/store')
+
+        //para prueba
+        const productoEditado = req.body
+        res.send(productoEditado)
 
 
     },
@@ -118,10 +123,6 @@ const mainController = {
 
             res.redirect('/')
         }
-        // // Delete - Delete one product from DB
-        // destroy: (req, res) => {
-        //     res.send("Producto eliminado");
-        // },
 
 
 }
