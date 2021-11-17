@@ -68,8 +68,8 @@ const mainController = {
             ...req.body,
             precio: Number(req.body.precio),
             image: req.file ? req.file.filename : products[productIndex].image
-
         };
+
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 
@@ -79,7 +79,7 @@ const mainController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
             // Volvemos a la pagina de productos
 
-            res.redirect('/store')
+        res.redirect('/store')
 
 
     },
@@ -113,14 +113,14 @@ const mainController = {
     },
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
-            const user = req.body;
-            user.id = users[users.length - 1].id + 1;
-            users.push(user);
-            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+        const user = req.body;
+        user.id = users[users.length - 1].id + 1;
+        users.push(user);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
 
 
-            res.redirect('/')
-        }
+        res.redirect('/')
+    }
 
 
 }
