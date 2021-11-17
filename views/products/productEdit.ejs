@@ -19,8 +19,8 @@
                                 <input type="text" name="modelo" id="modelo" class="input" value="<%= product.modelo %>" required>
                             </div>
                             <div class="registro-campos">
-                           
-                            <select name="color" class="input select" required>
+
+                                <select name="color" class="input select" required>
                                 <option value=<%= product.color %>><%= product.color %></option>
                                 <option value="Negro">Negro</option>
                                 <option value="Blanco">Blanco</option>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
-                                <select name="categoria" class="input select"   value ="<%= product.category %>" required>
+                                <select name="category" class="input select" value="<%= product.category %>" required>
                                     <option value="" >--</option>
                                     <option  selected><%= product.category %></option>
                                     <option value="Oferta">Oferta</option>
@@ -56,12 +56,12 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" ><%= product.descripcion %></textarea>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"><%= product.descripcion %></textarea>
                             </div>
                         </div>
                         <div class="botones">
                             <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
-                            <input class="registro-boton" value="ENVIAR" type="submit" >
+                            <input class="registro-boton" value="ENVIAR" type="submit">
                         </div>
 
                     </form>
