@@ -59,6 +59,7 @@ const mainController = {
     update: (req, res) => {
         // Leemos el id que viene por url
         const productId = req.params.id;
+        
         // buscamos la posicion del producto que queremos editar
         const productIndex = products.findIndex((p) => p.id == productId);
 
@@ -68,10 +69,10 @@ const mainController = {
             ...req.body,
             precio: Number(req.body.precio),
            // image: req.file ? req.file.filename : products[productIndex].image
-            //image: req.file.filename
+            image: req.file.filename
 
         };
-        updatedProduct.image = req.file.filename;
+        
         // Reemplazamos el objeto en el array
         products[productIndex] = updatedProduct;
 
