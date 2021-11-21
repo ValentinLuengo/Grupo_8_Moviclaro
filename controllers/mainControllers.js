@@ -34,16 +34,16 @@ const mainController = {
     let errors  =validationResult(req);
     let usuarioAloguearse
     if(errors.isEmpty()){
-    for(i=0; users.length;i++){
+    for(let i=0; users.length;i++){
          let usuario = users[i]
-            if ("vivi@hot.mail.com"==req.body.email){
-                usuarioAloguearse = JSON.stringify(users[0]);
+            if (users[i]==req.body.email){
+                usuarioAloguearse = JSON.stringify(users[i]);
                 i= users.length
             }
         } 
         if(usuarioAloguearse != undefined){
             res.send("te encontre")
-        }else{res.send("no ten encontre"+ usuarioAloguearse)}
+        }else{res.send("no ten encontre")}
     }else{ 
        res.render(path.join(__dirname, '../views/users/login'),{errors:errors.errors})
       
