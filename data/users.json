@@ -1,21 +1,21 @@
 [
  {
-  "nombre": "Andrea",
-  "apellido": "Gomez",
-  "celular": "1144443333",
-  "mail": "andreagomez@gmail.com",
+  "nombre": "vivi",
+  "apellido": "vivi",
+  "celular": "",
+  "email": "vivi@hot.mail.com",
   "password": "123456",
   "pais": "arg",
   "password2": "123456",
-  "categoria": "arg",
+  "categoria": "uru",
   "terminos": "on",
   "id": 1
  },
  {
-  "nombre": "juan",
-  "apellido": "admin",
-  "celular": "1166665555",
-  "mail": "juan@admin.com",
+  "nombre": "Viviana",
+  "apellido": "Acevedo",
+  "celular": "1133334444",
+  "email": "vvi@hotmail.com",
   "password": "123456",
   "pais": "arg",
   "password2": "123456",
@@ -24,75 +24,14 @@
   "id": 2
  },
  {
-  "nombre": "jorge",
-  "apellido": "admin",
-  "celular": "1166677555",
-  "mail": "jorge@admin.com",
-  "password": "1234578",
-  "pais": "arg",
-  "password2": "12345678",
-  "categoria": "arg",
-  "terminos": "on",
-  "id": 3
- },
- {
-  "nombre": "sara",
-  "apellido": "admin",
-  "celular": "1166665588",
-  "mail": "saran@admin.com",
-  "password": "12345600",
-  "pais": "arg",
-  "password2": "12345600",
-  "categoria": "arg",
-  "terminos": "on",
-  "id": 4
- },
- {
   "nombre": "Leandro",
   "apellido": "Gutierrez",
-  "celular": "1166912294",
-  "mail": "leleman79@gmail.com",
-  "password": "lelecapo",
+  "celular": "123123123",
+  "email": "leleman79@gmail.com",
+  "password": "123456",
   "pais": "arg",
-  "password2": "lelecapo",
+  "password2": "123456",
   "categoria": "arg",
-  "terminos": "on",
-  "id": 5
- },
- {
-  "nombre": "Veronica",
-  "apellido": "Castro",
-  "celular": "1152223333",
-  "mail": "laveronicacastro@yahoo.com.mx",
-  "password": "verocastro",
-  "pais": "mex",
-  "password2": "verocastro",
-  "categoria": "null",
-  "terminos": "on",
-  "id": 6
- },
- {
-  "nombre": "Pollito",
-  "apellido": "Juan",
-  "celular": "1183334567",
-  "mail": "elpollitojuan@gmail.com",
-  "password": "pollitojuan",
-  "pais": "arg",
-  "password2": "pollitojuan",
-  "categoria": "uru",
-  "terminos": "on",
-  "id": 7
- },
- {
-  "nombre": "Tortuga",
-  "apellido": "Tuga",
-  "celular": "2222222222",
-  "mail": "tortugatuga@hotmail.com",
-  "password": "tortuga",
-  "pais": "sal",
-  "password2": "tortuga",
-  "categoria": "uru",
-  "terminos": "on",
-  "id": 8
+  "id": 3
  }
 ]

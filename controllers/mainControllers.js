@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+let { check, validationResult, body } = require('express-validator')
 
 const publicPath = path.resolve(__dirname, './public');
 
@@ -28,6 +29,29 @@ const mainController = {
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
     },
+
+    processLogin: (req, res) => {
+        let errors = validationResult(req);
+        let usuarioAloguearse
+        if (errors.isEmpty()) {
+            for (let i = 0; users.length; i++) {
+                let usuario = users[i]
+                if (users[i] == req.body.email) {
+                    usuarioAloguearse = JSON.stringify(users[i]);
+                    i = users.length
+                }
+            }
+            if (usuarioAloguearse != undefined) {
+                res.send("te encontre")
+            } else { res.send("no ten encontre") }
+        } else {
+            res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
+
+        }
+
+
+    },
+
     productDetail: (req, res) => {
         const requestedId = req.params.id;
         const product =
@@ -59,6 +83,7 @@ const mainController = {
     update: (req, res) => {
         // Leemos el id que viene por url
         const productId = req.params.id;
+
         // buscamos la posicion del producto que queremos editar
         const productIndex = products.findIndex((p) => p.id == productId);
 
@@ -67,7 +92,9 @@ const mainController = {
             ...products[productIndex],
             ...req.body,
             precio: Number(req.body.precio),
-            image: req.file ? req.file.filename : products[productIndex].image
+            // image: req.file ? req.file.filename : products[productIndex].image
+            image: req.file.filename
+
         };
 
         // Reemplazamos el objeto en el array
@@ -114,12 +141,14 @@ const mainController = {
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
         const user = req.body;
-        user.id = users[users.length - 1].id + 1;
-        users.push(user);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-
-
-        res.redirect('/')
+        if (user.password != user.password2) {
+            res.send("las contraseñas no coinciden")
+        } else {
+            user.id = users[users.length - 1].id + 1;
+            users.push(user);
+            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+            res.redirect('/')
+        }
     }
 
 
