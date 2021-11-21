@@ -5,6 +5,10 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 const publicPath = path.resolve(__dirname, './public');
+const session = require('express-session')
+
+app.use(session({secret: 'secreto'}))
+
 
 
 app.use(express.static('public'));

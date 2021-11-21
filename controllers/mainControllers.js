@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+let {check, validationResult, body} = require('express-validator')
 
 const publicPath = path.resolve(__dirname, './public');
 
@@ -28,6 +29,29 @@ const mainController = {
     login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
     },
+
+    processLogin: (req, res) => {
+    let errors  =validationResult(req);
+    let usuarioAloguearse
+    if(errors.isEmpty()){
+    for(i=0; users.length;i++){
+         let usuario = users[i]
+            if ("vivi@hot.mail.com"==req.body.email){
+                usuarioAloguearse = JSON.stringify(users[0]);
+                i= users.length
+            }
+        } 
+        if(usuarioAloguearse != undefined){
+            res.send("te encontre")
+        }else{res.send("no ten encontre"+ usuarioAloguearse)}
+    }else{ 
+       res.render(path.join(__dirname, '../views/users/login'),{errors:errors.errors})
+      
+    } 
+
+
+    },
+
     productDetail: (req, res) => {
         const requestedId = req.params.id;
         const product =
@@ -117,12 +141,14 @@ const mainController = {
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
             const user = req.body;
+            if (user.password !=user.password2){
+                res.send("las contraseñas no coinciden")
+            }else{
             user.id = users[users.length - 1].id + 1;
             users.push(user);
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-
-
             res.redirect('/')
+            }
         }
 
 
