@@ -1,10 +1,13 @@
 const express = require('express');
 const multer = require('multer');
 const mainController = require('../controllers/mainControllers.js');
+const guestMiddleware = require('../middlewares/guestMiddleware.js');
+const authMiddleware = require('../middlewares/authMiddleware.js')
 let router = express.Router();
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
-const {check} = require('express-validator')
+const {check} = require('express-validator');
+
 
 
 /**Para subir las imagenes */
@@ -43,7 +46,7 @@ router.post('/login',validaciones,mainController.processLogin)
 
 router.get('/detalle/:id', mainController.productDetail);
 
-router.get('/registro', mainController.registro);
+router.get('/registro', guestMiddleware, mainController.registro);
 
 router.get('/agregarCarrito', mainController.agregarCarrito);
 

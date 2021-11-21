@@ -32,18 +32,22 @@ const mainController = {
 
     processLogin: (req, res) => {
     let errors  =validationResult(req);
-    let usuarioAloguearse
-    if(errors.isEmpty()){
-    for(let i=0; users.length;i++){
-         let usuario = users[i]
-            if (users[i]==req.body.email){
-                usuarioAloguearse = JSON.stringify(users[i]);
-                i= users.length
-            }
-        } 
-        if(usuarioAloguearse != undefined){
-            res.send("te encontre")
-        }else{res.send("no ten encontre")}
+    let usuarioALoguearse ;
+    if(errors.isEmpty()){              
+        for(let i=0; i< users.length;i++){
+            let usuario = users[i]
+                if (users[i].email==req.body.email){
+                   usuarioALoguearse = users[i]
+                    break;
+                }
+            } 
+        if(usuarioALoguearse != undefined){
+                //Te encontre usuario!
+                req.session.usuarioLogueado = usuarioALoguearse;
+                res.render(path.join(__dirname, '../views/products/store'), { products })
+        }else{
+                res.render(path.join(__dirname, '../views/users/login'), {errors: [{msg: 'No se encontró al usuario o la contraseña es incorrecta' }]})
+        }
     }else{ 
        res.render(path.join(__dirname, '../views/users/login'),{errors:errors.errors})
       
