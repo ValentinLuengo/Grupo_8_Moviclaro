@@ -52,7 +52,7 @@ const mainController = {
         const producto = req.params.id;
         const product = products.find((product) => (product.id == producto)) || products[0];
         let pathEdit = path.join(__dirname, '../views/products/productEdit');
-        res.render(pathEdit, { product })
+        res.render(pathEdit, { product, })
     },
 
     // Update - Method to update
