@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
  {
   "nombre": "vivi",
@@ -23,4 +24,41 @@
   "terminos": "on",
   "id": 2
  }
+=======
+[{
+        "nombre": "vivi",
+        "apellido": "vivi",
+        "celular": "",
+        "email": "vivi@hot.mail.com",
+        "password": "123456",
+        "pais": "arg",
+        "password2": "123456",
+        "categoria": "uru",
+        "terminos": "on",
+        "id": 1
+    },
+    {
+        "nombre": "Viviana",
+        "apellido": "Acevedo",
+        "celular": "1133334444",
+        "email": "vivi@hotmail.com",
+        "password": "123456",
+        "pais": "arg",
+        "password2": "123456",
+        "categoria": "arg",
+        "terminos": "on",
+        "id": 2
+    },
+    {
+        "nombre": "Leandro",
+        "apellido": "Gutierrez",
+        "celular": "123123123",
+        "email": "leleman79@gmail.com",
+        "password": "123456",
+        "pais": "arg",
+        "password2": "123456",
+        "categoria": "arg",
+        "id": 3
+    }
+>>>>>>> f5f3b46d319a1bf38c4397c4298a6bb5ab12c7ac
 ]
