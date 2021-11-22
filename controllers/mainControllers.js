@@ -32,18 +32,22 @@ const mainController = {
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        let usuarioAloguearse
+        let usuarioALoguearse;
         if (errors.isEmpty()) {
-            for (let i = 0; users.length; i++) {
+            for (let i = 0; i < users.length; i++) {
                 let usuario = users[i]
-                if (users[i] == req.body.email) {
-                    usuarioAloguearse = JSON.stringify(users[i]);
-                    i = users.length
+                if (users[i].email == req.body.email) {
+                    usuarioALoguearse = users[i]
+                    break;
                 }
             }
-            if (usuarioAloguearse != undefined) {
-                res.send("te encontre")
-            } else { res.send("no ten encontre") }
+            if (usuarioALoguearse != undefined) {
+                //Te encontre usuario!
+                req.session.usuarioLogueado = usuarioALoguearse;
+                res.render(path.join(__dirname, '../views/products/store'), { products })
+            } else {
+                res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })
+            }
         } else {
             res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
 
@@ -65,9 +69,9 @@ const mainController = {
         res.render(path.join(__dirname, '../views/products/productCart'))
     },
 
-    registro: (req, res) => {
-        res.render(path.join(__dirname, '../views/users/register'))
-    },
+    // registro: (req, res) => {
+    //     res.render(path.join(__dirname, '../views/users/register'))
+    // },
     create: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
@@ -140,15 +144,20 @@ const mainController = {
     },
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
-        const user = req.body;
-        if (user.password != user.password2) {
-            res.send("las contraseñas no coinciden")
-        } else {
-            user.id = users[users.length - 1].id + 1;
-            users.push(user);
-            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-            res.redirect('/')
-        }
+
+        return res.send(req.body);
+
+
+
+        // const user = req.body;
+        // if (user.password != user.password2) {
+        //     res.send("las contraseñas no coinciden")
+        // } else {
+        //     user.id = users[users.length - 1].id + 1;
+        //     users.push(user);
+        //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+        //     res.redirect('/')
+        // }
     }
 
 

@@ -68,6 +68,12 @@ body {
     font-style: italic;
 }
 
+.text-danger {
+    margin: 10px 0;
+    font-size: 15px;
+    color: red;
+}
+
 .registro-boton {
     background: #25FAD3;
     border-radius: 50px;
