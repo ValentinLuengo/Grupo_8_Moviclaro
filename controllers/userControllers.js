@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator')
-
+const bcryptjs = require('bcryptjs')
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -29,14 +29,43 @@ const userController = {
                     oldData: req.body
                 });
             }
+
+            let userInDb = User.findByField('email', req.body.email);
+            if (userInDb) {
+                return res.render(path.join(__dirname, '../views/users/register'), {
+                    errors: {
+                        email: {
+                            msg: 'Este email ya está registrado'
+                        }
+                    },
+                    oldData: req.body
+                });
+            }
+
+            if (req.body.password !== req.body.password2) {
+                return res.render(path.join(__dirname, '../views/users/register'), {
+                    errors: {
+                        password2: {
+                            msg: 'Las contraseñas no coinciden'
+                        }
+                    },
+                    oldData: req.body
+                });
+            }
+
             let userToCreate = {
                 ...req.body,
+                password: bcryptjs.hashSync(req.body.password, 10),
+                password2: bcryptjs.hashSync(req.body.password2, 10),
                 avatar: req.file.filename
             }
 
 
-            User.create(userToCreate);
-            return res.send('Ok, se creo al usuario');
+
+
+
+            let userCreated = User.create(userToCreate);
+            return res.render(path.join(__dirname, '../views/users/login'))
         }
         // processLogin: (req, res) => {
         //     let errors = validationResult(req);

@@ -1,58 +1,13 @@
 [
  {
-  "nombre": "vivi",
-  "apellido": "vivi",
-  "celular": "",
-  "email": "vivi@hot.mail.com",
-  "password": "123456",
-  "pais": "arg",
-  "password2": "123456",
-  "categoria": "uru",
-  "terminos": "on",
-  "id": 1
- },
- {
-  "nombre": "Viviana",
-  "apellido": "Acevedo",
-  "celular": "1133334444",
-  "email": "vivi@hotmail.com",
-  "password": "123456",
-  "pais": "arg",
-  "password2": "123456",
-  "categoria": "arg",
-  "terminos": "on",
-  "id": 2
- },
- {
+  "id": 1,
   "nombre": "Leandro",
   "apellido": "Gutierrez",
-  "celular": "123123123",
+  "celular": "1166912294",
   "email": "leleman79@gmail.com",
-  "password": "123456",
-  "pais": "arg",
-  "password2": "123456",
-  "categoria": "arg",
-  "id": 3
- },
- {
-  "id": 4,
-  "nombre": "Leandro",
-  "apellido": "Gutierrez",
-  "celular": "12121212",
-  "email": "leleman79@gmail.com",
-  "password": "1212",
+  "password": "$2a$10$bWiO88psdnWElISv9VzVm.lZztTfgpNuim9VgG0X1wgMVywAmit3y",
   "pais": "Argentina ",
-  "password2": "1221"
- },
- {
-  "id": 5,
-  "nombre": "lelelele",
-  "apellido": "werwer",
-  "celular": "1231231",
-  "email": "lele@lele.com",
-  "password": "1231231",
-  "pais": "Colombia ",
-  "password2": "121231",
-  "avatar": "1637613245178_img.jpg"
+  "password2": "$2a$10$LhvgNDfor6ZW.DtpfQIB7.hDGoS6p3dtmgZzlbgyfmS8.x8y/6CNC",
+  "avatar": "1637620170045_img.jpg"
  }
 ]
