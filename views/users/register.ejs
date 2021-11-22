@@ -11,9 +11,9 @@
 
                     <form action="/registro" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
-                            <div class="registro-campos">
+                            <div class="registro-campos ">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="input">
+                                <input type="text" name="nombre" id="nombre" class="input <%= locals.errors && errors.nombre ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.nombre : null %>">
                                 <% if (locals.errors && errors.nombre) { %>
                                     <div class="text-danger">
                                         <%= errors.nombre.msg %>
@@ -23,7 +23,7 @@
 
                             <div class="registro-campos">
                                 <label for="apellido">Apellido</label>
-                                <input type="text" name="apellido" id="apellido" class="input">
+                                <input type="text" name="apellido" id="apellido" class="input  <%= locals.errors && errors.apellido ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.apellido : null %>">
                                 <% if (locals.errors && errors.apellido) { %>
                                     <div class="text-danger">
                                         <%= errors.apellido.msg %>
@@ -32,7 +32,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="celular">Celular</label>
-                                <input type="number" name="celular" id="celular" class="input">
+                                <input type="number" name="celular" id="celular" class="input  <%= locals.errors && errors.celular ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.celular : null %>">
                                 <% if (locals.errors && errors.celular) { %>
                                     <div class="text-danger">
                                         <%= errors.celular.msg %>
@@ -41,8 +41,8 @@
                             </div>
 
                             <div class="registro-campos">
-                                <label for="email">E-email</label>
-                                <input type="eemail" name="email" id="email" class="input">
+                                <label for="email">E-mail</label>
+                                <input type="email" name="email" id="email" class="input  <%= locals.errors && errors.email ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.email : null %>">
                                 <% if (locals.errors && errors.email) { %>
                                     <div class="text-danger">
                                         <%= errors.email.msg %>
@@ -52,7 +52,7 @@
 
                             <div class="registro-campos">
                                 <label for="password">Contraseña</label>
-                                <input type="password" name="password" id="password" class="input">
+                                <input type="password" name="password" id="password" class="input  <%= locals.errors && errors.password ? 'is-invalid': null %>">
                                 <% if (locals.errors && errors.password) { %>
                                     <div class="text-danger">
                                         <%= errors.password.msg %>
@@ -63,14 +63,14 @@
 
                             <div class="registro-campos">
                                 <label>País</label>
-                                <select name="pais" class="input select">
-                                    <option value="null" >Selecciona...</option>
+                                <select name="pais" class="input select  <%= locals.errors && errors.pais ? 'is-invalid': null %>">
+                                    <option value="">Selecciona...</option>
 
                                     <% let paises = ['Argentina', 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
 
-                                    <% for (const pais of paises){  %> 
+                                    <% for (const unPais of paises){  %> 
                                     
-                                    <option value="<%= pais %> "> <%= pais %> </option>
+                                    <option value="<%= unPais %> " <%= locals.oldData && (unPais === oldData.pais) ? 'selected' : null %> > <%= unPais %> </option>
 
                                     <% } %> 
                                 </select>
@@ -83,7 +83,7 @@
 
                             <div class="registro-campos">
                                 <label for="password">Confirmar contraseña</label>
-                                <input type="password" name="password2" id="password2" class="input">
+                                <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password2 ? 'is-invalid': null %>">
                                 <% if (locals.errors && errors.password2) { %>
                                     <div class="text-danger">
                                         <%= errors.password2.msg %>
@@ -91,17 +91,17 @@
                                     <% } %>
                             </div>
 
-                            <div class="registro-campos">
+                            <!-- <div class="registro-campos">
                                 <label>Categoría</label>
                                 <select name="categoria" class="input select">
                                     <option value="null" >Seleciona...</option>
                                     <option value="arg">Administrador</option>
                                     <option value="uru">Cliente</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="registro-campos">
                                 <label for="avatar">Imagen de perfil</label> </br>
-                                <input type="file" name="avatar" id="avatar">
+                                <input type="file" name="avatar" id="avatar" class=" <%= locals.errors && errors.avatar ? 'is-invalid': null %>">
                                 <% if (locals.errors && errors.avatar) { %>
                                     <div class="text-danger">
                                         <%= errors.avatar.msg %>
