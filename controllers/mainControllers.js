@@ -31,7 +31,7 @@ const mainController = {
     },
 
     processLogin: (req, res) => {
-<<<<<<< HEAD
+
     let errors  =validationResult(req);
     let usuarioALoguearse ;
     if(errors.isEmpty()){              
@@ -43,19 +43,7 @@ const mainController = {
                 }
             }
         if(usuarioALoguearse != undefined){
-=======
-        let errors = validationResult(req);
-        let usuarioALoguearse;
-        if (errors.isEmpty()) {
-            for (let i = 0; i < users.length; i++) {
-                let usuario = users[i]
-                if (users[i].email == req.body.email) {
-                    usuarioALoguearse = users[i]
-                    break;
-                }
-            }
-            if (usuarioALoguearse != undefined) {
->>>>>>> f5f3b46d319a1bf38c4397c4298a6bb5ab12c7ac
+
                 //Te encontre usuario!
                 req.session.usuarioLogueado = usuarioALoguearse;
                 if (req.body.recordame!= undefined){
