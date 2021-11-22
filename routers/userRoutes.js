@@ -19,15 +19,7 @@ const userController = require('../controllers/userControllers');
 const uploadFile = require('../middlewares/userMulter');
 // const validations = require('../middlewares/validationsMiddleware');
 
-const validaciones = [
-    body('nombre').notEmpty().withMessage('Este campo es obligatorio'),
-    body('apellido').notEmpty().withMessage('Este campo es obligatorio'),
-    body('email').notEmpty().withMessage('Este campo es obligatorio'),
-    body('celular').notEmpty().withMessage('Este campo es obligatorio'),
-    body('pais').notEmpty().withMessage('Este campo es obligatorio'),
-
-    body('password').notEmpty()
-]
+const validaciones = require('../middlewares/validationsMiddleware');
 
 
 
