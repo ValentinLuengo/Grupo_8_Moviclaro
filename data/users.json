@@ -1,36 +1,58 @@
-[{
-        "nombre": "vivi",
-        "apellido": "vivi",
-        "celular": "",
-        "email": "vivi@hot.mail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "uru",
-        "terminos": "on",
-        "id": 1
-    },
-    {
-        "nombre": "Viviana",
-        "apellido": "Acevedo",
-        "celular": "1133334444",
-        "email": "vivi@hotmail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "arg",
-        "terminos": "on",
-        "id": 2
-    },
-    {
-        "nombre": "Leandro",
-        "apellido": "Gutierrez",
-        "celular": "123123123",
-        "email": "leleman79@gmail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "arg",
-        "id": 3
-    }
+[
+ {
+  "nombre": "vivi",
+  "apellido": "vivi",
+  "celular": "",
+  "email": "vivi@hot.mail.com",
+  "password": "123456",
+  "pais": "arg",
+  "password2": "123456",
+  "categoria": "uru",
+  "terminos": "on",
+  "id": 1
+ },
+ {
+  "nombre": "Viviana",
+  "apellido": "Acevedo",
+  "celular": "1133334444",
+  "email": "vivi@hotmail.com",
+  "password": "123456",
+  "pais": "arg",
+  "password2": "123456",
+  "categoria": "arg",
+  "terminos": "on",
+  "id": 2
+ },
+ {
+  "nombre": "Leandro",
+  "apellido": "Gutierrez",
+  "celular": "123123123",
+  "email": "leleman79@gmail.com",
+  "password": "123456",
+  "pais": "arg",
+  "password2": "123456",
+  "categoria": "arg",
+  "id": 3
+ },
+ {
+  "id": 4,
+  "nombre": "Leandro",
+  "apellido": "Gutierrez",
+  "celular": "12121212",
+  "email": "leleman79@gmail.com",
+  "password": "1212",
+  "pais": "Argentina ",
+  "password2": "1221"
+ },
+ {
+  "id": 5,
+  "nombre": "lelelele",
+  "apellido": "werwer",
+  "celular": "1231231",
+  "email": "lele@lele.com",
+  "password": "1231231",
+  "pais": "Colombia ",
+  "password2": "121231",
+  "avatar": "1637613245178_img.jpg"
+ }
 ]

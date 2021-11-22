@@ -20,7 +20,7 @@ const userController = require('../controllers/userControllers');
 const uploadFile = require('../middlewares/userMulter');
 // const validations = require('../middlewares/validationsMiddleware');
 
-const validaciones = require('../middlewares/validationsMiddleware');
+const validations = require('../middlewares/validationsMiddleware');
 
 
 
@@ -28,7 +28,7 @@ const validaciones = require('../middlewares/validationsMiddleware');
 router.get('/registro', userController.registro);
 
 //Procesar el registro
-router.post('/registro', uploadFile.single('avatar'), validaciones, userController.storeUser);
+router.post('/registro', uploadFile.single('avatar'), validations, userController.storeUser);
 
 // Formulario de login
 router.get('/login', userController.login);
