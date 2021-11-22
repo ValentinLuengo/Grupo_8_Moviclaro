@@ -24,7 +24,15 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage });
 
+<<<<<<< HEAD
+const validaciones = [
+    
+    check('email').notEmpty().withMessage('Ingresá el email!').bail().isEmail().withMessage('Ingresá un email válido'),
+    check('password').notEmpty().withMessage('Ingresá la contraseña!')
+]
+=======
 
+>>>>>>> f5f3b46d319a1bf38c4397c4298a6bb5ab12c7ac
 
 
 router.get('/', mainController.index);
