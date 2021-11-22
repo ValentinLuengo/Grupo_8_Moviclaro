@@ -9,7 +9,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
 const { body } = require('express-validator');
-
+//agego un comentario para actualizar
 
 
 
