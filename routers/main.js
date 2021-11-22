@@ -26,8 +26,7 @@ const uploadFile = multer({ storage });
 
 const validaciones = [
     
-    check('email').notEmpty().withMessage('Ingresá el email!'),
-    check('email').isEmail().withMessage('Ingresá un email válido'),
+    check('email').notEmpty().withMessage('Ingresá el email!').bail().isEmail().withMessage('Ingresá un email válido'),
     check('password').notEmpty().withMessage('Ingresá la contraseña!')
 ]
 

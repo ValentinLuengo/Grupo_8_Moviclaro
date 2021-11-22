@@ -10,11 +10,11 @@ const session = require('express-session')
 app.use(session({secret: 'secreto'}))
 
 
-
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
-let mainController = require('./routers/main.js')
+let mainController = require('./routers/main.js');
+const cookieParser = require('cookie-parser');
 
 app.use('/', mainController);
 
