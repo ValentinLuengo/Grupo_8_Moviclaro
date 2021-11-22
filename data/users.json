@@ -5,9 +5,20 @@
   "apellido": "Gutierrez",
   "celular": "1166912294",
   "email": "leleman79@gmail.com",
-  "password": "$2a$10$bWiO88psdnWElISv9VzVm.lZztTfgpNuim9VgG0X1wgMVywAmit3y",
+  "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
   "pais": "Argentina ",
-  "password2": "$2a$10$LhvgNDfor6ZW.DtpfQIB7.hDGoS6p3dtmgZzlbgyfmS8.x8y/6CNC",
-  "avatar": "1637620170045_img.jpg"
+  "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
+  "avatar": "1637620287889_img.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Jorge",
+  "apellido": "cafrune",
+  "celular": "1111111",
+  "email": "jcafrune@gmail.com",
+  "password": "$2a$10$mkS48mmp12JURNSSsNbQSeJn9o/HS5cPBKHg.6KpYhsuCeyq9q/tK",
+  "pais": "Argentina ",
+  "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
+  "avatar": "1637620660112_img.jpg"
  }
 ]
