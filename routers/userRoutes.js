@@ -34,6 +34,8 @@ router.post('/registro', uploadFile.single('avatar'), validations, userControlle
 router.get('/login', userController.login);
 
 //Procesar Login
+router.post('/login', userController.processLogin);
+
 // router.get('/profile/:userId', usersController.profile);
 
 
