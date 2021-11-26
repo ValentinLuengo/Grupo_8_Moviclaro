@@ -11,7 +11,11 @@ app.use(methodOverride('_method'));
 const publicPath = path.resolve(__dirname, './public');
 const session = require('express-session')
 
-app.use(session({ secret: 'secreto' }))
+app.use(session({
+    secret: 'secreto',
+    resave: false,
+    saveUninitialized: false
+}))
 
 
 app.use(express.static('public'));
