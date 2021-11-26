@@ -9,9 +9,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 const publicPath = path.resolve(__dirname, './public');
-const session = require('express-session')
+const session = require('express-session');
 
-app.use(session({ secret: 'secreto' }))
+app.use(session({ 
+    secret: 'secreto',
+    resave: false,
+    saveUninitialized: false,
+ }));
 
 
 app.use(express.static('public'));
@@ -26,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.listen(3000, () => {
     console.log('Servidor corriendo en el puerto 3000 ')
-})
+});
 
 const main = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
