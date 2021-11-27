@@ -119,13 +119,11 @@ body {
 
 .botonComprar {
     max-width: 200px;
-    width: 60%;
-    height: 50px;
     margin: 5px auto;
     background: #25FAD3;
     border: 2px solid black;
     border-radius: 50px;
-    width: 60%;
+    width: 80%;
     height: 50px;
     font-weight: bold;
     transition: all 100ms;

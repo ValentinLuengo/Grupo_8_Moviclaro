@@ -40,7 +40,9 @@
                                 <article class="articulo">
                                     <form action="/agregarCarrito" method="GET">
                                         <div class="img-container">
+                                            <a href="/detalle/<%= product.id %>">
                                             <img class="imagenArticulo" src="/images/products/<%= product.image ? product.image : 'motog20-breeze-blue_front.png' %> " alt="logo">
+                                            </a>
                                         </div>
                                         <div class="articulo-desc">
                                             <h3>

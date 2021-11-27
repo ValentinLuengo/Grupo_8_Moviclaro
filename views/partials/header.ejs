@@ -24,9 +24,14 @@
             <i class="fas fa-bars"></i>
             <div class="header-enlaces-burger">
                 <a href="/store">Tienda</a>
-                <a href="/nuevoProducto">Nuevo Producto</a>
-                <a href="/registro">Registro</a>
-                <a href="/login">Iniciar sesión</a>
+                <% if (locals.isLogged){ %>
+                    <a href="/nuevoProducto">Nuevo Producto</a>
+                    <a href="/user">Perfil</a>
+                    <a href="/logout">Cerrar Sesión</a>
+                    <% } else { %>
+                        <a href="/registro">Registro</a>
+                        <a href="/login">Iniciar sesión</a>
+                        <% } %>
             </div>
         </nav>
     </div>

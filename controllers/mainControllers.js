@@ -31,22 +31,20 @@ const mainController = {
     },
 
     processLogin: (req, res) => {
-
-    let errors  =validationResult(req);
-    let usuarioALoguearse ;
-    if(errors.isEmpty()){              
-        for(let i=0; i< users.length;i++){
-             let usuario = users[i]
-                if (users[i].email==req.body.email){
-                   usuarioALoguearse = users[i]
+        let errors = validationResult(req);
+        let usuarioALoguearse;
+        if (errors.isEmpty()) {
+            for (let i = 0; i < users.length; i++) {
+                let usuario = users[i]
+                if (users[i].email == req.body.email) {
+                    usuarioALoguearse = users[i]
                     break;
                 }
             }
-        if(usuarioALoguearse != undefined){
-
+            if (usuarioALoguearse != undefined) {
                 //Te encontre usuario!
                 req.session.usuarioLogueado = usuarioALoguearse;
-                if (req.body.recordame!= undefined){
+                if (req.body.recordame != undefined) {
                     res.cookie('recordame', usuarioALoguearse.email)
                 }
                 res.render(path.join(__dirname, '../views/products/store'), { products })
