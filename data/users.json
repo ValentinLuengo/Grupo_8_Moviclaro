@@ -20,5 +20,17 @@
   "pais": "Argentina ",
   "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
   "avatar": "1637620660112_img.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Valentín",
+  "apellido": "Rodríguez Luengo",
+  "celular": "1126854557",
+  "email": "valentinluengo2001@gmail.com",
+  "password": "$2a$10$0wKiq862cUupUuxpdXSNRuvol.3jGYOTOQaIT5q2.7t0wTecDkTBe",
+  "pais": "Argentina ",
+  "password2": "$2a$10$BvJV5KG2jsMwB53qum7EduxaWNJybWzw4TZQDqQGXtQufn3nTw2.a",
+  "terminos": "on",
+  "avatar": "1638026498997_img.jpg"
  }
 ]

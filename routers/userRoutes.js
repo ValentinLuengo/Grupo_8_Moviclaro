@@ -40,5 +40,6 @@ router.post('/login', userController.processLogin);
 
 
 // Perfil de Usuario
+router.get("/user/:id",userController.user)
 
 module.exports = router;
