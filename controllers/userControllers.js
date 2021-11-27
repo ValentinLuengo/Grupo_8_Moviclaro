@@ -26,9 +26,11 @@ const userController = {
 
         const resultsValidation = validationResult(req);
         if (resultsValidation.errors.length > 0) {
+            console.log(req.body)
             return res.render(path.join(__dirname, '../views/users/register'), {
                 errors: resultsValidation.mapped(),
                 oldData: req.body
+               
             });
         }
         return res.send('Ok, las se pasaron y no tienes errores');

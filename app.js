@@ -24,12 +24,13 @@ const cookieParser = require('cookie-parser');
 
 
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000 ')
-})
+
 
 const main = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
 
 app.use('/', main);
 app.use('/', userRoutes);
+app.listen(3000, () => {
+    console.log('Servidor corriendo en el puerto 3000 ')
+})
