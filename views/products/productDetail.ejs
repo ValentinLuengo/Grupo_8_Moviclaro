@@ -15,7 +15,9 @@
                                 <%= product.marca %>
                                     <%= product.modelo %>
                             </h2>
-                            <p> $ <%= product.precio %></p>
+                            <p> $
+                                <%= product.precio %>
+                            </p>
                         </div>
                         <div class="envio-stock">
                             <p>En stock <i class="fas fa-check"></i></p>
@@ -26,7 +28,7 @@
                         </form>
                         <ul class="select-option">
                             <label>Color:</label>
-                            <select class="selecet Color" name="colorCelular" value=  <%= product.color %>>
+                            <select class="selecet Color" name="colorCelular" value=< %=p roduct.color %>>
         <option value= <%= product.color %>> <%= product.color %></option>
        
         </select>
@@ -40,19 +42,21 @@
                         </div>
                         <div class="botones">
 
+                            <% if (locals.isLogged){ %>
+
+                                <form action="/<%= product.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
+                                </form>
 
 
-                            <form action="/<%= product.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
-                            </form>
 
+                                <form action="/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
+                                    <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                                    <input class="registro-boton" value="EDITAR" type="submit" href="/edit/<%= product.id %>">
 
+                                </form>
 
-                            <form action="/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
-                                <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
-                                <input class="registro-boton" value="EDITAR" type="submit" href="/edit/<%= product.id %>">
-
-                            </form>
+                                <% } %>
                         </div>
                     </div>
                 </section>

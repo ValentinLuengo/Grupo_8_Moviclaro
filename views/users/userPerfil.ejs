@@ -1,24 +1,40 @@
 <html lang="en">
 
-<%- include('../partials/head.ejs', { title: "Iniciar sesión"}) %>
+<%- include('../partials/head.ejs', { title: "Perfil"}) %>
 
     <body>
         <%- include('../partials/header.ejs') %>
             <main>
-                <div id= "formularioEditUser">
+                <h1>Hola
+                    <%= user.nombre %>
+                </h1>
+                <div id="formularioEditUser">
                     <form class="formulario">
-                        <img id= "imagenPerfil" src="/images/avatars/<%= usuario.avatar %>">
+                        <img id="imagenPerfil" style="width: 40%;" src="/images/avatars/<%= user.avatar %>">
                         <div id="detalle">
-                            <label for="Nombre">Nombre</label>
-                            <input type="text" name="Nombre" value="<%= usuario.nombre %>">
-                            <label for="Apellido">Apellido</label>
-                            <input type="text" name="Apellido" value="<%= usuario.apellido %>">
-                            <label for="Email">Email</label>
-                            <input type="text" name="Email" value="<%= usuario.email %>">
-                            <label for="Celular">Celular</label>
-                            <input type="text" name="Celular" value="<%= usuario.celular %>">
-                            <label for="Contraseña">Contraseña</label>
-                            <input type="text" name="Contraseña" value="<%= usuario.password %>">
+                            <div class="registro-campos">
+                                <label for="Nombre">Nombre</label>
+                                <input class="input" type="text" name="Nombre" value="<%= user.nombre %>">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="Apellido">Apellido</label>
+                                <input class="input" type="text" name="Apellido" value="<%= user.apellido %>">
+                            </div>
+                            <div class="registro-campos">
+                                <label for="Email">Email</label>
+                                <input class="input" type="text" name="Email" value="<%= user.email %>">
+                            </div>
+
+                            <div class="registro-campos">
+                                <label for="Celular">Celular</label>
+                                <input class="input" type="text" name="Celular" value="<%= user.celular %>">
+                            </div>
+
+                            <div class="registro-campos">
+                                <label for="Contraseña">Contraseña</label>
+                                <input class="input" type="text" name="Contraseña" value="<%= //usuario.password %>">
+                            </div>
+
                         </div>
                         <button type="reset">Descartar Cambios</button>
                         <button type="submit">Guardar Cambios</button>
