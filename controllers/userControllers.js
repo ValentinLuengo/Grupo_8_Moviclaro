@@ -22,6 +22,14 @@ const userController = {
         return res.render(path.join(__dirname, '../views/users/register'))
     },
 
+    user: (req, res) => {
+        const requestedId = req.params.id;
+        const usuario =
+            users.find((user) => user.id == requestedId) || users[0];
+        let pathUser = path.join(__dirname,"../views/users/edit");
+        res.render(pathUser, { usuario })
+    },
+
     storeUser: (req, res) => {
 
         const resultsValidation = validationResult(req);

@@ -1,0 +1,31 @@
+<html lang="en">
+
+<%- include('../partials/head.ejs', { title: "Iniciar sesión"}) %>
+
+    <body>
+        <%- include('../partials/header.ejs') %>
+            <main>
+                <div id= "formularioEditUser">
+                    <form class="formulario">
+                        <img id= "imagenPerfil" src="/images/avatars/<%= usuario.img %>">
+                        <div id="detalle">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" name="Nombre" value="<%= usuario.nombre %>">
+                            <label for="Apellido">Apellido</label>
+                            <input type="text" name="Apellido" value="<%= usuario.apellido %>">
+                            <label for="Email">Email</label>
+                            <input type="text" name="Email" value="<%= usuario.email %>">
+                            <label for="Celular">Celular</label>
+                            <input type="text" name="Celular" value="<%= usuario.celular %>">
+                            <label for="Contraseña">Contraseña</label>
+                            <input type="text" name="Contraseña" value="<%= usuario.password %>">
+                        </div>
+                        <button type="reset">Descartar Cambios</button>
+                        <button type="submit">Guardar Cambios</button>
+                    </form>
+                </div>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>
