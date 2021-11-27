@@ -44,6 +44,9 @@ const mainController = {
             if (usuarioALoguearse != undefined) {
                 //Te encontre usuario!
                 req.session.usuarioLogueado = usuarioALoguearse;
+                if (req.body.recordame != undefined) {
+                    res.cookie('recordame', usuarioALoguearse.email)
+                }
                 res.render(path.join(__dirname, '../views/products/store'), { products })
             } else {
                 res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })

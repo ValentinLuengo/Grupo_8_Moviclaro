@@ -1,51 +1,36 @@
-[{
-        "nombre": "vivi",
-        "apellido": "vivi",
-        "celular": "",
-        "email": "vivi@hot.mail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "uru",
-        "terminos": "on",
-        "img":"1637589644451_img.jpg",
-        "id": 1
-    },
-    {
-        "nombre": "Viviana",
-        "apellido": "Acevedo",
-        "celular": "1133334444",
-        "email": "vivi@hotmail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "arg",
-        "terminos": "on",
-        "img":"1637589644451_img.jpg",
-        "id": 2
-    },
-    {
-        "nombre": "Leandro",
-        "apellido": "Gutierrez",
-        "celular": "123123123",
-        "email": "leleman79@gmail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "arg",
-        "img":"1637589644451_img.jpg",
-        "id": 3
-    },
-    {
-        "nombre": "Valentin",
-        "apellido": "Luengo",
-        "celular": "1526854557",
-        "email": "valentinluengo2001@gmail.com",
-        "password": "123456",
-        "pais": "arg",
-        "password2": "123456",
-        "categoria": "arg",
-        "img":"1637596243811_img.jpg",
-        "id": 4
-    }
+[
+ {
+  "id": 1,
+  "nombre": "Leandro",
+  "apellido": "Gutierrez",
+  "celular": "1166912294",
+  "email": "leleman79@gmail.com",
+  "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
+  "pais": "Argentina ",
+  "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
+  "avatar": "1637620287889_img.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Jorge",
+  "apellido": "cafrune",
+  "celular": "1111111",
+  "email": "jcafrune@gmail.com",
+  "password": "$2a$10$mkS48mmp12JURNSSsNbQSeJn9o/HS5cPBKHg.6KpYhsuCeyq9q/tK",
+  "pais": "Argentina ",
+  "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
+  "avatar": "1637620660112_img.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Valentín",
+  "apellido": "Rodríguez Luengo",
+  "celular": "1126854557",
+  "email": "valentinluengo2001@gmail.com",
+  "password": "$2a$10$0wKiq862cUupUuxpdXSNRuvol.3jGYOTOQaIT5q2.7t0wTecDkTBe",
+  "pais": "Argentina ",
+  "password2": "$2a$10$BvJV5KG2jsMwB53qum7EduxaWNJybWzw4TZQDqQGXtQufn3nTw2.a",
+  "terminos": "on",
+  "avatar": "1638026498997_img.jpg"
+ }
 ]

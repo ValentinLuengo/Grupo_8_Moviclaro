@@ -14,20 +14,13 @@ const { body } = require('express-validator');
 
 
 
+
 const userController = require('../controllers/userControllers');
 
 const uploadFile = require('../middlewares/userMulter');
 // const validations = require('../middlewares/validationsMiddleware');
 
-const validaciones = [
-    body('nombre').notEmpty().withMessage('Este campo es obligatorio'),
-    body('apellido').notEmpty().withMessage('Este campo es obligatorio'),
-    body('email').notEmpty().withMessage('Este campo es obligatorio'),
-    body('celular').notEmpty().withMessage('Este campo es obligatorio'),
-    body('pais').notEmpty().withMessage('Este campo es obligatorio'),
-
-    body('password').notEmpty()
-]
+const validations = require('../middlewares/validationsMiddleware');
 
 
 
@@ -35,12 +28,14 @@ const validaciones = [
 router.get('/registro', userController.registro);
 
 //Procesar el registro
-router.post('/registro', uploadFile.single('avatar'), validaciones, userController.storeUser);
+router.post('/registro', uploadFile.single('avatar'), validations, userController.storeUser);
 
 // Formulario de login
 router.get('/login', userController.login);
 
 //Procesar Login
+router.post('/login', userController.processLogin);
+
 // router.get('/profile/:userId', usersController.profile);
 
 
