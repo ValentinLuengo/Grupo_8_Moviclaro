@@ -24,36 +24,22 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage });
 
-const validaciones = [
-
-    check('email').notEmpty().withMessage('Ingresá el email!').bail().isEmail().withMessage('Ingresá un email válido'),
-    check('password').notEmpty().withMessage('Ingresá la contraseña!')
-]
-
 
 router.get('/', mainController.index);
 
 router.get('/store', mainController.store);
 
 
-
+// Pienso que deberia haber un middleware para administrador... Pero no se si es acá.
 router.get('/nuevoProducto', mainController.nuevoProducto);
 
-// router.get('/login', mainController.login);
-
-// router.post('/login', validaciones, mainController.processLogin)
-
 router.get('/detalle/:id', mainController.productDetail);
-
-// router.get('/registro', guestMiddleware, mainController.registro);
 
 
 /*Crear producto*/
 
+// Pienso que deberia haber un middleware para administrador... Pero no se si es acá.
 router.post('/storeProduct', uploadFile.single('image'), mainController.storeProduct);
-
-// router.post('/storeUser', uploadFile.single('avatar'), mainController.storeUser);
-
 
 router.get('/edit/:id', uploadFile.single('image'), mainController.edit);
 
