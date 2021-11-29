@@ -8,7 +8,8 @@
   "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
   "pais": "Argentina ",
   "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
-  "avatar": "1637620287889_img.jpg"
+  "avatar": "1637620287889_img.jpg",
+  "perfil": "admin"
  },
  {
   "id": 2,
@@ -19,7 +20,9 @@
   "password": "$2a$10$mkS48mmp12JURNSSsNbQSeJn9o/HS5cPBKHg.6KpYhsuCeyq9q/tK",
   "pais": "Argentina ",
   "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
-  "avatar": "1637620660112_img.jpg"
+  "avatar": "1637620660112_img.jpg",
+  "perfil": null
+
  },
  {
   "id": 3,
@@ -32,5 +35,16 @@
   "password2": "$2a$10$BvJV5KG2jsMwB53qum7EduxaWNJybWzw4TZQDqQGXtQufn3nTw2.a",
   "terminos": "on",
   "avatar": "1638026498997_img.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "vivi",
+  "apellido": "ana",
+  "celular": "1144445555",
+  "email": "vivi@gmail.com",
+  "password": "$2a$10$rmY7oOglE3UozaNSd4wUpONhasZDXrD9QSRfiDKV2sPfLsRt77ESC",
+  "pais": "Argentina ",
+  "password2": "$2a$10$rG/7H8dSi3OXH7sO.E6Ckef8I6SbzS4M5/jI8PjOlwO0LDFHpZg32",
+  "avatar": "1638055433423_img.png"
  }
 ]
