@@ -26,38 +26,38 @@ const mainController = {
         res.render(path.join(__dirname, '../views/products/productCreate'))
     },
 
-   /*  login: (req, res) => {
-        res.render(path.join(__dirname, '../views/users/login'))
-    },
+    /*  login: (req, res) => {
+         res.render(path.join(__dirname, '../views/users/login'))
+     },
 
-    processLogin: (req, res) => {
-        let errors = validationResult(req);
-        let usuarioALoguearse;
-        if (errors.isEmpty()) {
-            for (let i = 0; i < users.length; i++) {
-                let usuario = users[i]
-                if (users[i].email == req.body.email) {
-                    usuarioALoguearse = users[i]
-                    break;
-                }
-            }
-            if (usuarioALoguearse != undefined) {
-                //Te encontre usuario!
-                req.session.usuarioLogueado = usuarioALoguearse;
-                if (req.body.recordame != undefined) {
-                    res.cookie('recordame', usuarioALoguearse.email)
-                }
-                res.render(path.join(__dirname, '../views/products/store'), { products })
-            } else {
-                res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })
-            }
-        } else {
-            res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
+     processLogin: (req, res) => {
+         let errors = validationResult(req);
+         let usuarioALoguearse;
+         if (errors.isEmpty()) {
+             for (let i = 0; i < users.length; i++) {
+                 let usuario = users[i]
+                 if (users[i].email == req.body.email) {
+                     usuarioALoguearse = users[i]
+                     break;
+                 }
+             }
+             if (usuarioALoguearse != undefined) {
+                 //Te encontre usuario!
+                 req.session.usuarioLogueado = usuarioALoguearse;
+                 if (req.body.recordame != undefined) {
+                     res.cookie('recordame', usuarioALoguearse.email)
+                 }
+                 res.render(path.join(__dirname, '../views/products/store'), { products })
+             } else {
+                 res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })
+             }
+         } else {
+             res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
 
-        }
+         }
 
 
-    }, */
+     }, */
 
     productDetail: (req, res) => {
         const requestedId = req.params.id;
@@ -99,8 +99,8 @@ const mainController = {
             ...products[productIndex],
             ...req.body,
             precio: Number(req.body.precio),
-            // image: req.file ? req.file.filename : products[productIndex].image
-            image: req.file.filename
+            image: req.file ? req.file.filename : products[productIndex].image
+                // image: req.file.filename
 
         };
 
