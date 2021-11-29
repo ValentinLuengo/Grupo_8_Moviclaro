@@ -1,59 +1,89 @@
-[{
-        "id": 1,
-        "nombre": "Admin",
-        "apellido": "Admin",
-        "celular": "000000000",
-        "email": "admin@admin.com",
-        "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
-        "pais": "Argentina ",
-        "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
-        "avatar": "1637620287889_img.jpg",
-        "estado": "admin"
-    },
-    {
-        "id": 2,
-        "nombre": "Jorge",
-        "apellido": "cafrune",
-        "celular": "1111111",
-        "email": "jcafrune@gmail.com",
-        "password": "$2a$10$mkS48mmp12JURNSSsNbQSeJn9o/HS5cPBKHg.6KpYhsuCeyq9q/tK",
-        "pais": "Argentina ",
-        "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
-        "avatar": "1637620660112_img.jpg"
-    },
-    {
-        "id": 3,
-        "nombre": "Valentín",
-        "apellido": "Rodríguez Luengo",
-        "celular": "1126854557",
-        "email": "valentinluengo2001@gmail.com",
-        "password": "$2a$10$0wKiq862cUupUuxpdXSNRuvol.3jGYOTOQaIT5q2.7t0wTecDkTBe",
-        "pais": "Argentina ",
-        "password2": "$2a$10$BvJV5KG2jsMwB53qum7EduxaWNJybWzw4TZQDqQGXtQufn3nTw2.a",
-        "terminos": "on",
-        "avatar": "1638026498997_img.jpg"
-    },
-    {
-        "id": 4,
-        "nombre": "loco",
-        "apellido": "tu forma de ser",
-        "celular": "2222222",
-        "email": "loco@tuforma.com",
-        "password": "$2a$10$VMpqFTyF/ELWNzmCRU/siOFsyYzb4FlFr30oCnBIgfygMzvuAsUhy",
-        "pais": "México ",
-        "password2": "$2a$10$qy6w.GOoizG64If8xxBQ/.hLdaj56Fq.CORWZdup3NyRRHZqYzXVu",
-        "avatar": "1638123626561_img.jpg",
-        "estado": "user"
-    },
-    {
-        "id": 5,
-        "nombre": "Leandro",
-        "apellido": "Gutierrez",
-        "celular": "1166912294",
-        "email": "leleman79@gmail.com",
-        "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
-        "pais": "Argentina ",
-        "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
-        "avatar": "1637620287889_img.jpg"
-    }
+[
+ {
+  "id": 1,
+  "nombre": "Admin",
+  "apellido": "Admin",
+  "celular": "000000000",
+  "email": "admin@admin.com",
+  "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
+  "pais": "Argentina ",
+  "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
+  "avatar": "1637620287889_img.jpg",
+  "perfil": "admin"
+ },
+ {
+  "id": 2,
+  "nombre": "Jorge",
+  "apellido": "cafrune",
+  "celular": "1111111",
+  "email": "jcafrune@gmail.com",
+  "password": "$2a$10$mkS48mmp12JURNSSsNbQSeJn9o/HS5cPBKHg.6KpYhsuCeyq9q/tK",
+  "pais": "Argentina ",
+  "password2": "$2a$10$LKt4dmDNSOpCJjv1yq1Ga.qWCzudwvBkjn1khgbDjT2cGWAdquLOe",
+  "avatar": "1637620660112_img.jpg",
+  "perfil": "admin"
+ },
+ {
+  "id": 3,
+  "nombre": "Valentín",
+  "apellido": "Rodríguez Luengo",
+  "celular": "1126854557",
+  "email": "valentinluengo2001@gmail.com",
+  "password": "$2a$10$0wKiq862cUupUuxpdXSNRuvol.3jGYOTOQaIT5q2.7t0wTecDkTBe",
+  "pais": "Argentina ",
+  "password2": "$2a$10$BvJV5KG2jsMwB53qum7EduxaWNJybWzw4TZQDqQGXtQufn3nTw2.a",
+  "terminos": "on",
+  "avatar": "1638026498997_img.jpg",
+  "perfil": "admin"
+ },
+ {
+  "id": 4,
+  "nombre": "loco",
+  "apellido": "tu forma de ser",
+  "celular": "2222222",
+  "email": "loco@tuforma.com",
+  "password": "$2a$10$VMpqFTyF/ELWNzmCRU/siOFsyYzb4FlFr30oCnBIgfygMzvuAsUhy",
+  "pais": "México ",
+  "password2": "$2a$10$qy6w.GOoizG64If8xxBQ/.hLdaj56Fq.CORWZdup3NyRRHZqYzXVu",
+  "avatar": "1638123626561_img.jpg",
+  "perfil": "cliente"
+ },
+ {
+  "id": 5,
+  "nombre": "Leandro",
+  "apellido": "Gutierrez",
+  "celular": "1166912294",
+  "email": "leleman79@gmail.com",
+  "password": "$2a$10$seBLYB3TeCb3h.iHFmwlE.ZV3dLBsesOu5/cKEIh8TWdkXPEBnrdS",
+  "pais": "Argentina ",
+  "password2": "$2a$10$PE7oHHV1c8r.XO5dZwNBl.xa7PgK0r46WVnsj7q4lSFyEJ.Qq36Ly",
+  "avatar": "1637620287889_img.jpg",
+  "perfil": "admin"
+ },
+ {
+  "id": 6,
+  "nombre": "vivi admin",
+  "apellido": "ana",
+  "celular": "11222333",
+  "email": "vivi@gmail.com",
+  "password": "$2a$10$tq.00H4TmeprKW7e5bs03OylTyA7h4nH7GiyFnWY55lN8yUhflNwu",
+  "pais": "Argentina ",
+  "password2": "$2a$10$oRE9N6P9AK9IgQqATkmI2.m565njtUa/YB2NSXAf8f3Ch3ANVW/Xe",
+  "terminos": "on",
+  "avatar": "1638151254485_img.png",
+  "perfil": "admin"
+ },
+ {
+    "id": 7,
+    "nombre": "vivi cliente",
+    "apellido": "ana",
+    "celular": "11222333",
+    "email": "ana@gmail.com",
+    "password": "$2a$10$tq.00H4TmeprKW7e5bs03OylTyA7h4nH7GiyFnWY55lN8yUhflNwu",
+    "pais": "Argentina ",
+    "password2": "$2a$10$oRE9N6P9AK9IgQqATkmI2.m565njtUa/YB2NSXAf8f3Ch3ANVW/Xe",
+    "terminos": "on",
+    "avatar": "1638151254485_img.png",
+    "perfil": "cliente"
+   }
 ]

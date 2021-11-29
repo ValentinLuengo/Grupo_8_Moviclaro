@@ -56,7 +56,7 @@ const userController = {
             password: bcryptjs.hashSync(req.body.password, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
             avatar: req.file.filename,
-            estado: "user"
+            perfil: "cliente"
         }
         let userCreated = User.create(userToCreate);
         return res.render(path.join(__dirname, '../views/users/login'))
@@ -67,7 +67,7 @@ const userController = {
     },
     processLogin: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
-        let userAdmin = User.findByField('estado', 'admin');
+        let userAdmin = User.findByField('perfil', 'admin');
 
         if (userToLogin) {
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);

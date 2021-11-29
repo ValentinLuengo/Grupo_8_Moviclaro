@@ -29,13 +29,18 @@
             <div class="header-enlaces-burger">
                 <a href="/store">Tienda</a>
                 <% if (locals.isLogged){ %>
-                    <a href="/nuevoProducto">Nuevo Producto</a>
-                    <a href="/user">Perfil</a>
-                    <a href="/logout">Cerrar Sesión</a>
-                    <% } else { %>
-                        <a href="/registro">Registro</a>
-                        <a href="/login">Iniciar sesión</a>
-                        <% } %>
+                    <% if (locals.userLogged.perfil =="admin"){ %>
+                        <a href="/nuevoProducto">Nuevo Producto</a>
+                        <a href="/user">Perfil</a>
+                        <a href="/logout">Cerrar Sesión</a>
+                    <% } else{%>
+                            <a href="/user">Perfil</a>
+                            <a href="/logout">Cerrar Sesión</a>
+                         <% } %>
+                <% } else { %>
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Iniciar sesión</a>
+                <% } %>
             </div>
         </nav>
     </div>
