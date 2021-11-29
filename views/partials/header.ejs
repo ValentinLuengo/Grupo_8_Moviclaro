@@ -14,10 +14,14 @@
         </div>
         <div class="header-carrito">
             <form action="/agregarCarrito" method="GET">
-
                 <a href="./agregarCarrito"><i class="fas fa-shopping-cart"></i></a>
             </form>
         </div>
+        <% if (locals.isLogged){ %>
+            <div class="imagen-perfil-header">
+                <a href="/user"> <img src="/images/avatars/<%= locals.userLogged.avatar %> " alt="Imagen de perfil miniatura"></a>
+            </div>
+            <% } %>
     </div>
     <div class="header-navegacion">
         <nav>
