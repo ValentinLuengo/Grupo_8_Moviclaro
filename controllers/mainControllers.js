@@ -26,7 +26,7 @@ const mainController = {
         res.render(path.join(__dirname, '../views/products/productCreate'))
     },
 
-    login: (req, res) => {
+   /*  login: (req, res) => {
         res.render(path.join(__dirname, '../views/users/login'))
     },
 
@@ -57,7 +57,7 @@ const mainController = {
         }
 
 
-    },
+    }, */
 
     productDetail: (req, res) => {
         const requestedId = req.params.id;

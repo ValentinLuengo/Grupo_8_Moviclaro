@@ -9,7 +9,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
 const { body } = require('express-validator');
-
+//agego un comentario para actualizar
 
 
 
@@ -25,21 +25,26 @@ const validations = require('../middlewares/validationsMiddleware');
 
 
 // Formulario de registro
-router.get('/registro', userController.registro);
+router.get('/registro', guestMiddleware, userController.registro);
 
 //Procesar el registro
 router.post('/registro', uploadFile.single('avatar'), validations, userController.storeUser);
 
 // Formulario de login
-router.get('/login', userController.login);
+router.get('/login', guestMiddleware, userController.login);
 
 //Procesar Login
 router.post('/login', userController.processLogin);
 
 // router.get('/profile/:userId', usersController.profile);
 
+router.post('/login', userController.processLogin)
+
 
 // Perfil de Usuario
-router.get("/user/:id",userController.user)
+router.get('/user', authMiddleware, userController.user);
+
+// Logout
+router.get('/logout', userController.logout);
 
 module.exports = router;

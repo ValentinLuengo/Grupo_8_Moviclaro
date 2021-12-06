@@ -10,24 +10,21 @@ const User = require('../models/User')
 
 const userController = {
     registro: (req, res) => {
+
         return res.render(path.join(__dirname, '../views/users/register'))
     },
 
-    user: (req, res) => {
-        const requestedId = req.params.id;
-        const usuario =
-            users.find((user) => user.id == requestedId) || users[0];
-        let pathUser = path.join(__dirname,"../views/users/userPerfil");
-        res.render(pathUser, { usuario })
-    },
+
 
     storeUser: (req, res) => {
         const resultsValidation = validationResult(req);
 
         if (resultsValidation.errors.length > 0) {
+            console.log(req.body)
             return res.render(path.join(__dirname, '../views/users/register'), {
                 errors: resultsValidation.mapped(),
                 oldData: req.body
+               
             });
         }
 
@@ -86,6 +83,7 @@ const userController = {
 
     //     }
     login: (req, res) => {
+
         res.render(path.join(__dirname, '../views/users/login'))
     },
     processLogin: (req, res) => {
@@ -94,7 +92,17 @@ const userController = {
         if (userToLogin) {
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if (passwordOk) {
-                return res.send('Ok, puedes ingresar');
+                delete userToLogin.password
+                delete userToLogin.password2
+                req.session.userLogged = userToLogin;
+
+                if (req.body.recordame) {
+                    res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
+
+                }
+
+                return res.redirect('/user');
+
             }
             return res.render((path.join(__dirname, '../views/users/login')), {
                 errors: {
@@ -111,7 +119,29 @@ const userController = {
                 }
             }
         });
-    }
+    },
+    user: (req, res) => {
+
+        return res.render(path.join(__dirname, "../views/users/userPerfil"), {
+            user: req.session.userLogged
+        })
+    },
+
+    logout: (req, res) => {
+
+            res.clearCookie('userEmail')
+            req.session.destroy();
+
+            res.redirect('/');
+        }
+        // user: (req, res) => {
+        //     const requestedId = req.params.id;
+        //     const usuario =
+        //         users.find((user) => user.id == requestedId) || users[0];
+        //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
+        //     res.render(pathUser, { usuario })
+
+
 }
 
 
