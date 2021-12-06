@@ -14,10 +14,14 @@
         </div>
         <div class="header-carrito">
             <form action="/agregarCarrito" method="GET">
-
                 <a href="./agregarCarrito"><i class="fas fa-shopping-cart"></i></a>
             </form>
         </div>
+        <% if (locals.isLogged){ %>
+            <div class="imagen-perfil-header">
+                <a href="/user"> <img src="/images/avatars/<%= locals.userLogged.avatar %> " alt="Imagen de perfil miniatura"></a>
+            </div>
+            <% } %>
     </div>
     <div class="header-navegacion">
         <nav>
@@ -25,13 +29,18 @@
             <div class="header-enlaces-burger">
                 <a href="/store">Tienda</a>
                 <% if (locals.isLogged){ %>
-                    <a href="/nuevoProducto">Nuevo Producto</a>
-                    <a href="/user">Perfil</a>
-                    <a href="/logout">Cerrar Sesión</a>
-                    <% } else { %>
-                        <a href="/registro">Registro</a>
-                        <a href="/login">Iniciar sesión</a>
-                        <% } %>
+                    <% if (locals.userLogged.perfil =="admin"){ %>
+                        <a href="/nuevoProducto">Nuevo Producto</a>
+                        <a href="/user">Perfil</a>
+                        <a href="/logout">Cerrar Sesión</a>
+                    <% } else{%>
+                            <a href="/user">Perfil</a>
+                            <a href="/logout">Cerrar Sesión</a>
+                         <% } %>
+                <% } else { %>
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Iniciar sesión</a>
+                <% } %>
             </div>
         </nav>
     </div>

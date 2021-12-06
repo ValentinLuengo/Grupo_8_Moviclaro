@@ -24,7 +24,7 @@ const userController = {
             return res.render(path.join(__dirname, '../views/users/register'), {
                 errors: resultsValidation.mapped(),
                 oldData: req.body
-               
+
             });
         }
 
@@ -55,39 +55,19 @@ const userController = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
-            avatar: req.file.filename
+            avatar: req.file.filename,
+            perfil: "cliente"
         }
         let userCreated = User.create(userToCreate);
         return res.render(path.join(__dirname, '../views/users/login'))
     },
-    // processLogin: (req, res) => {
-    //     let errors = validationResult(req);
-    //     let usuarioALoguearse;
-    //     if (errors.isEmpty()) {
-    //         for (let i = 0; i < users.length; i++) {
-    //             let usuario = users[i]
-    //             if (users[i].email == req.body.email) {
-    //                 usuarioALoguearse = users[i]
-    //                 break;
-    //             }
-    //         }
-    //         if (usuarioALoguearse != undefined) {
-    //             //Te encontre usuario!
-    //             req.session.usuarioLogueado = usuarioALoguearse;
-    //             res.render(path.join(__dirname, '../views/products/store'), { products })
-    //         } else {
-    //             res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })
-    //         }
-    //     } else {
-    //         res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
-
-    //     }
     login: (req, res) => {
 
         res.render(path.join(__dirname, '../views/users/login'))
     },
     processLogin: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
+        let userAdmin = User.findByField('perfil', 'admin');
 
         if (userToLogin) {
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
