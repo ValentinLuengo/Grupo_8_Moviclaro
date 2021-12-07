@@ -74,16 +74,28 @@
   "perfil": "admin"
  },
  {
-    "id": 7,
-    "nombre": "vivi cliente",
-    "apellido": "ana",
-    "celular": "11222333",
-    "email": "ana@gmail.com",
-    "password": "$2a$10$tq.00H4TmeprKW7e5bs03OylTyA7h4nH7GiyFnWY55lN8yUhflNwu",
-    "pais": "Argentina ",
-    "password2": "$2a$10$oRE9N6P9AK9IgQqATkmI2.m565njtUa/YB2NSXAf8f3Ch3ANVW/Xe",
-    "terminos": "on",
-    "avatar": "1638151254485_img.png",
-    "perfil": "cliente"
-   }
+  "id": 7,
+  "nombre": "vivi cliente",
+  "apellido": "ana",
+  "celular": "11222333",
+  "email": "ana@gmail.com",
+  "password": "$2a$10$tq.00H4TmeprKW7e5bs03OylTyA7h4nH7GiyFnWY55lN8yUhflNwu",
+  "pais": "Argentina ",
+  "password2": "$2a$10$oRE9N6P9AK9IgQqATkmI2.m565njtUa/YB2NSXAf8f3Ch3ANVW/Xe",
+  "terminos": "on",
+  "avatar": "1638151254485_img.png",
+  "perfil": "cliente"
+ },
+ {
+  "id": 8,
+  "nombre": "Profesor",
+  "apellido": "Neurus",
+  "celular": "222222",
+  "email": "profe_neurus@hijitus.com",
+  "password": "$2a$10$zy2zz6JMYBr7uozoVMsfueP3cToZcwzz6VOlwFeP/xYW2jhFsGVpe",
+  "pais": "Argentina ",
+  "password2": "$2a$10$JgF6M.r.Fxool068mO/VVO0c8NavNFwV3.ksl4ngHUI9Y9zUWvhhW",
+  "avatar": "1638154718573_img.png",
+  "perfil": "cliente"
+ }
 ]
