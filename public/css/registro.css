@@ -86,12 +86,13 @@ body {
 }
 
 .registro-boton {
-    background: #25FAD3;
+    background: #1a75cf;
+    color: white;
     border-radius: 50px;
     width: 100px;
     height: 50px;
     font-weight: bold;
-    border: 2px solid black;
+    border: none;
     transition: all 100ms;
 }
 

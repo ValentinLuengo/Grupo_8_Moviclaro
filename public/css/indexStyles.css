@@ -15,7 +15,6 @@ h1 {
     align-items: center;
     justify-content: space-evenly;
     padding: 20px 5px;
-    background-color: #25FAD3;
 }
 
 .header-logo {
@@ -43,7 +42,6 @@ h1 {
     width: 100%;
     border-radius: 20px;
     height: 30px;
-    background-color: #eeeeee;
     border: solid 2px black;
 }
 
@@ -73,15 +71,14 @@ h1 {
 
 .header-navegacion nav>i {
     font-size: 20px;
-    color: white;
     margin-left: 10px;
     padding: 3px;
 }
 
 .header-navegacion {
     display: block;
-    background-color: black;
     border-bottom: solid 2px rgba(170, 156, 163, 0.6);
+    background-color: #c7e4e8;
 }
 
 .header-burger {
@@ -90,30 +87,39 @@ h1 {
 
 .header-enlaces-burger {
     display: none;
+    background-color: #c7e4e8;
 }
 
 .banner img {
     width: 100%;
+    opacity: 90%;
 }
 
 @media (min-width: 361px) {
     header {
         border: none;
     }
+    nav{
+        background-color: #c7e4e8;
+    }
     .header-navegacion nav>i {
         display: none;
     }
     .header-enlaces-burger {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
-        background-color: black;
         margin: 0;
+        border: 2px;
+        padding: 10px 20px;
     }
     .header-enlaces-burger a {
-        color: #eeeeee;
+        color: black;
         text-decoration: none;
         margin: 4px 0;
+        font-size: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 }
 
@@ -135,10 +141,6 @@ h1 {
 
 
 /* ==== FIN DE HEADER ==== */
-
-.articulo {
-    width: 90%;
-}
 
 .conteiner {
     display: flex;
@@ -184,7 +186,9 @@ h1 {
 } */
 
 .botonFiltrar {
-    background: #CFCCCC;
+    background: #1a75cf;
+    color: white;
+    border: none;
     border-radius: 50px;
     width: 100px;
     height: 50px;
@@ -202,11 +206,12 @@ h1 {
 }
 
 .articulo {
+    width: 90%;
     background-color: white;
     padding: 5px;
     text-align: center;
     margin: 10px;
-    box-shadow: 0px 0px 5px rgba(170, 156, 163, 0.6);
+    box-shadow: 0px 0px 10px rgba(170, 156, 163, 0.6);
     border-radius: 20px;
     font-weight: bold;
 }
