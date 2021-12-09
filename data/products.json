@@ -1,14 +1,14 @@
 [
  {
   "id": 1,
-  "marca": "Samsung Oferta producto 0",
+  "marca": "Samsung ",
   "modelo": "Galaxy A22",
   "color": "Azul",
   "precio": 444444,
   "descripcion": "Pantalla asombrosa para un desplazamiento verdaderamente fluido. Ampliá tu visión con la pantalla Infinity-U de 6,4'' del Galaxy A22 y mirá todo lo que te estabas perdiendo. Gracias a la pantalla Super Amoled HD+ que alcanza los 600 nits1 para lograr más claridad, tus contenidos se ven nítidos, definidos y deslumbrantes. Además, Real Smooth mantiene el desplazamiento fluido en tus juegos y redes sociales.",
   "category": "Oferta",
-  "stock": 0,
-  "image": "sam-a22.jpg"
+  "stock": "10",
+  "image": "image-1638402673192.png"
  },
  {
   "id": 2,
