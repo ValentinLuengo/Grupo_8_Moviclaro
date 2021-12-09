@@ -44,6 +44,17 @@ body {
     background-color: white;
 }
 
+#detalle{
+    display: flex;
+}
+
+#imagenPerfil {
+    border: 1px solid white;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
 .registro-campos select {
     height: 28px;
     padding: 2px;

@@ -8,7 +8,30 @@
                 <h1>Hola
                     <%= user.nombre %>
                 </h1>
-                <div id="formularioEditUser">
+                <section class="celular">
+                    <img id=celular src="/images/avatars/<%= user.avatar %>">
+                    <div class="texto-botones-desc">
+                        <div class="Info">
+                            <h2>
+                                <%= user.nombre %> <%= user.apellido %>
+                            </h2>
+                            <p> <%= user.email %> </p>
+                            <p> <%= user.celular %> </p>
+                        </div>
+                        <div class="descripcion">
+                            <h3><%= user.pais %></h3>
+                        </div>
+                        <form action="#" method="POST">
+                            <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
+                        </form>
+                        <form action="#" enctype="multipart/form-data" method="GET">
+                            <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                            <input class="registro-boton" value="EDITAR" type="submit" href="#">
+
+                        </form>
+                    </div>
+                </section>
+                <!-- <div id="formularioEditUser">
                     <form class="formulario">
                         <img id="imagenPerfil" style="width: 40%;" src="/images/avatars/<%= user.avatar %>">
                         <div id="detalle">
@@ -39,7 +62,7 @@
                         <button type="reset">Descartar Cambios</button>
                         <button type="submit">Guardar Cambios</button>
                     </form>
-                </div>
+                </div>-->
             </main>
             <%- include('../partials/footer.ejs') %>
     </body>
