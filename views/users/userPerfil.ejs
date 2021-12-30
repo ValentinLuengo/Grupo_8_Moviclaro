@@ -6,20 +6,20 @@
         <%- include('../partials/header.ejs') %>
             <main>
                 <h1>Hola
-                    <%= user.nombre %>
+                    <%= user.name %>
                 </h1>
                 <section class="celular">
-                    <img id=celular src="/images/avatars/<%= user.avatar %>">
+                    <img id=celular src="/images/avatars/<%= user.image %>">
                     <div class="texto-botones-desc">
                         <div class="Info">
                             <h2>
-                                <%= user.nombre %> <%= user.apellido %>
+                                <%= user.name %> <%= user.last_name %>
                             </h2>
                             <p> <%= user.email %> </p>
-                            <p> <%= user.celular %> </p>
+                            <p> <%= user.phone %> </p>
                         </div>
                         <div class="descripcion">
-                            <h3><%= user.pais %></h3>
+                            <h3><%= user.country_id %></h3>
                         </div>
                         <form action="#" method="POST">
                             <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>

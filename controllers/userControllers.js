@@ -8,6 +8,9 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const User = require('../models/User')
 
+let db = require("../database/models");
+
+
 const userController = {
     registro: (req, res) => {
 
@@ -56,7 +59,7 @@ const userController = {
             password: bcryptjs.hashSync(req.body.password, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
             avatar: req.file.filename,
-            perfil: "cliente"
+            category_id: "1"
         }
         let userCreated = User.create(userToCreate);
         return res.render(path.join(__dirname, '../views/users/login'))
@@ -66,8 +69,12 @@ const userController = {
         res.render(path.join(__dirname, '../views/users/login'))
     },
     processLogin: (req, res) => {
+    //*prueba conexion base de datos
+     db.Users.findAll()
+    .then(function(users2){console.log(users2)}) ; 
+
         let userToLogin = User.findByField('email', req.body.email);
-        let userAdmin = User.findByField('perfil', 'admin');
+        let userAdmin = User.findByField('category_id', '2');
 
         if (userToLogin) {
             let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
