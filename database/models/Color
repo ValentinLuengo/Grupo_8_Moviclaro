@@ -1,0 +1,22 @@
+module.exports = (sequelize,dataTypes) =>{
+    let alias = "Colors";
+    let cols = {
+        id:{
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
+        },
+        name:{
+            type: dataTypes.STRING
+        }
+        
+    }
+
+    let config = {
+        tableName : 'colors',
+        timestamps: false
+    }
+    const Color = sequelize.define(alias, cols, config);
+
+    return Color;
+}
