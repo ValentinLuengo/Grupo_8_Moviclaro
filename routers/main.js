@@ -50,4 +50,8 @@ router.delete('/:id', mainController.destroy);
 
 router.get('/agregarCarrito', mainController.agregarCarrito);
 
+//barra de búsqueda
+
+router.get('/busqueda/:"Samsung"', mainController.search);
+
 module.exports = router;

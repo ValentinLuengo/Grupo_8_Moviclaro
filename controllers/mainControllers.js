@@ -161,6 +161,9 @@ const mainController = {
         //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
         //     res.redirect('/')
         // }
+    },
+    search: (req,res) => {
+        return  res.send("resultado de la busqueda" )
     }
 
 
