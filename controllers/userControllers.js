@@ -53,15 +53,33 @@ const userController = {
                 oldData: req.body
             });
         }
+        /*esto es lo nuevo*/
+        db.Users.create({
+            name:req.body.name,
+            last_name: req.body.name,
+            category_id: 1,
+            image: req.file.filename,
+            country_id: 1,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            email: req.body.email,
+            phone: req.body.phone 
+
+        })
+
+       /* esto es lo nuevo*/
+        
+        /* Esto es lo viejo que guarda en el JSON:
 
         let userToCreate = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
             password2: bcryptjs.hashSync(req.body.password2, 10),
-            avatar: req.file.filename,
+            image: req.file.filename,
             category_id: "1"
         }
         let userCreated = User.create(userToCreate);
+        
+        Esto es lo viejo que guarda en el JSON: */
         return res.render(path.join(__dirname, '../views/users/login'))
     },
     login: (req, res) => {

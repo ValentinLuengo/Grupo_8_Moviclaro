@@ -28,7 +28,7 @@ const validations = require('../middlewares/validationsMiddleware');
 router.get('/registro', guestMiddleware, userController.registro);
 
 //Procesar el registro
-router.post('/registro', uploadFile.single('avatar'), validations, userController.storeUser);
+router.post('/registro', uploadFile.single('image'), validations, userController.storeUser);
 
 // Formulario de login
 router.get('/login', guestMiddleware, userController.login);
