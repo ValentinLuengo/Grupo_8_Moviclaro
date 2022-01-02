@@ -14,7 +14,7 @@
                     <!-- Contenido principal -->
                     <section class="conteiner">
                         <!-- Inicio articulo -->
-                        <% productsOfertas.forEach(product => { %>
+                        <% products.forEach(product => { %>
                             <article class="articulo">
                                 <form action="/agregarCarrito" method="GET">
                                     <div class="img-container">
@@ -24,16 +24,16 @@
                                     </div>
                                     <div class="articulo-desc">
                                         <h3>
-                                            <%= product.marca %>
+                                            <%= product.brands.name %>
                                         </h3>
                                         <h3>
-                                            <%= product.modelo %>
+                                            <%= product.model %>
                                         </h3>
                                         <p>
-                                            <%= product.color %>
+                                            <%= product.colors.name %>
                                         </p>
                                         <p>
-                                            <%= product.precio %>
+                                            <%= product.price %>
                                         </p>
                                         <a href="/detalle/<%= product.id %>">
                                             <p>Ver detalle</p>
@@ -53,39 +53,39 @@
                     <!-- Contenido principal -->
                     <section class="conteiner">
                         <!-- Inicio articulo -->
-                        <% productsPromoción.forEach(product => { %>
+                        <!-- <% //productsPromoción.forEach(product => { %>
                             <article class="articulo">
                                 <form action="/agregarCarrito" method="GET">
                                     <div>
-                                        <img class="imagenArticulo" src="/images/products/<%= product.image ? product.image : 'motog20-breeze-blue_front.png' %> " alt="logo">
+                                        <img class="imagenArticulo" src="/images/products/<%=// product.image ? product.image : 'motog20-breeze-blue_front.png' %> " alt="logo">
 
                                     </div>
                                     <div class="articulo-desc">
                                         <h3>
-                                            <%= product.marca %>
+                                            <%= //product.marca %>
                                         </h3>
                                         <h3>
-                                            <%= product.modelo %>
+                                            <%= //product.modelo %>
                                         </h3>
                                         <p>
-                                            <%= product.color %>
+                                            <%= //product.color %>
                                         </p>
                                         <p>
-                                            <%= product.precio %>
+                                            <%=// product.precio %>
                                         </p>
-                                        <a href="/detalle/<%= product.id %>">
+                                        <a href="/detalle/<%=// product.id %>">
                                             <p>Ver detalle</p>
-                                        </a>
-                                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
-                                    </div>
-                                </form>
-                            </article>
-                            <% }); %>
+                                        </a> -->
+                        <input class="botonComprar" value="Comprar" type="submit" href="./agregarCarrito">
+                </div>
+                </form>
+                </article>
+                <% //}); %>
                     </section>
                     <!-- Fin de contenido principal -->
                     </section>
-                </div>
-                </div>
+                    </div>
+                    </div>
 
 
             </main>

@@ -2,21 +2,36 @@ const path = require('path');
 const fs = require('fs');
 let { check, validationResult, body } = require('express-validator')
 
+// Traigo los modulos para acceder a la db.
+const db = require('../database/models');
+const sequelize = db.sequelize;
+
 const publicPath = path.resolve(__dirname, './public');
 
+// const productsFilePath = path.join(__dirname, '../data/products.json');
+// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+// const usersFilePath = path.join(__dirname, '../data/users.json');
+// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const mainController = {
 
     index: (req, res) => {
-        const productsOfertas = products.filter(prod => ((prod.category === 'Oferta') && (prod.stock > 0)));
-        const productsPromoción = products.filter(prod => ((prod.category === 'Promoción') && (prod.stock > 0)));
-        res.render('index', { productsOfertas, productsPromoción });
+
+        db.Product.findAll({
+                include: ['colors', 'brands', 'product_categories']
+            })
+            .then(products => {
+                res.render('index', { products })
+            })
+            .catch(error => console.log(error))
+
+
+
+
+        // const productsOfertas = products.filter(prod => ((prod.category === 'Oferta') && (prod.stock > 0)));
+        // const productsPromoción = products.filter(prod => ((prod.category === 'Promoción') && (prod.stock > 0)));
+        // res.render('index', { productsOfertas, productsPromoción });
     },
 
     store: (req, res) => {
@@ -162,8 +177,8 @@ const mainController = {
         //     res.redirect('/')
         // }
     },
-    search: (req,res) => {
-        return  res.send("resultado de la busqueda" )
+    search: (req, res) => {
+        return res.send("resultado de la busqueda")
     }
 
 
