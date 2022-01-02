@@ -1,14 +1,14 @@
 [
  {
   "id": 1,
-  "marca": "Samsung Oferta",
+  "marca": "Samsung ",
   "modelo": "Galaxy A22",
   "color": "Azul",
   "precio": 444444,
   "descripcion": "Pantalla asombrosa para un desplazamiento verdaderamente fluido. Ampliá tu visión con la pantalla Infinity-U de 6,4'' del Galaxy A22 y mirá todo lo que te estabas perdiendo. Gracias a la pantalla Super Amoled HD+ que alcanza los 600 nits1 para lograr más claridad, tus contenidos se ven nítidos, definidos y deslumbrantes. Además, Real Smooth mantiene el desplazamiento fluido en tus juegos y redes sociales.",
   "category": "Oferta",
-  "stock": "0",
-  "image": "image-1639009782443.png"
+  "stock": "10",
+  "image": "image-1638402673192.png"
  },
  {
   "id": 2,
@@ -54,7 +54,7 @@
   "descripcion": "Llegó el Moto G9 Plus con todo lo que querés. Su diseño elegante y compacto, es ideal para utilizarlo con una sola mano durante todo el día sin sentir cansancio. Además de ser un equipo que combina estéticamente con cualquier look, Motorola desarrolló en la carcasa del dispositivo un botón especial que, al presionarlo, inicia rápidamente el asistente de Google para recibir toda la ayuda que necesites con un solo toque.",
   "category": "Promoción",
   "stock": 2,
-  "image": "moto-g9plus.jpg"
+  "image": "    "
  },
  {
   "id": 6,

@@ -19,7 +19,7 @@
         </div>
         <% if (locals.isLogged){ %>
             <div class="imagen-perfil-header">
-                <a href="/user"> <img src="/images/avatars/<%= locals.userLogged.avatar %> " alt="Imagen de perfil miniatura"></a>
+                <a href="/user"> <img src="/images/avatars/<%= locals.userLogged.image %> " alt="Imagen de perfil miniatura"></a>
             </div>
             <% } %>
     </div>
@@ -29,7 +29,7 @@
             <div class="header-enlaces-burger">
                 <a href="/store">Tienda</a>
                 <% if (locals.isLogged){ %>
-                    <% if (locals.userLogged.perfil =="admin"){ %>
+                    <% if (locals.userLogged.category_id =="2"){ %>
                         <a href="/nuevoProducto">Nuevo Producto</a>
                         <a href="/user">Perfil</a>
                         <a href="/logout">Cerrar Sesión</a>

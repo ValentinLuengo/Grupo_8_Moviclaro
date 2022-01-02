@@ -12,30 +12,30 @@
                     <form action="/registro" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
                             <div class="registro-campos ">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="input <%= locals.errors && errors.nombre ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.nombre : null %>">
+                                <label for="name">Nombre</label>
+                                <input type="text" name="name" id="name" class="input <%= locals.errors && errors.name ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.name : null %>">
                                 <% if (locals.errors && errors.nombre) { %>
                                     <div class="text-danger">
-                                        <%= errors.nombre.msg %>
+                                        <%= errors.name.msg %>
                                     </div>
                                     <% } %>
                             </div>
 
                             <div class="registro-campos">
-                                <label for="apellido">Apellido</label>
-                                <input type="text" name="apellido" id="apellido" class="input  <%= locals.errors && errors.apellido ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.apellido : null %>">
-                                <% if (locals.errors && errors.apellido) { %>
+                                <label for="last_name">Apellido</label>
+                                <input type="text" name="last_name" id="last_name" class="input  <%= locals.errors && errors.last_name ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.last_name : null %>">
+                                <% if (locals.errors && errors.last_name) { %>
                                     <div class="text-danger">
-                                        <%= errors.apellido.msg %>
+                                        <%= errors.last_name.msg %>
                                     </div>
                                     <% } %>
                             </div>
                             <div class="registro-campos">
-                                <label for="celular">Celular</label>
-                                <input type="number" name="celular" id="celular" class="input  <%= locals.errors && errors.celular ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.celular : null %>">
-                                <% if (locals.errors && errors.celular) { %>
+                                <label for="phone">Celular</label>
+                                <input type="number" name="phone" id="phone" class="input  <%= locals.errors && errors.phone ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.phone : null %>">
+                                <% if (locals.errors && errors.phone) { %>
                                     <div class="text-danger">
-                                        <%= errors.celular.msg %>
+                                        <%= errors.phone.msg %>
                                     </div>
                                     <% } %>
                             </div>
@@ -63,20 +63,20 @@
 
                             <div class="registro-campos">
                                 <label>País</label>
-                                <select name="pais" class="input select  <%= locals.errors && errors.pais ? 'is-invalid': null %>">
+                                <select name="country_id" class="input select  <%= locals.errors && errors.pais ? 'is-invalid': null %>">
                                     <option value="">Selecciona...</option>
 
-                                    <% let paises = ['Argentina', 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
+                                    <% let paises = [{'1, 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
 
                                     <% for (const unPais of paises){  %> 
                                     
-                                    <option value="<%= unPais %> " <%= locals.oldData && (unPais === oldData.pais) ? 'selected' : null %> > <%= unPais %> </option>
+                                    <option value="<%= unPais %> " <%= locals.oldData && (unPais === oldData.country_id) ? 'selected' : null %> > <%= unPais %> </option>
 
                                     <% } %> 
                                 </select>
-                                <% if (locals.errors && errors.pais) { %>
+                                <% if (locals.errors && errors.country_id) { %>
                                     <div class="text-danger">
-                                        <%= errors.pais.msg %>
+                                        <%= errors.country_id.msg %>
                                     </div>
                                     <% } %>
                             </div>
@@ -100,11 +100,11 @@
                                 </select>
                             </div> -->
                             <div class="registro-campos">
-                                <label for="avatar">Imagen de perfil</label> </br>
-                                <input type="file" name="avatar" id="avatar" class=" <%= locals.errors && errors.avatar ? 'is-invalid': null %>">
-                                <% if (locals.errors && errors.avatar) { %>
+                                <label for="image">Imagen de perfil</label> </br>
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>">
+                                <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
-                                        <%= errors.avatar.msg %>
+                                        <%= errors.image.msg %>
                                     </div>
                                     <% } %>
                             </div>

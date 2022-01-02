@@ -28,8 +28,8 @@
                         </form>
                         <ul class="select-option">
                             <label>Color:</label>
-                            <select class="selecet Color" name="colorCelular" value=< %=p roduct.color %>>
-        <option value= <%= product.color %>> <%= product.color %></option>
+                            <select class="selecet Color" name="colorCelular" value=<%= product.color %>>
+                             <option value= <%= product.color %>> <%= product.color %></option>
        
         </select>
                         </ul>
@@ -43,7 +43,7 @@
                         <div class="botones">
 
                             <% if (locals.isLogged){ %>
-                                <% if (locals.userLogged.perfil == "admin"){ %>
+                                <% if (locals.userLogged.category_id =="2"){ %>
                                 <form action="/<%= product.id %>?_method=DELETE" method="POST">
                                     <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
                                 </form>

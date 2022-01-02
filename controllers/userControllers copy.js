@@ -77,43 +77,9 @@ const userController = {
         email: req.body.email
         }
         }).then((resultado)=> {
-             userToLogin = resultado;
-            
-             console.log("se guardo el  de la db: "+ userToLogin.email);
-             if (userToLogin.email ) {
-                userAdmin = userToLogin.category_id;
-                let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-                if (passwordOk) {
-                    delete userToLogin.password
-                    delete userToLogin.password2
-                    req.session.userLogged = userToLogin;
-                    console.log("entro por userToLogin")
-    
-                    if (req.body.recordame) {
-                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
-                        console.log("entro por req.body.recordame")
-    
-                    }
-    
-                    return res.redirect('/user');
-    
-                }
-                return res.render((path.join(__dirname, '../views/users/login')), {
-                    errors: {
-                        email: {
-                            msg: 'Las credenciales son inválidas'
-                        }
-                    }
-                });
-            }
-            return res.render((path.join(__dirname, '../views/users/login')), {
-                errors: {
-                    email: {
-                        msg: 'No se encuentra este mail'
-                    }
-                }
-            });
-            
+             userToLogin = resultado.email;
+             userAdmin = resultado.category_id;
+             console.log("se guardo el  de la db: "+ resultado.email)
     })
     
       //  let userToLogin = User.findByField('email', req.body.email);
@@ -121,7 +87,38 @@ const userController = {
     //    let userAdmin = User.findByField('category_id', '2');
        // console.log("se guardo el userAdmin: "+ userAdmin)
 
-       
+        if (userToLogin.email != null) {
+            let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+            if (passwordOk) {
+                delete userToLogin.password
+                delete userToLogin.password2
+                req.session.userLogged = userToLogin;
+                console.log("entro por userToLogin")
+
+                if (req.body.recordame) {
+                    res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
+                    console.log("entro por req.body.recordame")
+
+                }
+
+                return res.redirect('/user');
+
+            }
+            return res.render((path.join(__dirname, '../views/users/login')), {
+                errors: {
+                    email: {
+                        msg: 'Las credenciales son inválidas'
+                    }
+                }
+            });
+        }
+        return res.render((path.join(__dirname, '../views/users/login')), {
+            errors: {
+                email: {
+                    msg: 'No se encuentra este mail'
+                }
+            }
+        });
     },
     user: (req, res) => {
 

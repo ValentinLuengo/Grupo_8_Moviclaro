@@ -37,7 +37,9 @@ const User = {
 
     findByField: function(field, text) {
         let allUsers = this.findAll();
+        console.log(allUsers)
         let userFound = allUsers.find(oneUser => oneUser[field] === text);
+        console.log("estoy en User.js e imprimo userFound: "+ typeof( userFound))
         return userFound;
     },
 
