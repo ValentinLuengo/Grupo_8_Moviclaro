@@ -97,5 +97,17 @@
   "password2": "$2a$10$JgF6M.r.Fxool068mO/VVO0c8NavNFwV3.ksl4ngHUI9Y9zUWvhhW",
   "avatar": "1638154718573_img.png",
   "perfil": "cliente"
+ },
+ {
+  "id": 9,
+  "nombre": "lalal",
+  "apellido": "asdad",
+  "celular": "12323",
+  "email": "leleel@asda.com",
+  "password": "$2a$10$ultclhYTScNo3bU/UU5Fgun/URauTrK7pXvKFXY36jPk4zVvSXthO",
+  "pais": "Colombia ",
+  "password2": "$2a$10$r28dp/SyxdKOvufpFlmErOfpRqoau9myiPX3e3BkXrtIMgWgawbcu",
+  "avatar": "1639015085365_img.jpg",
+  "perfil": "cliente"
  }
 ]
