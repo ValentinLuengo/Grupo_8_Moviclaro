@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+
 let { check, validationResult, body } = require('express-validator')
 
 // Traigo los modulos para acceder a la db.
@@ -19,6 +20,8 @@ const mainController = {
     index: (req, res) => {
 
         db.Product.findAll({
+                
+                where: { product_categories_id: 1},
                 include: ['colors', 'brands', 'product_categories']
             })
             .then(products => {

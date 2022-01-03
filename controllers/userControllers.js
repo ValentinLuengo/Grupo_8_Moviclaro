@@ -154,7 +154,7 @@ const userController = {
             req.session.destroy();
 
             res.redirect('/');
-        }
+        },
         // user: (req, res) => {
         //     const requestedId = req.params.id;
         //     const usuario =
@@ -162,7 +162,13 @@ const userController = {
         //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
         //     res.render(pathUser, { usuario })
 
-
+    destroy: (req,res) => {
+        const userId = req.params.id;
+        db.Users.destroy({
+            where:{ id: userId}
+        })
+        res.redirect('/');
+    }
 }
 
 

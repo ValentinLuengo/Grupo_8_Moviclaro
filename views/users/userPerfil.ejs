@@ -17,11 +17,12 @@
                             </h2>
                             <p> <%= user.email %> </p>
                             <p> <%= user.phone %> </p>
+                            <p> <%= user.id %> </p>
                         </div>
                         <div class="descripcion">
                             <h3><%= user.country_id %></h3>
                         </div>
-                        <form action="#" method="POST">
+                        <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
                         </form>
                         <form action="#" enctype="multipart/form-data" method="GET">
