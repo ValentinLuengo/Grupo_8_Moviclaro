@@ -12,11 +12,11 @@
                     <div class="texto-botones-desc">
                         <div class="Info">
                             <h2>
-                                <%= product.marca %>
-                                    <%= product.modelo %>
+                                <%= product.brands.name %>
+                                    <%= product.model %>
                             </h2>
                             <p> $
-                                <%= product.precio %>
+                                <%= product.price %>
                             </p>
                         </div>
                         <div class="envio-stock">
@@ -28,35 +28,36 @@
                         </form>
                         <ul class="select-option">
                             <label>Color:</label>
-                            <select class="selecet Color" name="colorCelular" value=<%= product.color %>>
-                             <option value= <%= product.color %>> <%= product.color %></option>
+                            <select class="selecet Color" name="colorCelular" value=<%=product.colors.name %>>
+                                 <option value= <%= product.colors.name %>> <%= product.colors.name %></option>       
        
-        </select>
+                          </select>
+
                         </ul>
 
                         <div class="descripcion">
                             <h3>Descripción</h3>
                             <p>
-                                <%= product.descripcion %>
+                                <%= product.description %>
                             </p>
                         </div>
                         <div class="botones">
 
                             <% if (locals.isLogged){ %>
                                 <% if (locals.userLogged.category_id =="2"){ %>
-                                <form action="/<%= product.id %>?_method=DELETE" method="POST">
-                                    <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
-                                </form>
+                                    <form action="/<%= product.id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
+                                    </form>
 
 
 
-                                <form action="/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
-                                    <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
-                                    <input class="registro-boton" value="EDITAR" type="submit" href="/edit/<%= product.id %>">
+                                    <form action="/edit/<%= product.id %>" enctype="multipart/form-data" method="GET">
+                                        <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                                        <input class="registro-boton" value="EDITAR" type="submit" href="/edit/<%= product.id %>">
 
-                                </form>
+                                    </form>
 
-                                <%} } %>
+                                    <%} } %>
                         </div>
                     </div>
                 </section>

@@ -18,7 +18,7 @@ const publicPath = path.resolve(__dirname, './public');
 const mainController = {
 
     index: (req, res) => {
-
+        // const productsOfertas = db.Product.filter(prod => ((prod.product_categories.name === 'on_sale') && (prod.stock > 0)));
         db.Product.findAll({
                 
                 where: { product_categories_id: 1},
@@ -29,16 +29,20 @@ const mainController = {
             })
             .catch(error => console.log(error))
 
-
-
-
         // const productsOfertas = products.filter(prod => ((prod.category === 'Oferta') && (prod.stock > 0)));
         // const productsPromoción = products.filter(prod => ((prod.category === 'Promoción') && (prod.stock > 0)));
         // res.render('index', { productsOfertas, productsPromoción });
     },
 
     store: (req, res) => {
-        res.render(path.join(__dirname, '../views/products/store'), { products })
+        db.Product.findAll({
+                include: ['colors', 'brands', 'product_categories']
+            })
+            .then(products => {
+                res.render(path.join(__dirname, '../views/products/store'), { products })
+            })
+            .catch(error => console.log(error))
+
     },
     nuevoProducto: (req, res) => {
         res.render(path.join(__dirname, '../views/products/productCreate'))
@@ -79,10 +83,20 @@ const mainController = {
 
     productDetail: (req, res) => {
         const requestedId = req.params.id;
-        const product =
-            products.find((product) => product.id == requestedId) || products[0];
         let pathDetalle = path.join(__dirname, '../views/products/productDetail');
-        res.render(pathDetalle, { product })
+        db.Product.findByPk(requestedId, {
+                include: ['colors', 'brands', 'product_categories']
+            })
+            .then(product => {
+                res.render(pathDetalle, { product })
+            })
+            .catch(error => console.log(error))
+
+        // const requestedId = req.params.id;
+        // const product =
+        //     products.find((product) => product.id == requestedId) || products[0];
+        // let pathDetalle = path.join(__dirname, '../views/products/productDetail');
+        // res.render(pathDetalle, { product })
 
     },
 
