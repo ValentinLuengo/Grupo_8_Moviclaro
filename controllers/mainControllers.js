@@ -17,7 +17,7 @@ const publicPath = path.resolve(__dirname, './public');
 
 const mainController = {
 
-    index: (req, res) => {
+  /*   index: (req, res) => {
         // const productsOfertas = db.Product.filter(prod => ((prod.product_categories.name === 'on_sale') && (prod.stock > 0)));
         db.Product.findAll({
                 
@@ -32,8 +32,28 @@ const mainController = {
         // const productsOfertas = products.filter(prod => ((prod.category === 'Oferta') && (prod.stock > 0)));
         // const productsPromoción = products.filter(prod => ((prod.category === 'Promoción') && (prod.stock > 0)));
         // res.render('index', { productsOfertas, productsPromoción });
-    },
+    }, */
 
+    index: (req, res) => {
+        let offersProducts = [];
+        let promotionsProducts =[]
+        db.Product.findAll({
+            where: { product_categories_id: 1},
+            include: ['colors', 'brands', 'product_categories']
+        })
+        .then(products1 => {
+            offersProducts =products1
+            db.Product.findAll({
+                    where: { product_categories_id: 2},
+                    include: ['colors', 'brands', 'product_categories']
+                })
+            .then(products2 => {
+                promotionsProducts =products2;
+                res.render('index', {promotionsProducts, offersProducts })
+            })
+        })
+        .catch(error => console.log(error))
+    },
     store: (req, res) => {
         db.Product.findAll({
                 include: ['colors', 'brands', 'product_categories']

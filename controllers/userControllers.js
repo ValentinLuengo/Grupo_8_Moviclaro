@@ -96,8 +96,6 @@ const userController = {
         }
         }).then((resultado)=> {
              userToLogin = resultado;
-            
-             console.log("se guardo el  de la db: "+ userToLogin.email);
              if (userToLogin.email ) {
                 userAdmin = userToLogin.category_id;
                 let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
@@ -105,11 +103,9 @@ const userController = {
                     delete userToLogin.password
                     delete userToLogin.password2
                     req.session.userLogged = userToLogin;
-                    console.log("entro por userToLogin")
     
                     if (req.body.recordame) {
                         res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
-                        console.log("entro por req.body.recordame")
     
                     }
     
