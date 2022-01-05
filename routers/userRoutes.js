@@ -49,7 +49,7 @@ router.delete('/user/:id', userController.destroy);
 
 //Editar usuario
 router.post('/user/:id', userController.edit);
-
+router.put('/user/:id', uploadFile.single('image'), userController.update);
 
 // Logout
 router.get('/logout', userController.logout);

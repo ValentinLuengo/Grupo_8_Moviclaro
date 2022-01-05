@@ -8,12 +8,12 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar la cuenta</h2>
-
-                    <form action="" method="POST" enctype="multipart/form-data" class="formulario">
+                    <form action="/user/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
                             <div class="registro-campos ">
                                 <label for="name">Nombre</label>
-                                <input type="text" name="name" id="name" class="input <%= locals.errors && errors.name ? 'is-invalid': null %>" value="<%= user.name %>" >
+                                <!-- <input type="text" name="name" id="name" class="input <%= locals.errors && errors.name ? 'is-invalid': null %>"  placeholder="<%= user.name %>" > -->
+                                <input type="text" name="name" id="name" class="input" value="<%= user.name %>" required>
                                 <% if (locals.errors && errors.name) { %>
                                     <div class="text-danger">
                                         <%= errors.name.msg %>

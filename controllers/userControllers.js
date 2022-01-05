@@ -7,8 +7,6 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const User = require('../models/User')
-
-
 let db = require("../database/models");
 
 
@@ -52,7 +50,7 @@ const userController = {
             });
         }
         /*esto es lo nuevo*/
-        db.Users.create({
+        db.User.create({
             name:req.body.name,
             last_name: req.body.name,
             category_id: 1,
@@ -84,56 +82,56 @@ const userController = {
         res.render(path.join(__dirname, '../views/users/login'))
     },
     processLogin: (req, res) => {
-   let userToLogin;
-   let userAdmin;
+        let userToLogin;
+        let userAdmin;
+          
+         db.User.findOne({
+            include: ['countries'],
+             where: {
+             email: req.body.email
+             }
+             }).then((resultado)=> {
+                  userToLogin = resultado;
+                  if (userToLogin.email ) {
+                     userAdmin = userToLogin.category_id;
+                     let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                     if (passwordOk) {
+                         delete userToLogin.password
+                         delete userToLogin.password2
+                         req.session.userLogged = userToLogin;
+         
+                         if (req.body.recordame) {
+                             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
+         
+                         }
+         
+                         return res.redirect('/user');
+         
+                     }
+                     return res.render((path.join(__dirname, '../views/users/login')), {
+                         errors: {
+                             email: {
+                                 msg: 'Las credenciales son inválidas'
+                             }
+                         }
+                     });
+                 }
+                 return res.render((path.join(__dirname, '../views/users/login')), {
+                     errors: {
+                         email: {
+                             msg: 'No se encuentra este mail'
+                         }
+                     }
+                 });
+                 
+         })
+         
+           //  let userToLogin = User.findByField('email', req.body.email);
+          //   console.log("se guardo el mail del json" +userToLogin)
+         //    let userAdmin = User.findByField('category_id', '2');
+            // console.log("se guardo el userAdmin: "+ userAdmin)
      
-    db.Users.findOne({
-        include: ['countries','user_categories'], //Consultar si es correcto
-        where: {
-        email: req.body.email
-        }
-        }).then((resultado)=> {
-             userToLogin = resultado;
-             if (userToLogin.email ) {
-                userAdmin = userToLogin.category_id;
-                let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-                if (passwordOk) {
-                    delete userToLogin.password
-                    delete userToLogin.password2
-                    req.session.userLogged = userToLogin;
-    
-                    if (req.body.recordame) {
-                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
-    
-                    }
-    
-                    return res.redirect('/user');
-    
-                }
-                return res.render((path.join(__dirname, '../views/users/login')), {
-                    errors: {
-                        email: {
-                            msg: 'Las credenciales son inválidas'
-                        }
-                    }
-                });
-            }
-            return res.render((path.join(__dirname, '../views/users/login')), {
-                errors: {
-                    email: {
-                        msg: 'No se encuentra este mail'
-                    }
-                }
-            });
-            
-    })
-    
-      //  let userToLogin = User.findByField('email', req.body.email);
-     //   console.log("se guardo el mail del json" +userToLogin)
-    //    let userAdmin = User.findByField('category_id', '2');
-       // console.log("se guardo el userAdmin: "+ userAdmin)
-
-       
+     
     },
     user: (req, res) => {
 
@@ -158,7 +156,7 @@ const userController = {
     
     
 
-
+//eliminar un usuario
     destroy: (req,res) => {
         const userId = req.params.id;
         db.Users.destroy({
@@ -166,18 +164,35 @@ const userController = {
         })
         res.redirect('/');
     },
-
+//abrir pagina de edición de usuario
     edit: (req,res) =>{
-        db.Users.findOne({
-            where: {id: req.params.id}
+        db.User.findOne({
+            where: {id: req.params.id},
+            include: ['countries']
             })
             .then((user)=> { 
                  let pathEdit = path.join(__dirname, '../views/users/userEdit');
                 res.render(pathEdit, { user });
              })
-     }
+     },
+//guardar datos editados el usuario
 
-
+     update: (req,res) =>{
+         let userId = req.params.id
+         db.User.findByPk(userId)
+        .then((user)=>{
+             db.User.update({
+                name: user.name
+            },
+            {
+                where: {id: userId}
+            }) 
+         
+         res.send("el nombre es: " +user.name)}
+        )}
+       
+        
+     
 
     }
 

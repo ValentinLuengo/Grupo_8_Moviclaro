@@ -17,10 +17,9 @@
                             </h2>
                             <p> <%= user.email %> </p>
                             <p> <%= user.phone %> </p>
-                            <p> <%= user.id %> </p>
                         </div>
                         <div class="descripcion">
-                            <h3><%= user.country_id %></h3>
+                            <h3><%= user.countries.name %></h3>
                         </div>
                         <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>

@@ -52,6 +52,6 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 //barra de búsqueda
 
-router.get('/busqueda/:"Samsung"', mainController.search);
+router.post('/search', mainController.search);
 
 module.exports = router;
