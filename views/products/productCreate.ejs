@@ -43,9 +43,11 @@
                             <div class="registro-campos">
                                 <label>Categoria</label>
                                 <select name="category" class="input select">
-                                        <option value="" >--</option>
-                                        <option value="Promoción">Promoción</option>
-                                        <option value="Oferta">Oferta</option>
+                                    <% for (let i=0; i < category.length; i++){ %>
+                                        <option value="<%=category[i].id%>">
+                                            <%=category[i].name%>
+                                        </option>
+                                        <% } %>
                                     </select>
                             </div>
                             <div class="registro-campos">
