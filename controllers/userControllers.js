@@ -66,7 +66,6 @@ const userController = {
 
         })
 
-       /* esto es lo nuevo*/
         
         /* Esto es lo viejo que guarda en el JSON:
 
@@ -164,12 +163,21 @@ const userController = {
             where:{ id: userId}
         })
         res.redirect('/');
+    },
+
+    edit: (req,res) =>{
+        db.Users.findOne({
+            where: {id: req.params.id}
+            })
+            .then((user)=> { 
+                 let pathEdit = path.join(__dirname, '../views/users/userEdit');
+                res.render(pathEdit, { user });
+             })
+     }
+
+
+
     }
-}
-
-
-
-
 
 
 

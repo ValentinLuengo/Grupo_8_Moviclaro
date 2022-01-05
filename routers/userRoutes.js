@@ -47,6 +47,10 @@ router.get('/user', authMiddleware, userController.user);
 //Eliminar usuario
 router.delete('/user/:id', userController.destroy);
 
+//Editar usuario
+router.post('/user/:id', userController.edit);
+
+
 // Logout
 router.get('/logout', userController.logout);
 
