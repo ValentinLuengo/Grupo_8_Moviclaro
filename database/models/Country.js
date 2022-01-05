@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes) =>{
-    let alias = "Countries";
+    let alias = "Country";
     let cols = {
         id:{
             autoIncrement: true,
@@ -17,6 +17,14 @@ module.exports = (sequelize,dataTypes) =>{
         timestamps: false
     }
     const Country = sequelize.define(alias, cols, config);
+
+    Country.associate = function(models) {
+
+        Country.hasMany(models.User, {
+            as: "users",
+            foreignKey: "country_id"
+        })
+    }
 
     return Country;
 }
