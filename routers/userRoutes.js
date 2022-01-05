@@ -44,6 +44,9 @@ router.post('/login', userController.processLogin)
 // Perfil de Usuario
 router.get('/user', authMiddleware, userController.user);
 
+//Eliminar usuario
+router.delete('/user/:id', userController.destroy);
+
 // Logout
 router.get('/logout', userController.logout);
 
