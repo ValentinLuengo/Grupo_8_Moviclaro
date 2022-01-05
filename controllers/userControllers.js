@@ -8,6 +8,7 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const User = require('../models/User')
 
+
 let db = require("../database/models");
 
 
@@ -16,14 +17,11 @@ const userController = {
 
         return res.render(path.join(__dirname, '../views/users/register'))
     },
-
-
-
+    
     storeUser: (req, res) => {
         const resultsValidation = validationResult(req);
 
         if (resultsValidation.errors.length > 0) {
-            console.log(req.body)
             return res.render(path.join(__dirname, '../views/users/register'), {
                 errors: resultsValidation.mapped(),
                 oldData: req.body
@@ -90,6 +88,7 @@ const userController = {
    let userAdmin;
      
     db.Users.findOne({
+        include: ['countries','user_categories'], //Consultar si es correcto
         where: {
         email: req.body.email
         }
@@ -156,6 +155,9 @@ const userController = {
         //         users.find((user) => user.id == requestedId) || users[0];
         //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
         //     res.render(pathUser, { usuario })
+    
+    
+
 
     destroy: (req,res) => {
         const userId = req.params.id;
