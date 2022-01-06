@@ -5,6 +5,7 @@ let { check, validationResult, body } = require('express-validator')
 
 // Traigo los modulos para acceder a la db.
 const db = require('../database/models');
+const { promiseImpl } = require('ejs');
 const sequelize = db.sequelize;
 
 const publicPath = path.resolve(__dirname, './public');
@@ -65,7 +66,13 @@ const mainController = {
 
     },
     nuevoProducto: (req, res) => {
-        res.render(path.join(__dirname, '../views/products/productCreate'))
+        let color = db.Color.findAll()
+        let category = db.ProductCategory.findAll()
+
+        Promise.all([color, category])
+            .then(function([color, category]){
+                res.render('products/productCreate',{color:color, category:category})
+            })
     },
 
     /*  login: (req, res) => {
@@ -132,7 +139,7 @@ const mainController = {
     },
 
     edit: (req, res) => {
-        const producto = req.params.id;
+        const producto = db.params.id;
         const product = products.find((product) => (product.id == producto)) || products[0];
         let pathEdit = path.join(__dirname, '../views/products/productEdit');
         res.render(pathEdit, { product, })
@@ -141,7 +148,7 @@ const mainController = {
     // Update - Method to update
     update: (req, res) => {
         // Leemos el id que viene por url
-        const productId = req.params.id;
+        const product = req.params.id;
 
         // buscamos la posicion del producto que queremos editar
         const productIndex = products.findIndex((p) => p.id == productId);
