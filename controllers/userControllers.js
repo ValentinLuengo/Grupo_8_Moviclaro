@@ -52,7 +52,7 @@ const userController = {
         /*esto es lo nuevo*/
         db.User.create({
             name:req.body.name,
-            last_name: req.body.name,
+            last_name: req.body.last_name,
             category_id: 1,
             image: req.file.filename,
             country_id: 1,
@@ -159,13 +159,16 @@ const userController = {
 //eliminar un usuario
     destroy: (req,res) => {
         const userId = req.params.id;
-        db.Users.destroy({
+        db.User.destroy({
             where:{ id: userId}
         })
+        .then(() => {
+            res.clearCookie(req.params.email)
+            req.session.destroy();
         res.redirect('/');
-    },
+    })},
 //abrir pagina de edición de usuario
-    edit: (req,res) =>{
+    /*edit: (req,res) =>{
         db.User.findOne({
             where: {id: req.params.id},
             include: ['countries']
@@ -174,25 +177,43 @@ const userController = {
                  let pathEdit = path.join(__dirname, '../views/users/userEdit');
                 res.render(pathEdit, { user });
              })
-     },
+     },*/
+
+     edit: function(req,res) {
+            
+            let country = db.Country.findAll();
+            
+            let userId = req.params.id;
+            let user = db.User.findByPk(userId,{
+            include:[{association: "countries"}]
+            })
+            Promise.all([user, country])
+            .then(([user, country]) => {
+                res.render("users/userEdit", {user:user, country:country})})
+            .catch(error => res.send(error))
+        },
+
 //guardar datos editados el usuario
 
-     update: (req,res) =>{
-         let userId = req.params.id
-         db.User.findByPk(userId)
-        .then((user)=>{
-             db.User.update({
-                name: user.name
-            },
+     update: (req, res) => {
+        let userId = req.params.id
+        
+        db.User.update({
+                name: req.body.name,
+                last_name: req.body.last_name,
+                image: req.file ? req.file.filename : req.body.oldImage,
+                email: req.body.email,
+                phone: req.body.phone 
+                },
             {
                 where: {id: userId}
             }) 
-         
-         res.send("el nombre es: " +user.name)}
-        )}
-       
-        
-     
+            .then(() => {
+                return res.redirect('/user')
+            
+            })
+        }
+      
 
     }
 
