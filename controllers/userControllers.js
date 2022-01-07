@@ -55,7 +55,7 @@ const userController = {
             last_name: req.body.name,
             category_id: 1,
             image: req.file.filename,
-            country_id: 1,
+            country_id: req.body.country_id,
             password: bcryptjs.hashSync(req.body.password, 10),
             email: req.body.email,
             phone: req.body.phone 
@@ -159,7 +159,7 @@ const userController = {
 //eliminar un usuario
     destroy: (req,res) => {
         const userId = req.params.id;
-        db.Users.destroy({
+        db.User.destroy({
             where:{ id: userId}
         })
         res.redirect('/');
