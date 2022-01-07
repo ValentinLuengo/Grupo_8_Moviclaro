@@ -12,8 +12,23 @@ let db = require("../database/models");
 
 const userController = {
     registro: (req, res) => {
+        const countries = db.Country.findAll()
+         .then(function(countries){ 
+             console.log(countries)
+            res.render(path.join(__dirname, '../views/users/register'), {countries})
 
-        return res.render(path.join(__dirname, '../views/users/register'))
+         })
+       
+
+/* 
+        let color = db.Color.findAll()
+        let category = db.ProductCategory.findAll()
+        let brands = db.Brand.findAll()
+
+        Promise.all([color, category, brands])
+            .then(function([color, category, brands]){
+                res.render('products/productCreate',{color:color, category:category, brands:brands})
+            }) */
     },
     
     storeUser: (req, res) => {
@@ -51,30 +66,18 @@ const userController = {
         }
         /*esto es lo nuevo*/
         db.User.create({
+
+            include:[ "countries"],
             name:req.body.name,
             last_name: req.body.last_name,
             category_id: 1,
             image: req.file.filename,
-            country_id: 1,
+            country_id: req.body.countries,
             password: bcryptjs.hashSync(req.body.password, 10),
             email: req.body.email,
             phone: req.body.phone 
 
         })
-
-        
-        /* Esto es lo viejo que guarda en el JSON:
-
-        let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            password2: bcryptjs.hashSync(req.body.password2, 10),
-            image: req.file.filename,
-            category_id: "1"
-        }
-        let userCreated = User.create(userToCreate);
-        
-        Esto es lo viejo que guarda en el JSON: */
         return res.render(path.join(__dirname, '../views/users/login'))
     },
     login: (req, res) => {
