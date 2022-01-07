@@ -68,12 +68,69 @@ const mainController = {
     nuevoProducto: (req, res) => {
         let color = db.Color.findAll()
         let category = db.ProductCategory.findAll()
+        let brands = db.Brand.findAll()
 
-        Promise.all([color, category])
-            .then(function([color, category]){
-                res.render('products/productCreate',{color:color, category:category})
+        Promise.all([color, category, brands])
+            .then(function([color, category, brands]){
+                res.render('products/productCreate',{color:color, category:category, brands:brands})
             })
     },
+
+    storeProduct: (req, res) => {
+        db.Product.create({
+            brand_id:req.body.marca,
+            model:req.body.modelo,
+            stock:req.body.stock,
+            price:req.body.precio,
+            image:req.file.filename,
+            product_categories_id:req.body.category,
+            color_id:req.body.color,
+            description:req.body.descripcion,
+        })
+        res.redirect("/store")
+    },
+
+    edit: (req, res) => {
+        let color = db.Color.findAll()
+        let category = db.ProductCategory.findAll()
+        let brands = db.Brand.findAll()
+        let id= req.params.id
+        let product= db.Product.findByPk(id,{
+            include:[{association: "brands"},{association: "colors"},{association: "product_categories"}]
+        })
+        Promise.all([product,color, category, brands])
+            .then(function([product,color, category, brands]){
+                res.render("products/productEdit",{product:product, color:color, category:category, brands:brands})
+            })
+    },
+    
+    update: (req, res) => {
+        db.Product.update({
+            brand_id:req.body.marca,
+            model:req.body.modelo,
+            stock:req.body.stock,
+            price:req.body.precio,
+            image:req.file.filename,
+            product_categories_id:req.body.category,
+            color_id:req.body.color,
+            description:req.body.descripcion,
+        },{
+            where:{
+                id: req.params.id
+            }
+        })
+        res.redirect("/detalle/" + req.params.id)
+    },
+
+    destroy: (req, res) => {
+        db.Product.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        res.redirect("/store")
+    },
+
 
     /*  login: (req, res) => {
          res.render(path.join(__dirname, '../views/users/login'))
@@ -138,72 +195,14 @@ const mainController = {
         res.render(path.join(__dirname, '../views/products/productCreate'));
     },
 
-    edit: (req, res) => {
-        const producto = db.params.id;
-        const product = products.find((product) => (product.id == producto)) || products[0];
-        let pathEdit = path.join(__dirname, '../views/products/productEdit');
-        res.render(pathEdit, { product, })
-    },
-
+   
     // Update - Method to update
-    update: (req, res) => {
-        // Leemos el id que viene por url
-        const product = req.params.id;
-
-        // buscamos la posicion del producto que queremos editar
-        const productIndex = products.findIndex((p) => p.id == productId);
-
-        // Generamos el producto actualizado
-        const updatedProduct = {
-            ...products[productIndex],
-            ...req.body,
-            precio: Number(req.body.precio),
-            image: req.file ? req.file.filename : products[productIndex].image
-                // image: req.file.filename
-
-        };
-
-        // Reemplazamos el objeto en el array
-        products[productIndex] = updatedProduct;
-
-
-
-        // Escribimos en el JSON para persistir
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-            // Volvemos a la pagina de productos
-
-        res.redirect('/store')
-
-
-    },
+    
     //Create - Create one product in DB
-    storeProduct: (req, res) => {
-        const product = req.body;
-        product.id = products[products.length - 1].id + 1;
-        product.image = req.file.filename;
-        products.push(product);
-
-        //const productodatbase = fsJSON.stringify(products)
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
-
-
-        res.redirect('/')
-    },
+    
 
     // Delete - Delete one product from DB
-    destroy: (req, res) => {
-        // Leer el id
-        const productId = req.params.id;
-        // Buscar la posicion actual del producto a eliminar
-        const productIndex = products.findIndex((p) => p.id == productId);
-        // Recortar el array sin ese producto
-        products.splice(productIndex, 1);
-        // Guardar en el json el nuevo array
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-
-        res.redirect('/store');
-        // res.send("Producto eliminado")
-    },
+    
     //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
 
