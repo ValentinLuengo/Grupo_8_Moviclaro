@@ -104,7 +104,7 @@ const mainController = {
         })
         Promise.all([product,color, category, brands])
             .then(function([product,color, category, brands]){
-                res.render("products/productEdit",{product:product, color:color, category:category, brands:brands})
+                console.log(product.model)
             })
     },
     

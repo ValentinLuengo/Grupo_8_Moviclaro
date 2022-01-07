@@ -166,13 +166,15 @@ const userController = {
     },
 //abrir pagina de edición de usuario
     edit: (req,res) =>{
-        db.User.findOne({
-            where: {id: req.params.id},
-            include: ['countries']
+        let country = db.Country.findAll()
+        let userCategory = db.UserCategory.findAll()
+        let id= req.params.id
+        let user = db.User.findByPk(id,{
+            include:[{association:'user_categories'}, {association:'countries'}]
             })
-            .then((user)=> { 
-                 let pathEdit = path.join(__dirname, '../views/users/userEdit');
-                res.render(pathEdit, { user });
+            Promise.all([user,userCategory, country])
+            .then((user, country, userCategory)=> {
+                console.log(user.image);
              })
      },
 //guardar datos editados el usuario

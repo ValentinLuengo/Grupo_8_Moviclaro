@@ -64,13 +64,13 @@
                             <div class="registro-campos">
                                 <label>País</label>
                                 <select name="country_id" class="input select  <%= locals.errors && errors.country_id ? 'is-invalid': null %>">
-                                    <option value="">Selecciona...</option>
+                                    <option value=""></option>
 
                                     <% let paises = ['1', 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
 
                                     <% for (const country_id of paises){  %> 
                                     
-                                    <option value="<%= country_id %> " <%= locals.oldData && (country_id === oldData.country_id) ? 'selected' : null %> > <%= user.country_id %> </option>
+                                    <option value="<%= country_id %> " <%= locals.oldData && (country_id === oldData.country_id) ? 'selected' : null %>  <%= user.name %> </option>
 
                                     <% } %> 
                                 </select>
@@ -101,7 +101,7 @@
                             </div> -->
                             <div class="registro-campos">
                                 <label for="image">Imagen de perfil</label> </br>
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>" >
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image %>" >
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>
