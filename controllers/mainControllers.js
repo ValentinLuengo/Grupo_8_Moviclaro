@@ -56,11 +56,15 @@ const mainController = {
         .catch(error => console.log(error))
     },
     store: (req, res) => {
-        db.Product.findAll({
+        let color = db.Color.findAll()
+        let category = db.ProductCategory.findAll()
+        let brands = db.Brand.findAll()
+        let product = db.Product.findAll({
                 include: ['colors', 'brands', 'product_categories']
             })
-            .then(products => {
-                res.render(path.join(__dirname, '../views/products/store'), { products })
+            Promise.all([product,color, category, brands])
+            .then(function([product,color, category, brands]){
+                res.render(path.join(__dirname, '../views/products/store'), {product:product, color:color, category:category, brands:brands})
             })
             .catch(error => console.log(error))
 
