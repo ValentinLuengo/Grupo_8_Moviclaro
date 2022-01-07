@@ -9,7 +9,7 @@
                 <div class="main">
                     <div class="section-lateral">
                         <!-- Barra lateral -->
-                        <!-- <br> -->
+                        <!-- <br> prueba-->
                         <section class="conteinerPrincipal">
                             <section class="conteinerFiltros">
                                 <h2>Filtros</h2>
@@ -36,7 +36,7 @@
                         <!-- Contenido principal -->
                         <section class="conteiner">
                             <!-- Inicio articulo -->
-                            <% products.forEach(product => { %>
+                            <% product.forEach(product => { %>
                                 <article class="articulo">
                                     <form action="/agregarCarrito" method="GET">
                                         <div class="img-container">
@@ -46,13 +46,20 @@
                                         </div>
                                         <div class="articulo-desc">
                                             <h3>
-                                                <%= product.marca %>
+                                                <%= product.brands.name %>
                                             </h3>
                                             <h3>
-                                                <%= product.modelo %>
+                                                <%= product.model %>
                                             </h3>
                                             <p>
-                                                <%= product.color %>
+                                                <%if(product.product_categories.name == "Ofertas"){%>
+                                                    Oferta
+                                                <%}else if(product.product_categories.name == "Promociones"){%>
+                                                    Promoción
+                                                <%}%>
+                                            </p>
+                                            <p>
+                                                <%= product.color_id.name %>
                                             </p>
                                             <p>
                                                 $

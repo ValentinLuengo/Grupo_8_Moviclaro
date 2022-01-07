@@ -8,55 +8,75 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Editar producto</h2>
-                    <form action="/edit/<%= product[1].id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
+                    <form action="/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <input type="text" name="marca" id="marca" class="input" value="<%= product.marca %>" required>
+                                <select name="marca" id="marca" class="input" required>
+                                    <% for (let i=0; i < brands.length; i++){ %>
+                                        <% if (brands[i].id == product.brand_id){%>
+                                            <option value="<%=brands[i].id%>" selected>
+                                                <%=brands[i].name%>
+                                            </option>
+                                    <%} else{%>
+                                        <option value="<%=brands[i].id%>">
+                                            <%=brands[i].name%>
+                                        </option>
+                                    <% } %>
+                                        <% } %>
+                                </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.modelo %>" required>
+                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.model %>" required>
                             </div>
                             <div class="registro-campos">
-
+                                <label>Color</label>
                                 <select name="color" class="input select" required>
-                                <option value=<%= product.color %>><%= product.color %></option>
-                                <option value="Negro">Negro</option>
-                                <option value="Blanco">Blanco</option>
-                                <option value="Rojo">Rojo</option>
-                                <option value="Azul">Azul</option>
-                                <option value="Verde">Verde</option>
-                                <option value="Gris">Gris</option>
-                                <option value="Plateado">Plateado</option>
-                                <option value="Dorado">Dorado</option>
+                                    <% for (let i=0; i < color.length; i++){ %>
+                                        <% if (color[i].id == product.color_id){%>
+                                            <option value="<%=color[i].id%>" selected>
+                                                <%=color[i].name%>
+                                            </option>
+                                    <%} else{%>
+                                        <option value="<%=color[i].id%>">
+                                            <%=color[i].name%>
+                                        </option>
+                                    <% } %>
+                                        <% } %>
                             </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input" value="<%= product.precio %>" required>
+                                <input type="number" name="precio" id="precio" class="input" value="<%= product.price %>" required>
                             </div>
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
-                                <input type="text" name="stock" id="stock" class="input" value="<%= product.stock %>" required>
+                                <input type="number" name="stock" id="stock" class="input" value="<%= product.stock %>" required>
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
                                 <select name="category" class="input select"   required>
-                                     <option value="" >--</option>
-                                    <option  selected><%= product.category %></option>
-                                    <option value="Oferta">Oferta</option>
-                                    <option value="Promoción">Promoción</option> 
-
+                                    <% for (let i=0; i < category.length; i++){ %>
+                                        <% if (category[i].id == product.product_categories_id){%>
+                                            <option value="<%=category[i].id%>" selected>
+                                                <%=category[i].name%>
+                                            </option>
+                                    <%} else{%>
+                                        <option value="<%=category[i].id%>">
+                                            <%=category[i].name%>
+                                        </option>
+                                    <% } %>
+                                        <% } %>
                                 </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="image" id="image" content="%= product.image %>" required>
+                                <input type="file" name="image" id="image" content="/images/products/<%= product.image %>" required>
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"><%= product.descripcion %></textarea>
+                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"><%= product.description %></textarea>
                             </div>
                         </div>
                         <div class="botones">
