@@ -12,7 +12,13 @@
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <input type="text" name="marca" id="marca" class="input" required>
+                                <select name="marca" id="marca" class="input" required>
+                                    <% for (let i=0; i < brands.length; i++){ %>
+                                        <option value="<%=brands[i].id%>">
+                                            <%=brands[i].name%>
+                                        </option>
+                                    <% } %>
+                                </select>
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
@@ -21,15 +27,11 @@
                             <div class="registro-campos">
                                 <label>Color</label>
                                 <select name="color" class="input select" required>
-                        <option value="null" >----</option>
-                        <option value="Negro">Negro</option>
-                        <option value="Blanco">Blanco</option>
-                        <option value="Rojo">Rojo</option>
-                        <option value="Azul">Azul</option>
-                        <option value="Verde">Verde</option>
-                        <option value="Gris">Gris</option>
-                        <option value="Plateado">Plateado</option>
-                        <option value="Dorado">Dorado</option>
+                                    <% for (let i=0; i < color.length; i++){ %>
+                                        <option value="<%=color[i].id%>">
+                                            <%=color[i].name%>
+                                        </option>
+                                    <% } %>
                                 </select>
                             </div>
                             <div class="registro-campos">
@@ -55,7 +57,7 @@
                                 <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" required></textarea>
                             </div>
                             <div class="registro-campos">
-                                <label for="imagen">Subir imagen</label> </br>
+                                <label for="image">Subir imagen</label> </br>
                                 <input type="file" name="image" id="image" required>
                             </div>
                         </div>
