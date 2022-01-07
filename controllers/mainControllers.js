@@ -10,30 +10,8 @@ const sequelize = db.sequelize;
 
 const publicPath = path.resolve(__dirname, './public');
 
-// const productsFilePath = path.join(__dirname, '../data/products.json');
-// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-// const usersFilePath = path.join(__dirname, '../data/users.json');
-// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const mainController = {
-
-    /*   index: (req, res) => {
-          // const productsOfertas = db.Product.filter(prod => ((prod.product_categories.name === 'on_sale') && (prod.stock > 0)));
-          db.Product.findAll({
-                  
-                  where: { product_categories_id: 1},
-                  include: ['colors', 'brands', 'product_categories']
-              })
-              .then(products => {
-                  res.render('index', { products })
-              })
-              .catch(error => console.log(error))
-
-          // const productsOfertas = products.filter(prod => ((prod.category === 'Oferta') && (prod.stock > 0)));
-          // const productsPromoción = products.filter(prod => ((prod.category === 'Promoción') && (prod.stock > 0)));
-          // res.render('index', { productsOfertas, productsPromoción });
-      }, */
 
     index: (req, res) => {
         let offersProducts = [];
@@ -70,8 +48,8 @@ const mainController = {
         let category = db.ProductCategory.findAll()
 
         Promise.all([color, category])
-            .then(function([color, category]){
-                res.render('products/productCreate',{color:color, category:category})
+            .then(function([color, category]) {
+                res.render('products/productCreate', { color: color, category: category })
             })
     },
 

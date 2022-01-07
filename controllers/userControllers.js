@@ -15,7 +15,7 @@ const userController = {
 
         return res.render(path.join(__dirname, '../views/users/register'))
     },
-    
+
     storeUser: (req, res) => {
         const resultsValidation = validationResult(req);
 
@@ -51,18 +51,18 @@ const userController = {
         }
         /*esto es lo nuevo*/
         db.User.create({
-            name:req.body.name,
+            name: req.body.name,
             last_name: req.body.name,
             category_id: 1,
             image: req.file.filename,
             country_id: 1,
             password: bcryptjs.hashSync(req.body.password, 10),
             email: req.body.email,
-            phone: req.body.phone 
+            phone: req.body.phone
 
         })
 
-        
+
         /* Esto es lo viejo que guarda en el JSON:
 
         let userToCreate = {
@@ -84,54 +84,54 @@ const userController = {
     processLogin: (req, res) => {
         let userToLogin;
         let userAdmin;
-          
-         db.User.findOne({
+
+        db.User.findOne({
             include: ['countries'],
-             where: {
-             email: req.body.email
-             }
-             }).then((resultado)=> {
-                  userToLogin = resultado;
-                  if (userToLogin.email ) {
-                     userAdmin = userToLogin.category_id;
-                     let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-                     if (passwordOk) {
-                         delete userToLogin.password
-                         delete userToLogin.password2
-                         req.session.userLogged = userToLogin;
-         
-                         if (req.body.recordame) {
-                             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
-         
-                         }
-         
-                         return res.redirect('/user');
-         
-                     }
-                     return res.render((path.join(__dirname, '../views/users/login')), {
-                         errors: {
-                             email: {
-                                 msg: 'Las credenciales son inválidas'
-                             }
-                         }
-                     });
-                 }
-                 return res.render((path.join(__dirname, '../views/users/login')), {
-                     errors: {
-                         email: {
-                             msg: 'No se encuentra este mail'
-                         }
-                     }
-                 });
-                 
-         })
-         
-           //  let userToLogin = User.findByField('email', req.body.email);
-          //   console.log("se guardo el mail del json" +userToLogin)
-         //    let userAdmin = User.findByField('category_id', '2');
-            // console.log("se guardo el userAdmin: "+ userAdmin)
-     
-     
+            where: {
+                email: req.body.email
+            }
+        }).then((resultado) => {
+            userToLogin = resultado;
+            if (userToLogin.email) {
+                userAdmin = userToLogin.category_id;
+                let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                if (passwordOk) {
+                    delete userToLogin.password
+                    delete userToLogin.password2
+                    req.session.userLogged = userToLogin;
+
+                    if (req.body.recordame) {
+                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
+
+                    }
+
+                    return res.redirect('/user');
+
+                }
+                return res.render((path.join(__dirname, '../views/users/login')), {
+                    errors: {
+                        email: {
+                            msg: 'Las credenciales son inválidas'
+                        }
+                    }
+                });
+            }
+            return res.render((path.join(__dirname, '../views/users/login')), {
+                errors: {
+                    email: {
+                        msg: 'No se encuentra este mail'
+                    }
+                }
+            });
+
+        })
+
+        //  let userToLogin = User.findByField('email', req.body.email);
+        //   console.log("se guardo el mail del json" +userToLogin)
+        //    let userAdmin = User.findByField('category_id', '2');
+        // console.log("se guardo el userAdmin: "+ userAdmin)
+
+
     },
     user: (req, res) => {
 
@@ -142,59 +142,59 @@ const userController = {
 
     logout: (req, res) => {
 
-            res.clearCookie('userEmail')
-            req.session.destroy();
+        res.clearCookie('userEmail')
+        req.session.destroy();
 
-            res.redirect('/');
-        },
-        // user: (req, res) => {
-        //     const requestedId = req.params.id;
-        //     const usuario =
-        //         users.find((user) => user.id == requestedId) || users[0];
-        //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
-        //     res.render(pathUser, { usuario })
-    
-    
+        res.redirect('/');
+    },
+    // user: (req, res) => {
+    //     const requestedId = req.params.id;
+    //     const usuario =
+    //         users.find((user) => user.id == requestedId) || users[0];
+    //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
+    //     res.render(pathUser, { usuario })
 
-//eliminar un usuario
-    destroy: (req,res) => {
+
+
+    //eliminar un usuario
+    destroy: (req, res) => {
         const userId = req.params.id;
         db.Users.destroy({
-            where:{ id: userId}
+            where: { id: userId }
         })
         res.redirect('/');
     },
-//abrir pagina de edición de usuario
-    edit: (req,res) =>{
+    //abrir pagina de edición de usuario
+    edit: (req, res) => {
         db.User.findOne({
-            where: {id: req.params.id},
-            include: ['countries']
+                where: { id: req.params.id },
+                include: ['countries']
             })
-            .then((user)=> { 
-                 let pathEdit = path.join(__dirname, '../views/users/userEdit');
+            .then((user) => {
+                let pathEdit = path.join(__dirname, '../views/users/userEdit');
                 res.render(pathEdit, { user });
-             })
-     },
-//guardar datos editados el usuario
+            })
+    },
+    //guardar datos editados el usuario
 
-     update: (req,res) =>{
-         let userId = req.params.id
-         db.User.findByPk(userId)
-        .then((user)=>{
-             db.User.update({
-                name: user.name
-            },
-            {
-                where: {id: userId}
-            }) 
-         
-         res.send("el nombre es: " +user.name)}
-        )}
-       
-        
-     
+    update: (req, res) => {
+        let userId = req.params.id
+        db.User.findByPk(userId)
+            .then((user) => {
+                db.User.update({
+                    name: user.name
+                }, {
+                    where: { id: userId }
+                })
 
+                res.send("el nombre es: " + user.name)
+            })
     }
+
+
+
+
+}
 
 
 
