@@ -12,13 +12,28 @@ let db = require("../database/models");
 
 const userController = {
     registro: (req, res) => {
+        let countries = db.Country.findAll()
+         .then(function(countries){
+            res.render("users/register", {countries:countries})
 
-        return res.render(path.join(__dirname, '../views/users/register'))
+         })
+       
+
+/* 
+        let color = db.Color.findAll()
+        let category = db.ProductCategory.findAll()
+        let brands = db.Brand.findAll()
+
+        Promise.all([color, category, brands])
+            .then(function([color, category, brands]){
+                res.render('products/productCreate',{color:color, category:category, brands:brands})
+            }) */
     },
     
     storeUser: (req, res) => {
         const resultsValidation = validationResult(req);
-
+        let countries = db.Country.findAll()
+        .then(countries)
         if (resultsValidation.errors.length > 0) {
             return res.render(path.join(__dirname, '../views/users/register'), {
                 errors: resultsValidation.mapped(),
@@ -52,30 +67,16 @@ const userController = {
         /*esto es lo nuevo*/
         db.User.create({
             name:req.body.name,
-            last_name: req.body.name,
+            last_name: req.body.last_name,
             category_id: 1,
             image: req.file.filename,
-            country_id: 1,
+            country_id: req.body.countries,
             password: bcryptjs.hashSync(req.body.password, 10),
             email: req.body.email,
             phone: req.body.phone 
 
         })
-
-        
-        /* Esto es lo viejo que guarda en el JSON:
-
-        let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            password2: bcryptjs.hashSync(req.body.password2, 10),
-            image: req.file.filename,
-            category_id: "1"
-        }
-        let userCreated = User.create(userToCreate);
-        
-        Esto es lo viejo que guarda en el JSON: */
-        return res.render(path.join(__dirname, '../views/users/login'))
+        return res.render("users/login")
     },
     login: (req, res) => {
 
@@ -105,7 +106,7 @@ const userController = {
          
                          }
          
-                         return res.redirect('/user');
+                         return res.redirect('/');
          
                      }
                      return res.render((path.join(__dirname, '../views/users/login')), {
@@ -134,10 +135,10 @@ const userController = {
      
     },
     user: (req, res) => {
-
-        return res.render(path.join(__dirname, "../views/users/userPerfil"), {
-            user: req.session.userLogged
-        })
+        console.log(req.session.email)
+        //return res.render(path.join(__dirname, "../views/users/userPerfil"), {user
+       
+    
     },
 
     logout: (req, res) => {
@@ -159,42 +160,61 @@ const userController = {
 //eliminar un usuario
     destroy: (req,res) => {
         const userId = req.params.id;
-        db.Users.destroy({
+        db.User.destroy({
             where:{ id: userId}
         })
+        .then(() => {
+            res.clearCookie(req.params.email)
+            req.session.destroy();
         res.redirect('/');
-    },
+    })},
 //abrir pagina de edición de usuario
-    edit: (req,res) =>{
-        let country = db.Country.findAll()
-        let userCategory = db.UserCategory.findAll()
-        let id= req.params.id
-        let user = db.User.findByPk(id,{
-            include:[{association:'user_categories'}, {association:'countries'}]
+    /*edit: (req,res) =>{
+        db.User.findOne({
+            where: {id: req.params.id},
+            include: ['countries']
             })
             Promise.all([user,userCategory, country])
             .then((user, country, userCategory)=> {
                 console.log(user.image);
              })
-     },
+     },*/
+
+     edit: function(req,res) {
+            
+            let country = db.Country.findAll();
+            let userId = req.params.id;
+            let user = db.User.findByPk(userId,{
+            include:[{association: "countries"}]
+            })
+            Promise.all([user, country])
+            .then(([user, country]) => {
+                res.render("users/userEdit", {user:user, country:country})})
+            .catch(error => res.send(error))
+        },
+
 //guardar datos editados el usuario
 
-     update: (req,res) =>{
-         let userId = req.params.id
-         db.User.findByPk(userId)
-        .then((user)=>{
-             db.User.update({
-                name: user.name
-            },
+     update: (req, res) => {
+        let userId = req.params.id
+        
+        db.User.update({
+                name: req.body.name,
+                last_name: req.body.last_name,
+                image: req.file ? req.file.filename : req.body.oldImage,
+                email: req.body.email,
+                phone: req.body.phone, 
+                country_id:req.body.country_id
+                },
             {
                 where: {id: userId}
             }) 
-         
-         res.send("el nombre es: " +user.name)}
-        )}
-       
-        
-     
+            .then(() => {
+                return res.redirect('/user')
+            
+            })
+        }
+      
 
     }
 

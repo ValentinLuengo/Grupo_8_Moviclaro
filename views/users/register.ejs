@@ -61,44 +61,33 @@
                             </div>
 
 
+                            
                             <div class="registro-campos">
                                 <label>País</label>
-                                <select name="country_id" class="input select  <%= locals.errors && errors.country_id ? 'is-invalid': null %>">
-                                    <option value="">Selecciona...</option>
-
-                                    <% let paises = ['1', 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
-
-                                    <% for (const country_id of paises){  %> 
+                                 <select name="countries" class="input select">
+                        
+ 
+                                    <% for (let i = 0; countries.length > i; i++){ %>
                                     
-                                    <option value="<%= country_id %> " <%= locals.oldData && (country_id === oldData.country_id) ? 'selected' : null %> > <%= country_id %> </option>
-
-                                    <% } %> 
-                                </select>
-                                <% if (locals.errors && errors.pais) { %>
-                                    <div class="text-danger">
-                                        <%= errors.country_id.msg %>
-                                    </div>
+                                       <option value="<%= countries[i].id%>"> <%= countries[i].name%> </option>
+                                       
+                    
                                     <% } %>
+                                </select>
+                              
                             </div>
 
+                        
                             <div class="registro-campos">
                                 <label for="password">Confirmar contraseña</label>
                                 <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password2 ? 'is-invalid': null %>">
                                 <% if (locals.errors && errors.password2) { %>
                                     <div class="text-danger">
                                         <%= errors.password2.msg %>
+
                                     </div>
                                     <% } %>
                             </div>
-
-                            <!-- <div class="registro-campos">
-                                <label>Categoría</label>
-                                <select name="categoria" class="input select">
-                                    <option value="null" >Seleciona...</option>
-                                    <option value="arg">Administrador</option>
-                                    <option value="uru">Cliente</option>
-                                </select>
-                            </div> -->
                             <div class="registro-campos">
                                 <label for="image">Imagen de perfil</label> </br>
                                 <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>">

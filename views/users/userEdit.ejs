@@ -52,7 +52,7 @@
 
                             <div class="registro-campos">
                                 <label for="password">Contraseña</label>
-                                <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password ? 'is-invalid': null %>" value="<%= user.password %>">
+                                <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password ? 'is-invalid': null %>" value="">
                                 <% if (locals.errors && errors.password) { %>
                                     <div class="text-danger">
                                         <%= errors.password.msg %>
@@ -63,17 +63,21 @@
 
                             <div class="registro-campos">
                                 <label>País</label>
-                                <select name="country_id" class="input select  <%= locals.errors && errors.country_id ? 'is-invalid': null %>">
-                                    <option value=""></option>
-
-                                    <% let paises = ['1', 'Uruguay', 'España', 'México', 'Chile', 'Guatemala', 'Honduras', 'El Salvador', 'Venezuela', 'Colombia', 'Bolivia', 'Perú', 'Ecuador', 'Paraguay']; %> 
-
-                                    <% for (const country_id of paises){  %> 
-                                    
-                                    <option value="<%= country_id %> " <%= locals.oldData && (country_id === oldData.country_id) ? 'selected' : null %>  <%= user.name %> </option>
-
-                                    <% } %> 
+                                <select name="country_id" id="country_id" class="input ">
+                                    <% for (let i=0; i < country.length; i++){ %>
+                                        <% if (country[i].id == user.country_id){%>
+                                            <option value="<%=country[i].id%>" selected>
+                                                <%=country[i].name%>
+                                            </option>
+                                    <%} else{%>
+                                        <option value="<%=country[i].id%>">
+                                            <%=country[i].name%>
+                                        </option>
+                                    <% } %>
+                                        <% } %>
                                 </select>
+
+
                                 <% if (locals.errors && errors.pais) { %>
                                     <div class="text-danger">
                                         <%= errors.country_id.msg %>
@@ -83,7 +87,7 @@
 
                             <div class="registro-campos">
                                 <label for="password">Confirmar contraseña</label>
-                                <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password2 ? 'is-invalid': null %>" value="<%= user.password %>">
+                                <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password2 ? 'is-invalid': null %>" value="">
                                 <% if (locals.errors && errors.password2) { %>
                                     <div class="text-danger">
                                         <%= errors.password2.msg %>
@@ -101,7 +105,8 @@
                             </div> -->
                             <div class="registro-campos">
                                 <label for="image">Imagen de perfil</label> </br>
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image %>" >
+                                <input type="hidden" name="oldImage" value="<%= user.image%>">
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>" >
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>
