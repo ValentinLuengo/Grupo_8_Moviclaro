@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `moviclaro_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `moviclaro_db`;
 -- MySQL dump 10.13  Distrib 5.5.62, for Win64 (AMD64)
 --
 -- Host: localhost    Database: moviclaro_db
