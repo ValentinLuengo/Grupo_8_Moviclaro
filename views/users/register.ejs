@@ -67,13 +67,17 @@
                                  <select name="country_id" id="country_id"class="input select">
                         
  
-                                    <% for (const country of countries){ %>
+                                    <% for (let i = 0; countries.length > i; i++){ %>
                                     
-                                       <option value="<%= country.id%>"> <%= country.name%> </option>
+                                       <option value="<%= countries[i].id%>"> <%= countries[i].name%> </option>
                                        
                     
+<<<<<<< HEAD
                                     <% } %>  
                                     
+=======
+                                    <% } %>
+>>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
                                 </select>
                               
                             </div>

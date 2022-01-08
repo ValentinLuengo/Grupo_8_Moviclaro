@@ -12,10 +12,9 @@ let db = require("../database/models");
 
 const userController = {
     registro: (req, res) => {
-        const countries = db.Country.findAll()
-         .then(function(countries){ 
-             console.log(countries)
-            res.render(path.join(__dirname, '../views/users/register'), {countries})
+        let countries = db.Country.findAll()
+         .then(function(countries){
+            res.render("users/register", {countries:countries})
 
          })
        
@@ -32,6 +31,7 @@ const userController = {
     },
     
     storeUser: (req, res) => {
+<<<<<<< HEAD
         const resultsValidation = validationResult(req)
         const countries = db.Country.findAll()
         let userInDb =   db.User.findOne({
@@ -39,9 +39,22 @@ const userController = {
              email: req.body.email
              }
              })
+=======
+        const resultsValidation = validationResult(req);
+        let countries = db.Country.findAll()
+        .then(countries)
+        if (resultsValidation.errors.length > 0) {
+            return res.render(path.join(__dirname, '../views/users/register'), {
+                errors: resultsValidation.mapped(),
+                oldData: req.body
+
+            });
+        }
+>>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
 
         Promise.all([userInDb, countries]).then(function([userInDb, countries]) {
 
+<<<<<<< HEAD
             if (resultsValidation.errors.length > 0) {
                 return res.render(path.join(__dirname, '../views/users/register'), {
                     errors: resultsValidation.mapped(),
@@ -74,6 +87,28 @@ const userController = {
             } 
             
             db.User.create({
+=======
+        if (req.body.password !== req.body.password2) {
+            return res.render(path.join(__dirname, '../views/users/register'), {
+                errors: {
+                    password2: {
+                        msg: 'Las contraseñas no coinciden'
+                    }
+                },
+                oldData: req.body
+            });
+        }
+        /*esto es lo nuevo*/
+        db.User.create({
+            name:req.body.name,
+            last_name: req.body.last_name,
+            category_id: 1,
+            image: req.file.filename,
+            country_id: req.body.countries,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            email: req.body.email,
+            phone: req.body.phone 
+>>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
 
                 include:[ "countries"],
                 name:req.body.name,
@@ -89,10 +124,15 @@ const userController = {
             return res.render(path.join(__dirname, '../views/users/login'))
             
         })
+<<<<<<< HEAD
         
     },    
 
  
+=======
+        return res.render("users/login")
+    },
+>>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
     login: (req, res) => {
 
         res.render(path.join(__dirname, '../views/users/login'))
@@ -121,7 +161,7 @@ const userController = {
          
                          }
          
-                         return res.redirect('/user');
+                         return res.redirect('/');
          
                      }
                      return res.render((path.join(__dirname, '../views/users/login')), {
@@ -150,10 +190,10 @@ const userController = {
      
     },
     user: (req, res) => {
-
-        return res.render(path.join(__dirname, "../views/users/userPerfil"), {
-            user: req.session.userLogged
-        })
+        console.log(req.session.email)
+        //return res.render(path.join(__dirname, "../views/users/userPerfil"), {user
+       
+    
     },
 
     logout: (req, res) => {
@@ -189,16 +229,15 @@ const userController = {
             where: {id: req.params.id},
             include: ['countries']
             })
-            .then((user)=> { 
-                 let pathEdit = path.join(__dirname, '../views/users/userEdit');
-                res.render(pathEdit, { user });
+            Promise.all([user,userCategory, country])
+            .then((user, country, userCategory)=> {
+                console.log(user.image);
              })
      },*/
 
      edit: function(req,res) {
             
             let country = db.Country.findAll();
-            
             let userId = req.params.id;
             let user = db.User.findByPk(userId,{
             include:[{association: "countries"}]
@@ -219,7 +258,8 @@ const userController = {
                 last_name: req.body.last_name,
                 image: req.file ? req.file.filename : req.body.oldImage,
                 email: req.body.email,
-                phone: req.body.phone 
+                phone: req.body.phone, 
+                country_id:req.body.country_id
                 },
             {
                 where: {id: userId}
