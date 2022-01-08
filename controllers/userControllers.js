@@ -15,9 +15,7 @@ const userController = {
         let countries = db.Country.findAll()
          .then(function(countries){
             res.render("users/register", {countries:countries})
-
-         })
-       
+         })  
     },
     
     storeUser: (req, res) => {
@@ -82,13 +80,11 @@ const userController = {
         
     },    
 
- 
-        
-    
     login: (req, res) => {
 
         res.render(path.join(__dirname, '../views/users/login'))
     },
+
     processLogin: (req, res) => {
         let userToLogin;
         let userAdmin;
@@ -113,7 +109,7 @@ const userController = {
          
                          }
          
-                         return res.redirect('/');
+                         return res.redirect('/user');
                         
                        
          
@@ -179,8 +175,6 @@ const userController = {
         //         users.find((user) => user.id == requestedId) || users[0];
         //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
         //     res.render(pathUser, { usuario })
-    
-    
 
 //eliminar un usuario
     destroy: (req,res) => {
@@ -193,17 +187,8 @@ const userController = {
             req.session.destroy();
         res.redirect('/');
     })},
+
 //abrir pagina de edición de usuario
-    /*edit: (req,res) =>{
-        db.User.findOne({
-            where: {id: req.params.id},
-            include: ['countries']
-            })
-            Promise.all([user,userCategory, country])
-            .then((user, country, userCategory)=> {
-                console.log(user.image);
-             })
-     },*/
 
      edit: function(req,res) {
             
@@ -221,8 +206,7 @@ const userController = {
 //guardar datos editados el usuario
 
      update: (req, res) => {
-        let userId = req.params.id
-        
+        let userId = req.params.id 
         db.User.update({
                 name: req.body.name,
                 last_name: req.body.last_name,
@@ -239,12 +223,7 @@ const userController = {
             
             })
         }
-      
 
     }
-
-
-
-
 
 module.exports = userController;
