@@ -114,6 +114,8 @@ const userController = {
                          }
          
                          return res.redirect('/');
+                        
+                       
          
                      }
                      return res.render((path.join(__dirname, '../views/users/login')), {
@@ -142,11 +144,27 @@ const userController = {
      
     },
     user: (req, res) => {
-        console.log(req.session.email)
-        //return res.render(path.join(__dirname, "../views/users/userPerfil"), {user
        
+        const userLogged = req.session.userLogged;
+        //     const usuario =
+        db.User.findOne({
+            include: ['countries'],
+             where: {
+             email: userLogged.email
+             }
+             })
+             .then((user)=>{
+        return res.render(path.join(__dirname, "../views/users/userPerfil"), {user})
+             })
     
     },
+
+     // user: (req, res) => {
+        //     const requestedId = req.params.id;
+        //     const usuario =
+        //         users.find((user) => user.id == requestedId) || users[0];
+        //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
+        //     res.render(pathUser, { usuario })
 
     logout: (req, res) => {
 
