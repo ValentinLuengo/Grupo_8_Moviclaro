@@ -18,20 +18,9 @@ const userController = {
 
          })
        
-
-/* 
-        let color = db.Color.findAll()
-        let category = db.ProductCategory.findAll()
-        let brands = db.Brand.findAll()
-
-        Promise.all([color, category, brands])
-            .then(function([color, category, brands]){
-                res.render('products/productCreate',{color:color, category:category, brands:brands})
-            }) */
     },
     
     storeUser: (req, res) => {
-<<<<<<< HEAD
         const resultsValidation = validationResult(req)
         const countries = db.Country.findAll()
         let userInDb =   db.User.findOne({
@@ -39,22 +28,9 @@ const userController = {
              email: req.body.email
              }
              })
-=======
-        const resultsValidation = validationResult(req);
-        let countries = db.Country.findAll()
-        .then(countries)
-        if (resultsValidation.errors.length > 0) {
-            return res.render(path.join(__dirname, '../views/users/register'), {
-                errors: resultsValidation.mapped(),
-                oldData: req.body
-
-            });
-        }
->>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
 
         Promise.all([userInDb, countries]).then(function([userInDb, countries]) {
 
-<<<<<<< HEAD
             if (resultsValidation.errors.length > 0) {
                 return res.render(path.join(__dirname, '../views/users/register'), {
                     errors: resultsValidation.mapped(),
@@ -70,7 +46,8 @@ const userController = {
                             msg: 'Este email ya está registrado'
                         }
                     },
-                    oldData: req.body
+                    oldData: req.body,
+                    countries: countries
                 });
             }
     
@@ -87,28 +64,6 @@ const userController = {
             } 
             
             db.User.create({
-=======
-        if (req.body.password !== req.body.password2) {
-            return res.render(path.join(__dirname, '../views/users/register'), {
-                errors: {
-                    password2: {
-                        msg: 'Las contraseñas no coinciden'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-        /*esto es lo nuevo*/
-        db.User.create({
-            name:req.body.name,
-            last_name: req.body.last_name,
-            category_id: 1,
-            image: req.file.filename,
-            country_id: req.body.countries,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            email: req.body.email,
-            phone: req.body.phone 
->>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
 
                 include:[ "countries"],
                 name:req.body.name,
@@ -124,15 +79,12 @@ const userController = {
             return res.render(path.join(__dirname, '../views/users/login'))
             
         })
-<<<<<<< HEAD
         
     },    
 
  
-=======
-        return res.render("users/login")
-    },
->>>>>>> 495f3cb9eb125c69148d021fd857af4100db78ce
+        
+    
     login: (req, res) => {
 
         res.render(path.join(__dirname, '../views/users/login'))
