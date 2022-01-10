@@ -36,10 +36,6 @@ router.get('/login', guestMiddleware, userController.login);
 //Procesar Login
 router.post('/login', userController.processLogin);
 
-// router.get('/profile/:userId', usersController.profile);
-
-router.post('/login', userController.processLogin)
-
 
 // Perfil de Usuario
 router.get('/user', authMiddleware, userController.user);
@@ -48,7 +44,7 @@ router.get('/user', authMiddleware, userController.user);
 router.delete('/user/:id', userController.destroy);
 
 //Editar usuario
-router.post('/user/:id', userController.edit);
+router.get('/user/:id', userController.edit);
 router.put('/user/:id', uploadFile.single('image'), userController.update);
 
 // Logout

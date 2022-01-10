@@ -77,7 +77,10 @@ const userController = {
             email: req.body.email,
             phone: req.body.phone
 
-        })
+        }).then(() => {
+            return res.render(path.join(__dirname, '../views/users/login'))
+
+        }).catch(err => console.log(err))
 
         /* Esto es lo viejo que guarda en el JSON:
 
@@ -92,7 +95,6 @@ const userController = {
         
                 Esto es lo viejo que guarda en el JSON: */
 
-        return res.render(path.join(__dirname, '../views/users/login'))
     },
     login: (req, res) => {
 

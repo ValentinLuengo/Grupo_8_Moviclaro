@@ -64,7 +64,12 @@
                             <div class="registro-campos">
                                 <label>País</label>
                                 <select name="country_id" id="country_id" class="input ">
+                                    <% for (let i = 0; i < country.length; i++){ %>
                                     
+                                        <option value="<%= country[i].id%>"> <%= country[i].name%> </option>
+                                        
+                     
+                                     <% } %>  
                                    
                                 </select>
 
@@ -97,7 +102,7 @@
                             <div class="registro-campos">
                                 <label for="image">Imagen de perfil</label> </br>
                                 <input type="hidden" name="oldImage" value="<%= user.image%>">
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>" >
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>">
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>

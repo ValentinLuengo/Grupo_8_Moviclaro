@@ -31,45 +31,14 @@
                         <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
                         </form>
-                        <form action="/user/<%= user.id %>" enctype="multipart/form-data" method="POST">
+                        <form action="/user/<%= user.id %>" enctype="multipart/form-data" method="get">
                             <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
                             <input class="registro-boton" value="EDITAR" type="submit" href="#">
 
                         </form>
                     </div>
                 </section>
-                <!-- <div id="formularioEditUser">
-                    <form class="formulario">
-                        <img id="imagenPerfil" style="width: 40%;" src="/images/avatars/<%= user.avatar %>">
-                        <div id="detalle">
-                            <div class="registro-campos">
-                                <label for="Nombre">Nombre</label>
-                                <input class="input" type="text" name="Nombre" value="<%= user.nombre %>">
-                            </div>
-                            <div class="registro-campos">
-                                <label for="Apellido">Apellido</label>
-                                <input class="input" type="text" name="Apellido" value="<%= user.apellido %>">
-                            </div>
-                            <div class="registro-campos">
-                                <label for="Email">Email</label>
-                                <input class="input" type="text" name="Email" value="<%= user.email %>">
-                            </div>
 
-                            <div class="registro-campos">
-                                <label for="Celular">Celular</label>
-                                <input class="input" type="text" name="Celular" value="<%= user.celular %>">
-                            </div>
-
-                            <div class="registro-campos">
-                                <label for="Contraseña">Contraseña</label>
-                                <input class="input" type="text" name="Contraseña" value="<%= //usuario.password %>">
-                            </div>
-
-                        </div>
-                        <button type="reset">Descartar Cambios</button>
-                        <button type="submit">Guardar Cambios</button>
-                    </form>
-                </div>-->
             </main>
             <%- include('../partials/footer.ejs') %>
     </body>

@@ -61,24 +61,24 @@
                             </div>
 
 
-                            
+
                             <div class="registro-campos">
                                 <label>País</label>
-                                 <select name="countries" class="input select">
+                                <select name="countries" class="input select">
                         
- 
-                                    <% for (const country of countries){ %>
+                                    <% for (let i = 0; i < countries.length; i++){ %>
                                     
-                                       <option value="<%= country.id%>"> <%= country.name%> </option>
-                                       
-                    
-                                    <% } %>  
-                                    <option value="1"> "Argentina" </option>
+                                        <option value="<%= countries[i].id%>"> <%= countries[i].name%> </option>
+                                        
+                     
+                                     <% } %>  
+ 
+                                  
                                 </select>
-                              
+
                             </div>
 
-                        
+
                             <div class="registro-campos">
                                 <label for="password">Confirmar contraseña</label>
                                 <input type="password" name="password2" id="password2" class="input  <%= locals.errors && errors.password2 ? 'is-invalid': null %>">
