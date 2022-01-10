@@ -64,13 +64,17 @@
                             <div class="registro-campos">
                                 <label>País</label>
                                 <select name="country_id" id="country_id" class="input ">
-                                    <% for (let i = 0; i < country.length; i++){ %>
-                                    
-                                        <option value="<%= country[i].id%>"> <%= country[i].name%> </option>
-                                        
-                     
-                                     <% } %>  
-                                   
+                                    <% for (let i=0; i < country.length; i++){ %>
+                                        <% if (country[i].id == user.country_id){%>
+                                            <option value="<%=country[i].id%>" selected>
+                                                <%=country[i].name%>
+                                            </option>
+                                    <%} else{%>
+                                        <option value="<%=country[i].id%>">
+                                            <%=country[i].name%>
+                                        </option>
+                                    <% } %>
+                                        <% } %>
                                 </select>
 
 

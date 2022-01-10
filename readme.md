@@ -10,6 +10,8 @@ Lupe Ospina: soy Lupe, aprender a programar es una tarea pendiente, me apasionan
 
 Viviana Acevedo: Soy Vivi, trabajo en sistemas en el área de gestión y disfruto estar en la naturaleza. 
 
+Londero, Pamela: Hola!👋 Soy Pame, contadora y docente en Cs. Económicas. Feliz de formar parte de este maravilloso 🌍 IT. En viaje en mi 🚀 al 💫.
+
 Referentes: <br>
 <a href="https://www.movistar.com.ar">MOVISTAR</a> Nos gustó la forma en que se mostraban los productos. <br>
 <a href="https://www.claro.com.ar/personas">CLARO</a> Nos inspiró para nuestra página de detalle de producto. <br>

@@ -26,17 +26,15 @@ module.exports = (sequelize,dataTypes) =>{
     User.associate = function(models) {
         User.belongsTo(models.UserCategory, {
             as: 'user_categories',
-            foreignKey: 'user_category_id'
+            foreignKey: 'category_id'
         })
-
-    }
-
-    User.associate = function(models) {
+        
         User.belongsTo(models.Country, {
             as: 'countries',
             foreignKey: 'country_id'
         })
 
+        
     }
         
     return User;

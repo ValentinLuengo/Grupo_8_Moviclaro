@@ -11,17 +11,12 @@ const pubiclPath = path.resolve(__dirname, './public');
 const { body } = require('express-validator');
 //agego un comentario para actualizar
 
-
-
-
-
 const userController = require('../controllers/userControllers');
 
 const uploadFile = require('../middlewares/userMulter');
 // const validations = require('../middlewares/validationsMiddleware');
 
 const validations = require('../middlewares/validationsMiddleware');
-
 
 
 // Formulario de registro
@@ -36,6 +31,7 @@ router.get('/login', guestMiddleware, userController.login);
 //Procesar Login
 router.post('/login', userController.processLogin);
 
+// router.get('/profile/:userId', usersController.profile);
 
 // Perfil de Usuario
 router.get('/user', authMiddleware, userController.user);

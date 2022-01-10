@@ -36,13 +36,13 @@ const mainController = {
     store: (req, res) => {
         let color = db.Color.findAll()
         let category = db.ProductCategory.findAll()
-        let brands = db.Brand.findAll()
+        let brand = db.Brand.findAll()
         let product = db.Product.findAll({
             include: ['colors', 'brands', 'product_categories']
         })
-        Promise.all([product, color, category, brands])
-            .then(function([product, color, category, brands]) {
-                res.render(path.join(__dirname, '../views/products/store'), { product: product, color: color, category: category, brands: brands })
+        Promise.all([product, color, category, brand])
+            .then(function([product, color, category, brand]) {
+                res.render(path.join(__dirname, '../views/products/store'), { product: product, color: color, category: category, brand: brand })
             })
             .catch(error => console.log(error))
 
