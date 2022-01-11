@@ -114,7 +114,7 @@ const mainController = {
             model:req.body.modelo,
             stock:req.body.stock,
             price:req.body.precio,
-            image:req.file.filename,
+            image:req.file ? req.file.filename : req.body.oldImage,
             product_categories_id:req.body.category,
             color_id:req.body.color,
             description:req.body.descripcion,
