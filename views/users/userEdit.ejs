@@ -105,6 +105,9 @@
                             </div> -->
                             <div class="registro-campos">
                                 <label for="image">Imagen de perfil</label> </br>
+                                <figure class="figure">
+                                    <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
+                                </figure>
                                 <input type="hidden" name="oldImage" value="<%= user.image%>">
                                 <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>">
                                 <% if (locals.errors && errors.image) { %>

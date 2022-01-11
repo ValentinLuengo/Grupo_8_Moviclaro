@@ -221,8 +221,8 @@ const userController = {
             })
             .then(() => {
                 return res.redirect('/user')
-
             })
+            .catch(err => console.log(err))
     }
 
 
