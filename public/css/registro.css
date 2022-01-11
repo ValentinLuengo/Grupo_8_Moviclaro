@@ -44,7 +44,7 @@ body {
     background-color: white;
 }
 
-#detalle{
+#detalle {
     display: flex;
 }
 
@@ -112,6 +112,16 @@ body {
     background-repeat: no-repeat;
     background-position: right calc(0.75em + 0.1875rem) center;
     background-size: calc(0.8em + 0.4rem) calc(0.8em + 0.4rem);
+}
+
+.figure img {
+    width: 150px;
+    display: flex;
+}
+
+.figure {
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 769px) {

@@ -56,7 +56,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
-                                <select name="category" class="input select"   required>
+                                <select name="category" class="input select" required>
                                     <% for (let i=0; i < category.length; i++){ %>
                                         <% if (category[i].id == product.product_categories_id){%>
                                             <option value="<%=category[i].id%>" selected>
@@ -72,7 +72,11 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="imagen">Subir imagen</label> </br>
-                                <input type="file" name="image" id="image" content="/images/products/<%= product.image %>" required>
+                                <figure class="figure">
+                                    <img src="/images/products/<%= product.image %>" alt="imagen de producto">
+                                </figure>
+                                <input type="hidden" name="oldImage" value="<%= product.image%>">
+                                <input type="file" name="image" id="image" content="/images/products/<%= product.image %>">
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>

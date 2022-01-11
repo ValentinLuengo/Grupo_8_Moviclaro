@@ -92,7 +92,7 @@ const mainController = {
             model: req.body.modelo,
             stock: req.body.stock,
             price: req.body.precio,
-            image: req.file.filename,
+            image: req.file ? req.file.filename : req.body.oldImage,
             product_categories_id: req.body.category,
             color_id: req.body.color,
             description: req.body.descripcion,
@@ -100,8 +100,10 @@ const mainController = {
             where: {
                 id: req.params.id
             }
-        })
-        res.redirect("/detalle/" + req.params.id)
+        }).then(() => {
+            // res.render("/detalle/" + req.params.id)
+            res.redirect("/detalle/" + req.params.id)
+        }).catch(err => console.log(err))
     },
 
     destroy: (req, res) => {
