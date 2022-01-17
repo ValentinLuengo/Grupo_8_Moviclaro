@@ -29,8 +29,8 @@ app.use(express.urlencoded({ extended: false }));
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 app.use(userLoggedMiddleware);
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000 ')
+app.listen(3001, () => {
+    console.log('Servidor corriendo en el puerto 3001')
 });
 
 const main = require('./routers/main');
