@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 let { check, validationResult, body } = require('express-validator')
+const validations = require('../middlewares/productMiddleware.js');
 
 // Traigo los modulos para acceder a la db.
 const db = require('../database/models');
@@ -59,18 +60,45 @@ const mainController = {
     },
 
     storeProduct: (req, res) => {
+     
+        // const resultsValidation = validationResult(req)
+        
+        //     if (resultsValidation.errors.length > 0) {
+            //         return res.render(path.join(__dirname, '../views/products/store'), {
+                //             errors: resultsValidation.mapped(),
+                //             oldData: req.body,
+                //         });
+                //     }
+            let resultadoValidacion = validationResult(req);
+
+        if(resultadoValidacion.errors.length < 0){
+                   
         db.Product.create({
+            include: ["brands", "colors" ],
             brand_id: req.body.marca,
             model: req.body.modelo,
             stock: req.body.stock,
             price: req.body.precio,
-            image: req.file.filename,
+            image: req.file,
             product_categories_id: req.body.category,
             color_id: req.body.color,
             description: req.body.descripcion,
-        })
-        res.redirect("/store")
-    },
+        }).then(()=>{
+            res.redirect("/store")
+        }).catch(err => console.log(err))
+        }else{
+            let color = db.Color.findAll()
+            let category = db.ProductCategory.findAll()
+            let brands = db.Brand.findAll()
+    
+            Promise.all([color, category, brands])
+                .then(function([color, category, brands]) {
+                    res.render('products/productCreate', { errors: resultadoValidacion.errors,color: color, category: category, brands: brands })
+                })
+            console.log(resultadoValidacion.errors);
+           
+            }
+     },
 
     edit: (req, res) => {
         let color = db.Color.findAll()

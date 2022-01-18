@@ -8,11 +8,11 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Nuevo producto</h2>
-                    <form action="/storeProduct" method="POST" enctype="multipart/form-data" class="formulario">
+                    <form action="/nuevoProducto" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <select name="marca" id="marca" class="input" required>
+                                <select name="marca" id="marca" class="input">
                                     <% for (let i=0; i < brands.length; i++){ %>
                                         <option value="<%=brands[i].id%>">
                                             <%=brands[i].name%>
@@ -22,11 +22,17 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input" required>
+                                <% console.log(locals.errors); %> 
+                                <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
+                                <% if (locals.errors && errors.modelo) { %>
+                                    <div class="text-danger">
+                                        <%= errors.modelo.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
                             <div class="registro-campos">
                                 <label>Color</label>
-                                <select name="color" class="input select" required>
+                                <select name="color" class="input select" >
                                     <% for (let i=0; i < color.length; i++){ %>
                                         <option value="<%=color[i].id%>">
                                             <%=color[i].name%>
@@ -36,11 +42,11 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input" required>
+                                <input type="number" name="precio" id="precio" class="input" >
                             </div>
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
-                                <input type="number" name="stock" id="stock" class="input" required>
+                                <input type="number" name="stock" id="stock" class="input">
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
@@ -54,11 +60,23 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50" required></textarea>
+                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" 
+                                class="textarea input <%= locals.errors && errors.descripcion ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.descripcion : null %>"
+                                <% if (locals.errors && errors.descripcion) { %>
+                                    <div class="text-danger">
+                                        <%= errors.descripcion.msg %>
+                                    </div>
+                                    <% } %>>
+                                </textarea>
                             </div>
                             <div class="registro-campos">
                                 <label for="image">Subir imagen</label> </br>
-                                <input type="file" name="image" id="image" required>
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>">
+                                <% if (locals.errors && errors.image) { %>
+                                    <div class="text-danger">
+                                        <%= errors.image.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
                         </div>
                         <div class="botones">

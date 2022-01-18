@@ -1,4 +1,5 @@
 const express = require('express');
+
 const multer = require('multer');
 const mainController = require('../controllers/mainControllers.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
@@ -7,6 +8,7 @@ let router = express.Router();
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
 const { check } = require('express-validator');
+const validations = require('../middlewares/productMiddleware.js');
 
 
 
@@ -39,7 +41,7 @@ router.get('/detalle/:id', mainController.productDetail);
 /*Crear producto*/
 
 // Pienso que deberia haber un middleware para administrador... Pero no se si es acá.
-router.post('/storeProduct', uploadFile.single('image'), mainController.storeProduct);
+router.post('/nuevoProducto', uploadFile.single('image'), validations,  mainController.storeProduct);
 
 router.get('/edit/:id', uploadFile.single('image'), mainController.edit);
 

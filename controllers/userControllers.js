@@ -105,7 +105,7 @@ const userController = {
                     req.session.userLogged = userToLogin;
 
                     if (req.body.recordame) {
-                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 300 });
+                        res.cookie('userEmail', req.body.email, { maxAge: 1000 * 3000 });
 
                     }
 

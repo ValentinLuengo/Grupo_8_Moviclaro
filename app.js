@@ -3,10 +3,12 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const cookies = require('cookie-parser')
+const bodyparser = require('body-parser');
+
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
-
-
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
@@ -29,8 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 app.use(userLoggedMiddleware);
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000 ')
+app.listen(3001, () => {
+    console.log('Servidor corriendo en el puerto 3001 ')
 });
 
 const main = require('./routers/main');
