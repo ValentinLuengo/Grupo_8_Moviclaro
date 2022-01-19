@@ -8,7 +8,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 // let router = express.Router();
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
-const { body } = require('express-validator');
+
 //agego un comentario para actualizar
 
 const userController = require('../controllers/userControllers');
@@ -17,7 +17,7 @@ const uploadFile = require('../middlewares/userMulter');
 // const validations = require('../middlewares/validationsMiddleware');
 
 const validations = require('../middlewares/validationsMiddleware');
-
+const validationsUserEdit = require('../middlewares/validationsUserEdit');
 
 // Formulario de registro
 router.get('/registro', guestMiddleware, userController.registro);
@@ -41,7 +41,8 @@ router.delete('/user/:id', userController.destroy);
 
 //Editar usuario
 router.get('/user/:id', userController.edit);
-router.put('/user/:id', uploadFile.single('image'), userController.update);
+router.put('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
+router.post('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
 
 // Logout
 router.get('/logout', userController.logout);
