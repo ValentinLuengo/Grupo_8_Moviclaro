@@ -22,7 +22,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <% console.log(locals.errors); %> 
+                                <%// console.log(locals.errors); %> 
                                 <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
                                 <% if (locals.errors && errors.modelo) { %>
                                     <div class="text-danger">
@@ -61,12 +61,12 @@
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
                                 <textarea name="descripcion" id="descripcion" rows="10" cols="50" 
-                                class="textarea input <%= locals.errors && errors.descripcion ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.descripcion : null %>"
+                                class="textarea input <%= locals.errors && errors.descripcion ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.descripcion : null %>">
                                 <% if (locals.errors && errors.descripcion) { %>
                                     <div class="text-danger">
                                         <%= errors.descripcion.msg %>
                                     </div>
-                                    <% } %>>
+                                    <% } %>
                                 </textarea>
                             </div>
                             <div class="registro-campos">

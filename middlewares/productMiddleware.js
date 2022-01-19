@@ -5,13 +5,14 @@ module.exports = [
     body('modelo')
         .notEmpty()
         .withMessage('Debes escribir el modelo')
-        .isLength({min: 5}),
+        .isLength({min: 5})
+        .withMessage('El nombre del modelo debe tener al menos 5 caracteres'),
     body('descripcion')
         .notEmpty()
         .withMessage('Debes escribir una descripción')
-        .isLength({min: 20}),
+        .isLength({min: 20})
+        .withMessage('La descripción debe tener al menos 20 caracteres'),
     body('image')
-        .notEmpty()
         .custom((value, { req }) => {
         let file = req.file;
         if (!file) {

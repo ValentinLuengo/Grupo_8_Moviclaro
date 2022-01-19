@@ -69,7 +69,7 @@ const mainController = {
                 //             oldData: req.body,
                 //         });
                 //     }
-            let resultadoValidacion = validationResult(req);
+           const resultadoValidacion = validationResult(req);
 
         if(resultadoValidacion.errors.length < 0){
                    
@@ -90,12 +90,12 @@ const mainController = {
             let color = db.Color.findAll()
             let category = db.ProductCategory.findAll()
             let brands = db.Brand.findAll()
+            console.log(resultadoValidacion.errors);
     
             Promise.all([color, category, brands])
                 .then(function([color, category, brands]) {
-                    res.render('products/productCreate', { errors: resultadoValidacion.errors,color: color, category: category, brands: brands })
-                })
-            console.log(resultadoValidacion.errors);
+                    res.render('products/productCreate', { errors: resultadoValidacion.mapped(), oldData: req.body,color: color, category: category, brands: brands})
+                }).catch(err => console.log(err))
            
             }
      },
