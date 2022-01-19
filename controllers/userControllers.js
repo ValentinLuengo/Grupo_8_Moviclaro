@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { validationResult } = require('express-validator')
+const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs')
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -106,13 +106,9 @@ const userController = {
 
                     if (req.body.recordame) {
                         res.cookie('userEmail', req.body.email, { maxAge: 1000 * 3000 });
-
                     }
 
                     return res.redirect('/user');
-
-
-
                 }
                 return res.render((path.join(__dirname, '../views/users/login')), {
                     errors: {
@@ -208,23 +204,36 @@ const userController = {
     //guardar datos editados el usuario
 
     update: (req, res) => {
-        let userId = req.params.id
-        db.User.update({
-                name: req.body.name,
-                last_name: req.body.last_name,
-                image: req.file ? req.file.filename : req.body.oldImage,
-                email: req.body.email,
-                phone: req.body.phone,
-                country_id: req.body.country_id
-            }, {
-                where: { id: userId }
+        const resultadoValidacion = validationResult(req);
+        if(resultadoValidacion.errors.length < 0){
+            let userId = req.params.id
+            db.User.update({
+                    name: req.body.name,
+                    last_name: req.body.last_name,
+                    image: req.file ? req.file.filename : req.body.oldImage,
+                    email: req.body.email,
+                    phone: req.body.phone,
+                    country_id: req.body.country_id
+                }, {
+                    where: { id: userId }
+                })
+                .then(() => {
+                    return res.redirect('/user')
+                })
+                .catch(error => console.log(error))
+        } else {
+            let country = db.Country.findAll();
+            let userId = req.params.id;
+            let user = db.User.findByPk(userId, {
+                include: [{ association: "countries" }]
             })
-            .then(() => {
-                return res.redirect('/user')
-            })
-            .catch(err => console.log(err))
+            Promise.all([user, country])
+                .then(([user, country]) => {
+                    res.render("users/userEdit", { errors : resultadoValidacion.mapped(), old : req.body, user: user, country: country })
+                })
+                .catch(error => res.send(error))
+        }
     }
-
 
 }
 
