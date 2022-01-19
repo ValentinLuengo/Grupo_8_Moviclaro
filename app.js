@@ -32,11 +32,7 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 app.use(userLoggedMiddleware);
 
 app.listen(3001, () => {
-<<<<<<< HEAD
-    console.log('Servidor corriendo en el puerto 3001 ')
-=======
     console.log('Servidor corriendo en el puerto 3001')
->>>>>>> 85eaafff78008486c0f2fbb67543e3c99b690ec9
 });
 
 const main = require('./routers/main');
