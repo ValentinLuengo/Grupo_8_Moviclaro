@@ -13,7 +13,7 @@
                             <div class="registro-campos ">
                                 <label for="name">Nombre</label>
                                 <!-- <input type="text" name="name" id="name" class="input <%= locals.errors && errors.name ? 'is-invalid': null %>"  placeholder="<%= user.name %>" > -->
-                                <input type="text" name="name" id="name" class="input" value="<%= user.name %>" required>
+                                <input type="text" name="name" id="name" class="input" value="<%= user.name %>">
                                 <% if (locals.errors && errors.name) { %>
                                     <div class="text-danger">
                                         <%= errors.name.msg %>
