@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator')
 const bcryptjs = require('bcryptjs')
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -108,9 +108,13 @@ const userController = {
 
                     if (req.body.recordame) {
                         res.cookie('userEmail', req.body.email, { maxAge: 1000 * 3000 });
+
                     }
 
                     return res.redirect('/user');
+
+
+
                 }
                 return res.render((path.join(__dirname, '../views/users/login')), {
                     errors: {

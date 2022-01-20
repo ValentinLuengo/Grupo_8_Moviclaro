@@ -69,7 +69,7 @@ const mainController = {
                 //             oldData: req.body,
                 //         });
                 //     }
-           const resultadoValidacion = validationResult(req);
+     const resultadoValidacion = validationResult(req);
 
         if(resultadoValidacion.errors.length < 0){
                    
