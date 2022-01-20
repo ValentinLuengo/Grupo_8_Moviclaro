@@ -10,6 +10,7 @@ const User = require('../models/User')
 let db = require("../database/models");
 
 
+
 const userController = {
     registro: (req, res) => {
         let countries = db.Country.findAll()
@@ -27,7 +28,8 @@ const userController = {
             }
         })
 
-        Promise.all([userInDb, countries]).then(function([userInDb, countries]) {
+        Promise.all([userInDb, countries])
+        .then(function([userInDb, countries]) {
 
             if (resultsValidation.errors.length > 0) {
                 return res.render(path.join(__dirname, '../views/users/register'), {
@@ -188,7 +190,6 @@ const userController = {
     //abrir pagina de edición de usuario
 
     edit: function(req, res) {
-
         let country = db.Country.findAll();
         let userId = req.params.id;
         let user = db.User.findByPk(userId, {
@@ -203,17 +204,18 @@ const userController = {
 
     //guardar datos editados el usuario
 
-    update: (req, res) => {
-        const resultadoValidacion = validationResult(req);
-        if(resultadoValidacion.errors.length < 0){
+    update: async (req, res) => {
+        let resultadoValidacion = validationResult(req);
+        if(resultadoValidacion.errors.length > 0){
             let userId = req.params.id
-            db.User.update({
+            await db.User.update({
                     name: req.body.name,
                     last_name: req.body.last_name,
                     image: req.file ? req.file.filename : req.body.oldImage,
                     email: req.body.email,
                     phone: req.body.phone,
-                    country_id: req.body.country_id
+                    country_id: req.body.country_id,
+                    /*password: newPassword ? newPassword : this.password*/
                 }, {
                     where: { id: userId }
                 })
@@ -222,19 +224,34 @@ const userController = {
                 })
                 .catch(error => console.log(error))
         } else {
-            let country = db.Country.findAll();
-            let userId = req.params.id;
-            let user = db.User.findByPk(userId, {
-                include: [{ association: "countries" }]
+            let country = await db.Country.findAll()
+            let userInDb = await db.User.findOne({
+                where: {
+                    email: req.body.email
+                }
             })
-            Promise.all([user, country])
-                .then(([user, country]) => {
-                    res.render("users/userEdit", { errors : resultadoValidacion.mapped(), old : req.body, user: user, country: country })
-                })
-                .catch(error => res.send(error))
-        }
+            /*let newPassword = bcrypt.hashSync(req.body.password, 10);*/
+            await db.User.update({
+                name: req.body.name ? req.body.name : req.body.oldData,
+                last_name: req.body.last_name ? req.body.last_name : req.body.oldData,
+                image: req.file ? req.file.filename : req.body.oldImage,
+                email: req.body.email ? req.body.email : req.body.oldData,
+                phone: req.body.phone ? req.body.phone : req.body.oldData,
+                country_id: req.body.country_id ? req.body.country_id : req.body.oldData,
+                /*password: newPassword ? newPassword : this.password*/
+            }, {
+                where: { id: req.params.id }
+            })
+           
+            Promise.all([userInDb, country])
+            .then(function([userInDb, country]) {
+                
+                return res.render("users/userEdit", {errors : resultadoValidacion.mapped(), oldData : req.body, oldImage: req.body, user: userInDb, country: country})
+            })      
+            .catch(error => res.send(error))       
+        //console.log(resultadoValidacion.errors)
     }
-
+}
 }
 
 module.exports = userController;

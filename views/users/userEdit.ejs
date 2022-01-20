@@ -109,7 +109,8 @@
                                     <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
                                 </figure>
                                 <input type="hidden" name="oldImage" value="<%= user.image%>">
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>">
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image%>">
+                                <script> console.log(user + "desde ejs") </script>
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>

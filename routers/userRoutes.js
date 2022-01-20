@@ -9,6 +9,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const path = require('path')
 const pubiclPath = path.resolve(__dirname, './public');
 
+
 //agego un comentario para actualizar
 
 const userController = require('../controllers/userControllers');
@@ -42,7 +43,7 @@ router.delete('/user/:id', userController.destroy);
 //Editar usuario
 router.get('/user/:id', userController.edit);
 router.put('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
-router.post('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
+//router.post('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
 
 // Logout
 router.get('/logout', userController.logout);
