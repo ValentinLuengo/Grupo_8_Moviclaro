@@ -79,7 +79,7 @@ const mainController = {
             model: req.body.modelo,
             stock: req.body.stock,
             price: req.body.precio,
-            image: req.file,
+            image: req.file.filename,
             product_categories_id: req.body.category,
             color_id: req.body.color,
             description: req.body.descripcion,
@@ -95,7 +95,7 @@ const mainController = {
             Promise.all([color, category, brands])
                 .then(function([color, category, brands]) {
                     res.render('products/productCreate', { errors: resultadoValidacion.mapped(), oldData: req.body,color: color, category: category, brands: brands})
-                }).catch(err => console.log(err))
+                }).catch(errors => console.log(errors))
            
             }
      },
@@ -143,39 +143,6 @@ const mainController = {
         res.redirect("/store")
     },
 
-
-    /*  login: (req, res) => {
-         res.render(path.join(__dirname, '../views/users/login'))
-     },
-
-     processLogin: (req, res) => {
-         let errors = validationResult(req);
-         let usuarioALoguearse;
-         if (errors.isEmpty()) {
-             for (let i = 0; i < users.length; i++) {
-                 let usuario = users[i]
-                 if (users[i].email == req.body.email) {
-                     usuarioALoguearse = users[i]
-                     break;
-                 }
-             }
-             if (usuarioALoguearse != undefined) {
-                 //Te encontre usuario!
-                 req.session.usuarioLogueado = usuarioALoguearse;
-                 if (req.body.recordame != undefined) {
-                     res.cookie('recordame', usuarioALoguearse.email)
-                 }
-                 res.render(path.join(__dirname, '../views/products/store'), { products })
-             } else {
-                 res.render(path.join(__dirname, '../views/users/login'), { errors: [{ msg: 'No se encontró al usuario o la contraseña es incorrecta' }] })
-             }
-         } else {
-             res.render(path.join(__dirname, '../views/users/login'), { errors: errors.errors })
-
-         }
-
-
-     }, */
 
     productDetail: (req, res) => {
         const requestedId = req.params.id;
