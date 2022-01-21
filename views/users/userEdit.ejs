@@ -108,8 +108,14 @@
                                 <figure class="figure">
                                     <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
                                 </figure>
+<<<<<<< HEAD
                                 <input type="hidden" name="oldImage" value="<%= user.image %>">
                                 <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>">
+=======
+                                <input type="hidden" name="oldImage" value="<%= user.image%>">
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image%>">
+                                <script> console.log(user + "desde ejs") </script>
+>>>>>>> 4f47547d6f91ccb4c3ad90a0dc36e3285604f087
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>

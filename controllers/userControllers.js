@@ -29,7 +29,7 @@ const userController = {
       if (resultsValidation.errors.length > 0) {
         return res.render(path.join(__dirname, "../views/users/register"), {
           errors: resultsValidation.mapped(),
-          old: req.body,
+          oldData: req.body,
           countries: countries,
         });
       }
@@ -40,7 +40,7 @@ const userController = {
               msg: "Este email ya está registrado",
             },
           },
-          old: req.body,
+          oldData: req.body,
           countries: countries,
         });
       }
@@ -52,7 +52,7 @@ const userController = {
               msg: "Las contraseñas no coinciden",
             },
           },
-          old: req.body,
+          oldData: req.body,
           countries: countries,
         });
       }
@@ -190,56 +190,80 @@ const userController = {
 
   //guardar datos editados el usuario
 
-  update:  async (req, res) => {
-    const resultsValidation = validationResult(req);
-    const countries = db.Country.findAll();
-    let userInDb = db.User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
- 
-    Promise.all([userInDb, countries]).then(function ([userInDb, countries]) {
-      if (resultsValidation.errors.length > 0) {
-        return res.render(path.join(__dirname, "../views/users/register"), {
-          errors: resultsValidation.mapped(),
-          old: req.body,
-          countries: countries,
-        });
-      }
-
-      if (req.body.password !== req.body.password2) {
-        return res.render(path.join(__dirname, "../views/users/register"), {
-          errors: {
-            password2: {
-              msg: "Las contraseñas no coinciden",
-            },
-          },
-          old: req.body,
-          countries: countries,
-        });
-      }
-
-      db.User.update({
-        include: ["countries"],
-        name: req.body.name,
-        last_name: req.body.last_name,
-        category_id: 1,
-        image: req.file ? req.file.filename : req.body.oldImage,
-        country_id: req.body.country_id,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        email: req.body.email,
-        phone: req.body.phone,
-      }).then( () => {
-          return res.render(path.join(__dirname, "../views/users"), {
-            errors: resultsValidation.mapped(),
-            old: req.body,
-            countries: countries,
-          });
-
+  update: async (req, res) => {
+    let newPassword = "";
+    let resultadoValidacion = validationResult(req);
+    if (resultadoValidacion.errors.length < 0) {
+        if ( newPassword ) {
+            delete req.body.password;
+            newPassword = bcrypts.hashSync(req.body.password, 10)};
+            
+        if ( (!!req.body.password || !!req.body.password2) && !errorsMapped.password && !errorsMapped.password2 ) {
+            if ( req.body.password !== req.body.password2) {
+                errorsMapped.password = {
+                    msg: 'Las contraseñas ingresadas no coinciden'
+                };
+            }
+        }
+        
+      let userId = req.params.id;
+      await db.User.update(
+        {
+          name: req.body.name,
+          last_name: req.body.last_name,
+          image: req.file ? req.file.filename : req.body.oldImage,
+          email: req.body.email,
+          phone: req.body.phone,
+          country_id: req.body.country_id,
+          password: newPassword ? newPassword : req.body.password,
+          password2 : req.body.password2
+        },
+        {
+          where: { id: userId },
+        }
+      )
+        .then(() => {
+          return res.redirect("/user");
+        })
+        .catch((error) => console.log(error));
+        
+    } else {
+      let country = await db.Country.findAll();
+      let userInDb = await db.User.findOne({
+        where: {
+          email: req.body.email,
+        },
       });
 
-    });
+      await db.User.update(
+        {
+          name: req.body.name ? req.body.name : req.body.oldData,
+          last_name: req.body.last_name ? req.body.last_name : req.body.oldData,
+          image: req.file ? req.file.filename : req.body.oldImage,
+          email: req.body.email ? req.body.email : req.body.oldData,
+          phone: req.body.phone ? req.body.phone : req.body.oldData,
+          country_id: req.body.country_id ? req.body.country_id : req.body.oldData,
+          password: newPassword ? newPassword : req.body.password,
+          password2: req.body.password ? newPassword : req.body.password2,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      );
+
+      Promise.all([userInDb, country])
+        .then(function ([userInDb, country]) {
+          return res.render("users/userEdit", {
+            errors: resultadoValidacion.mapped(),
+            oldData: req.body,
+            oldImage: req.body,
+            user: userInDb,
+            country: country,
+          });
+        })
+        .catch((error) => res.send(error));
+      console.log(resultadoValidacion.errors)
+    }
   },
 };
 
