@@ -13,7 +13,7 @@
                             <div class="registro-campos ">
                                 <label for="name">Nombre</label>
                                 <!-- <input type="text" name="name" id="name" class="input <%= locals.errors && errors.name ? 'is-invalid': null %>"  placeholder="<%= user.name %>" > -->
-                                <input type="text" name="name" id="name" class="input" value="<%= user.name %>" required>
+                                <input type="text" name="name" id="name" class="input" value="<%= user.name ? user.name : locals.old && old.name %>" required>
                                 <% if (locals.errors && errors.name) { %>
                                     <div class="text-danger">
                                         <%= errors.name.msg %>
@@ -109,7 +109,8 @@
                                     <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
                                 </figure>
                                 <input type="hidden" name="oldImage" value="<%= user.image%>">
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image.name %>">
+                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image%>">
+                                <script> console.log(user + "desde ejs") </script>
                                 <% if (locals.errors && errors.image) { %>
                                     <div class="text-danger">
                                         <%= errors.image.msg %>
