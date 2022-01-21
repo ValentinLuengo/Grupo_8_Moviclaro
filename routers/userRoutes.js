@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser')
 // const express = require('express');
 const multer = require('multer');
 // const mainController = require('../controllers/mainControllers.js');
@@ -42,7 +43,7 @@ router.delete('/user/:id', userController.destroy);
 //Editar usuario
 router.get('/user/:id', userController.edit);
 router.put('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
-router.post('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
+// router.post('/user/:id', uploadFile.single('image'), validationsUserEdit, userController.update);
 
 // Logout
 router.get('/logout', userController.logout);
