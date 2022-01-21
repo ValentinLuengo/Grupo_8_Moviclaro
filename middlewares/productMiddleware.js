@@ -24,7 +24,7 @@ module.exports = [
                 throw new Error(`Los formatos permitidos son ${acceptedExtension.join(', ')}`)
             };
         };
-        return false;
+        return true;
     })
 
 ];

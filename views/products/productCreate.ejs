@@ -76,7 +76,9 @@
                                     name="image" 
                                     id="image" 
                                     class="<%= locals.errors && errors.image ? 'is-invalid': null %>" 
-                                >
+                                    value=""
+                                    >
+
                                     <% if (locals.errors && errors.image) { %>
                                         <div class="text-danger">
                                             <%= errors.image.msg %>
