@@ -72,6 +72,24 @@ const mainController = {
      const resultadoValidacion = validationResult(req);
 
         if(resultadoValidacion.errors.length < 0){
+// PRUEBO INVERTIR EL IF
+            let color = db.Color.findAll()
+            let category = db.ProductCategory.findAll()
+            let brands = db.Brand.findAll()
+            console.log(resultadoValidacion.errors);
+    
+            Promise.all([color, category, brands])
+                .then( ([color, category, brands]) => {
+                    res.render('products/productCreate', { 
+                        errors: resultadoValidacion.mapped(), 
+                        oldData: req.body, 
+                        color: color, 
+                        category: category, 
+                        brands: brands
+                    }).catch(errors => console.log(errors))
+                })
+            }
+      
                    
         db.Product.create({
             include: ["brands", "colors" ],
@@ -86,18 +104,25 @@ const mainController = {
         }).then(()=>{
             res.redirect("/store")
         }).catch(err => console.log(err))
-        }else{
-            let color = db.Color.findAll()
-            let category = db.ProductCategory.findAll()
-            let brands = db.Brand.findAll()
-            console.log(resultadoValidacion.errors);
+        // }else{
+    // // ESTO LO  PASO A ARRIBA
+    //         let color = db.Color.findAll()
+    //         let category = db.ProductCategory.findAll()
+    //         let brands = db.Brand.findAll()
+    //         console.log(resultadoValidacion.errors);
     
-            Promise.all([color, category, brands])
-                .then(function([color, category, brands]) {
-                    res.render('products/productCreate', { errors: resultadoValidacion.mapped(), oldData: req.body,color: color, category: category, brands: brands})
-                }).catch(errors => console.log(errors))
+    //         Promise.all([color, category, brands])
+    //             .then( ([color, category, brands]) => {
+    //                 res.render('products/productCreate', { 
+    //                     errors: resultadoValidacion.mapped(), 
+    //                     oldData: req.body, 
+    //                     color: color, 
+    //                     category: category, 
+    //                     brands: brands
+    //                 })
+    //             }).catch(errors => console.log(errors))
            
-            }
+          
      },
 
     edit: (req, res) => {
