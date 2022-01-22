@@ -23,12 +23,12 @@
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
                                 <%// console.log(locals.errors); %> 
-                                <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
-                                <% if (locals.errors && errors.modelo) { %>
-                                    <div class="text-danger">
-                                        <%= errors.modelo.msg %>
+                                <input type="text" name="modelo" id="modelo" class="input <%=// locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= //locals.oldData ? oldData.modelo : null %>">
+                                <% //if (locals.errors && errors.modelo) { %>
+                                    <div id="modeloDanger" class="text-danger ">
+                                        <%=// errors.modelo.msg %>
                                     </div>
-                                    <% } %>
+                                    <% //} %>
                             </div>
                             <div class="registro-campos">
                                 <label>Color</label>
@@ -60,30 +60,31 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" 
-                                class="textarea input <%= locals.errors && errors.descripcion ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.descripcion : null %>">
-                                <% if (locals.errors && errors.descripcion) { %>
-                                    <div class="text-danger">
-                                        <%= errors.descripcion.msg %>
+                                <textarea name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
+                                <%=// locals.errors && errors.descripcion ? 'is-invalid': null %> 
+                                 <!-- </textarea> -->
+                                <% //if (locals.errors && errors.descripcion) { %>
+                                    <div id="descripcionDanger" class="text-danger ">
+                                        <%= //errors.descripcion.msg %>
                                     </div>
-                                    <% } %>
-                                </textarea>
+                                    <%// } %>
                             </div>
+
                             <div class="registro-campos">
                                 <label for="image">Subir imagen</label> </br>
                                 <input 
                                     type="file" 
                                     name="image" 
                                     id="image" 
-                                    class="<%= locals.errors && errors.image ? 'is-invalid': null %>" 
+                                    class="<%= //locals.errors && errors.image ? 'is-invalid': null %>" 
                                     value=""
                                     >
 
-                                    <% if (locals.errors && errors.image) { %>
-                                        <div class="text-danger">
-                                            <%= errors.image.msg %>
+                                    <% //if (locals.errors && errors.image) { %>
+                                        <div class="text-danger" id="imageDanger">
+                                            <%=// errors.image.msg %>
                                         </div>
-                                        <% } %>
+                                        <% //} %>
                             </div>
                         </div>
                         <div class="botones">
