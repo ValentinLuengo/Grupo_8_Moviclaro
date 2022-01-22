@@ -11,7 +11,7 @@
             <main>
                 <div class="main-register-login">
                     <h2 class="titulo-registro">Accedé a tu cuenta</h2>
-                    <form action="/login" method="POST" class="formulario login">
+                    <form action="/login" method="POST" class="formulario login" id="formLogin" name= "formLogin">
                         <div class="registro-campos login">
                             <label for="email">E-email</label>
                             <input type="text" name="email" id="email" class="input login  <%= locals.errors && errors.email ? 'is-invalid': null %>">
@@ -24,8 +24,13 @@
                         </div>
                         <div class="registro-campos login">
                             <label for="password">Contraseña</label>
-                            <input type="password" name="password" id="password" class="input login">
-                            <p  id="error" style="display: none"> El password es obligatorio!</p> 
+                            <input type="password" name="password" id="password" class="input login  <%= locals.errors && errors.password ? 'is-invalid': null %>">
+                            <p  id="errorPassword" style="display: none"> El password es obligatorio!</p>
+                            <% if (locals.errors && errors.password) { %>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
+                                <% } %> 
                         </div>
                         <div class="check">
                             <input type="checkbox" name="recordame" id="recordame">

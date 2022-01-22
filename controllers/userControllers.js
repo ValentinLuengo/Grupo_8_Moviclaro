@@ -112,13 +112,13 @@ const userController = {
           },
         });
       }
-      return res.render(path.join(__dirname, "../views/users/login"), {
+     /*  return res.render(path.join(__dirname, "../views/users/login"), {
         errors: {
           email: {
             msg: "No se encuentra este mail",
           },
         },
-      });
+      }); */
     });
 
     //  let userToLogin = User.findByField('email', req.body.email);
