@@ -41,7 +41,7 @@ router.get('/detalle/:id', mainController.productDetail);
 /*Crear producto*/
 
 // Pienso que deberia haber un middleware para administrador... Pero no se si es acá.
-router.post('/nuevoProducto', uploadFile.single('image'), mainController.storeProduct);
+router.post('/nuevoProducto', uploadFile.single('image'), validations, mainController.storeProduct);
 
 router.get('/edit/:id', uploadFile.single('image'), mainController.edit);
 
