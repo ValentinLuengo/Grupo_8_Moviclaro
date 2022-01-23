@@ -107,10 +107,7 @@ const userController = {
       
         }
       })
-      .catch((error) => { 
-        confirm("hay un error")
-        //res.send(error)
-      })
+      .catch((errors) => { res.send(errors)})
 
   
         },
