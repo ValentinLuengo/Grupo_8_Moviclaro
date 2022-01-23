@@ -29,6 +29,11 @@
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
                                 <input type="text" name="modelo" id="modelo" class="input" value="<%= product.model %>" required>
+                                <% //if (locals.errors && errors.modelo) { %>
+                                    <div id="modeloDanger" class="text-danger ">
+                                        <%=// errors.modelo.msg %>
+                                    </div>
+                                    <% //} %>
                             </div>
                             <div class="registro-campos">
                                 <label>Color</label>
@@ -77,10 +82,20 @@
                                 </figure>
                                 <input type="hidden" name="oldImage" value="<%= product.image%>">
                                 <input type="file" name="image" id="image" content="/images/products/<%= product.image %>">
+                                <% //if (locals.errors && errors.image) { %>
+                                    <div class="text-danger" id="imageDanger">
+                                        <%=// errors.image.msg %>
+                                    </div>
+                                    <% //} %>
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
                                 <textarea class="textarea" name="descripcion" id="descripcion" rows="10" cols="50"><%= product.description %></textarea>
+                                <% //if (locals.errors && errors.descripcion) { %>
+                                    <div id="descripcionDanger" class="text-danger ">
+                                        <%= //errors.descripcion.msg %>
+                                    </div>
+                                    <%// } %>
                             </div>
                         </div>
                         <div class="botones">
@@ -94,6 +109,7 @@
 
             </main>
             <%- include('../partials/footer.ejs') %>
+            <script src="../js/productsEditValidation.js"></script>
     </body>
 
 </html>
