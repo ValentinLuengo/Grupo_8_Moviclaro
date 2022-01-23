@@ -28,7 +28,7 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.model %>" required>
+                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.model %>" >
                                 <% //if (locals.errors && errors.modelo) { %>
                                     <div id="modeloDanger" class="text-danger ">
                                         <%=// errors.modelo.msg %>
@@ -81,7 +81,13 @@
                                     <img src="/images/products/<%= product.image %>" alt="imagen de producto">
                                 </figure>
                                 <input type="hidden" name="oldImage" value="<%= product.image%>">
-                                <input type="file" name="image" id="image" content="/images/products/<%= product.image %>">
+                                <input 
+                                    type="file" 
+                                    name="image" 
+                                    id="image" 
+                                    class="<%= //locals.errors && errors.image ? 'is-invalid': null %>" 
+                                    content="/images/products/<%= product.image %>"
+                                    >
                                 <% //if (locals.errors && errors.image) { %>
                                     <div class="text-danger" id="imageDanger">
                                         <%=// errors.image.msg %>
