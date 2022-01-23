@@ -6,7 +6,15 @@ window.addEventListener("load", function(){
              document.querySelector('#error').style.display = 'block'
              document.querySelector('#error').style.color = "red"
              email.focus()
-        }
+        }else{
+        const isEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+        if (!isEmail.test(String(event.target.value).toLowerCase())){
+            document.querySelector('#error').style.display = 'block'
+             document.querySelector('#error').style.color = "red"
+            document.querySelector("#error").innerText = "El mail no es válido"
+
+        }else{ document.querySelector('#error').style.display = 'none'}
+    }
 
     } ;
     let password = document.querySelector('#password');
@@ -18,6 +26,9 @@ window.addEventListener("load", function(){
              document.querySelector('#errorPassword').style.color = "red"
             // password.focus()
         }
+        else{
+            document.querySelector('#errorPassword').style.display = 'none'
+        }
 
     } ;
 
@@ -26,16 +37,23 @@ window.addEventListener("load", function(){
       
         let emailValue = document.querySelector('#email').value;
         let passwordValue = document.querySelector('#password').value
-        if((emailValue== "") ||(passwordValue=="")){
+
+        if(emailValue== ""){
+            event.preventDefault()
             document.querySelector('#error').style.display = 'block'
-            document.querySelector('#error').style.color = "red"
-           
-            document.querySelector(".text-danger").innerHTML = "Las credenciales son inválidas"
-           
+             document.querySelector('#error').style.color = "red"
         }
-       
-            
-          
+
+        
+
+      
+        if (passwordValue ==""){
+            event.preventDefault()
+            document.querySelector('#errorPassword').style.display = 'block'
+             document.querySelector('#errorPassword').style.color = "red"
+        }
+
+
         });
     
 

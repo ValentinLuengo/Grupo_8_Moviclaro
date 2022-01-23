@@ -104,14 +104,18 @@ const userController = {
 
           return res.redirect("/user");
         }
-        return res.render(path.join(__dirname, "../views/users/login"), {
-          errors: {
-            email: {
-              msg: "Las credenciales son inválidas",
-            },
-          },
-        });
-      }
+      
+        }
+      })
+      .catch((error) => { 
+        confirm("hay un error")
+        //res.send(error)
+      })
+
+  
+        },
+      
+      
      /*  return res.render(path.join(__dirname, "../views/users/login"), {
         errors: {
           email: {
@@ -119,13 +123,13 @@ const userController = {
           },
         },
       }); */
-    });
+    
 
     //  let userToLogin = User.findByField('email', req.body.email);
     //   console.log("se guardo el mail del json" +userToLogin)
     //    let userAdmin = User.findByField('category_id', '2');
     // console.log("se guardo el userAdmin: "+ userAdmin)
-  },
+  
   user: (req, res) => {
     const userLogged = req.session.userLogged;
     //     const usuario =
