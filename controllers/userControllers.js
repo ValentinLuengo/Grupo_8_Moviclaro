@@ -104,28 +104,29 @@ const userController = {
 
           return res.redirect("/user");
         }
-        return res.render(path.join(__dirname, "../views/users/login"), {
-          errors: {
-            email: {
-              msg: "Las credenciales son inválidas",
-            },
-          },
-        });
-      }
-      return res.render(path.join(__dirname, "../views/users/login"), {
+      
+        }
+      })
+      .catch((errors) => { res.send(errors)})
+
+  
+        },
+      
+      
+     /*  return res.render(path.join(__dirname, "../views/users/login"), {
         errors: {
           email: {
             msg: "No se encuentra este mail",
           },
         },
-      });
-    });
+      }); */
+    
 
     //  let userToLogin = User.findByField('email', req.body.email);
     //   console.log("se guardo el mail del json" +userToLogin)
     //    let userAdmin = User.findByField('category_id', '2');
     // console.log("se guardo el userAdmin: "+ userAdmin)
-  },
+  
   user: (req, res) => {
     const userLogged = req.session.userLogged;
     //     const usuario =
