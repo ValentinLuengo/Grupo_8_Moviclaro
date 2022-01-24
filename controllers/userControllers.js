@@ -103,6 +103,16 @@ const userController = {
           }
 
           return res.redirect("/user");
+        }else{
+          return res.render(path.join(__dirname, "../views/users/login"), {
+            oldData: req.body.email,
+            errors: {
+              
+              email: {
+                msg: "Las credenciales son invalidas",
+              },
+            },
+          })
         }
       
         }
