@@ -204,18 +204,6 @@ const userController = {
     let newPassword = "";
     let resultadoValidacion = validationResult(req);
     if (resultadoValidacion.errors.length < 0) {
-        if ( newPassword ) {
-            delete req.body.password;
-            newPassword = bcrypts.hashSync(req.body.password, 10)};
-            
-        if ( (!!req.body.password || !!req.body.password2) && !errorsMapped.password && !errorsMapped.password2 ) {
-            if ( req.body.password !== req.body.password2) {
-                errorsMapped.password = {
-                    msg: 'Las contraseñas ingresadas no coinciden'
-                };
-            }
-        }
-        
       let userId = req.params.id;
       await db.User.update(
         {
@@ -225,7 +213,7 @@ const userController = {
           email: req.body.email,
           phone: req.body.phone,
           country_id: req.body.country_id,
-          password: newPassword ? newPassword : req.body.password,
+          password: req.body.password,
           password2 : req.body.password2
         },
         {
@@ -253,8 +241,8 @@ const userController = {
           email: req.body.email ? req.body.email : req.body.oldData,
           phone: req.body.phone ? req.body.phone : req.body.oldData,
           country_id: req.body.country_id ? req.body.country_id : req.body.oldData,
-          password: newPassword ? newPassword : req.body.password,
-          password2: req.body.password ? newPassword : req.body.password2,
+          /*password: newPassword ? newPassword : req.body.password,
+          password2: req.body.password ? newPassword : req.body.password2,*/
         },
         {
           where: { id: req.params.id },
@@ -269,7 +257,7 @@ const userController = {
             oldImage: req.body,
             user: userInDb,
             country: country,
-          });
+          })
         })
         .catch((error) => res.send(error));
       console.log(resultadoValidacion.errors)

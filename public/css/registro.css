@@ -40,6 +40,12 @@ body {
     margin-top: 5px;
 }
 
+.input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
 .select {
     background-color: white;
 }
@@ -205,4 +211,22 @@ textarea {
 
 .registro-campos input[type="file" i] {
     width: 100%;
+}
+
+/* -----Estilos para validaciones---- */
+
+.formulario_grupo_correcto {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.formulario_grupo_incorrecto {
+    color: #bb2929;
+    opacity: 1;
+}
+
+.formulario_grupo_incorrecto input:focus {
+	border: 3px solid #bb2929;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }

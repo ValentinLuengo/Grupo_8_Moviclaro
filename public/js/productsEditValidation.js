@@ -2,12 +2,8 @@ window.addEventListener("load", function () {
     console.log("Hola");
 
     const formulario = document.querySelector(".formulario");
-    const marca = document.querySelector("input#marca");
     const modelo = document.querySelector("input#modelo");
     const modeloDanger = document.querySelector("div#modeloDanger");
-    const color = document.querySelector("input#color");
-    const precio = document.querySelector("input#precio");
-    const stock = document.querySelector("input#stock");
     const descripcion = document.querySelector("textarea#descripcion");
     const descripcionDanger = document.querySelector("div#descripcionDanger");
     const imagen = document.querySelector("input#image");
