@@ -203,8 +203,9 @@ const userController = {
   update: async (req, res) => {
     let newPassword = "";
     let resultadoValidacion = validationResult(req);
-    if (resultadoValidacion.errors.length < 0) {
+    if (resultadoValidacion.errors.length < 1) {
       let userId = req.params.id;
+      if (req.body.password ==""){
       await db.User.update(
         {
           name: req.body.name,
@@ -213,8 +214,8 @@ const userController = {
           email: req.body.email,
           phone: req.body.phone,
           country_id: req.body.country_id,
-          password: req.body.password,
-          password2 : req.body.password2
+          //password: req.body.password 
+         // password2 : req.body.password2
         },
         {
           where: { id: userId },
@@ -222,10 +223,38 @@ const userController = {
       )
         .then(() => {
           return res.redirect("/user");
+          
         })
-        .catch((error) => console.log(error));
-        
+        .catch((error) => {
+        console.log(error)
+      })
+      }else{
+        await db.User.update(
+          {
+            name: req.body.name,
+            last_name: req.body.last_name,
+            image: req.file ? req.file.filename : req.body.oldImage,
+            email: req.body.email,
+            phone: req.body.phone,
+            country_id: req.body.country_id,
+            password: bcryptjs.hashSync(req.body.password, 10)
+           // password2 : req.body.password2
+          },
+          {
+            where: { id: userId },
+          }
+        )
+          .then(() => {
+            return res.redirect("/user");
+            
+          })
+          .catch((error) => {
+          console.log(error)
+        })
+
+      }  
     } else {
+      console.log("entro en el else")
       let country = await db.Country.findAll();
       let userInDb = await db.User.findOne({
         where: {
@@ -241,8 +270,8 @@ const userController = {
           email: req.body.email ? req.body.email : req.body.oldData,
           phone: req.body.phone ? req.body.phone : req.body.oldData,
           country_id: req.body.country_id ? req.body.country_id : req.body.oldData,
-          /*password: newPassword ? newPassword : req.body.password,
-          password2: req.body.password ? newPassword : req.body.password2,*/
+          password: newPassword ? newPassword : req.body.password,
+         // password2: req.body.password ? newPassword : req.body.password2
         },
         {
           where: { id: req.params.id },
