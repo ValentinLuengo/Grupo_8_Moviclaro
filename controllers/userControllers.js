@@ -107,10 +107,19 @@ const userController = {
       
         }
       })
-      .catch((errors) => { res.send(errors)})
+      .catch((errors) => { 
+        return res.render(path.join(__dirname, "../views/users/login"), {
+        oldData: req.body.email,
+        errors: {
+          
+          email: {
+            msg: "Las credenciales son invalidas",
+          },
+        },
+      });})
 
   
-        },
+  },
       
       
      /*  return res.render(path.join(__dirname, "../views/users/login"), {

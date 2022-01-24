@@ -14,10 +14,7 @@
                     <form action="/login" method="POST" class="formulario login" id="formLogin" name= "formLogin">
                         <div class="registro-campos login">
                             <label for="email">E-mail</label>
-                            <input type="text" name="email" id="email" class="input login  <%= locals.errors && errors.email ? 'is-invalid': null %>" >
-
-        
- 
+                            <input type="text" name="email" id="email" class="input login  <%= locals.errors && errors.email ? 'is-invalid': null %>" value= "<%=locals.oldData ? oldData.email : null%>" >
                             <p  id="error" style="display: none"> El campo mail es obligatorio!</p>
                             <% if (locals.errors && errors.email) { %>
                                 <div class="text-danger">
