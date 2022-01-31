@@ -38,6 +38,10 @@ app.listen(3001, () => {
 const main = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
 const cookieParser = require('cookie-parser');
+const apiUserRoutes = require('./routers/api/user');
+const apiProductRoutes = require('./routers/api/product');
 
 app.use('/', main);
 app.use('/', userRoutes);
+app.use('/', apiUserRoutes);
+app.use('/', apiProductRoutes);

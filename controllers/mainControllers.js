@@ -273,6 +273,48 @@ const mainController = {
   search: (req, res) => {
     return res.send("resultado de la busqueda");
   },
+
+  //lista los productos la api
+  list: (req,res)=>{
+    let color = db.Color.findAll();
+    let category = db.ProductCategory.findAll();
+    let brand = db.Brand.findAll();
+    let product = db.Product.findAll({
+      include: ["colors", "brands", "product_categories"],
+    });
+    Promise.all([product, color, category, brand])
+      .then(function(product){
+        return res.status(200).json({
+          total: product[0].length,
+          data: product,
+          status: 200
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+
+  show: (req, res)=>{
+    let color = db.Color.findAll();
+    let category = db.ProductCategory.findAll();
+    let brand = db.Brand.findAll();
+    let product = db.Product.findByPk(req.params.id, {
+      include: ["colors", "brands", "product_categories"],
+    })
+    Promise.all([product, color, category, brand])
+      .then(function(){
+        return res.status(200).json({
+          data: product,
+          status: 200
+        });
+      })
+      .catch((error) => console.log(error));
+
+  } 
+
+ 
+  
 };
+
+
 
 module.exports = mainController;

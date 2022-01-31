@@ -49,4 +49,7 @@ router.put('/user/:id', uploadFile.single('image'), validationsUserEdit, userCon
 // Logout
 router.get('/logout', userController.logout);
 
+
+
+
 module.exports = router;

@@ -130,21 +130,6 @@ const userController = {
 
   
   },
-      
-      
-     /*  return res.render(path.join(__dirname, "../views/users/login"), {
-        errors: {
-          email: {
-            msg: "No se encuentra este mail",
-          },
-        },
-      }); */
-    
-
-    //  let userToLogin = User.findByField('email', req.body.email);
-    //   console.log("se guardo el mail del json" +userToLogin)
-    //    let userAdmin = User.findByField('category_id', '2');
-    // console.log("se guardo el userAdmin: "+ userAdmin)
   
   user: (req, res) => {
     const userLogged = req.session.userLogged;
@@ -161,12 +146,6 @@ const userController = {
     });
   },
 
-  // user: (req, res) => {
-  //     const requestedId = req.params.id;
-  //     const usuario =
-  //         users.find((user) => user.id == requestedId) || users[0];
-  //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
-  //     res.render(pathUser, { usuario })
 
   logout: (req, res) => {
     res.clearCookie("userEmail");
@@ -174,12 +153,6 @@ const userController = {
 
     res.redirect("/");
   },
-  // user: (req, res) => {
-  //     const requestedId = req.params.id;
-  //     const usuario =
-  //         users.find((user) => user.id == requestedId) || users[0];
-  //     let pathUser = path.join(__dirname, "../views/users/userPerfil");
-  //     res.render(pathUser, { usuario })
 
   //eliminar un usuario
   destroy: (req, res) => {
@@ -302,6 +275,40 @@ const userController = {
       console.log(resultadoValidacion.errors)
     }
   },
+
+  list: (req,res)=>{
+    let country =  db.Country.findAll();
+    let user = db.User.findAll(
+      {include: ["countries"]
+    })
+    Promise.all([user])
+      .then(function(user){
+        console.log(user)
+        return res.status(200).json({
+          total:user[0].length,
+          data: user,
+          status: 200
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+
+  show: (req, res)=>{   
+    let country =  db.Country.findAll();
+    let users = db.User.findByPk(req.params.id, {
+      include: ["countries"],
+    })
+
+    Promise.all([users])
+      .then(function(users){
+        return res.status(200).json({
+          data: users,
+          status: 200
+        });
+      })
+      .catch((error) => console.log(error));
+
+  } 
 };
 
 module.exports = userController;
