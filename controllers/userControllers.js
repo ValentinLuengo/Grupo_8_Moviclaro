@@ -285,9 +285,13 @@ const userController = {
       .then(function(user){
         console.log(user)
         return res.status(200).json({
+          meta: {
           total:user[0].length,
-          data: user,
+          imageUrl: "http://localhost:3001/avatars/products",
           status: 200
+          },
+          data: user[0],
+          
         });
       })
       .catch((error) => console.log(error));
@@ -302,8 +306,12 @@ const userController = {
     Promise.all([users])
       .then(function(users){
         return res.status(200).json({
-          data: users,
-          status: 200
+          meta: {
+            status: 200,
+            imageUrl: "http://localhost:3001/avatars/products",
+          },
+          data: users[0],
+          
         });
       })
       .catch((error) => console.log(error));

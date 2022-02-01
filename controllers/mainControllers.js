@@ -285,9 +285,12 @@ const mainController = {
     Promise.all([product, color, category, brand])
       .then(function(product){
         return res.status(200).json({
-          total: product[0].length,
-          data: product,
-          status: 200
+          meta: {
+            total:product[0].length,
+            imageUrl: "http://localhost:3001/images/products",
+            status: 200
+            },
+          data: product[0]
         });
       })
       .catch((error) => console.log(error));
@@ -303,16 +306,39 @@ const mainController = {
     Promise.all([product, color, category, brand])
       .then(function(){
         return res.status(200).json({
-          data: product,
-          status: 200
+          meta: {
+            imageUrl: "http://localhost:3001/images/products",
+            status: 200
+            },
+            data: product
+          
         });
       })
       .catch((error) => console.log(error));
 
-  } 
+  } ,
+// Trae el último producto creado
+lastProductCreated: (req, res)=>{
+  let color = db.Color.findAll();
+  let category = db.ProductCategory.findAll();
+  let brand = db.Brand.findAll();
+  let product = db.Product.findByPk(1, {
+    include: ["colors", "brands", "product_categories"],
+  })
+  Promise.all([product, color, category, brand])
+    .then(function(){
+      return res.status(200).json({
+        meta: {
+          ImageUrl: "http://localhost:3001/images/products",
+          status: 200
+          },
+          data: product
+        
+      });
+    })
+    .catch((error) => console.log(error));
 
- 
-  
+}   
 };
 
 
