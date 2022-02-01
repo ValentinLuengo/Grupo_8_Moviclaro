@@ -15,7 +15,7 @@ router.get('/api/products/:id', mainController.show)
 
 //Api ultimo usuario creado
 
-router.get('/api/products/lastProductCreated', mainController.lastProductCreated)
+router.get('/api/lastProductCreated', mainController.lastProductCreated)
 
 
 module.exports = router;

@@ -8,7 +8,7 @@ const validations = require("../middlewares/productMiddleware.js");
 const db = require("../database/models");
 const { promiseImpl } = require("ejs");
 const sequelize = db.sequelize;
-
+const { Op } = require("sequelize");
 const publicPath = path.resolve(__dirname, "./public");
 
 const mainController = {
@@ -319,25 +319,27 @@ const mainController = {
   } ,
 // Trae el último producto creado
 lastProductCreated: (req, res)=>{
+  
   let color = db.Color.findAll();
   let category = db.ProductCategory.findAll();
   let brand = db.Brand.findAll();
-  let product = db.Product.findByPk(1, {
+  let product = db.Product.findAll({
     include: ["colors", "brands", "product_categories"],
-  })
+
+    where: {id : 1}
+  });
   Promise.all([product, color, category, brand])
-    .then(function(){
+    .then(function(product){
       return res.status(200).json({
         meta: {
-          ImageUrl: "http://localhost:3001/images/products",
+          total:product[0].length,
+          imageUrl: "http://localhost:3001/images/productsff",
           status: 200
           },
-          data: product
-        
+        data: product
       });
     })
     .catch((error) => console.log(error));
-
 }   
 };
 
