@@ -276,24 +276,46 @@ const mainController = {
 
   //lista los productos la api
   list: (req,res)=>{
-    let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brand = db.Brand.findAll();
-    let product = db.Product.findAll({
-      include: ["colors", "brands", "product_categories"],
+    let producto = []
+    
+     let color = db.Color.findAll();
+     let category = db.ProductCategory.findAll();
+     let brand = db.Brand.findAll();
+     let product = db.Product.findAll({
+      include: ["colors", "brands", "product_categories"]
     });
-    Promise.all([product, color, category, brand])
-      .then(function(product){
-        return res.status(200).json({
-          meta: {
-            total:product[0].length,
-            imageUrl: "http://localhost:3001/images/products",
-            status: 200
+    Promise.all([product,color,category, brand])
+      .then( (product)=> {
+          product[0].map(row => {
+            producto.push( {
+              id: row.id,
+              brand: row.brands,
+              model: row.model,
+              image: "http://localhost:3001/products/" + row.image,
+              stock: row.stock,
+              price: row.price,
+              product_categories_id: row.product_categories,
+              color: row.color,
+              description: row.description
+            });
+          });
+          return res.status(200).json({
+            meta: {
+             total: product[0].length,
+              status: 200
             },
-          data: product[0]
+            data: producto
+          });
+
+        })
+      .catch((error) => {
+        console.log("error: " + error)
+        return res.status(500).json(
+          {
+          mensaje: "No se pudo obtener el listado de productos"
+        
         });
-      })
-      .catch((error) => console.log(error));
+      });
   },
 
   show: (req, res)=>{
@@ -323,13 +345,15 @@ lastProductCreated: (req, res)=>{
   let color = db.Color.findAll();
   let category = db.ProductCategory.findAll();
   let brand = db.Brand.findAll();
-  let product = db.Product.findAll({
-    include: ["colors", "brands", "product_categories"],
+  let product = db.Product.findOne({
+    //include: ["colors", "brands", "product_categories"],
 
     where: {id : 1}
+    //attributes: [sequelize.fn('MAX', sequelize.col('id'))]
+    
   });
   Promise.all([product, color, category, brand])
-    .then(function(product){
+    .then((product)=>{
       return res.status(200).json({
         meta: {
           total:product[0].length,
