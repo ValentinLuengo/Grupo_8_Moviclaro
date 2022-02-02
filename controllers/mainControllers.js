@@ -270,8 +270,23 @@ const mainController = {
     //     res.redirect('/')
     // }
   },
-  search: (req, res) => {
-    return res.send("resultado de la busqueda");
+  
+  search: async (req, res) => {
+    let color = await db.Color.findAll();
+    let category = await db.ProductCategory.findAll();
+    let brand = await db.Brand.findAll();
+    let products = await db.Product.findAll({
+            where: {
+                model: { [Op.like]: '%' + req.query.keyword + '%'}
+            },
+            include: ["colors", "brands", "product_categories"],
+        })
+        Promise.all([products, color, category, brand])
+        .then(products => {
+          return res.redirect('/store', {products});
+        })
+        .catch((error) => console.log(error));
+    //return res.send("resultado de la busqueda");
   },
 
   //lista los productos la api
