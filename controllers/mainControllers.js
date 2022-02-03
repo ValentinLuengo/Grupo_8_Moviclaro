@@ -8,7 +8,7 @@ const validations = require("../middlewares/productMiddleware.js");
 const db = require("../database/models");
 const { promiseImpl } = require("ejs");
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const Op = sequelize.Op;
 const publicPath = path.resolve(__dirname, "./public");
 
 const mainController = {
@@ -327,7 +327,8 @@ const mainController = {
         console.log("error: " + error)
         return res.status(500).json(
           {
-          mensaje: "No se pudo obtener el listado de productos"
+          mensaje: "No se pudo obtener el listado de productos",
+          status: 500
         
         });
       });
@@ -374,29 +375,45 @@ const mainController = {
   } ,
 // Trae el último producto creado
 lastProductCreated: (req, res)=>{
-  
   let color = db.Color.findAll();
-  let category = db.ProductCategory.findAll();
-  let brand = db.Brand.findAll();
-  let product = db.Product.findOne({
-    //include: ["colors", "brands", "product_categories"],
-
-    where: {id : 1}
-    //attributes: [sequelize.fn('MAX', sequelize.col('id'))]
-    
-  });
-  Promise.all([product, color, category, brand])
-    .then((product)=>{
-      return res.status(200).json({
-        meta: {
-          total:product[0].length,
-          imageUrl: "http://localhost:3001/images/productsff",
-          status: 200
-          },
-        data: product
-      });
+    let category = db.ProductCategory.findAll();
+    let brand = db.Brand.findAll();
+    let product = db.Product.findOne( {
+      include: ["colors", "brands", "product_categories"],
+      order:[ [ 'id', 'DESC']],
+      limit: 1
     })
-    .catch((error) => console.log(error));
+    Promise.all([product, color, category, brand])
+      .then((product)=> {
+        if(product.length > 0){
+           let  producto = {
+            id: product[0].id,
+            brand: product[0].brands,
+            model: product[0].model,
+            image: "http://localhost:3001/products/" + product[0].image,
+            stock: product[0].stock,
+            price: product[0].price,
+            product_categories_id: product[0].product_categories,
+            color: product[0].color,
+            description: product[0].description
+            };
+            return res.status(200).json({
+              meta: {
+                status: 200
+                },
+              data: producto 
+            });
+        }
+        
+      })    
+      .catch((error) => {
+        console.log("error: " + error);
+        return res.status(404).json(
+          {
+          mensaje: "Producto no encontrado",
+          status: 404
+        })
+      }) 
 }   
 };
 
