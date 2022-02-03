@@ -341,18 +341,36 @@ const mainController = {
       include: ["colors", "brands", "product_categories"],
     })
     Promise.all([product, color, category, brand])
-      .then(function(){
-        return res.status(200).json({
-          meta: {
-            imageUrl: "http://localhost:3001/images/products",
-            status: 200
-            },
-            data: product
-          
-        });
-      })
-      .catch((error) => console.log(error));
-
+      .then((product)=> {
+        if(product.length > 0){
+           let  producto = {
+            id: product[0].id,
+            brand: product[0].brands,
+            model: product[0].model,
+            image: "http://localhost:3001/products/" + product[0].image,
+            stock: product[0].stock,
+            price: product[0].price,
+            product_categories_id: product[0].product_categories,
+            color: product[0].color,
+            description: product[0].description
+            };
+            return res.status(200).json({
+              meta: {
+                status: 200
+                },
+              data: producto 
+            });
+        }
+        
+      })    
+      .catch((error) => {
+        console.log("error: " + error);
+        return res.status(404).json(
+          {
+          mensaje: "Producto no encontrado",
+          status: 404
+        })
+      })  
   } ,
 // Trae el último producto creado
 lastProductCreated: (req, res)=>{
