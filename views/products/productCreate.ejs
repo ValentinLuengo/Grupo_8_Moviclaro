@@ -10,6 +10,7 @@
                     <h2 class="titulo-registro">Nuevo producto</h2>
                     <form action="/nuevoProducto" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
+                            <!-- marca -->
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
                                 <select name="marca" id="marca" class="input">
@@ -20,17 +21,19 @@
                                     <% } %>
                                 </select>
                             </div>
+                            <!-- modelo -->
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
                                 <%// console.log(locals.errors); %> 
-                                <input type="text" name="modelo" id="modelo" class="input <%=// locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= //locals.oldData ? oldData.modelo : null %>">
-                                <% //if (locals.errors && errors.modelo) { %>
+                                <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
+                                <% if (locals.errors && errors.modelo) { %>
                                     <div id="modeloDanger" class="text-danger ">
-                                        <%=// errors.modelo.msg %>
+                                        <%= errors.modelo.msg %>
                                     </div>
-                                    <% //} %>
+                                    <% } %>
                             </div>
-                            <div class="registro-campos">
+                            <!-- color -->
+                            <div class="registro-campos"> 
                                 <label>Color</label>
                                 <select name="color" class="input select" >
                                     <% for (let i=0; i < color.length; i++){ %>
@@ -40,14 +43,27 @@
                                     <% } %>
                                 </select>
                             </div>
+                            <!-- precio -->
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input" >
+                                <input type="number" name="precio" id="precio" class="input <%= locals.errors && errors.precio ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.precio : null %>" >
+                                <% if (locals.errors && errors.modelo) { %>
+                                    <div id="precioDanger" class="text-danger ">
+                                        <%= errors.precio.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
+                            <!-- stock -->
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
-                                <input type="number" name="stock" id="stock" class="input">
+                                <input type="number" name="stock" id="stock" class="input <%= locals.errors && errors.stock ? 'is-invalid': null %>">
+                                <% if (locals.errors && errors.stock) { %>
+                                    <div id="precioDanger" class="text-danger ">
+                                        <%= errors.stock.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
+                            <!-- categoria -->
                             <div class="registro-campos">
                                 <label>Categoria</label>
                                 <select name="category" class="input select">
@@ -58,18 +74,17 @@
                                         <% } %>
                                     </select>
                             </div>
+                            <!-- descripción -->
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
-                                <%=// locals.errors && errors.descripcion ? 'is-invalid': null %> 
-                                 <!-- </textarea> -->
-                                <% //if (locals.errors && errors.descripcion) { %>
+                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" class="<%= locals.errors && errors.descripcion ? 'is-invalid': null %>"></textarea> 
+                                <% if (locals.errors && errors.descripcion) { %>
                                     <div id="descripcionDanger" class="text-danger ">
-                                        <%= //errors.descripcion.msg %>
+                                        <%= errors.descripcion.msg %>
                                     </div>
-                                    <%// } %>
+                                    <% } %>
                             </div>
-
+                            <!-- subir imagen -->
                             <div class="registro-campos">
                                 <label for="image">Subir imagen</label> </br>
                                 <input 
@@ -99,7 +114,7 @@
             </main>
             <%- include('../partials/footer.ejs') %>
 
-            <script src="../js/productsCreateValidation.js"></script>
+            <!-- <script src="../js/productsCreateValidation.js"></script> -->
 
     </body>
 

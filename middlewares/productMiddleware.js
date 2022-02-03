@@ -7,6 +7,12 @@ module.exports = [
         .withMessage('Debes escribir el modelo')
         .isLength({min: 4})
         .withMessage('El nombre del modelo debe tener al menos 5 caracteres'),
+    body('precio')
+        .notEmpty()
+        .withMessage('Precio de producto obligatorio'),
+    body('stock')
+        .notEmpty()
+        .withMessage('Seleccione cantidad'),
     body('descripcion')
         .notEmpty()
         .withMessage('Debes escribir una descripción')

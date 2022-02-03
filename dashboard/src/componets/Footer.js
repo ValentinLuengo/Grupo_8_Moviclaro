@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import '../assets/styles/normalize.css';
-import '../assets/styles/registro.css';
-import '../assets/styles/styles.css';
-import '../assets/styles/indexStyles.css';
-import '../assets/styles/productCartStyles.css';
 import footerLogo from '../assets/images/footer-logo.png';
+import '../assets/styles/registro.css';
+import '../assets/styles/productCartStyles.css';
+import '../assets/styles/indexStyles.css';
+import '../assets/styles/normalize.css';
+import '../assets/styles/styles.css';
 
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="derechos">
-                <p>Todos los derechos reservados <span>Grupo-8&#9400</span>
+                <p>Todos los derechos reservados <span>Grupo-8 ©</span>
                 </p>
             </div>   
         </footer>       
