@@ -12,7 +12,7 @@
                         <div class="registro-formulario">
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
-                                <select name="marca" id="marca" class="input" required>
+                                <select name="marca" id="marca" class="input" >
                                     <% for (let i=0; i < brands.length; i++){ %>
                                         <% if (brands[i].id == product.brand_id){%>
                                             <option value="<%=brands[i].id%>" selected>
@@ -28,16 +28,18 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" name="modelo" id="modelo" class="input" value="<%= product.model %>" >
-                                <% //if (locals.errors && errors.modelo) { %>
-                                    <div id="modeloDanger" class="text-danger ">
-                                        <%=// errors.modelo.msg %>
+                                <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : product.model %>">
+                                <% if (locals.errors && errors.modelo) { %>
+                                    <div  class="text-danger ">
+                                        <%= errors.modelo.msg %>
                                     </div>
-                                    <% //} %>
+                                    <% } %>
+                                    <div class="text-danger" id="modeloDanger"></div>
                             </div>
+                          
                             <div class="registro-campos">
                                 <label>Color</label>
-                                <select name="color" class="input select" required>
+                                <select name="color" class="input select" >
                                     <% for (let i=0; i < color.length; i++){ %>
                                         <% if (color[i].id == product.color_id){%>
                                             <option value="<%=color[i].id%>" selected>
@@ -53,15 +55,15 @@
                             </div>
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input" value="<%= product.price %>" required>
+                                <input type="number" name="precio" id="precio" class="input" value="<%= product.price %>" >
                             </div>
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
-                                <input type="number" name="stock" id="stock" class="input" value="<%= product.stock %>" required>
+                                <input type="number" name="stock" id="stock" class="input" value="<%= product.stock %>" >
                             </div>
                             <div class="registro-campos">
                                 <label>Categoria</label>
-                                <select name="category" class="input select" required>
+                                <select name="category" class="input select" >
                                     <% for (let i=0; i < category.length; i++){ %>
                                         <% if (category[i].id == product.product_categories_id){%>
                                             <option value="<%=category[i].id%>" selected>

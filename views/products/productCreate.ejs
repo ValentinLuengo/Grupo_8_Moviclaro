@@ -24,7 +24,6 @@
                             <!-- modelo -->
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
-                                <%// console.log(locals.errors); %> 
                                 <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
                                 <% if (locals.errors && errors.modelo) { %>
                                     <div  class="text-danger ">
@@ -98,15 +97,16 @@
                                     type="file" 
                                     name="image" 
                                     id="image" 
-                                    class="<%= //locals.errors && errors.image ? 'is-invalid': null %>" 
-                                    value=""
+                                    class="<%= locals.errors && errors.image ? 'is-invalid': null %>" 
+                                    value=" <%= locals.oldData ? oldData.image : null %>"
                                     >
 
-                                    <% //if (locals.errors && errors.image) { %>
-                                        <div class="text-danger" id="imageDanger">
-                                            <%=// errors.image.msg %>
+                                    <% if (locals.errors && errors.image) { %>
+                                        <div class="text-danger">
+                                            <%= errors.image.msg %>
                                         </div>
-                                        <% //} %>
+                                        <% } %>
+                                        <div class="text-danger" id="imageDanger"></div>
                             </div>
                         </div>
                         <div class="botones">
