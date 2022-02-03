@@ -12,253 +12,256 @@ const Op = sequelize.Op;
 const publicPath = path.resolve(__dirname, "./public");
 
 const mainController = {
-  index: (req, res) => {
-    let offersProducts = [];
-    let promotionsProducts = [];
-    db.Product.findAll({
-      where: { product_categories_id: 1 },
-      include: ["colors", "brands", "product_categories"],
-    })
-      .then((products1) => {
-        offersProducts = products1;
+    index: (req, res) => {
+        let offersProducts = [];
+        let promotionsProducts = [];
         db.Product.findAll({
-          where: { product_categories_id: 2 },
-          include: ["colors", "brands", "product_categories"],
-        }).then((products2) => {
-          promotionsProducts = products2;
-          res.render("index", { promotionsProducts, offersProducts });
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-  store: (req, res) => {
-    let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brand = db.Brand.findAll();
-    let product = db.Product.findAll({
-      include: ["colors", "brands", "product_categories"],
-    });
-    Promise.all([product, color, category, brand])
-      .then(function ([product, color, category, brand]) {
-        res.render(path.join(__dirname, "../views/products/store"), {
-          product: product,
-          color: color,
-          category: category,
-          brand: brand,
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-  nuevoProducto: (req, res) => {
-    let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brands = db.Brand.findAll();
-
-    Promise.all([color, category, brands]).then(function ([
-      color,
-      category,
-      brands,
-    ]) {
-      res.render("products/productCreate", {
-        color: color,
-        category: category,
-        brands: brands,
-      });
-    });
-  },
-
-  storeProduct: (req, res) => {
-    // const resultsValidation = validationResult(req)
-
-    //     if (resultsValidation.errors.length > 0) {
-    //         return res.render(path.join(__dirname, '../views/products/store'), {
-    //             errors: resultsValidation.mapped(),
-    //             oldData: req.body,
-    //         });
-    //     }
-    const resultadoValidacion = validationResult(req);
-
-    if (resultadoValidacion.errors.length > 0) {
-      // PRUEBO INVERTIR EL IF
-      let color = db.Color.findAll();
-      let category = db.ProductCategory.findAll();
-      let brands = db.Brand.findAll();
-      console.log(resultadoValidacion.errors);
-
-      Promise.all([color, category, brands]).then(
-        ([color, category, brands]) => {
-          return res
-            .render("products/productCreate", {
-              errors: resultadoValidacion.mapped(),
-              oldData: req.body,
-              image: req.file,
-              color: color,
-              category: category,
-              brands: brands,
-            })
-            .catch((errors) => console.log(errors));
-        }
-      );
-    } else {
-      db.Product.create({
-        include: ["brands", "colors"],
-        brand_id: req.body.marca,
-        model: req.body.modelo,
-        stock: req.body.stock,
-        price: req.body.precio,
-        image: req.file.filename,
-        product_categories_id: req.body.category,
-        color_id: req.body.color,
-        description: req.body.descripcion,
-      })
-        .then(() => {
-          res.redirect("/store");
+            where: { product_categories_id: 1 },
+            include: ["colors", "brands", "product_categories"],
         })
-        .catch((err) => console.log(err));
-    }
-
-    // }else{
-    // // ESTO LO  PASO A ARRIBA
-    //         let color = db.Color.findAll()
-    //         let category = db.ProductCategory.findAll()
-    //         let brands = db.Brand.findAll()
-    //         console.log(resultadoValidacion.errors);
-
-    //         Promise.all([color, category, brands])
-    //             .then( ([color, category, brands]) => {
-    //                 res.render('products/productCreate', {
-    //                     errors: resultadoValidacion.mapped(),
-    //                     oldData: req.body,
-    //                     color: color,
-    //                     category: category,
-    //                     brands: brands
-    //                 })
-    //             }).catch(errors => console.log(errors))
-  },
-
-  edit: (req, res) => {
-    let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brands = db.Brand.findAll();
-    let id = req.params.id;
-    let product = db.Product.findByPk(id, {
-      include: [
-        { association: "brands" },
-        { association: "colors" },
-        { association: "product_categories" },
-      ],
-    });
-    Promise.all([product, color, category, brands]).then(function ([
-      product,
-      color,
-      category,
-      brands,
-    ]) {
-      res.render("products/productEdit", {
-        product: product,
-        color: color,
-        category: category,
-        brands: brands,
-      });
-    });
-  },
-
-  update: (req, res) => {
-    const resultadoValidacion = validationResult(req);
-
-    if (resultadoValidacion.errors.length > 0) {
-      let color = db.Color.findAll();
-      let category = db.ProductCategory.findAll();
-      let brands = db.Brand.findAll();
-      console.log(resultadoValidacion.errors);
-
-      Promise.all([color, category, brands]).then(
-        ([color, category, brands]) => {
-          return res
-            .render("products/productCreate", {
-              errors: resultadoValidacion.mapped(),
-              oldData: req.body,
-              image: req.file,
-              color: color,
-              category: category,
-              brands: brands,
+            .then((products1) => {
+                offersProducts = products1;
+                db.Product.findAll({
+                    where: { product_categories_id: 2 },
+                    include: ["colors", "brands", "product_categories"],
+                }).then((products2) => {
+                    promotionsProducts = products2;
+                    res.render("index", { promotionsProducts, offersProducts });
+                });
             })
-            .catch((errors) => console.log(errors));
+            .catch((error) => console.log(error));
+    },
+    store: (req, res) => {
+        let color = db.Color.findAll();
+        let category = db.ProductCategory.findAll();
+        let brand = db.Brand.findAll();
+        let product = db.Product.findAll({
+            include: ["colors", "brands", "product_categories"],
+        });
+        Promise.all([product, color, category, brand])
+            .then(function ([product, color, category, brand]) {
+                res.render(path.join(__dirname, "../views/products/store"), {
+                    product: product,
+                    color: color,
+                    category: category,
+                    brand: brand,
+                });
+            })
+            .catch((error) => console.log(error));
+    },
+    nuevoProducto: (req, res) => {
+        let color = db.Color.findAll();
+        let category = db.ProductCategory.findAll();
+        let brands = db.Brand.findAll();
+
+        Promise.all([color, category, brands]).then(function ([
+            color,
+            category,
+            brands,
+        ]) {
+            res.render("products/productCreate", {
+                color: color,
+                category: category,
+                brands: brands,
+            });
+        });
+    },
+
+    storeProduct: (req, res) => {
+        // const resultsValidation = validationResult(req)
+
+        //     if (resultsValidation.errors.length > 0) {
+        //         return res.render(path.join(__dirname, '../views/products/store'), {
+        //             errors: resultsValidation.mapped(),
+        //             oldData: req.body,
+        //         });
+        //     }
+        const resultadoValidacion = validationResult(req);
+
+        if (resultadoValidacion.errors.length > 0) {
+            // PRUEBO INVERTIR EL IF
+            let color = db.Color.findAll();
+            let category = db.ProductCategory.findAll();
+            let brands = db.Brand.findAll();
+            console.log(resultadoValidacion.errors);
+
+            Promise.all([color, category, brands]).then(
+                ([color, category, brands]) => {
+                    return res
+                        .render("products/productCreate", {
+                            errors: resultadoValidacion.mapped(),
+                            oldData: req.body,
+                            image: req.file,
+                            color: color,
+                            category: category,
+                            brands: brands,
+                        })
+                        .catch((errors) => console.log(errors));
+                }
+            );
+        } else {
+            db.Product.create({
+                include: ["brands", "colors"],
+                brand_id: req.body.marca,
+                model: req.body.modelo,
+                stock: req.body.stock,
+                price: req.body.precio,
+                image: req.file.filename,
+                product_categories_id: req.body.category,
+                color_id: req.body.color,
+                description: req.body.descripcion,
+            })
+                .then(() => {
+                    res.redirect("/store");
+                })
+                .catch((err) => console.log(err));
         }
-      );
-    } else {
-      db.Product.update(
-        {
-          brand_id: req.body.marca,
-          model: req.body.modelo,
-          stock: req.body.stock,
-          price: req.body.precio,
-          image: req.file ? req.file.filename : req.body.image,
-          product_categories_id: req.body.category,
-          color_id: req.body.color,
-          description: req.body.descripcion,
-        },
-        {
-          where: {
-            id: req.params.id,
-          },
+
+        // }else{
+        // // ESTO LO  PASO A ARRIBA
+        //         let color = db.Color.findAll()
+        //         let category = db.ProductCategory.findAll()
+        //         let brands = db.Brand.findAll()
+        //         console.log(resultadoValidacion.errors);
+
+        //         Promise.all([color, category, brands])
+        //             .then( ([color, category, brands]) => {
+        //                 res.render('products/productCreate', {
+        //                     errors: resultadoValidacion.mapped(),
+        //                     oldData: req.body,
+        //                     color: color,
+        //                     category: category,
+        //                     brands: brands
+        //                 })
+        //             }).catch(errors => console.log(errors))
+    },
+
+    edit: (req, res) => {
+        let color = db.Color.findAll();
+        let category = db.ProductCategory.findAll();
+        let brands = db.Brand.findAll();
+        let id = req.params.id;
+        let product = db.Product.findByPk(id, {
+            include: [
+                { association: "brands" },
+                { association: "colors" },
+                { association: "product_categories" },
+            ],
+        });
+        Promise.all([product, color, category, brands]).then(function ([
+            product,
+            color,
+            category,
+            brands,
+        ]) {
+            res.render("products/productEdit", {
+                product: product,
+                color: color,
+                category: category,
+                brands: brands,
+            });
+        });
+    },
+
+    update: (req, res) => {
+        const resultadoValidacion = validationResult(req);
+
+        if (resultadoValidacion.errors.length > 0) {
+            let color = db.Color.findAll();
+            let category = db.ProductCategory.findAll();
+            let brands = db.Brand.findAll();
+            console.log(resultadoValidacion.errors);
+
+            Promise.all([color, category, brands]).then(
+                ([color, category, brands]) => {
+                    return res
+                        .render("products/productCreate", {
+                            errors: resultadoValidacion.mapped(),
+                            oldData: req.body,
+                            image: req.file,
+                            color: color,
+                            category: category,
+                            brands: brands,
+                        })
+                        .catch((errors) => console.log(errors));
+                }
+            );
+        } else {
+            db.Product.update(
+                {
+                    brand_id: req.body.marca,
+                    model: req.body.modelo,
+                    stock: req.body.stock,
+                    price: req.body.precio,
+                    image: req.file ? req.file.filename : req.body.image,
+                    product_categories_id: req.body.category,
+                    color_id: req.body.color,
+                    description: req.body.descripcion,
+                },
+                {
+                    where: {
+                        id: req.params.id,
+                    },
+                }
+            )
+                .then(() => {
+                    // res.render("/detalle/" + req.params.id)
+                    res.redirect("/detalle/" + req.params.id);
+                })
+                .catch((err) => console.log(err));
         }
-      )
-        .then(() => {
-          // res.render("/detalle/" + req.params.id)
-          res.redirect("/detalle/" + req.params.id);
+    },
+
+    destroy: (req, res) => {
+        db.Product.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.redirect("/store");
+    },
+
+    productDetail: (req, res) => {
+        const requestedId = req.params.id;
+        let pathDetalle = path.join(
+            __dirname,
+            "../views/products/productDetail"
+        );
+        db.Product.findByPk(requestedId, {
+            include: ["colors", "brands", "product_categories"],
         })
-        .catch((err) => console.log(err));
-    }
-  },
+            .then((product) => {
+                res.render(pathDetalle, { product });
+            })
+            .catch((error) => console.log(error));
 
-  destroy: (req, res) => {
-    db.Product.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.redirect("/store");
-  },
+        // const requestedId = req.params.id;
+        // const product =
+        //     products.find((product) => product.id == requestedId) || products[0];
+        // let pathDetalle = path.join(__dirname, '../views/products/productDetail');
+        // res.render(pathDetalle, { product })
+    },
 
-  productDetail: (req, res) => {
-    const requestedId = req.params.id;
-    let pathDetalle = path.join(__dirname, "../views/products/productDetail");
-    db.Product.findByPk(requestedId, {
-      include: ["colors", "brands", "product_categories"],
-    })
-      .then((product) => {
-        res.render(pathDetalle, { product });
-      })
-      .catch((error) => console.log(error));
+    agregarCarrito: (req, res) => {
+        res.render(path.join(__dirname, "../views/products/productCart"));
+    },
 
-    // const requestedId = req.params.id;
-    // const product =
-    //     products.find((product) => product.id == requestedId) || products[0];
-    // let pathDetalle = path.join(__dirname, '../views/products/productDetail');
-    // res.render(pathDetalle, { product })
-  },
+    // registro: (req, res) => {
+    //     res.render(path.join(__dirname, '../views/users/register'))
+    // },
+    create: (req, res) => {
+        res.render(path.join(__dirname, "../views/products/productCreate"));
+    },
 
-  agregarCarrito: (req, res) => {
-    res.render(path.join(__dirname, "../views/products/productCart"));
-  },
+    // Update - Method to update
 
-  // registro: (req, res) => {
-  //     res.render(path.join(__dirname, '../views/users/register'))
-  // },
-  create: (req, res) => {
-    res.render(path.join(__dirname, "../views/products/productCreate"));
-  },
+    //Create - Create one product in DB
 
-  // Update - Method to update
+    // Delete - Delete one product from DB
 
-  //Create - Create one product in DB
-
-  // Delete - Delete one product from DB
-
-  //Crear un usuario en la archivo users.json
-  storeUser: (req, res) => {
-    return res.send(req.body);
+    //Crear un usuario en la archivo users.json
+    storeUser: (req, res) => {
+        return res.send(req.body);
 
     // const user = req.body;
     // if (user.password != user.password2) {
@@ -416,7 +419,5 @@ lastProductCreated: (req, res)=>{
       }) 
 }   
 };
-
-
 
 module.exports = mainController;

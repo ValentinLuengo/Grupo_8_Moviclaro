@@ -10,6 +10,7 @@
                     <h2 class="titulo-registro">Nuevo producto</h2>
                     <form action="/nuevoProducto" method="POST" enctype="multipart/form-data" class="formulario">
                         <div class="registro-formulario">
+                            <!-- marca -->
                             <div class="registro-campos">
                                 <label for="marca">Marca</label>
                                 <select name="marca" id="marca" class="input">
@@ -20,17 +21,20 @@
                                     <% } %>
                                 </select>
                             </div>
+                            <!-- modelo -->
                             <div class="registro-campos">
                                 <label for="modelo">Modelo</label>
                                 <%// console.log(locals.errors); %> 
-                                <input type="text" name="modelo" id="modelo" class="input <%=// locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= //locals.oldData ? oldData.modelo : null %>">
-                                <% //if (locals.errors && errors.modelo) { %>
-                                    <div id="modeloDanger" class="text-danger ">
-                                        <%=// errors.modelo.msg %>
+                                <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
+                                <% if (locals.errors && errors.modelo) { %>
+                                    <div  class="text-danger ">
+                                        <%= errors.modelo.msg %>
                                     </div>
-                                    <% //} %>
+                                    <% } %>
+                                    <div class="text-danger" id="modeloDanger"></div>
                             </div>
-                            <div class="registro-campos">
+                            <!-- color -->
+                            <div class="registro-campos"> 
                                 <label>Color</label>
                                 <select name="color" class="input select" >
                                     <% for (let i=0; i < color.length; i++){ %>
@@ -40,14 +44,30 @@
                                     <% } %>
                                 </select>
                             </div>
+                            <!-- precio -->
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input" >
+                                <input type="number" name="precio" id="precio" class="input <%= locals.errors && errors.precio ? 'is-invalid': null %>" >
+                                <% if (locals.errors && errors.precio) { %>
+                                    <div  class="text-danger ">
+                                        <%= errors.precio.msg %>
+                                    </div>
+                                    <% } %>
+                                    <div class="text-danger" id="precioDanger"></div>
+
                             </div>
+                            <!-- stock -->
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
-                                <input type="number" name="stock" id="stock" class="input">
+                                <input type="number" name="stock" id="stock" class="input <%= locals.errors && errors.stock ? 'is-invalid': null %>">
+                                <% if (locals.errors && errors.stock) { %>
+                                    <div  class="text-danger ">
+                                        <%= errors.stock.msg %>
+                                    </div>
+                                    <% } %>
+                                    <div class="text-danger" id="stockDanger""></div>
                             </div>
+                            <!-- categoria -->
                             <div class="registro-campos">
                                 <label>Categoria</label>
                                 <select name="category" class="input select">
@@ -58,18 +78,20 @@
                                         <% } %>
                                     </select>
                             </div>
+                            <!-- descripción -->
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea name="descripcion" id="descripcion" rows="10" cols="50"></textarea>
-                                <%=// locals.errors && errors.descripcion ? 'is-invalid': null %> 
-                                 <!-- </textarea> -->
-                                <% //if (locals.errors && errors.descripcion) { %>
-                                    <div id="descripcionDanger" class="text-danger ">
-                                        <%= //errors.descripcion.msg %>
+                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" class="<%= locals.errors && errors.descripcion ? 'is-invalid': null %>"><% if(locals.oldData){%>
+                                    <%= locals.oldData ? oldData.descripcion : null %>
+                                    <% } %></textarea> 
+                                <% if (locals.errors && errors.descripcion) { %>
+                                    <div  class="text-danger ">
+                                        <%= errors.descripcion.msg %>
                                     </div>
-                                    <%// } %>
+                                    <% } %>
+                                    <div class="text-danger" id="descripcionDanger""></div>
                             </div>
-
+                            <!-- subir imagen -->
                             <div class="registro-campos">
                                 <label for="image">Subir imagen</label> </br>
                                 <input 
