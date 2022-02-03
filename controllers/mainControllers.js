@@ -263,86 +263,6 @@ const mainController = {
     storeUser: (req, res) => {
         return res.send(req.body);
 
-<<<<<<< HEAD
-        // const user = req.body;
-        // if (user.password != user.password2) {
-        //     res.send("las contraseñas no coinciden")
-        // } else {
-        //     user.id = users[users.length - 1].id + 1;
-        //     users.push(user);
-        //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-        //     res.redirect('/')
-        // }
-    },
-    search: (req, res) => {
-        return res.send("resultado de la busqueda");
-    },
-
-    //lista los productos la api
-    list: (req, res) => {
-        let color = db.Color.findAll();
-        let category = db.ProductCategory.findAll();
-        let brand = db.Brand.findAll();
-        let product = db.Product.findAll({
-            include: ["colors", "brands", "product_categories"],
-        });
-        Promise.all([product, color, category, brand])
-            .then(function (product) {
-                return res.status(200).json({
-                    meta: {
-                        total: product[0].length,
-                        imageUrl: "http://localhost:3001/images/products",
-                        status: 200,
-                    },
-                    data: product[0],
-                });
-            })
-            .catch((error) => console.log(error));
-    },
-
-    show: (req, res) => {
-        let color = db.Color.findAll();
-        let category = db.ProductCategory.findAll();
-        let brand = db.Brand.findAll();
-        let product = db.Product.findByPk(req.params.id, {
-            include: ["colors", "brands", "product_categories"],
-        });
-        Promise.all([product, color, category, brand])
-            .then(function () {
-                return res.status(200).json({
-                    meta: {
-                        imageUrl: "http://localhost:3001/images/products",
-                        status: 200,
-                    },
-                    data: product,
-                });
-            })
-            .catch((error) => console.log(error));
-    },
-    // Trae el último producto creado
-    lastProductCreated: (req, res) => {
-        let color = db.Color.findAll();
-        let category = db.ProductCategory.findAll();
-        let brand = db.Brand.findAll();
-        let product = db.Product.findAll({
-            include: ["colors", "brands", "product_categories"],
-
-            where: { id: 1 },
-        });
-        Promise.all([product, color, category, brand])
-            .then(function (product) {
-                return res.status(200).json({
-                    meta: {
-                        total: product[0].length,
-                        imageUrl: "http://localhost:3001/images/productsff",
-                        status: 200,
-                    },
-                    data: product,
-                });
-            })
-            .catch((error) => console.log(error));
-    },
-=======
     // const user = req.body;
     // if (user.password != user.password2) {
     //     res.send("las contraseñas no coinciden")
@@ -481,7 +401,6 @@ lastProductCreated: (req, res)=>{
     })
     .catch((error) => console.log(error));
 }   
->>>>>>> 6127efae5f98685ebe8a14af03b3d36301eada2a
 };
 
 module.exports = mainController;

@@ -27,10 +27,11 @@
                                 <%// console.log(locals.errors); %> 
                                 <input type="text" name="modelo" id="modelo" class="input <%= locals.errors && errors.modelo ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.modelo : null %>">
                                 <% if (locals.errors && errors.modelo) { %>
-                                    <div id="modeloDanger" class="text-danger ">
+                                    <div  class="text-danger ">
                                         <%= errors.modelo.msg %>
                                     </div>
                                     <% } %>
+                                    <div class="text-danger" id="modeloDanger"></div>
                             </div>
                             <!-- color -->
                             <div class="registro-campos"> 
@@ -46,22 +47,25 @@
                             <!-- precio -->
                             <div class="registro-campos">
                                 <label for="precio">Precio</label>
-                                <input type="number" name="precio" id="precio" class="input <%= locals.errors && errors.precio ? 'is-invalid': null %>" value="<%= locals.oldData ? oldData.precio : null %>" >
-                                <% if (locals.errors && errors.modelo) { %>
-                                    <div id="precioDanger" class="text-danger ">
+                                <input type="number" name="precio" id="precio" class="input <%= locals.errors && errors.precio ? 'is-invalid': null %>" >
+                                <% if (locals.errors && errors.precio) { %>
+                                    <div  class="text-danger ">
                                         <%= errors.precio.msg %>
                                     </div>
                                     <% } %>
+                                    <div class="text-danger" id="precioDanger"></div>
+
                             </div>
                             <!-- stock -->
                             <div class="registro-campos">
                                 <label for="stock">Stock disponible</label>
                                 <input type="number" name="stock" id="stock" class="input <%= locals.errors && errors.stock ? 'is-invalid': null %>">
                                 <% if (locals.errors && errors.stock) { %>
-                                    <div id="precioDanger" class="text-danger ">
+                                    <div  class="text-danger ">
                                         <%= errors.stock.msg %>
                                     </div>
                                     <% } %>
+                                    <div class="text-danger" id="stockDanger""></div>
                             </div>
                             <!-- categoria -->
                             <div class="registro-campos">
@@ -77,12 +81,15 @@
                             <!-- descripción -->
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>
-                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" class="<%= locals.errors && errors.descripcion ? 'is-invalid': null %>"></textarea> 
+                                <textarea name="descripcion" id="descripcion" rows="10" cols="50" class="<%= locals.errors && errors.descripcion ? 'is-invalid': null %>"><% if(locals.oldData){%>
+                                    <%= locals.oldData ? oldData.descripcion : null %>
+                                    <% } %></textarea> 
                                 <% if (locals.errors && errors.descripcion) { %>
-                                    <div id="descripcionDanger" class="text-danger ">
+                                    <div  class="text-danger ">
                                         <%= errors.descripcion.msg %>
                                     </div>
                                     <% } %>
+                                    <div class="text-danger" id="descripcionDanger""></div>
                             </div>
                             <!-- subir imagen -->
                             <div class="registro-campos">
@@ -114,7 +121,7 @@
             </main>
             <%- include('../partials/footer.ejs') %>
 
-            <!-- <script src="../js/productsCreateValidation.js"></script> -->
+            <script src="../js/productsCreateValidation.js"></script>
 
     </body>
 

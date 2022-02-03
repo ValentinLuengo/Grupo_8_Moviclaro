@@ -2,12 +2,12 @@ window.addEventListener("load", function () {
     console.log("Hola");
 
     const formulario = document.querySelector(".formulario");
-    const marca = document.querySelector("input#marca");
     const modelo = document.querySelector("input#modelo");
     const modeloDanger = document.querySelector("div#modeloDanger");
-    const color = document.querySelector("input#color");
     const precio = document.querySelector("input#precio");
+    const precioDanger = document.querySelector("div#precioDanger")
     const stock = document.querySelector("input#stock");
+    const stockDanger = document.querySelector("div#stockDanger")
     const descripcion = document.querySelector("textarea#descripcion");
     const descripcionDanger = document.querySelector("div#descripcionDanger");
     const imagen = document.querySelector("input#image");
@@ -35,6 +35,36 @@ window.addEventListener("load", function () {
         }
     };
 
+    // Validación de precio--------------------------------------------------------
+    
+    const validarPrecio = function(){
+        // const precioString = precio.value.toString()
+        if(precio.value == ""){
+            precio.classList.add("is-invalid");
+            precioDanger.innerHTML = "Precio de producto obligatorio";
+            return false;
+        }else{
+            precio.classList.remove("is-invalid");
+            precioDanger.innerHTML = "";
+            return true;
+        }
+    }
+    
+    // Validación de stock--------------------------------------------------------
+    
+    const validarStock = function(){
+        // const precioString = precio.value.toString()
+        if(stock.value == ""){
+            stock.classList.add("is-invalid");
+            stockDanger.innerHTML = "Indicar stock de producto";
+            return false;
+        }else{
+            stock.classList.remove("is-invalid");
+            stockDanger.innerHTML = "";
+            return true;
+            
+        }
+    }
     // Validación de descripción--------------------------------------------------------
 
     const validarDescripcion = function () {
@@ -80,6 +110,8 @@ window.addEventListener("load", function () {
         }
     };
 
+    // Comprobacion de validaciones ---------------------------------------------------
+
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -91,11 +123,20 @@ window.addEventListener("load", function () {
             validarDescripcion();
         });
 
+        precio.addEventListener("blur", () => {
+            validarPrecio();
+        });
+        stock.addEventListener("blur", () => {
+            validarStock();
+        });
+
         imagen.addEventListener("change", () => {
             validarImagen();
         });
 
         let status = validarModelo();
+            status = validarPrecio() && status;
+            status = validarStock() && status;
             status = validarDescripcion() && status;
             status = validarImagen() && status;
 
