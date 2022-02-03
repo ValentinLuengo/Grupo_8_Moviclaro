@@ -7,9 +7,7 @@ window.addEventListener("load", function () {
     let password = document.getElementById("password");
     let password2 = document.getElementById("password2");
     let image = document.getElementById("image");
-    let telefono = document.querySelector(".registro_phone");
-    let pais = document.querySelector(".registro_country_id");
-    let btnSubmit = document.querySelector(".btnSubmit");
+    let telefono = document.getElementById("phone");
     let btnReset = document.querySelector(".btnReset");
 
     const errNombre = document.querySelector("div#errNombre");
@@ -18,6 +16,7 @@ window.addEventListener("load", function () {
     const errPassword = document.querySelector("div#errPassword");
     const errPassword2 = document.querySelector("div#errPassword2");
     const errImage = document.querySelector("div#errImage");
+    const errCelular = document.querySelector("div#errCelular");
 
     //console.log(nombre)
 
@@ -27,14 +26,21 @@ window.addEventListener("load", function () {
             errNombre.innerText = "Debes escribir tu nombre";
             return false;
         } else {
-            if (nombre.value.length < 6) {
+            if (nombre.value.length < 2) {
                 nombre.classList.add("is-invalid");
-                errNombre.innerText = "Debe tener mas de 6 carateres";
+                errNombre.innerText = "Debe tener más de 2 caracteres";
                 return false;
             } else {
+                const isName = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+                if (!isName.test(String(nombre.value).toLowerCase())) {
+                    nombre.classList.add("is-invalid");
+                    errNombre.innerText = "Debe contener sólo letras";
+                    return false;
+                } else {
                 nombre.classList.remove("is-invalid");
                 errNombre.innerText = "";
                 return true;
+                }
             }
         }
     };
@@ -45,14 +51,21 @@ window.addEventListener("load", function () {
             errApellido.innerText = "Debes escribir tu apellido";
             return false;
         } else {
-            if (apellido.value.length < 6) {
+            if (apellido.value.length < 4) {
                 apellido.classList.add("is-invalid");
-                errApellido.innerText = "Debe tener mas de 6 carateres";
+                errApellido.innerText = "Debe tener más de 4 caracteres";
                 return false;
             } else {
-                apellido.classList.remove("is-invalid");
-                errApellido.innerText = "";
-                return true;
+                const isLastName = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+                if (!isLastName.test(String(apellido.value).toLowerCase())) {
+                    apellido.classList.add("is-invalid");
+                    errApellido.innerText = "Debe contener sólo letras";
+                    return false;
+                } else {
+                    apellido.classList.remove("is-invalid");
+                    errApellido.innerText = "";
+                    return true;
+                }
             }
         }
     };
@@ -63,8 +76,7 @@ window.addEventListener("load", function () {
             errEmail.innerText = "Debes escribir tu email";
             return false;
         } else {
-            const isEmail =
-                /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+            const isEmail =/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
             if (!isEmail.test(String(email.value).toLowerCase())) {
                 email.classList.add("is-invalid");
                 errEmail.innerText = "Debe ser un formato válido";
@@ -88,9 +100,16 @@ window.addEventListener("load", function () {
                 errPassword.innerText = "Debe tener más de 8 carateres";
                 return false;
             } else {
-                password.classList.remove("is-invalid");
-                errPassword.innerText = "";
-                return true;
+                const isPass =/^.{6,12}$/;
+                if (!isPass.test(String(password.value).toLowerCase())) {
+                    password.classList.add("is-invalid");
+                    errPassword.innerText = "Debe contener entre 6 y 12 caracteres";
+                    return false; 
+                } else {
+                    password.classList.remove("is-invalid");
+                    errPassword.innerText = "";
+                    return true;
+                }
             }
         }
     };
@@ -134,6 +153,25 @@ window.addEventListener("load", function () {
         }
     };
 
+    const validarTelefono = function () {
+        if (telefono.value == "") {
+            telefono.classList.add("is-invalid");
+            errCelular.innerText = "Debes escribir tu telefono";
+            return false;
+        } else {
+                const isTelefono = /^\d{7,14}$/;
+                if (!isTelefono.test(String(telefono.value).toLowerCase())) {
+                    telefono.classList.add("is-invalid");
+                    errCelular.innerText = "Debe contener entre 7 y 14 números";
+                    return false;
+                    } else {
+                        telefono.classList.remove("is-invalid");
+                        errCelular.innerText = "";
+                        return true;
+                    }
+        }
+    };
+
     nombre.addEventListener("blur", function () {
         validarNombre();
     });
@@ -158,6 +196,10 @@ window.addEventListener("load", function () {
         validarImagen();
     });
 
+    telefono.addEventListener("blur", function () {
+        validarTelefono();
+    });
+
     btnReset.addEventListener("click", () => {
         location.reload();
     });
@@ -168,6 +210,7 @@ window.addEventListener("load", function () {
         let status = validarNombre();
         status = validarApellido() && status;
         status = validarEmail() && status;
+        status = validarTelefono() && status;
         /*status = validarPassword() && status;
         status = validarPassword2() && status;
         status = validarImagen() && status;*/
