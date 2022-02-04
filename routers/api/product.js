@@ -13,9 +13,17 @@ router.get('/api/products', mainController.list)
 router.get('/api/products/:id', mainController.show)
 
 
-//Api ultimo usuario creado
+//Api ultimo producto creado
 
-router.get('/api/lastProductCreated', mainController.lastProductCreated)
+router.get('/api/lastProductCreated', mainController.lastProductCreated);
+
+
+//Totales de productos por marca
+
+
+router.get('/api/totals', mainController.totals);
+
+
 
 
 module.exports = router;

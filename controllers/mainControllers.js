@@ -388,6 +388,7 @@ lastProductCreated: (req, res)=>{
     })
     Promise.all([product, color, category, brand])
       .then((product)=> {
+        console.log("marcas" +brand)
         if(product.length > 0){
            let  producto = {
             id: product[0].id,
@@ -417,7 +418,53 @@ lastProductCreated: (req, res)=>{
           status: 404
         })
       }) 
-}   
+} ,
+
+totals: (req, res)=>{ 
+ 
+      let totals = [];
+      let count = 0
+      let brand = db.Brand.findAll();
+      let product = db.Product.findAll();
+      Promise.all([ brand,product])
+      .then( (brand)=> {
+          brand[0].map(row => {
+            let cont = 0
+            brand[1].map(prod =>{
+              cont = 0
+              if(prod.brand_id ==1){
+                cont =1;
+              }
+    
+            })
+            totals.push( {
+              id: row.id,
+              name: row.name,
+              totals: 20
+            });
+          });
+          return res.status(200).json({
+            meta: {
+              status: 200
+            },
+            data: totals
+          });
+
+        })
+      .catch((error) => {
+        console.log("error: " + error)
+        return res.status(500).json(
+          {
+          mensaje: "No se pudo obtener el listado de productos",
+          status: 500
+        
+        });
+      });  
+      }
+      
+     
+  
+
 };
 
 module.exports = mainController;
