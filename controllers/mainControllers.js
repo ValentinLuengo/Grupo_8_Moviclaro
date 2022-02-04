@@ -431,16 +431,16 @@ totals: (req, res)=>{
           brand[0].map(row => {
             let cont = 0
             brand[1].map(prod =>{
-              cont = 0
-              if(prod.brand_id ==1){
-                cont =1;
+
+              if(prod.brand_id ==row.id){
+                cont =cont +1;
               }
     
             })
             totals.push( {
               id: row.id,
               name: row.name,
-              totals: 20
+              totals: cont
             });
           });
           return res.status(200).json({
