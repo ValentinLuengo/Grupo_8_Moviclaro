@@ -4,6 +4,7 @@ import '../assets/styles/registro.css';
 import '../assets/styles/styles.css';
 import '../assets/styles/indexStyles.css';
 import '../assets/styles/productCartStyles.css';
+import '../assets/styles/app.css';
 import logo from '../assets/images/header-logo-768px.png';
 import logosmall from '../assets/images/header-logo-368px.png';
 import logoAvatar from '../assets/images/logo.png';

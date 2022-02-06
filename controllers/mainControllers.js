@@ -263,208 +263,44 @@ const mainController = {
     storeUser: (req, res) => {
         return res.send(req.body);
 
-    // const user = req.body;
-    // if (user.password != user.password2) {
-    //     res.send("las contraseñas no coinciden")
-    // } else {
-    //     user.id = users[users.length - 1].id + 1;
-    //     users.push(user);
-    //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-    //     res.redirect('/')
-    // }
-  },
-  
-  search: async (req, res) => {
-    let color = await db.Color.findAll();
-    let category = await db.ProductCategory.findAll();
-    let brand = await db.Brand.findAll();
-    let products = await db.Product.findAll({
-            where: {
-                model: { [Op.like]: '%' + req.query.keyword + '%'}
-            },
+        // const user = req.body;
+        // if (user.password != user.password2) {
+        //     res.send("las contraseñas no coinciden")
+        // } else {
+        //     user.id = users[users.length - 1].id + 1;
+        //     users.push(user);
+        //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+        //     res.redirect('/')
+        // }
+    },
+
+    search: (req, res) => {
+        db.Product.findAll(
+            {
             include: ["colors", "brands", "product_categories"],
         })
-        Promise.all([products, color, category, brand])
-        .then(products => {
-          return res.redirect('/store', {products});
+        .then((product) => {
+            res.render('products/store', {product});
         })
         .catch((error) => console.log(error));
-    //return res.send("resultado de la busqueda");
-  },
-
-  //lista los productos la api
-  list: (req,res)=>{
-    let producto = []
-    
-     let color = db.Color.findAll();
-     let category = db.ProductCategory.findAll();
-     let brand = db.Brand.findAll();
-     let product = db.Product.findAll({
-      include: ["colors", "brands", "product_categories"]
-    });
-    Promise.all([product,color,category, brand])
-      .then( (product)=> {
-          product[0].map(row => {
-            producto.push( {
-              id: row.id,
-              brand: row.brands,
-              model: row.model,
-              image: "http://localhost:3001/products/" + row.image,
-              stock: row.stock,
-              price: row.price,
-              product_categories_id: row.product_categories,
-              color: row.color,
-              description: row.description
-            });
-          });
-          return res.status(200).json({
-            meta: {
-             total: product[0].length,
-              status: 200
+        //return res.send("resultado de la busqueda");
+    },
+    detailSearch: (req, res) => {
+        let searchQuery = req.query.search;
+        console.log(searchQuery)
+        db.Product.findAll({
+            include: ["colors", "brands", "product_categories"],
+            where: {
+                name: { [Op.like] : `%${searchQuery}%` } 
             },
-            data: producto
-          });
-
+            order: [
+                ['model', 'DESC']
+            ]
         })
-      .catch((error) => {
-        console.log("error: " + error)
-        return res.status(500).json(
-          {
-          mensaje: "No se pudo obtener el listado de productos",
-          status: 500
-        
+        .then(product => {
+            res.render('products/productSearch.ejs' , {product});
         });
-      });
-  },
-
-  show: (req, res)=>{
-    let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brand = db.Brand.findAll();
-    let product = db.Product.findByPk(req.params.id, {
-      include: ["colors", "brands", "product_categories"],
-    })
-    Promise.all([product, color, category, brand])
-      .then((product)=> {
-        if(product.length > 0){
-           let  producto = {
-            id: product[0].id,
-            brand: product[0].brands,
-            model: product[0].model,
-            image: "http://localhost:3001/products/" + product[0].image,
-            stock: product[0].stock,
-            price: product[0].price,
-            product_categories_id: product[0].product_categories,
-            color: product[0].color,
-            description: product[0].description
-            };
-            return res.status(200).json({
-              meta: {
-                status: 200
-                },
-              data: producto 
-            });
-        }
-        
-      })    
-      .catch((error) => {
-        console.log("error: " + error);
-        return res.status(404).json(
-          {
-          mensaje: "Producto no encontrado",
-          status: 404
-        })
-      })  
-  } ,
-// Trae el último producto creado
-lastProductCreated: (req, res)=>{
-  let color = db.Color.findAll();
-    let category = db.ProductCategory.findAll();
-    let brand = db.Brand.findAll();
-    let product = db.Product.findOne( {
-      include: ["colors", "brands", "product_categories"],
-      order:[ [ 'id', 'DESC']],
-      limit: 1
-    })
-    Promise.all([product, color, category, brand])
-      .then((product)=> {
-        console.log("marcas" +brand)
-        if(product.length > 0){
-           let  producto = {
-            id: product[0].id,
-            brand: product[0].brands,
-            model: product[0].model,
-            image: "http://localhost:3001/products/" + product[0].image,
-            stock: product[0].stock,
-            price: product[0].price,
-            product_categories_id: product[0].product_categories,
-            color: product[0].color,
-            description: product[0].description
-            };
-            return res.status(200).json({
-              meta: {
-                status: 200
-                },
-              data: producto 
-            });
-        }
-        
-      })    
-      .catch((error) => {
-        console.log("error: " + error);
-        return res.status(404).json(
-          {
-          mensaje: "Producto no encontrado",
-          status: 404
-        })
-      }) 
-} ,
-
-totals: (req, res)=>{ 
- 
-      let totals = [];
-      let count = 0
-      let brand = db.Brand.findAll();
-      let product = db.Product.findAll();
-      Promise.all([ brand,product])
-      .then( (brand)=> {
-          brand[0].map(row => {
-            let cont = 0
-            brand[1].map(prod =>{
-
-              if(prod.brand_id ==row.id){
-                cont =cont +1;
-              }
-    
-            })
-            totals.push( {
-              id: row.id,
-              name: row.name,
-              totals: cont
-            });
-          });
-          return res.status(200).json({
-            meta: {
-              status: 200,
-              total: totals.length
-            },
-            data: totals
-          });
-
-        })
-      .catch((error) => {
-        console.log("error: " + error)
-        return res.status(500).json(
-          {
-          mensaje: "No se pudo obtener el listado de productos",
-          status: 500
-        
-        });
-      });  
-      }
-      
-     
-  
+    },
 
 };
 

@@ -55,7 +55,7 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 //barra de búsqueda
 
 router.post('/search', mainController.search);
-
+router.get('/detalle/:searchQuery', mainController.detailSearch);
 
 
 
