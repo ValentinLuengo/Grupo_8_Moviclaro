@@ -445,7 +445,8 @@ totals: (req, res)=>{
           });
           return res.status(200).json({
             meta: {
-              status: 200
+              status: 200,
+              total: totals.length
             },
             data: totals
           });
