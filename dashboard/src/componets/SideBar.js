@@ -50,7 +50,7 @@ function SideBar(){
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost:3001">
                     <div className="sidebar-brand-icon">
                         <img className="w-100" src={image} alt="Moviclaro"/>
                     </div>

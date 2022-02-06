@@ -19,7 +19,7 @@ const Header = () => {
         <Fragment>
             <div className="header">
                 <div className="header-logo">
-                    <a href="/">
+                    <a href="http://localhost:3001">
                         <img
                             className="header-logo-368px"
                             src={logosmall}
@@ -67,20 +67,12 @@ const Header = () => {
                 <nav>
                     <i className="fas fa-bars"></i>
                     <div className="header-enlaces-burger">
-                        <a href="/store">Tienda</a>
-                        {/* <% if (locals.isLogged){ %> */}
-                        {/* <% if (locals.userLogged.category_id =="2"){ %> */}
-                        {/* <a href="/nuevoProducto">Nuevo Producto</a>
-                        <a href="/user">Perfil</a>
-                        <a href="/logout">Cerrar Sesión</a> */}
-                        {/* <% } else{%> */}
-                        <a href="/user">Perfil</a>
-                        <a href="/logout">Cerrar Sesión</a>
-                        {/* <% } %>
-                <% } else { %>
-                    <a href="/registro">Registro</a>
-                    <a href="/login">Iniciar sesión</a>
-                <% } %> */}
+                        <a href="http://localhost:3001/store">Tienda</a> 
+                        <a href="http://localhost:3001/nuevoProducto">Nuevo Producto</a>
+                        <a href="http://localhost:3000">Dashboard</a>
+                        <a href="http://localhost:3001/user">Perfil</a>
+                        <a href="http://localhost:3001/logout">Cerrar Sesión</a>
+                      
                     </div>
                 </nav>
             </div>

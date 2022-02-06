@@ -22,16 +22,15 @@ const Footer = () => {
                     <div className="comprar min-369">
                         <p>¿Como comprar?</p>
                         <div className="redes cont-ico">
-                            <Link to="https://www.facebook.com/" className="ico-redes"><i className="fab fa-facebook-square"></i></Link>
-                            <Link to="https://www.twitter.com/" className="ico-redes"><i className="fab fa-twitter"></i></Link>
-                            <Link to="https://www.instagram.com/" className="ico-redes"><i className="fab fa-instagram"></i></Link>
+                            <a href="https://www.facebook.com/" className="ico-redes"><i className="fab fa-facebook-square"></i></a>
+                            <a href="https://www.twitter.com/" className="ico-redes"><i className="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/" className="ico-redes"><i className="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div className="footer-imagen min-369">
-                        <Link to="/">
+                        <a href="http://localhost:3001">
                             <img src={footerLogo} alt="Logo moviclaro"/>
-                        </Link>
-                    </div>
+                        </a>                   </div>
                 </div>
             </div>
             <div className="derechos">
