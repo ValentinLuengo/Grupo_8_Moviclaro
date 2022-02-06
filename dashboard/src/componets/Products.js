@@ -5,7 +5,7 @@ function Products() {
     const [cellphone, setListCellphone] = useState([]);
 
     useEffect(() => {
-        fetch("/api/products")
+        fetch("/api/totals")
             .then((respuesta) => {
                 return respuesta.json();
             })
@@ -28,7 +28,7 @@ function Products() {
                             //}
                             className="m-0 font-weight-bold text-gray-800"
                         >
-                            Cellphone in Data Base
+                            Cantidad de productos por marca:
                         </h6>
                     </div>
                     <div className="card-body fondoCaja">

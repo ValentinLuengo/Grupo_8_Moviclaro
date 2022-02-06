@@ -45,7 +45,7 @@ function SideBar(){
                 <li className="nav-item">
                     <a className="nav-link" href="/">
                         <i className="fas fa-fw fa-hand-holding-usd"></i>
-                        <span>Precios</span></a>
+                        <span>Usuarios</span></a>
                 </li>
 
                 {/*<!-- Divider -->*/}
