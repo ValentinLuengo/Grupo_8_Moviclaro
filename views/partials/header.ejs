@@ -24,24 +24,47 @@
             <% } %>
     </div>
     <div class="header-navegacion">
-        <nav>
-            <i class="fas fa-bars"></i>
-            <div class="header-enlaces-burger">
-                <a href="/store">Tienda</a>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid  ">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse  justify-content" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/store">Tienda</a>
+                        </li>
                 <% if (locals.isLogged){ %>
                     <% if (locals.userLogged.category_id =="2"){ %>
-                        <a href="/nuevoProducto">Nuevo Producto</a>
-                        <a href="http://localhost:3000">Dashboard</a>
-                        <a href="/user">Perfil</a>
-                        <a href="/logout">Cerrar Sesión</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/nuevoProducto">Nuevo Producto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:3000">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/user">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/logout">Cerrar Sesión</a>
+                        </li>
                     <% } else{%>
-                            <a href="/user">Perfil</a>
-                            <a href="/logout">Cerrar Sesión</a>
-                         <% } %>
-                <% } else { %>
-                    <a href="/registro">Registro</a>
-                    <a href="/login">Iniciar sesión</a>
-                <% } %>
+                        li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout">Cerrar Sesión</a>
+                    </li>
+                    <% } %>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/registro">Registro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/login">Iniciar sesión</a>
+                        </li>
+                        <% } %>
+                    </ul>
             </div>
         </nav>
     </div>

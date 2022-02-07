@@ -64,16 +64,31 @@ const Header = () => {
                 {/* <% } %> */}
             </div>
             <div className="header-navegacion">
-                <nav>
-                    <i className="fas fa-bars"></i>
-                    <div className="header-enlaces-burger">
-                        <a href="http://localhost:3001/store">Tienda</a> 
-                        <a href="http://localhost:3001/nuevoProducto">Nuevo Producto</a>
-                        <a href="http://localhost:3000">Dashboard</a>
-                        <a href="http://localhost:3001/user">Perfil</a>
-                        <a href="http://localhost:3001/logout">Cerrar Sesión</a>
-                      
-                    </div>
+                <nav className="navbar navbar-expand-md navbar-light">
+                    <div className="container-fluid  ">
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                        <div className="collapse navbar-collapse  justify-content" id="navbarNav">
+                            <ul className="navbar-nav ">
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="http://localhost:3001/store">Tienda</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="http://localhost:3001/nuevoProducto">Nuevo Producto</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="http://localhost:3000">Dashboard</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="http://localhost:3001/user">Perfil</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" href="http://localhost:3001/logout">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                     </div>
                 </nav>
             </div>
             <div className="banner">

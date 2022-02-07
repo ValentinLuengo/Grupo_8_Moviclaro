@@ -1,3 +1,7 @@
+:root{
+    --font-link: 'Nunito Sans', sans-serif;
+}
+
 * {
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -275,4 +279,33 @@ h1 {
 }
 
 
-/*====FOOTER====*/
+/*====FOOTER====*/a.nav-link{
+    font-family: var(--font-link);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+}
+div.justify-content {
+    display: flex;
+    justify-content: space-around;
+}
+.nav-item{
+    margin: 2px 18px;
+}
+nav.navbar{
+    padding: 0 ;
+}
+
+@media (min-width: 980px) {
+    .nav-item{
+        margin: 2px 30px;
+    }
+    
+}
+@media (min-width: 1200px) {
+    .nav-item{
+        margin: 2px 30px;
+    }
+    
+}
+
