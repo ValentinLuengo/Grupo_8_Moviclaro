@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "./Products";
 import "../assets/styles/app.css";
+import Table from "./Table";
 
 function Content() {
     return (
@@ -14,6 +15,7 @@ function Content() {
 
                     {/*<!-- Celulares -->*/}
                     <Products />
+                    <Table />
                 </div>
                 {/*<!--End Content Row Top-->*/}
             </div>

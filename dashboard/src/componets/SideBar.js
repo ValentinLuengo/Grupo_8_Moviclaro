@@ -1,5 +1,8 @@
 import React from 'react';
+import {Routes, Route, Link} from 'react-router-dom'
 import image from '../assets/images/header-logo-368px.png';
+import Table from './Table';
+// import Error404 from './Error404'
 
 function SideBar(){
     return(
@@ -36,9 +39,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/table">
                         <i className="fas fa-fw fa-mobile-alt"></i>
-                        <span>Productos</span></a>
+                        <span>Productos</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
@@ -57,6 +60,12 @@ function SideBar(){
                 </a>
             </ul>
             {/*<!-- End of Sidebar -->*/}
+            <Routes>
+                <Route exact path="./table" element={Table} />
+
+                {/* <Route exact path='*' element={ <Error404 /> } /> */}
+
+            </Routes>
             
         </React.Fragment>
     )
