@@ -49,21 +49,72 @@ const userApiController = {
     show: (req, res)=>{   
       let country =  db.Country.findAll();
       let users = db.User.findByPk(req.params.id, {
-        include: ["countries"],
+        include: ["countries"]
       })
   
       Promise.all([users])
-        .then(function(users){
+         .then( (users)=> {
+          let usuario;
+          users.map(row => {
+            usuario = {
+              id: row.id,
+              
+              name: row.name,
+              last_name: row.last_name,
+              country: row.country,
+              password: row.password,
+              email: row.email,
+              phone: row.phone,
+              image: "http://localhost:3001/avatars/" + row.image,
+            };
+          }); 
           return res.status(200).json({
             meta: {
               status: 200,
               imageUrl: "http://localhost:3001/avatars/products",
             },
-            data: users[0],
+            data: usuario,
           });
         })
         .catch((error) => console.log(error));
-    } 
+    } ,
+
+    //Trae el último usuario creado
+    lastUserCreated: (req, res)=>{  
+    let country =  db.Country.findAll();
+    let users = db.User.findOne({
+      include: ["countries"],
+      order: [["id", "DESC"]],
+      limit: 1,
+    })
+
+    Promise.all([users])
+       .then( (users)=> {
+        let usuario;
+        users.map(row => {
+          usuario = {
+            id: row.id,
+            
+            name: row.name,
+            last_name: row.last_name,
+            country: row.country,
+            password: row.password,
+            email: row.email,
+            phone: row.phone,
+            image: "http://localhost:3001/avatars/" + row.image,
+          };
+        }); 
+        return res.status(200).json({
+          meta: {
+            status: 200,
+            imageUrl: "http://localhost:3001/avatars/products",
+          },
+          data: usuario,
+        });
+      })
+      .catch((error) => console.log(error));
+  }
+
 
 }
 
