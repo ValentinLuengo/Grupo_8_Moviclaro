@@ -287,17 +287,14 @@ div.justify-content {
     justify-content: space-around;
 }
 .nav-item{
-    margin: 2px 18px;
+    margin: 2px 15px;
 }
 nav.navbar{
     padding: 0 ;
 }
 
-@media (min-width: 768px) {
-    .nav-item{
-        margin: 2px 15px;
-    }
-    
+.nav-item{
+    margin: 2px 15px;
 }
 @media (min-width: 980px) {
     .nav-item{

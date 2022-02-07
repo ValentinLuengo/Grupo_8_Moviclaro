@@ -10,8 +10,8 @@ function Products() {
                 return respuesta.json();
             })
             .then((cellphone) => {
-                console.log(cellphone.data)
-                setListCellphone(cellphone.data);
+                console.log(cellphone.data);
+                setListCellphone(cellphone.data.totals);
             })
             .catch((error) => console.log(error));
     }, []);

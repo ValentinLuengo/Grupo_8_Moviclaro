@@ -51,17 +51,17 @@ const Header = () => {
                         </a>
                     </form>
                 </div>
-                {/* <% if (locals.isLogged){ %> */}
+              
                 <div className="imagen-perfil-header">
                     <a href="/user">
-                        {/* {" "} */}
+               
                         <img
                             src={logoAvatar}
                             alt="Imagen de perfil miniatura"
                         />
                     </a>
                 </div>
-                {/* <% } %> */}
+               
             </div>
             <div className="header-navegacion">
                 <nav className="navbar navbar-expand-md navbar-light">
