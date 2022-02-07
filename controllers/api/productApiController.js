@@ -8,6 +8,8 @@ const productApiController = {
     //lista los productos la api
     list: (req, res) => {
         let producto = [];
+        let cantidad_ofertas =0;
+        let cantidad_promociones = 0;
         let color = db.Color.findAll();
         let category = db.ProductCategory.findAll();
         let brand = db.Brand.findAll();
@@ -28,10 +30,17 @@ const productApiController = {
                         color: row.color,
                         description: row.description,
                     });
+
+                    if(row.product_categories.id== 1){
+                        cantidad_ofertas = cantidad_ofertas +1;
+                    }else{cantidad_promociones = cantidad_promociones +1}
+                
                 });
                 return res.status(200).json({
                     meta: {
                         total: product[0].length,
+                        cantidad_ofertas: cantidad_ofertas,
+                        cantidad_promociones: cantidad_promociones,
                         status: 200,
                     },
                     data: producto,
@@ -151,8 +160,11 @@ const productApiController = {
                 return res.status(200).json({
                     meta: {
                         status: 200,
+                        total_brand: totals.length
                     },
-                    data: totals,
+                    data: {
+                        totals: totals
+                    }
                 });
             })
             .catch((error) => {
