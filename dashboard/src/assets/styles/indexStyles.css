@@ -286,8 +286,8 @@ div.justify-content {
     display: flex;
     justify-content: space-around;
 }
-.nav-item{
-    margin: 2px 15px;
+ .nav-item{
+    margin: 2px 10px;
 }
 nav.navbar{
     padding: 0 ;
@@ -296,15 +296,19 @@ nav.navbar{
 .nav-item{
     margin: 2px 15px;
 }
+
 @media (min-width: 980px) {
     .nav-item{
-        margin: 2px 30px;
-    }
-    
+        margin: 2px 10px;
+    } 
 }
+    
+
+    
 @media (min-width: 1200px) {
     .nav-item{
         margin: 2px 40px;
     }
     
 }
+
