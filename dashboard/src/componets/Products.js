@@ -11,7 +11,7 @@ function Products() {
             })
             .then((cellphone) => {
                 console.log(cellphone.data)
-                setListCellphone(cellphone.data);
+                setListCellphone(cellphone.data.totals);
             })
             .catch((error) => console.log(error));
     }, []);
