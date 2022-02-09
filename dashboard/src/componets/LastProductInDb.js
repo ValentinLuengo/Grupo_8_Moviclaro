@@ -19,9 +19,9 @@ function LastProductInDb(){
     return(
     <React.Fragment>
         <div>
-        <h6 className="m-0 font-weight-bold text-gray-800">
+        {/* <h6 className="m-0 font-weight-bold text-gray-800">
                             Ultimo Producto Creado:
-                        </h6>
+                        </h6> */}
             <LastProduct {...cellphone}/>
         </div>
     </React.Fragment>

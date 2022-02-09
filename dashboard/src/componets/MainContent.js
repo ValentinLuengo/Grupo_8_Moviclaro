@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Products from "./Products";
 import Table from "./Table";
+import LastProductInDb from "./LastProductInDb"
 
 const MainContent = () => {
     return (
@@ -12,7 +13,7 @@ const MainContent = () => {
                             Dashboard
                         </h1>
                     </div>
-
+                    <LastProductInDb />
                     <Products />
                     <Table />
 
