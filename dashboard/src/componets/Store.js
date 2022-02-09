@@ -6,7 +6,7 @@ function Store() {
     return (
         <Fragment>
             <div id="wrapper">
-            <SideBar />
+            <SideBar/>
 
             <Content />
             </div>

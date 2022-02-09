@@ -2,6 +2,7 @@ import React from "react";
 import Products from "./Products";
 import LastProductInDb from "./LastProductInDb.js"
 import "../assets/styles/app.css";
+import Table from "./Table";
 
 function Content() {
     return (
@@ -15,6 +16,7 @@ function Content() {
                     <LastProductInDb/>
                     {/*<!-- Celulares -->*/}
                     <Products />
+                    <Table />
                 </div>
                 {/*<!--End Content Row Top-->*/}
             </div>

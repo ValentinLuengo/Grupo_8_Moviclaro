@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 
 function LastProduct(props){
+   
     return(
         <React.Fragment>
             <div>

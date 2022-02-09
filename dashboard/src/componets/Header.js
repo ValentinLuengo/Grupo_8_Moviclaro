@@ -17,8 +17,10 @@ const Header = () => {
 
     return (
         <Fragment>
-            <div className="header">
-                <div className="header-logo">
+            <div className="row">
+            <div className="col-12" >
+            <div className="header" >
+                <div className="header-logo" >
                     <a href="http://localhost:3001">
                         <img
                             className="header-logo-368px"
@@ -51,17 +53,17 @@ const Header = () => {
                         </a>
                     </form>
                 </div>
-                {/* <% if (locals.isLogged){ %> */}
+              
                 <div className="imagen-perfil-header">
                     <a href="/user">
-                        {/* {" "} */}
+               
                         <img
                             src={logoAvatar}
                             alt="Imagen de perfil miniatura"
                         />
                     </a>
                 </div>
-                {/* <% } %> */}
+               
             </div>
             <div className="header-navegacion">
                 <nav className="navbar navbar-expand-md navbar-light">
@@ -97,6 +99,8 @@ const Header = () => {
                     alt="banner"
                     title="Imagen Promociónal"
                 />
+            </div>
+            </div>
             </div>
         </Fragment>
     );
