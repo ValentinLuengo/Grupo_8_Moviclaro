@@ -291,7 +291,7 @@ div.justify-content {
     justify-content: space-around;
 }
 .nav-item{
-    margin: 2px 15px;
+    margin: 2px 10px;
 }
 nav.navbar{
     padding: 0 ;
@@ -299,8 +299,12 @@ nav.navbar{
 
 @media (min-width: 980px) {
     .nav-item{
-        margin: 2px 30px;
+        margin: 2px 20px;
     }
+    a.nav-link{
+        font-size: 0.8em;
+    }
+
     
 }
 @media (min-width: 1200px) {

@@ -18,8 +18,8 @@ function Table(){
 
 
 
-    return ( 
-        <div className="card shadow mb-4 col-lg-12 mb-4">
+    return (
+    <div className="card shadow mb-4 ">
             <div className="card-body">
                 <div className="table-responsive">
                     <table className="table table-bordered" id="dataTable" width="80%" cellSpacing="0">
