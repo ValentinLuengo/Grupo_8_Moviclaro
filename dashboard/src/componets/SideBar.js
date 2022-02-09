@@ -1,8 +1,11 @@
 import React from 'react';
 import {Routes, Route, Link} from 'react-router-dom'
 import image from '../assets/images/header-logo-368px.png';
+import Products from './Products';
 import Table from './Table';
-// import Error404 from './Error404'
+import Content from './Content';
+
+import Error404 from './Error404'
 
 function SideBar(){
     return(
@@ -14,13 +17,13 @@ function SideBar(){
                 
 
                 {/*<!-- Divider -->*/}
-                <hr className="sidebar-divider my-0"/>
+                <hr className="sidebar-divider"/>
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Moviclaro</span></a>
+                        <span>Dashboard - Moviclaro</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -31,10 +34,10 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="/">
+                    <Link className="nav-link collapsed" to="/Products">
                         <i className="fas fa-fw far fa-copyright"></i>
                         <span>Marcas</span>
-                    </a>
+                    </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
@@ -46,9 +49,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-hand-holding-usd"></i>
-                        <span>Usuarios</span></a>
+                        <span>Usuarios</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -61,9 +64,12 @@ function SideBar(){
             </ul>
             {/*<!-- End of Sidebar -->*/}
             <Routes>
-                <Route exact path="./table" element={Table} />
+                <Route exact path="/" element={ <Content />} />
+                <Route exact path="/Table" element={ <Table />} />
+                <Route exact path="/Products" element={ <Products />} />
+                 {/* <Route exact path="./table" element={Table} /> */}
 
-                {/* <Route exact path='*' element={ <Error404 /> } /> */}
+                <Route exact path='*' element={ <Error404 /> } /> 
 
             </Routes>
             
