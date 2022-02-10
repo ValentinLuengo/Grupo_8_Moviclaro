@@ -8835,7 +8835,7 @@ a:focus {
 }
 .bg-gradient-secondary {
     background-color: #858796;
-    background-image: linear-gradient(180deg, #5e878d 10%, #0a0c29 100%);
+    background-image: linear-gradient(180deg, #86b9c0 10%, #0a0c29 100%);
     background-size: cover;
 }
 .bg-gradient-success {

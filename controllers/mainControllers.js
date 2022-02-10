@@ -8,7 +8,7 @@ const validations = require("../middlewares/productMiddleware.js");
 const db = require("../database/models");
 const { promiseImpl } = require("ejs");
 const sequelize = db.sequelize;
-const Op = sequelize.Op;
+const Op = db.Sequelize.Op;
 const publicPath = path.resolve(__dirname, "./public");
 
 const mainController = {
@@ -275,31 +275,27 @@ const mainController = {
     },
 
     search: (req, res) => {
-        db.Product.findAll(
-            {
-            include: ["colors", "brands", "product_categories"],
-        })
-        .then((product) => {
-            res.render('products/store', {product});
-        })
-        .catch((error) => console.log(error));
-        //return res.send("resultado de la busqueda");
-    },
-    detailSearch: (req, res) => {
         let searchQuery = req.query.search;
-        console.log(searchQuery)
+        console.log(searchQuery + "------------")
         db.Product.findAll({
-            include: ["colors", "brands", "product_categories"],
+            
             where: {
-                name: { [Op.like] : `%${searchQuery}%` } 
+                model: { [Op.like]: "%" + searchQuery + "%" }
+
             },
             order: [
                 ['model', 'DESC']
-            ]
+            ],
+            include: ["colors", "brands", "product_categories"]
         })
         .then(product => {
             res.render('products/productSearch.ejs' , {product});
-        });
+
+        
+        }, [])
+        .catch((error) => console.log(error));
+
+        
     },
 
 };
