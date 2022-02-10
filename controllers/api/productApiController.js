@@ -113,7 +113,7 @@ const productApiController = {
                         brand: product[0].brands,
                         model: product[0].model,
                         image:
-                            "http://localhost:3001/products/" +
+                            "http://localhost:3001/images/products/" +
                             product[0].image,
                         stock: product[0].stock,
                         price: product[0].price,
