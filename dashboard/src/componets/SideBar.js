@@ -4,6 +4,7 @@ import image from '../assets/images/header-logo-368px.png';
 import Products from './Products';
 import Table from './Table';
 import Content from './Content';
+import LastProductInDb from './LastProductInDb';
 
 import Error404 from './Error404'
 
@@ -53,6 +54,11 @@ function SideBar(){
                         <i className="fas fa-fw fa-hand-holding-usd"></i>
                         <span>Usuarios</span></Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/lastProductInDb">
+                        <i className="fas fa-fw fa-hand-holding-usd"></i>
+                        <span>Ultimo producto subido</span></Link>
+                </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -67,6 +73,7 @@ function SideBar(){
                 <Route exact path="/" element={ <Content />} />
                 <Route exact path="/Table" element={ <Table />} />
                 <Route exact path="/Products" element={ <Products />} />
+                <Route exact path="/LastProductInDb" element={ <LastProductInDb />} />
                  {/* <Route exact path="./table" element={Table} /> */}
 
                 <Route exact path='*' element={ <Error404 /> } /> 

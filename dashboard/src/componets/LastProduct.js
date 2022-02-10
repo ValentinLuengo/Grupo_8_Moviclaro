@@ -2,13 +2,7 @@ import React from 'react';
 
 function LastProduct(props){
     
-//    const [imagen, setImage] = useState([])
     
-    // useEffect()
-
-
-
-    // console.log(imagen)
     return(
         <React.Fragment>
         
@@ -19,19 +13,15 @@ function LastProduct(props){
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src="" alt=""/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={props.image} alt=""/>
                     </div>
-                    <p>{props.desripcion}</p>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
+                    <p> {props.description} </p>
+                    <a   href={`http://localhost:3001/detalle/${props.id}`}>
+                    <button className="btn  botonComprar" target="_blank" rel="nofollow">Ver detalles</button></a>
                 </div>
             </div>
         </div>
-            {/* <div>
-            <div className="card-body">
-                        {props.model}
-                        <img src={imagen}/>
-                    </div>
-            </div> */}
+          
         </React.Fragment>
     )
 };
