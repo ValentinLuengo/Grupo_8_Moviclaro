@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LastProduct from "./LastProduct.js"
 
-function LastProductInDb(){
+function LastUserInDb(){
     const [cellphone, setListCellphone] = useState([]);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ function LastProductInDb(){
     );
 }
 
-export default LastProductInDb
+export default LastUserInDb

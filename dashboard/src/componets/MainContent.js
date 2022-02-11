@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import Table from "./Table";
 import LastProductInDb from "./LastProductInDb";
 import ContentTop from "./ContentTop";
-import ContentProduct from "./ContentProducts";
 import Products from "./Products";
+import TableUsers from "./TableUsers";
+import LastUserInDb from "./LastUserInDb";
 
 const MainContent = () => {
     return (
@@ -16,6 +17,9 @@ const MainContent = () => {
                 <LastProductInDb />
                 <Products />
                 <Table />
+
+                <LastUserInDb />
+                <TableUsers />
             </div>
         </Fragment>
     );
