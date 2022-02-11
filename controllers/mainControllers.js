@@ -286,7 +286,7 @@ const mainController = {
             order: [
                 ['model', 'DESC']
             ],
-            include: ["colors", "brands", "product_categories"]
+            include: ["brands"]
         })
         .then(product => {
             res.render('products/productSearch.ejs' , {product});
