@@ -23,15 +23,12 @@ function Products() {
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
                         <h6
-                           //</div> onMouseOver={() =>
-                                //cambiarFondo("bg-secondary")
-                            //}
                             className="m-0 font-weight-bold text-gray-800"
                         >
                             Cantidad de productos por marca:
                         </h6>
                     </div>
-                    <div className="card-body fondoCaja">
+                    <div className="card-body">
                         <div className="row">
                             {cellphone.map((cellphone, index) => {
                                 return <Cellphone {...cellphone} key={cellphone + index} />;

@@ -3,7 +3,7 @@ import React from "react";
 function LastUser(props) {
     return (
         <React.Fragment>
-            <div className="col-lg-14 mb-6">
+            <div className="col-lg-18 mb-4">
                 <div className="card shadow mb-6">
                     <div className="card-header py-3">
                         <h5 className="m-0 font-weight-bold text-gray-800">
@@ -28,7 +28,7 @@ function LastUser(props) {
                                 <table
                                     className="table table-bordered"
                                     id="dataTable"
-                                    width="80%"
+                                    width="100%"
                                     cellSpacing="0"
                                 >
                                     <thead>

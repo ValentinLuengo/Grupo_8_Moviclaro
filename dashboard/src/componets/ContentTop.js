@@ -1,34 +1,32 @@
 import React from "react";
-import SmallCard from './SmallCard';
+import SmallCard from "./SmallCard";
 
 let productTotal = {
-    color:   "primary",
+    color: "primary",
     titulo: "Totales de Productos",
     icono: "fa-mobile-alt",
-    total: "30"
-}
+    total: "30",
+};
 
-let ofertaTotals ={
-    color:   "success",
-    titulo: "Total Ofertas",    
+let ofertaTotals = {
+    color: "success",
+    titulo: "Total Ofertas",
     icono: "far fa-bell",
-    total: "14"
+    total: "14",
     // cantidad_ofertas: ""
-}
+};
 
 let promoTotal = {
-    color:   "warning",
+    color: "warning",
     titulo: "Total Promociones",
     icono: "fas fa-percent",
-    total: "16"
+    total: "16",
     // cantidad_promociones: ""
-}
+};
 
-let cardProps = [productTotal,ofertaTotals,promoTotal];
+let cardProps = [productTotal, ofertaTotals, promoTotal];
 
-
-
-function ContentTop(){
+function ContentTop() {
     // const [card, setCard] = useState([]);
 
     // useEffect(() => {
@@ -46,15 +44,13 @@ function ContentTop(){
 
     return (
         <React.Fragment>
-        {/*<!-- Content Row -->*/}
-        <div className="row">
-        {
-                cardProps.map((producto,index)=>{
-                    return <SmallCard  {...producto}  key= {index}/>
-                })
-            } 
-        </div>
+            {/*<!-- Content Row -->*/}
+            <div className="row">
+                {cardProps.map((producto, index) => {
+                    return <SmallCard {...producto} key={index} />;
+                })}
+            </div>
         </React.Fragment>
-    )
+    );
 }
 export default ContentTop;

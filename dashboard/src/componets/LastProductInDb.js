@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LastProduct from "./LastProduct.js"
 
-function LastUserInDb(){
+function LastProductInDb(){
     const [cellphone, setListCellphone] = useState([]);
 
     useEffect(() => {
@@ -19,13 +19,10 @@ function LastUserInDb(){
     return(
     <React.Fragment>
         <div>
-        {/* <h6 className="m-0 font-weight-bold text-gray-800">
-                            Ultimo Producto Creado:
-                        </h6> */}
             <LastProduct {...cellphone}/>
         </div>
     </React.Fragment>
     );
 }
 
-export default LastUserInDb
+export default LastProductInDb

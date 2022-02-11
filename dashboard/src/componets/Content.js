@@ -7,17 +7,12 @@ import Footer from "./Footer";
 function Content() {
     return (
         <React.Fragment>
-
             <div id="content-wrapper" className="d-flex flex-column">
-              
                 <div id="content">
-            {/* <div id="content"> */}
-                <Header />
-             
+                    <Header />
                     <MainContent />
-                
-                <Footer />
-            </div>
+                    <Footer />
+                </div>
             </div>
         </React.Fragment>
     );
