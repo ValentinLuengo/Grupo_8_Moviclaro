@@ -78,23 +78,25 @@
                                 </select>
                             </div>
                             <div class="registro-campos">
-                                <label for="imagen">Subir imagen</label> </br>
-                                <figure class="figure">
-                                    <img src="/images/products/<%= product.image %>" alt="imagen de producto">
-                                </figure>
-                                <input type="hidden" name="oldImage" value="<%= product.image%>">
-                                <input 
-                                    type="file" 
-                                    name="image" 
-                                    id="image" 
-                                    class="<%= //locals.errors && errors.image ? 'is-invalid': null %>" 
-                                    content="/images/products/<%= product.image %>"
-                                    >
-                                <% //if (locals.errors && errors.image) { %>
-                                    <div class="text-danger" id="imageDanger">
-                                        <%=// errors.image.msg %>
-                                    </div>
-                                    <% //} %>
+        <label for="imagen">Subir imagen</label> </br>
+        <figure class="figure">
+            <img src="/images/products/<%= product.image %>" alt="imagen de producto">
+        </figure>
+        <input type="hidden" name="oldImage" value="<%= product.image%>">
+        <input 
+            type="file" 
+            name="image" 
+            id="image" 
+            class="<%= locals.errors && errors.image ? 'is-invalid': null %>" 
+            value="<%= product.image %>" >
+
+        <% if (locals.errors && errors.image) { %>
+            <div class="text-danger" id="imageDanger">
+                <%= errors.image.msg %>
+            </div>
+            <% } %>
+            <div class="text-danger" id="imageDanger"></div>
+
                             </div>
                             <div class="registro-campos">
                                 <label for="descripcion">Descripción</label>

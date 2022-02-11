@@ -75,8 +75,6 @@
                                     </div>
                             </div>
 
-
-
                             <div class="registro-campos registro_country_id">
                                 <label>País</label>
                                 <select name="country_id" id="country_id" class="input select">
@@ -107,14 +105,23 @@
 
                                     </div>
                             </div>
+
                             <div class="registro-campos registro_image">
                                 <label for="image">Imagen de perfil</label> </br>
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>">
+                                <input 
+                                type="file" 
+                                name="image" 
+                                id="image" 
+                                class=" <%= locals.errors && errors.image ? 'is-invalid': null %>">
+
                                 <% if (locals.errors && errors.image) { %>
+
                                     <div class="text-danger" >
                                         <%= errors.image.msg %>
                                     </div>
+
                                     <% } %>
+                                    
                                     <div class="text-danger" id="errImage">
 
                                     </div>

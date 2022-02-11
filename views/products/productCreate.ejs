@@ -98,14 +98,16 @@
                                     name="image" 
                                     id="image" 
                                     class="<%= locals.errors && errors.image ? 'is-invalid': null %>" 
-                                    value=" <%= locals.oldData ? oldData.image : null %>"
-                                    >
+                                >
 
                                     <% if (locals.errors && errors.image) { %>
+
                                         <div class="text-danger">
                                             <%= errors.image.msg %>
                                         </div>
+
                                         <% } %>
+
                                         <div class="text-danger" id="imageDanger"></div>
                             </div>
                         </div>

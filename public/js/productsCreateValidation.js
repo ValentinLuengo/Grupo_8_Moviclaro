@@ -96,16 +96,16 @@ window.addEventListener("load", function () {
             imageDanger.innerHTML = "Debes subir una imagen";
             return false;
         } else {
-            console.log(imagen.value);
-            if (expReg.test(imagen.value)) {
+            
+            if (!expReg.test(imagen.value)) {
+                imagen.classList.add("is-invalid");
+                imageDanger.innerHTML =
+                "Los formatos válidos son .jpg, .jpeg, .png, .gif";
+                return false;
+            } else {
                 imagen.classList.remove("is-invalid");
                 imageDanger.innerHTML = "";
                 return true;
-            } else {
-                imagen.classList.add("is-invalid");
-                imageDanger.innerHTML =
-                    "Los formatos válidos son .jpg, .jpeg, .png, .gif";
-                return false;
             }
         }
     };
@@ -142,8 +142,8 @@ window.addEventListener("load", function () {
 
         if (status) {
             formulario.submit();
-        } else {
-            alert("Hay errores");
+        // } else {
+        //     alert("Hay errores");
         } 
     });
 

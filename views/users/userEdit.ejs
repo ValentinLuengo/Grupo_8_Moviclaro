@@ -124,21 +124,25 @@
                                 </select>
                             </div> -->
                             <div class="registro-campos registro_image">
-                                <label for="image">Imagen de perfil</label> </br>
-                                <figure class="figure">
-                                    <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
-                                </figure>
-                                <input type="hidden" name="oldImage" value="<%= user.image%>">
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image%>">
-                                <% if (locals.errors && errors.image) { %>
-                                    <div class="text-danger" >
-                                        <%= errors.image.msg %>
-                                    </div>
-                                    <% } %>
-                                    <div class="text-danger" id="errImage">
+        <label for="image">Imagen de perfil</label> </br>
+        <figure class="figure">
+            <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
+        </figure>
+        <input type="hidden" name="oldImage" value="<%= user.image%>">
+        <input 
+            type="file" 
+            name="image" 
+            id="image" 
+            class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" 
+            value="<%= user.image%>">
 
-                                    </div>
-                            </div>
+        <% if (locals.errors && errors.image) { %>
+            <div class="text-danger" >
+                <%= errors.image.msg %>
+            </div>
+            <% } %>
+            <div class="text-danger" id="errImage"></div>
+    </div>
 
                         </div>
                         <div class="botones">
