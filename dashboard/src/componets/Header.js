@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "../assets/styles/normalize.css";
 import "../assets/styles/registro.css";
 import "../assets/styles/styles.css";
@@ -7,10 +7,23 @@ import "../assets/styles/productCartStyles.css";
 import "../assets/styles/app.css";
 import logo from "../assets/images/header-logo-768px.png";
 import logosmall from "../assets/images/header-logo-368px.png";
-import logoAvatar from "../assets/images/logo.png";
+// import logoAvatar from "../assets/images/logo.png";
 import banner from "../assets/images/banners02.jpg";
 
 const Header = () => {
+    const [img, setImg] = useState([])
+
+    useEffect(() => {
+        fetch("/api/users")
+            .then((respuesta) => {
+                return respuesta.json();
+            })
+            .then((img) => {
+                console.log(img.data[0])
+                setImg(img.data[0]);
+            })
+            .catch((error) => console.log(error));
+    }, []);
     return (
         <Fragment>
             <div className="row">
@@ -53,7 +66,7 @@ const Header = () => {
                 <div className="imagen-perfil-header">
                     <a href="/user">
                         <img
-                            src={logoAvatar}
+                            src={img.image}
                             alt="Imagen de perfil miniatura"
                         />
                     </a>

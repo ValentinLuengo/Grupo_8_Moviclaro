@@ -25,7 +25,7 @@ const userApiController = {
                  password: row.password,
                  email: row.email,
                  phone: row.phone,
-                 image: "http://localhost:3001/avatars/" + row.image,
+                 image: "http://localhost:3001/images/avatars/" + row.image,
                });
              });
              return res.status(200).json({
