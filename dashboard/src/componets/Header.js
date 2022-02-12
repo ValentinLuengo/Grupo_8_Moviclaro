@@ -93,7 +93,7 @@ const Header = () => {
                             <ul className="navbar-nav ">
                                 <li className="nav-item">
                                     <a
-                                        className="nav-link active"
+                                        className="nav-link active  text-center"
                                         aria-current="page"
                                         href="http://localhost:3001/store"
                                     >
@@ -102,7 +102,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a
-                                        className="nav-link active"
+                                        className="nav-link active text-center"
                                         aria-current="page"
                                         href="http://localhost:3001/nuevoProducto"
                                     >
@@ -111,7 +111,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a
-                                        className="nav-link active"
+                                        className="nav-link active text-center"
                                         aria-current="page"
                                         href="http://localhost:3000"
                                     >
@@ -120,7 +120,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a
-                                        className="nav-link active"
+                                        className="nav-link active text-center"
                                         aria-current="page"
                                         href="http://localhost:3001/user"
                                     >
@@ -129,7 +129,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a
-                                        className="nav-link active"
+                                        className="nav-link active text-center"
                                         aria-current="page"
                                         href="http://localhost:3001/logout"
                                     >
