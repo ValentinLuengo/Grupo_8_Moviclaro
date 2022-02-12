@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
     const imagen = document.querySelector("input#image");
     // imagen.focus();
     const imageDanger = document.querySelector("div#imageDanger");
-    const expReg = /(\.jpg|\.jpeg|\.png|\.gif)$/g;
+   // const expReg = /(\.jpg|\.jpeg|\.png|\.gif)$/g;
 
     //validación de modelo------------------------------------------------------
 
@@ -90,18 +90,21 @@ window.addEventListener("load", function () {
     // Validación de formato de imagen---------------------------------------------------
 
     const validarImagen = function () {
+        const expReg = /(\.jpg|\.jpeg|\.png|\.gif)$/g;
         if (imagen.value == "") {
             imagen.classList.add("is-invalid");
             imageDanger.innerHTML = "Debes subir una imagen";
             return false;
         } else {
-            
+             
             if (!expReg.test(imagen.value)) {
+                console.log("entro 1" +  imagen.value)
                 imagen.classList.add("is-invalid");
                 imageDanger.innerHTML =
-                "Los formatos válidos son .jpg, .jpeg, .png, .gif";
+                "Los formatos válidos son .jpg, .jpeg, .png, .gif"
                 return false;
             } else {
+                console.log("entro 2"+ imagen.value)
                 imagen.classList.remove("is-invalid");
                 imageDanger.innerHTML = "";
                 return true;
@@ -129,7 +132,7 @@ window.addEventListener("load", function () {
             validarStock();
         });
 
-        imagen.addEventListener("change", () => {
+        imagen.addEventListener("blur", () => {
             validarImagen();
         });
 
@@ -148,3 +151,4 @@ window.addEventListener("load", function () {
 
     
 });
+
