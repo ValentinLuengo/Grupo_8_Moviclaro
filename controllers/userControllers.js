@@ -186,7 +186,19 @@ const userController = {
   update: async (req, res) => {
     let newPassword = "";
     let resultadoValidacion = validationResult(req);
+    let user= {}
     if (resultadoValidacion.errors.length < 1) {
+      user =  {
+        id: req.body.id,
+        name: req.body.name,
+        last_name: req.body.last_name,
+        image: req.file ? req.file.filename : req.body.oldImage,
+        email: req.body.email,
+        phone: req.body.phone,
+        country_id: req.body.country_id,
+        //password: req.body.password 
+       // password2 : req.body.password2
+      }
       let userId = req.params.id;
       if (req.body.password ==""){
       await db.User.update(
@@ -205,6 +217,8 @@ const userController = {
         }
       )
         .then(() => {
+
+          req.session.userLogged.image = user.image;
           return res.redirect("/user");
           
         })
@@ -237,7 +251,6 @@ const userController = {
 
       }  
     } else {
-      console.log("entro en el else")
       let country = await db.Country.findAll();
       let userInDb = await db.User.findOne({
         where: {
