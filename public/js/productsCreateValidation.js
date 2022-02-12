@@ -1,5 +1,4 @@
 window.addEventListener("load", function () {
-    console.log("Hola");
 
     const formulario = document.querySelector(".formulario");
     const modelo = document.querySelector("input#modelo");
@@ -142,9 +141,9 @@ window.addEventListener("load", function () {
 
         if (status) {
             formulario.submit();
-        } else {
+        } /* else {
             alert("Hay errores");
-        } 
+        } */ 
     });
 
     
