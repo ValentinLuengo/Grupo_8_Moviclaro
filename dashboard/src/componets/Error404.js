@@ -5,7 +5,7 @@ function Error404() {
     return(
         <React.Fragment>
             <div className="container w-100">
-                <img className="w-100" src={error} alt="Error 404" />
+                <img className="w-50" src={error} alt="Error 404" />
             </div>
         </React.Fragment>
     )

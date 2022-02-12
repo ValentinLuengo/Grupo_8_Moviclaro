@@ -124,21 +124,25 @@
                                 </select>
                             </div> -->
                             <div class="registro-campos registro_image">
-                                <label for="image">Imagen de perfil</label> </br>
-                                <figure class="figure">
-                                    <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
-                                </figure>
-                                <input type="hidden" name="oldImage" value="<%= user.image%>">
-                                <input type="file" name="image" id="image" class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" value="<%= user.image%>">
-                                <% if (locals.errors && errors.image) { %>
-                                    <div class="text-danger" >
-                                        <%= errors.image.msg %>
-                                    </div>
-                                    <% } %>
-                                    <div class="text-danger" id="errImage">
+        <label for="image">Imagen de perfil</label> </br>
+        <figure class="figure">
+            <img src="/images/avatars/<%= user.image %>" alt="imagen de usuario">
+        </figure>
+        <input type="hidden" name="oldImage" value="<%= user.image%>">
+        <input 
+            type="file" 
+            name="image" 
+            id="image" 
+            class=" <%= locals.errors && errors.image ? 'is-invalid': null %>" 
+            value="<%= user.image%>">
 
-                                    </div>
-                            </div>
+        <% if (locals.errors && errors.image) { %>
+            <div class="text-danger" >
+                <%= errors.image.msg %>
+            </div>
+            <% } %>
+            <div class="text-danger" id="errImage"></div>
+    </div>
 
                         </div>
                         <div class="botones">
@@ -152,6 +156,7 @@
             </main>
             <%- include('../partials/footer.ejs') %>
             <script src="../js/editarUsuarioValidation.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 
 </html>

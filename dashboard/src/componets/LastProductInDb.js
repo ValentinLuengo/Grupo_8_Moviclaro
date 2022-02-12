@@ -10,7 +10,7 @@ function LastProductInDb(){
                 return respuesta.json();
             })
             .then((cellphone) => {
-                console.log(cellphone.data)
+                // console.log(cellphone.data)
                 setListCellphone(cellphone.data);
             })
             .catch((error) => console.log(error));
@@ -19,9 +19,6 @@ function LastProductInDb(){
     return(
     <React.Fragment>
         <div>
-        {/* <h6 className="m-0 font-weight-bold text-gray-800">
-                            Ultimo Producto Creado:
-                        </h6> */}
             <LastProduct {...cellphone}/>
         </div>
     </React.Fragment>

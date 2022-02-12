@@ -5,6 +5,9 @@ const methodOverride = require('method-override');
 const cookies = require('cookie-parser')
 const bodyparser = require('body-parser');
 
+const cors = require('cors');
+app.use(cors())
+
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 

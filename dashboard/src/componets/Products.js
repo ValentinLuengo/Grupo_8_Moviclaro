@@ -10,7 +10,7 @@ function Products() {
                 return respuesta.json();
             })
             .then((cellphone) => {
-                console.log(cellphone.data);
+                // console.log(cellphone.data);
                 setListCellphone(cellphone.data.totals);
             })
             .catch((error) => console.log(error));
@@ -19,19 +19,16 @@ function Products() {
     return (
         <React.Fragment>
             {/*<!-- Categories in DB -->*/}
-            <div className="col-lg-6 mb-4">
+            <div className="col-lg-18 mb-4">
                 <div className="card shadow mb-4">
                     <div className="card-header py-3">
                         <h6
-                           //</div> onMouseOver={() =>
-                                //cambiarFondo("bg-secondary")
-                            //}
                             className="m-0 font-weight-bold text-gray-800"
                         >
                             Cantidad de productos por marca:
                         </h6>
                     </div>
-                    <div className="card-body fondoCaja">
+                    <div className="card-body">
                         <div className="row">
                             {cellphone.map((cellphone, index) => {
                                 return <Cellphone {...cellphone} key={cellphone + index} />;
