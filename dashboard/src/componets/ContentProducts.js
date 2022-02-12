@@ -9,10 +9,10 @@ const ContentProduct = () => {
             <div className="container-fluid">
                 <div className="col-12">
                     <div className="row">
-                        <div className="col-sm-6 col-md-6">
+                        <div className="col-lg-6 ">
                             <LastProductInDb />
                         </div>
-                        <div className="col-sm-6 col-md-6">
+                        <div className="col-lg-6 ">
                             <Products />
                         </div>
                     </div>

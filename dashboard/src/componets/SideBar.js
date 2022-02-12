@@ -14,7 +14,7 @@ function SideBar(){
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion col-md-2" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 
@@ -24,9 +24,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link px-0 " to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Moviclaro</span></Link>
+                        <span>Dashboard</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -37,14 +37,14 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/lastProductInDb">
+                    <Link className="nav-link px-0 " to="/lastProductInDb">
                         <i className="fas fa-fw fa-mobile-alt"></i>
                         <span>Ultimo producto</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/Products">
+                    <Link className="nav-link px-0 collapsed" to="/Products">
                         <i className="fas fa-fw far fa-copyright"></i>
                         <span>Marcas</span>
                     </Link>
@@ -52,21 +52,21 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/table">
+                    <Link className="nav-link px-0" to="/table">
                         <i className="fas fa-fw fa-mobile-alt"></i>
                         <span>Productos</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastUserInDb">
+                    <Link className="nav-link px-0" to="/LastUserInDb">
                         <i className="fas fa-fw fa-user"></i>
                         <span>Ultimo usuario</span></Link>
                 </li>
                 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/TableUsers">
+                    <Link className="nav-link px-0" to="/TableUsers">
                         <i className="fas fa-fw fa-users"></i>
                         <span>Usuarios</span></Link>
                 </li>
