@@ -5,8 +5,10 @@ import Products from './Products';
 import Table from './Table';
 import Content from './Content';
 import LastProductInDb from './LastProductInDb';
-
+import LastUserInDb from './LastUserInDb';
+import TableUsers from './TableUsers';
 import Error404 from './Error404'
+
 
 function SideBar(){
     return(
@@ -33,6 +35,13 @@ function SideBar(){
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Actions</div>
 
+                {/*<!-- Nav Item - Tables -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/lastProductInDb">
+                        <i className="fas fa-fw fa-mobile-alt"></i>
+                        <span>Ultimo producto</span></Link>
+                </li>
+
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/Products">
@@ -50,16 +59,19 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                        <i className="fas fa-fw fa-hand-holding-usd"></i>
+                    <Link className="nav-link" to="/LastUserInDb">
+                        <i className="fas fa-fw fa-user"></i>
+                        <span>Ultimo usuario</span></Link>
+                </li>
+                
+                {/*<!-- Nav Item - Tables -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/TableUsers">
+                        <i className="fas fa-fw fa-users"></i>
                         <span>Usuarios</span></Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/lastProductInDb">
-                        <i className="fas fa-fw fa-hand-holding-usd"></i>
-                        <span>Ultimo producto subido</span></Link>
-                </li>
-
+                
+                
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost:3001">
@@ -75,7 +87,8 @@ function SideBar(){
                 <Route exact path="/Products" element={ <Products />} />
                 <Route exact path="/LastProductInDb" element={ <LastProductInDb />} />
                  {/* <Route exact path="./table" element={Table} /> */}
-
+                 <Route exact path="/LastUserInDb" element={ <LastUserInDb />} />
+                 <Route exact path="/TableUsers" element={ <TableUsers />} />
                 <Route exact path='*' element={ <Error404 /> } /> 
 
             </Routes>
