@@ -10,6 +10,7 @@ const { promiseImpl } = require("ejs");
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const publicPath = path.resolve(__dirname, "./public");
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const mainController = {
     index: (req, res) => {
@@ -26,7 +27,7 @@ const mainController = {
                     include: ["colors", "brands", "product_categories"],
                 }).then((products2) => {
                     promotionsProducts = products2;
-                    res.render("index", { promotionsProducts, offersProducts });
+                    res.render("index", { promotionsProducts, offersProducts, toThousand });
                 });
             })
             .catch((error) => console.log(error));
@@ -45,6 +46,7 @@ const mainController = {
                     color: color,
                     category: category,
                     brand: brand,
+                    toThousand
                 });
             })
             .catch((error) => console.log(error));
@@ -63,6 +65,7 @@ const mainController = {
                 color: color,
                 category: category,
                 brands: brands,
+                toThousand
             });
         });
     },
@@ -95,6 +98,7 @@ const mainController = {
                             color: color,
                             category: category,
                             brands: brands,
+                            toThousand
                         })
                         .catch((errors) => console.log(errors));
                 }
@@ -159,6 +163,7 @@ const mainController = {
                 color: color,
                 category: category,
                 brands: brands,
+                toThousand
             });
         });
     },
@@ -182,6 +187,7 @@ const mainController = {
                             color: color,
                             category: category,
                             brands: brands,
+                            toThousand
                         })
                         .catch((errors) => console.log(errors));
                 }
@@ -231,7 +237,7 @@ const mainController = {
             include: ["colors", "brands", "product_categories"],
         })
             .then((product) => {
-                res.render(pathDetalle, { product });
+                res.render(pathDetalle, { product, toThousand });
             })
             .catch((error) => console.log(error));
 
@@ -289,7 +295,7 @@ const mainController = {
             include: ["brands"]
         })
         .then(product => {
-            res.render('products/productSearch.ejs' , {product});
+            res.render('products/productSearch.ejs' , {product, toThousand});
 
         
         }, [])

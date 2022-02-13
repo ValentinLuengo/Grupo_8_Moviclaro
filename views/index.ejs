@@ -33,7 +33,7 @@
                                             <%= product.colors.name %>
                                         </p>
                                         <p>
-                                            <%= product.price %>
+                                           $ <%= toThousand(product.price) %>
                                         </p>
                                         <a href="/detalle/<%= product.id %>">
                                             <p>Ver detalle</p>
@@ -72,7 +72,7 @@
                                             <%= product.colors.name %>
                                         </p>
                                         <p>
-                                            <%= product.price %>
+                                           $ <%=  toThousand(product.price) %>
                                         </p>
                                         <a href="/detalle/<%= product.id %>">
                                             <p>Ver detalle</p>

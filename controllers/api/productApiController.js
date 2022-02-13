@@ -2,7 +2,7 @@
 const db = require("../../database/models");
 const sequelize = db.sequelize;
 const Op = sequelize.Op;
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productApiController = {
     //lista los productos la api
@@ -25,7 +25,7 @@ const productApiController = {
                         model: row.model,
                         image: "http://localhost:3001/products/" + row.image,
                         stock: row.stock,
-                        price: row.price,
+                        price: toThousand(row.price),
                         product_categories_id: row.product_categories,
                         color: row.color,
                         description: row.description,
