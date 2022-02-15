@@ -80,9 +80,9 @@
                             <div class="registro-campos">
         <label for="imagen">Subir imagen</label> </br>
         <figure class="figure">
-            <img src="/images/products/<%= product.image %>" alt="imagen de producto">
+            <img src="/images/products/<%= product.image %>" alt="<%= product.image.name %>">
         </figure>
-        <input type="hidden" name="oldImage" value="<%= product.image%>">
+        <input id="imagen" type="hidden" name="oldImage" value="<%= product.image%>">
         <input 
             type="file" 
             name="image" 
@@ -109,7 +109,8 @@
                             </div>
                         </div>
                         <div class="botones">
-                            <button type="reset" class="registro-boton registro-boton-red">BORRAR</button>
+                            <!-- <button type="reset" class="registro-boton registro-boton-red">BORRAR</button> -->
+                            <input class="registro-boton registro-boton-red" value="BORRAR" type="reset">
                             <input class="registro-boton" value="ENVIAR" type="submit">
                         </div>
 

@@ -58,11 +58,10 @@ window.addEventListener("load", function () {
 
     const validarImagen = function () {
         if (imagen.value == "") {
-            imagen.classList.add("is-invalid");
-            imageDanger.innerHTML = "Debes subir una imagen";
-            return false;
-        } else {
-            
+            // imagen.classList.add("is-invalid");
+            // imageDanger.innerHTML = "Debes subir una imagen";
+            return true;
+        } else {            
             if (!expReg.test(imagen.value)) {
                 imagen.classList.add("is-invalid");
                 imageDanger.innerHTML =
