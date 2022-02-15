@@ -44,7 +44,7 @@ const Header = () => {
                     </a>
                 </div>
                 <div className="header-busqueda">
-                    <form action="/search" method="POST">
+                    <form action="/search" method="GET">
                         <input
                             className="header-search"
                             type="search"

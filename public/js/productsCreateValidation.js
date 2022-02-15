@@ -73,7 +73,7 @@ window.addEventListener("load", function () {
             return false;
         } else {
             if (descripcion.value.length < 20) {
-                console.log(descripcion.value.length);
+                // console.log(descripcion.value.length);
                 descripcion.classList.add("is-invalid");
                 descripcion.focus();
                 descripcionDanger.innerHTML =
@@ -114,10 +114,8 @@ window.addEventListener("load", function () {
 
     // Comprobacion de validaciones ---------------------------------------------------
 
-    formulario.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        modelo.addEventListener("blur", () => {
+    
+    modelo.addEventListener("blur", () => {
             validarModelo();
         });
 
@@ -135,6 +133,9 @@ window.addEventListener("load", function () {
         imagen.addEventListener("blur", () => {
             validarImagen();
         });
+        
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
 
         let status = validarModelo();
             status = validarPrecio() && status;

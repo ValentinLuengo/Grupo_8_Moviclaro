@@ -172,32 +172,39 @@ const mainController = {
         });
     },
 
-    update: (req, res) => {
+    update: async (req, res) => {
         const resultadoValidacion = validationResult(req);
 
-        if (resultadoValidacion.errors.length > 0) {
-            let color = db.Color.findAll();
-            let category = db.ProductCategory.findAll();
-            let brands = db.Brand.findAll();
+        if (resultadoValidacion.errors.length < 0) {
+            let color = await db.Color.findAll();
+            let category = await db.ProductCategory.findAll();
+            let brands = await db.Brand.findAll();
+            let product = await db.Product.findByPk(req.params.id, {
+            include: [
+                { association: "brands" },
+                { association: "colors" },
+                { association: "product_categories" },
+            ],
+        });
+            
             console.log(resultadoValidacion.errors);
-
-            Promise.all([color, category, brands]).then(
-                ([color, category, brands]) => {
-                    return res
-                        .render("products/productCreate", {
+            Promise.all([color, category, brands, product]).then(
+                ([color, category, brands, product]) => {
+                    return res.render("products/productEdit", {
                             errors: resultadoValidacion.mapped(),
                             oldData: req.body,
-                            image: req.file,
+                            image: req.file ? req.file.filename : req.body.image,
                             color: color,
                             category: category,
                             brands: brands,
-                            toThousand,
+                            product: product,
+                            toThousand
                         })
                         .catch((errors) => console.log(errors));
                 }
             );
         } else {
-            db.Product.update(
+           await db.Product.update(
                 {
                     brand_id: req.body.marca,
                     model: req.body.modelo,
