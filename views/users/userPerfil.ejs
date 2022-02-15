@@ -28,14 +28,21 @@
                                 <%= user.countries.name %>
                             </h3>
                         </div>
-                        <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
-                            <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button>
-                        </form>
-                        <form action="/user/<%= user.id %>" enctype="multipart/form-data" method="get">
-                            <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
-                            <input class="registro-boton" value="EDITAR" type="submit" href="#">
-
-                        </form>
+                        <br>
+                        
+                        <div class="botones">
+                            <!-- <button type="reset" class="registro-boton registro-boton-red">BORRAR</button> -->
+                            <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
+                                <!-- <button type="submit" class="registro-boton registro-boton-red">ELIMINAR</button> -->
+                                <input class="registro-boton registro-boton-red" value="ELIMINAR" type="reset">
+                            </form>
+                            <form action="/user/<%= user.id %>" enctype="multipart/form-data" method="get">
+                                <!-- <button type="button" class="registro-boton" href="/products/productEdit">EDITAR</button> -->
+                                <!-- <input class="registro-boton" value="ENVIAR" type="submit"> -->
+                                <input class="registro-boton" value="EDITAR" type="submit" href="#">
+                                
+                            </form>
+                        </div>
                     </div>
                 </section>
 
