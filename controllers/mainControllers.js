@@ -10,7 +10,7 @@ const { promiseImpl } = require("ejs");
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
 const publicPath = path.resolve(__dirname, "./public");
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const mainController = {
     index: (req, res) => {
@@ -27,7 +27,11 @@ const mainController = {
                     include: ["colors", "brands", "product_categories"],
                 }).then((products2) => {
                     promotionsProducts = products2;
-                    res.render("index", { promotionsProducts, offersProducts, toThousand });
+                    res.render("index", {
+                        promotionsProducts,
+                        offersProducts,
+                        toThousand,
+                    });
                 });
             })
             .catch((error) => console.log(error));
@@ -46,7 +50,7 @@ const mainController = {
                     color: color,
                     category: category,
                     brand: brand,
-                    toThousand
+                    toThousand,
                 });
             })
             .catch((error) => console.log(error));
@@ -65,7 +69,7 @@ const mainController = {
                 color: color,
                 category: category,
                 brands: brands,
-                toThousand
+                toThousand,
             });
         });
     },
@@ -98,7 +102,7 @@ const mainController = {
                             color: color,
                             category: category,
                             brands: brands,
-                            toThousand
+                            toThousand,
                         })
                         .catch((errors) => console.log(errors));
                 }
@@ -163,7 +167,7 @@ const mainController = {
                 color: color,
                 category: category,
                 brands: brands,
-                toThousand
+                toThousand,
             });
         });
     },
@@ -187,7 +191,7 @@ const mainController = {
                             color: color,
                             category: category,
                             brands: brands,
-                            toThousand
+                            toThousand,
                         })
                         .catch((errors) => console.log(errors));
                 }
@@ -240,32 +244,65 @@ const mainController = {
                 res.render(pathDetalle, { product, toThousand });
             })
             .catch((error) => console.log(error));
-
-        // const requestedId = req.params.id;
-        // const product =
-        //     products.find((product) => product.id == requestedId) || products[0];
-        // let pathDetalle = path.join(__dirname, '../views/products/productDetail');
-        // res.render(pathDetalle, { product })
+        /*const requiredId = req.params.id;
+        let pathDetalle = path.join(
+            __dirname,
+            "../views/products/productDetail"
+        );
+        let product = db.Product.findAll({
+            where: {
+                id: requiredId,
+            },
+        })
+        if (product)  {
+            db.Product.findByPk(requiredId, {
+                include: ["colors", "brands", "product_categories"],
+            })
+                .then((product) => {
+                    res.render(pathDetalle, { product, toThousand });
+                })
+                .catch((error) => console.log(error));
+        }else {
+            const descriptionError =
+                "El producto con el id: " + req.params.id + " no existe";
+            res.render("products/notFound", { descriptionError });
+        }*/
     },
 
     agregarCarrito: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/productCart"));
+        let color = db.Color.findAll();
+        let category = db.ProductCategory.findAll();
+        let brands = db.Brand.findAll();
+        let detail = this.productDetail;
+        const requiredId = req.params.id;
+
+        console.log(requiredId);
+        let product = db.Product.findAll({
+            where: {
+                id: detail,
+            },
+            include: ["colors", "brands", "product_categories"],
+        });
+        Promise.all([product, color, category, brands, detail])
+            .then(function ([product, color, category, brands, detail]) {
+                res.render("products/productCart", {
+                    product: product,
+                    color: color,
+                    category: category,
+                    brands: brands,
+                    detail: detail,
+                    toThousand,
+                });
+            })
+            .catch((error) => console.log(error));
     },
 
-    // registro: (req, res) => {
-    //     res.render(path.join(__dirname, '../views/users/register'))
-    // },
+    //     res.render(path.join(__dirname, "../views/products/productCart"));
+
     create: (req, res) => {
         res.render(path.join(__dirname, "../views/products/productCreate"));
     },
 
-    // Update - Method to update
-
-    //Create - Create one product in DB
-
-    // Delete - Delete one product from DB
-
-    //Crear un usuario en la archivo users.json
     storeUser: (req, res) => {
         return res.send(req.body);
 
@@ -280,30 +317,59 @@ const mainController = {
         // }
     },
 
-    search: (req, res) => {
-        let searchQuery = req.query.search;
-        console.log(searchQuery + "------------")
-        db.Product.findAll({
-            
-            where: {
-                model: { [Op.like]: "%" + searchQuery + "%" }
+    search: async (req, res) => {
+        const searchQueryBrand = req.query.keyword;
+        const searchQuery = req.query.search;
+        //console.log(searchQuery + "------------")
+        //console.log(searchQueryBrand + " Brand")
+        if (searchQuery) {
+            await db.Product.findAll({
+                where: {
+                    model: { [Op.like]: "%" + searchQuery + "%" },
+                },
+                order: [["model", "DESC"]],
+                include: ["colors", "brands", "product_categories"],
+            })
+                .then((product) => {
+                    res.render("products/productSearch.ejs", {
+                        product,
+                        toThousand,
+                    });
+                }, [])
+                .catch((error) => console.log(error));
 
-            },
-            order: [
-                ['model', 'DESC']
-            ],
-            include: ["brands"]
-        })
-        .then(product => {
-            res.render('products/productSearch.ejs' , {product, toThousand});
-
-        
-        }, [])
-        .catch((error) => console.log(error));
-
-        
+            if (searchQueryBrand) {
+                await db.Brand.findAll({
+                    where: {
+                        name: { [Op.like]: "%" + searchQueryBrand + "%" },
+                    },
+                    include: ["products"],
+                })
+                    .then((brand) => {
+                        res.render("products/productSearch.ejs", {
+                            brand,
+                            products,
+                            toThousand,
+                        });
+                    }, [])
+                    .catch((error) => console.log(error));
+            }
+        }
     },
 
+    carritoDelete: (req, res) => {
+        productsService.deleteByIdCarrito(req.params.id);
+        res.redirect("/products/carrito");
+    },
+
+    notFound: (req, res) => {
+        let product = db.Product.findAll();
+        if (req.params.id > product.length) {
+            const descriptionError =
+                "The product with id " + req.params.id + " doesn't exists";
+            res.render("notFound", { descriptionError });
+        }
+    },
 };
 
 module.exports = mainController;
