@@ -175,7 +175,7 @@ const mainController = {
     update: async (req, res) => {
         const resultadoValidacion = validationResult(req);
 
-        if (resultadoValidacion.errors.length < 0) {
+        if (resultadoValidacion.errors.length > 0) {
             let color = await db.Color.findAll();
             let category = await db.ProductCategory.findAll();
             let brands = await db.Brand.findAll();
@@ -238,7 +238,7 @@ const mainController = {
         res.redirect("/store");
     },
 
-    productDetail: (req, res) => {
+    productDetail:  async (req, res) => {
         const requestedId = req.params.id;
         let pathDetalle = path.join(
             __dirname,
@@ -248,32 +248,21 @@ const mainController = {
             include: ["colors", "brands", "product_categories"],
         })
             .then((product) => {
+                if(product != null){
                 res.render(pathDetalle, { product, toThousand });
+            }else{
+                console.log("entre al 404");
+                const descriptionError =
+                     "El producto con el id: " + req.params.id + " no existe";
+                 res.render("products/notFound", { descriptionError });
+            }
             })
-            .catch((error) => console.log(error));
-        /*const requiredId = req.params.id;
-        let pathDetalle = path.join(
-            __dirname,
-            "../views/products/productDetail"
-        );
-        let product = db.Product.findAll({
-            where: {
-                id: requiredId,
-            },
-        })
-        if (product)  {
-            db.Product.findByPk(requiredId, {
-                include: ["colors", "brands", "product_categories"],
-            })
-                .then((product) => {
-                    res.render(pathDetalle, { product, toThousand });
-                })
-                .catch((error) => console.log(error));
-        }else {
-            const descriptionError =
-                "El producto con el id: " + req.params.id + " no existe";
-            res.render("products/notFound", { descriptionError });
-        }*/
+            .catch((error) =>  console.log(error))
+
+
+
+
+      
     },
 
     agregarCarrito: (req, res) => {
@@ -369,14 +358,7 @@ const mainController = {
         res.redirect("/products/carrito");
     },
 
-    notFound: (req, res) => {
-        let product = db.Product.findAll();
-        if (req.params.id > product.length) {
-            const descriptionError =
-                "The product with id " + req.params.id + " doesn't exists";
-            res.render("notFound", { descriptionError });
-        }
-    },
+   
 };
 
 module.exports = mainController;

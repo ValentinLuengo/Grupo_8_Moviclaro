@@ -6,30 +6,31 @@ module.exports = [
         .notEmpty()
         .withMessage('Debes escribir el modelo BK')
         .isLength({min: 4})
-        .withMessage('El nombre del modelo debe tener al menos 5 caracteres'),
+        .withMessage('El nombre del modelo debe tener al menos 5 caracteres (Back-End) '),
     body('precio')
         .notEmpty()
-        .withMessage('Precio de producto obligatorio'),
+        .withMessage('Precio de producto obligatorio (Back-End)'),
     body('stock')
         .notEmpty()
-        .withMessage('Seleccione cantidad'),
+        .withMessage('Seleccione cantidad (Back-End)'),
     body('descripcion')
         .notEmpty()
-        .withMessage('Debes escribir una descripción')
+        .withMessage('Debes escribir una descripción (Back-End)')
         .isLength({min: 20})
-        .withMessage('La descripción debe tener al menos 18 caracteres'),
+        .withMessage('La descripción debe tener al menos 18 caracteres (Back-End)'),
     body('image')
         .custom((value, { req }) => {
         let file = req.file;
         if (!file) {
-            throw new Error('Tienes que subir una imagen');
+            throw new Error('Tienes que subir una imagen (Back-End)');
         } else {
             let acceptedExtension = ['.jpg', '.jpeg', '.png', '.gif'];
             let fileExtension = path.extname(file.originalname);
             if (!acceptedExtension.includes(fileExtension)) {
-                throw new Error(`Los formatos permitidos son ${acceptedExtension.join(', ')}`)
+            throw new Error(`Los formatos permitidos son ${acceptedExtension.join(', ')} (Back-End)`)
             };
         };
+        console.log("midd------------------------------------");
         return true;
     })
 

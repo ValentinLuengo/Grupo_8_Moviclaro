@@ -19,21 +19,22 @@ function TableUsers() {
     return (
         <React.Fragment>
             <div className="card shadow mb-4 ">
-                <div className="card-body">
-                    <div className="table-responsive">
+                <div className="card-body" >
+                    <div className="table-responsive" >
                         <table
                             className="table table-bordered"
                             id="dataTable"
-                            width="80%"
+                            // width="50%"
                             cellSpacing="0"
+                          
                         >
-                            <thead>
-                                <tr>
+                            <thead   style={{width: '50%'}}>
+                                <tr >
                                     <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Email</th>
-                                    <th>Telefono</th>
+                                    {/* <th>Telefono</th> */}
                                     <th>Imagen</th>
                                 </tr>
                             </thead>
@@ -43,7 +44,7 @@ function TableUsers() {
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Email</th>
-                                    <th>Telefono</th>
+                                    {/* <th>Telefono</th> */}
                                     <th>Imagen</th>
                                 </tr>
                             </tfoot>

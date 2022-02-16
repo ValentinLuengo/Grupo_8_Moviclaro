@@ -7,7 +7,7 @@ function ItemsTableUsers(props) {
             <td>{props.name}</td>
             <td>{props.last_name}</td>
             <td>{props.email}</td>
-            <td>{props.phone}</td>
+            {/* <td>{props.phone}</td> */}
             <td>
                 <div className="imagen-perfil-header">
                     <a href="/user">

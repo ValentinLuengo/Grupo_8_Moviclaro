@@ -253,9 +253,9 @@ h1 {
         height: 30px;
         border-radius: 50%;
     }
-    .conteiner img{
+    /* .conteiner img{
         width: 50%;
-    }
+    } */
 }
 
 @media (min-width: 569px) {

@@ -9,7 +9,12 @@ window.addEventListener("load", function () {
     const imagen = document.querySelector("input#image");
     // imagen.focus();
     const imageDanger = document.querySelector("div#imageDanger");
-    const expReg = /(\.jpg|\.jpeg|\.png|\.gif)$/g;
+   
+
+    const precio = document.querySelector("input#precio");
+    const precioDanger = document.querySelector("div#precioDanger")
+    const stock = document.querySelector("input#stock");
+    const stockDanger = document.querySelector("div#stockDanger")
 
     //validación de modelo------------------------------------------------------
 
@@ -40,7 +45,6 @@ window.addEventListener("load", function () {
             return false;
         } else {
             if (descripcion.value.length < 20) {
-                console.log(descripcion.value.length);
                 descripcion.classList.add("is-invalid");
                 descripcion.focus();
                 descripcionDanger.innerHTML =
@@ -53,10 +57,41 @@ window.addEventListener("load", function () {
             }
         }
     };
+    // Validación de precio--------------------------------------------------------
+    
+    const validarPrecio = function(){
+        // const precioString = precio.value.toString()
+        if(precio.value == ""){
+            precio.classList.add("is-invalid");
+            precioDanger.innerHTML = "Precio de producto obligatorio";
+            return false;
+        }else{
+            precio.classList.remove("is-invalid");
+            precioDanger.innerHTML = "";
+            return true;
+        }
+    }
+    
+    // Validación de stock--------------------------------------------------------
+    
+    const validarStock = function(){
+        // const precioString = precio.value.toString()
+        if(stock.value == ""){
+            stock.classList.add("is-invalid");
+            stockDanger.innerHTML = "Indicar stock de producto";
+            return false;
+        }else{
+            stock.classList.remove("is-invalid");
+            stockDanger.innerHTML = "";
+            return true;
+            
+        }
+    }
 
     // Validación de formato de imagen---------------------------------------------------
 
     const validarImagen = function () {
+        const expReg = /(\.jpg|\.jpeg|\.png|\.gif)$/g;
         if (imagen.value == "") {
             // imagen.classList.add("is-invalid");
             // imageDanger.innerHTML = "Debes subir una imagen";
@@ -75,31 +110,43 @@ window.addEventListener("load", function () {
         }
     };
 
-    formulario.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        modelo.addEventListener("blur", () => {
-            validarModelo();
-        });
-
-        descripcion.addEventListener("blur", () => {
-            validarDescripcion();
-        });
-
-        imagen.addEventListener("change", () => {
-            validarImagen();
-        });
-
-        let status = validarModelo();
-            status = validarDescripcion() && status;
-            status = validarImagen() && status;
-
-        if (status) {
-            formulario.submit();
-        // } else {
-        //     alert("Hay errores");
-        } 
+    
+    modelo.addEventListener("blur", () => {
+        validarModelo();
     });
+    
+    descripcion.addEventListener("blur", () => {
+        validarDescripcion();
+    });
+    
+    precio.addEventListener("blur", () => {
+        validarPrecio();
+    });
+    stock.addEventListener("blur", () => {
+        validarStock();
+    });
+    
+    imagen.addEventListener("change", () => {
+        validarImagen();
+    });
+    
+
+
+    
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let status = validarModelo();
+        status = validarPrecio() && status;
+        status = validarStock() && status;
+        status = validarDescripcion() && status;
+        status = validarImagen() && status;
+
+    if (status) {
+        formulario.submit();
+    } 
+   
+});
 
     
 });

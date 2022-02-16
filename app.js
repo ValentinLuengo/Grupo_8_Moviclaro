@@ -4,9 +4,12 @@ const app = express();
 const methodOverride = require('method-override');
 const cookies = require('cookie-parser')
 const bodyparser = require('body-parser');
+// const Swal = require('sweetalert2');
 
 const cors = require('cors');
-app.use(cors())
+app.use(cors());
+
+// app.use(Swal);
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
