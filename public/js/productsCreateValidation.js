@@ -150,7 +150,9 @@ window.addEventListener("load", function () {
 
         if (status) {
             formulario.submit();
-        } 
+        } else {
+            Swal.fire('Tienes errores');
+        }
        
     });
 

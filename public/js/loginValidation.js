@@ -1,5 +1,7 @@
 window.addEventListener("load", function(){
     let email = document.querySelector('#email');
+    
+
     //email.focus();
     email.onblur = function(event){
         if( event.target.value ==""){
@@ -42,17 +44,15 @@ window.addEventListener("load", function(){
             event.preventDefault()
             document.querySelector('#error').style.display = 'block'
              document.querySelector('#error').style.color = "red"
+             Swal.fire("Hay errores");
         }
-
-        
-
       
         if (passwordValue ==""){
             event.preventDefault()
             document.querySelector('#errorPassword').style.display = 'block'
              document.querySelector('#errorPassword').style.color = "red"
+             Swal.fire("Hay errores");
         }
-
 
         });
     

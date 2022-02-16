@@ -37,9 +37,9 @@ window.addEventListener("load", function () {
                     errNombre.innerText = "Debe contener sólo letras";
                     return false;
                 } else {
-                nombre.classList.remove("is-invalid");
-                errNombre.innerText = "";
-                return true;
+                    nombre.classList.remove("is-invalid");
+                    errNombre.innerText = "";
+                    return true;
                 }
             }
         }
@@ -76,7 +76,7 @@ window.addEventListener("load", function () {
             errEmail.innerText = "Debes escribir tu email";
             return false;
         } else {
-            const isEmail =/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+            const isEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
             if (!isEmail.test(String(email.value).toLowerCase())) {
                 email.classList.add("is-invalid");
                 errEmail.innerText = "Debe ser un formato válido";
@@ -100,11 +100,12 @@ window.addEventListener("load", function () {
                 errPassword.innerText = "Debe tener más de 8 carateres";
                 return false;
             } else {
-                const isPass =/^.{6,12}$/;
+                const isPass = /^.{6,12}$/;
                 if (!isPass.test(String(password.value).toLowerCase())) {
                     password.classList.add("is-invalid");
-                    errPassword.innerText = "Debe contener entre 6 y 12 caracteres";
-                    return false; 
+                    errPassword.innerText =
+                        "Debe contener entre 6 y 12 caracteres";
+                    return false;
                 } else {
                     password.classList.remove("is-invalid");
                     errPassword.innerText = "";
@@ -169,11 +170,11 @@ window.addEventListener("load", function () {
                     telefono.classList.add("is-invalid");
                     errCelular.innerText = "Debe contener entre 7 y 14 números";
                     return false;
-                    } else {
-                        telefono.classList.remove("is-invalid");
-                        errCelular.innerText = "";
-                        return true;
-                    }
+                } else {
+                    telefono.classList.remove("is-invalid");
+                    errCelular.innerText = "";
+                    return true;
+                }
             }
         }
     };
@@ -201,7 +202,7 @@ window.addEventListener("load", function () {
     image.addEventListener("change", function () {
         validarImagen();
     });
-    
+
     telefono.addEventListener("blur", function () {
         validarTelefono();
     });
@@ -220,12 +221,12 @@ window.addEventListener("load", function () {
         status = validarPassword() && status;
         status = validarPassword2() && status;
         status = validarImagen() && status;
-        
 
         if (!status) {
-            alert("Hay errores");
+            Swal.fire("Hay errores");
         } else {
             formulario.submit();
+
         }
     });
 });

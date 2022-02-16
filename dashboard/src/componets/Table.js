@@ -31,7 +31,7 @@ function Table() {
                                     <th>Id</th>
                                     <th>Marca</th>
                                     <th>Modelo</th>
-                                    <th>stock</th>
+                                    <th>Stock</th>
                                     <th>Precio</th>
                                     {/* <th>Detalle</th> */}
                                 </tr>
