@@ -4,7 +4,7 @@ const { body } = require('express-validator');
 module.exports = [
     body('modelo')
         .notEmpty()
-        .withMessage('Debes escribir el modelo')
+        .withMessage('Debes escribir el modelo BK')
         .isLength({min: 4})
         .withMessage('El nombre del modelo debe tener al menos 5 caracteres'),
     body('precio')
