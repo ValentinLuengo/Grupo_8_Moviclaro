@@ -1,0 +1,4 @@
+https://vimeo.com/672060660/8e04a89d32
+https://github.com/danielfuentes/masterclass-api
+
+https://github.com/mar156/grupo_6_ThunderShoes/blob/master/site/controllers/api/productController/list.js
