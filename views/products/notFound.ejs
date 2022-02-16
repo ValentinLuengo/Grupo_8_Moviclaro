@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <%- include('../partials/head.ejs', { title: "Tienda"}) %>
+            <body>
+                <%- include('../partials/header.ejs') %>
+                    <main>
+                        <h1>Lo sentimos..</h1>
+                        <div class="main">
+                            <div class="section-lateral">
+                                <!-- Barra lateral -->
+                                <!-- <br> prueba-->
+                                <section class="conteinerPrincipal">
+                                    <section class="conteinerFiltros">
+                                        <h2>Filtros</h2>
+                                        <h3>Marcas</h3>
+                                        <section class="items">
+                                            <div class="item"><input type="checkbox" value="">Motorola</div>
+                                            <div class="item"><input type="checkbox" value="">Samsung</div>
+                                            <div class="item"><input type="checkbox" value="">Apple</div>
+                                        </section>
+                                        <h3>Sist. Operativo</h3>
+                                        <section class="items">
+                                            <div class="item"><input type="checkbox" value="">IOS</div>
+                                            <div class="item"><input type="checkbox" value="">Androi</div>
+                                            <div class="item"><input type="checkbox" value="">Windows</div>
+                                        </section>
+                                        <h3>Precio</h3>
+                                        <div>Desde<input class="itemPrecio" type="input" value=""></div>
+                                        <div>Hasta<input class="itemPrecio" type="input" value=""></div>
+                                        <input class="botonFiltrar" type="button" value="Filtrar">
+                                    </section>
+                                </section>
+                                                <!-- Fin de barra lateral -->
+                            </div>
+                            <div class="main-container">
+                                <!-- Contenido principal -->
+                                <h2><%= descriptionError %></h2>
+                                <!-- Contenido principal -->
+                                <section class="conteiner">
+                                    <img src="/images/imagen-de-un-telefono-celular-con-texto-de-error-404-en-la-pantalla.jpg" alt="error404">
+                                </section>
+                                    <!-- Fin de contenido principal -->
+                            </div>
+                        </div>
+                    </main>
+                    <%- include('../partials/footer.ejs') %>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            </body>
+                    
+    </html>

@@ -56,6 +56,6 @@ router.get('/agregarCarrito', mainController.agregarCarrito);
 
 router.get('/search', mainController.search);
 
-
+router.get('/detalle/:id', mainController.notFound);
 
 module.exports = router;

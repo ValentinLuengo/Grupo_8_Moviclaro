@@ -171,6 +171,15 @@ h1 {
     flex-direction: row;
 }
 
+.conteinerFiltros .item input{
+    margin: 5px;
+}
+
+.conteinerPrincipal h3{
+    padding: 10px 0;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
 
 /* .botonComprar {
     background: #25FAD3;
@@ -243,6 +252,9 @@ h1 {
         width: 30px;
         height: 30px;
         border-radius: 50%;
+    }
+    .conteiner img{
+        width: 50%;
     }
 }
 
