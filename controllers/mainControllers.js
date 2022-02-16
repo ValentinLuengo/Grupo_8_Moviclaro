@@ -266,7 +266,7 @@ const mainController = {
     },
 
     agregarCarrito: (req, res) => {
-        let color = db.Color.findAll();
+        /*let color = db.Color.findAll();
         let category = db.ProductCategory.findAll();
         let brands = db.Brand.findAll();
         let detail = this.productDetail;
@@ -290,10 +290,11 @@ const mainController = {
                     toThousand,
                 });
             })
-            .catch((error) => console.log(error));
+            .catch((error) => console.log(error));*/
+            res.render(path.join(__dirname, "../views/products/productCart"));
     },
 
-    //     res.render(path.join(__dirname, "../views/products/productCart"));
+    
 
     create: (req, res) => {
         res.render(path.join(__dirname, "../views/products/productCreate"));

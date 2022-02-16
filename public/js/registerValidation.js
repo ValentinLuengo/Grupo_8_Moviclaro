@@ -223,7 +223,7 @@ window.addEventListener("load", function () {
         status = validarImagen() && status;
 
         if (!status) {
-            Swal.fire("Hay errores");
+            alert("Hay errores");
         } else {
             formulario.submit();
 

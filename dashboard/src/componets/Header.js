@@ -52,12 +52,14 @@ const Header = () => {
                             id="search"
                             placeholder="  Busqueda"
                         />
+                        <a href={`http://localhost:3001/search?search=`}>
                         <i className="fas fa-search"></i>
+                        </a>
                     </form>
                 </div>
                 <div className="header-carrito">
                     <form action="/agregarCarrito" method="GET">
-                        <a href="./agregarCarrito">
+                        <a href="http://localhost:3001/agregarCarrito">
                             <i className="fas fa-shopping-cart"></i>
                         </a>
                     </form>
