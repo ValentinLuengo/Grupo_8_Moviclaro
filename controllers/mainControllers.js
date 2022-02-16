@@ -171,7 +171,7 @@ const mainController = {
     update: async (req, res) => {
         const resultadoValidacion = validationResult(req);
 
-        if (resultadoValidacion.errors.length < 0) {
+        if (resultadoValidacion.errors.length > 0) {
             let color = await db.Color.findAll();
             let category = await db.ProductCategory.findAll();
             let brands = await db.Brand.findAll();

@@ -1,4 +1,7 @@
 window.addEventListener("load", function () {
+    console.log("Hola");
+
+    // const Swal = require('sweetalert2');
 
     const formulario = document.querySelector(".formulario");
     const modelo = document.querySelector("input#modelo");
@@ -115,7 +118,7 @@ window.addEventListener("load", function () {
     // Comprobacion de validaciones ---------------------------------------------------
 
     
-    modelo.addEventListener("blur", () => {
+         modelo.addEventListener("blur", () => {
             validarModelo();
         });
 
@@ -130,9 +133,11 @@ window.addEventListener("load", function () {
             validarStock();
         });
 
-        imagen.addEventListener("blur", () => {
+        imagen.addEventListener("change", () => {
             validarImagen();
         });
+
+
         
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -145,9 +150,8 @@ window.addEventListener("load", function () {
 
         if (status) {
             formulario.submit();
-        } /* else {
-            alert("Hay errores");
-        } */ 
+        } 
+       
     });
 
     
